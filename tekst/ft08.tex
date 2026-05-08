@@ -1,0 +1,1116 @@
+\chapter{Funkcije}
+
+\section{Pojam funkcionalne zavisnosti}
+
+Podaci o jednoj (izmi\v sljenoj!) grupi ljudi su predstavljeni slede\'com tabelom:
+\begin{center}
+  \begin{tabular}{@{}rlllr@{}}
+  \hline
+  JMBG & Prezime & Ime & Adresa & Datum ro\dj. \\
+  \hline
+  3112965870015 & Petrovi\'c & Petar & Bul.\ mimoze 21, Novigrad & 31.12.1965.\\
+  3011967875021 & Zori\'c & Zora & Bul.\ mimoze 21, Novigrad & 30.11.1967.\\
+  1205995845039 & Mari\'c & Mara & Avenija ru\v ze, Maligrad & 12.5.1995.\\
+  2808985830029 & Markovi\'c & Petar & Ul.\ razli\v cka 25, Veligrad &  28.8.1985.\\
+  2808985810034 & Petrovi\'c & Rade & Bulkin put bb, Maligrad &  28.8.1985.
+  \end{tabular}
+\end{center}
+Jasno je da je svaka od ovih osoba jednozna\v cno odre\dj ena paketom podataka koji sadr\v zi
+prezime, ime, adresu i datum ro\dj enja. Ali nijedan od tih podataka za sebe nije dovoljan da
+odredi osobu (postoje dve osobe sa istim prezimenom, dve osobe sa istim imenom, dve osobe sa istom adresom
+i dve osobe sa istim datumom ro\dj enja). Da bi se obrada podataka pojednostavila i ubrzala
+veoma je va\v zno da u svakoj grupi podataka postoji atribut koji svojim vrednostima
+jednozna\v cno odre\dj uje podatke. U Republici Srbiji je
+to broj koji se zove Jedinstveni mati\v cni broj gra\dj anina (JMBG).
+
+Funkcionalna zavisnost je veza me\dj u atributima nekog skupa podataka koja se ogleda u tome da
+vrednost jednog atributa jednozna\v cno odre\dj uje ceo podatak, kao \v sto JMBG jednozna\v cno odre\dj uje
+ostale podatke o osobi. Dakle, funkcionalna zavisnost je relacija sa posebnim osobinama.
+
+Formalno, ako su $A$ i $B$ dva skupa i ako je $\rho \subseteq A \times B$ neka relacija, ka\v zemo da
+ona opisuje \emph{funkcionalnu zavisnost} izme\dj u ta dva skupa ako
+za svaki $a \in A$ postoji ta\v cno jedan $b \in B$ tako da je $(a, b) \in \rho$. Dakle, svaki element skupa
+$A$ odre\dj uje ta\v cno jedan element skupa $B$.
+
+U matematici se \v ce\v s\'ce umesto ``funkcionalna zavisnost'' ka\v ze ``funkcija'' i umesto malih gr\v ckih
+slova (koja smo rezervisali za relacije) kao oznaku koristimo mala latini\v cna slova. Tako, umesto
+``$\rho \subseteq A \times B$ je funkcionalna zavisnost'' radije \'cemo re\'ci
+``$f : A \to B$ je funkcija'', a umesto ``$(a, b) \in \rho$'' pi\v semo ``$f(a) = b$''.
+Uz sve navedne konvencije definicija funkcije sada glasi ovako:
+
+\begin{quote}
+  Funkcija iz skupa $A$ u skup $B$ je svaka relacija $f \subseteq A \times B$ koja ima slede\'cu osobinu:
+  za svako $a \in A$ postoji ta\v cno jedno $b \in B$ takvo da je $f(a) = b$. Pi\v semo $f : A \to B$
+  ili $A \overset{f}{\rightarrow} B$.
+  Skup $A$ je \emph{domen} funkcije $f$, a skup $B$ njen \emph{kodomen}.
+\end{quote}
+
+\begin{EX}
+  Funkciju mo\v zemo da opi\v semo na razne na\v cine. Neka je
+  $$
+    \Phi = \big\{\bigtriangleup, \Diamond, \square, \bigcirc, \pentagon, \hexagon, \triangleleft, \bowtie\big\}
+  $$
+  skup geometrijskih figura, a $t : \Phi \to \ZZ$ funkcija koja figuri dodeljuje broj temena.
+  Funkciju $t$ mo\v zemo da opi\v semo prosto navo\dj enjem svih mogu\'cnosti:
+  $$
+    \begin{array}{llll}
+      t\big(\bigtriangleup\big) = 3, & t(\Diamond) = 4, & t(\square) = 4, & t(\bigcirc) = 0,\\
+      t(\pentagon) = 5, & t(\hexagon) = 6, & t(\triangleleft) = 3, & t(\bowtie) = 5,
+    \end{array}
+  $$
+  ili tabelom:
+  $$
+    \begin{array}{c|cccccccc}
+      \phi    & \bigtriangleup & \Diamond & \square & \bigcirc & \pentagon & \hexagon & \triangleleft & \bowtie\\
+      \hline
+      t(\phi) &  3             & 4        & 4       & 0        & 5         & 6        & 3             & 5
+    \end{array}
+  $$
+  ili kao skup ure\dj enih parova (relacija):
+  $$
+    t = \big\{\big(\bigtriangleup, 3\big),\; (\Diamond, 4),\; (\square, 4),\; (\bigcirc, 0),\; (\pentagon, 5),\;
+                  (\hexagon, 6),\; (\triangleleft, 3),\; (\bowtie, 5) \big\}
+  $$
+  ili Venovim dijagramom:
+  \begin{center}
+    \input ft08-f1.pgf
+  \end{center}
+\end{EX}
+
+\begin{EX}
+  Ako su domen i kodomen funkcije veoma veliki, nije uobi\v cajeno da se funkcija predstavlja na neki od na\v cina koji
+  su opisani u prethodnom primeru, ve\'c se koriste druge konvencije. Na primer, jedan na\v cin da se opi\v se
+  funkcija je da se zada formula koja odre\dj uje na\v cin na koji se elementi njenog domena preslikavaju na elemente kodomena.
+  Na primer, neka je $f : \NN \to \NN$ funkcija zadata ovako:
+  $$
+    f(n) = \frac{n(n + 1)(2n + 1)}{6}
+  $$
+  (lako se pokazuje da je broj $n(n + 1)(2n + 1)$ uvek deljiv sa 6, tako da ova funkcija zaista preslikava prirodne brojeve
+  na prirodne brojeve). Kao drugi primer navodimo funkciju $| \cdot | : \RR \to \RR$ koja je zadata ovako
+  (apsolutna vrednost realnog broja):
+  $$
+    |x| = \begin{cases}
+      -x, & x < 0,\\
+      x,  & x \ge 0.
+    \end{cases}
+  $$
+  Kao poslednji primer navodimo funkciju $\mathrm{sgn} : \RR \to \RR$ koja odre\dj uje znak broja (funkcija signum):
+  $$
+    \mathrm{sgn} \; x = \begin{cases}
+      -1, & x < 0,\\
+       0, & x = 0,\\
+       1, & x > 0.
+    \end{cases}
+  $$
+\end{EX}
+
+\begin{EX}
+  Realni koren \emph{nije funkcija $\RR \to \RR$} jer ne mo\v ze da se primeni na sve elemente domena (realni koren
+  nije definisan za negativne realne brojeve). Ako sa $\RR_{\ge 0} = \{x \in \RR : x \ge 0\}$ ozna\v cimo skup svih
+  nenegativnih relasnih brojeva, onda je $\sqrt{\mathstrut\quad} : \RR_{\ge 0} \to \RR$ funkcija.
+\end{EX}
+
+\begin{EX}
+  Ponekad je funkciju pogodno zadati grafikom. Recimo, grafik funkcije
+  $\sin : \RR \to \RR$ izgleda ovako:
+  \begin{center}
+    \input ft08-f2.pgf
+  \end{center}
+\end{EX}
+
+\begin{EX}\label{ft08.ex.strlen}
+  Neka je $A$ alfabet (kona\v can neprazan skup \v cije elemente zovemo slova), i neka je $A^*$ skup svih
+  re\v ci nad alfabetom $A$. Tada je sa $\mathrm{len} : A^* \to \NN \union \{0\}$ ozna\v cena funkcija koja
+  svakoj re\v ci pridru\v zuje njenu du\v zinu (broj slova u toj re\v ci). Na primer, za $A = \{a, b, c\}$
+  je $\mathrm{len}(aabab) = 5$ i $\mathrm{len}(\epsilon) = 0$.
+  
+  U programskim jezicima se ova funkcija ozna\v cava sa \verb`length`, \verb`len` ili tako nekako. Na primer,
+  u programskom jeziku Java tip \verb`String` opisuje kona\v cne nizove simbola, a du\v zina stringa se
+  dobija pozivom funkcije \verb`length()` ovako:
+{\small
+\begin{verbatim}
+    Scanner ulaz = new Scanner(System.in);
+    String s = ulaz.nextLine();
+    System.out.println(s.length());
+\end{verbatim}
+}
+\end{EX}
+
+\begin{EX}\label{ft08.ex.stanje-mem}
+  Stanje promenljivih u memoriji ra\v cunara mo\v zemo da opi\v semo kao funkciju koja imenu promenljive
+  pridru\v zuje njenu vrednost. Neka je $A$ alfabet i neka je
+  $$
+    A^+ = A \cup A^2 \cup A^3 \cup \ldots = A^* \setminus \{\epsilon\}
+  $$
+  skup svih \emph{nepraznih re\v ci} nad alfabetom $A$. Posmatrajmo pojednostavljen model u kome promenljive mogu da imaju
+  samo celobrojne vrednosti. Tada je \emph{stanje memorije} svaka funkcija $S : A^+ \to \ZZ$. Za $W \in A^+$ sa $S(W)$ je
+  ozna\v cena vrednost promenljive~$W$. Na primer, neka je $A = \{a, \ldots, z\}$ skup svih malih slova engleskog alfabeta.
+  Jedno stanje memorije je opisano funkcijom $\mathrm{INIT}_0$ koja sve promenljive inicijalizuje na vrednost~0:
+  $$
+    \begin{array}{c|cccc}
+      W & a & b & c & \ldots\\
+      \hline
+      \mathrm{INIT}_0(W) & 0 & 0 & 0 & \ldots
+    \end{array}
+  $$
+  Neko drugo stanje memorije $T : A^+ \to \ZZ$ mo\v ze da izgleda, na primer, ovako:
+  $$
+    \begin{array}{c|cccc}
+      W & a & b & c & \ldots\\
+      \hline
+      T(W) & -5 & 0 & 7 & \ldots
+    \end{array}
+  $$
+  Neka je $\mathrm{MEM}$ skup svih mogu\'cih stanja memorije. Svaka naredba programskog jezika menja stanje memorije,
+  i zato svakoj naredbi programskog jezika odgovara neka funkcija $\mathrm{MEM} \to \mathrm{MEM}$. Na primer, naredbi
+  $a = 1$ odgovara funkcija\break
+  $N_{a = 1} : \mathrm{MEM} \to \mathrm{MEM}$ koja stanje $S$ preslikava u stanje $S'$ koje se od
+  stanja $S$ razlikuje samo to tome \v sto je $S'(a) = 1$. Na primer za stanje $T$ koje je prikazano gore
+  je $N_{a = 1}(T) = T'$, gde je stanje $T'$ dato sa:
+  $$
+    \begin{array}{c|cccc}
+      W & a & b & c & \ldots\\
+      \hline
+      T'(W) & 1 & 0 & 7 & \ldots
+    \end{array}
+  $$
+  Sli\v cno tome, naredbi $c = c + 3$ odgovara funkcija $N_{c = c + 3} : \mathrm{MEM} \to \mathrm{MEM}$
+  koja stanje $S$ preslikava u stanje $S'$ koje se od stanja $S$ razlikuje samo to tome \v sto je $S'(c) = S(c) + 3$.
+  Na primer za stanje $T'$ koje je prikazano gore je $N_{c = c + 3}(T') = T''$, gde je stanje $T''$ dato sa:
+  $$
+    \begin{array}{c|cccc}
+      W & a & b & c & \ldots\\
+      \hline
+      T''(W) & 1 & 0 & 10 & \ldots
+    \end{array}
+  $$
+  Ovom primeru \'cemo se vratiti kada budemo diskutovali kompoziciju finkcija.
+\end{EX}
+
+\clearpage
+
+\noindent
+Funkcije $f : A \to B$ i $g : C \to D$ su \emph{jednake} ako
+\begin{itemize}\itemsep -1.5pt
+\item
+  $A = C$ i $B = D$ (imaju isti domen i kodomen), i
+\item
+  $f(x) = g(x)$ za sve $x \in A = C$ (pona\v saju se na isti na\v cin).
+\end{itemize}
+
+\begin{EX}
+  Neka je $f : \NN \to \RR$ funkcija data sa $f(x) = x^2$ i neka je $g : \RR \to \RR$ funkcija data sa $g(x) = x^2$.
+  Iako ove dve funkcije ``rade isti posao'' -- kvadriraju broj -- one nisu jednake jer imaju razli\v cite domene.
+\end{EX}
+
+\begin{EX}
+  Neka je $f : \RR \to \RR$ funkcija data sa $f(x) = \sin(x)$, a $g : \RR \to [0,1]$ funkcija data sa $g(x) = \sin x$.
+  I ove dve funkcije ``rade isti posao'' -- obe ra\v cunaju sinus broja -- ali one nisu jednake jer imaju razli\v cite kodomene.
+\end{EX}
+
+\begin{EX}
+  Neka je $f : \RR \to \RR$ funkcija data sa $f(x) = 1$, a $g : \RR \to \RR$ funkcija data sa $g(x) = \sin^2 x + \cos^2 x$.
+  Ovde dve funkcije su jednake jer imaju iste domene i kodomene i zato \v sto je $f(x) = g(x) = 1$ za sve $x \in \RR$.
+\end{EX}
+
+\section{Kompozicija funkcija}
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}Ako su $f : A \to B$ i $g : B \to C$ funkcije gde je kodomen prve jednak domenu druge, one se mogu komponovati
+  kako bi se dobila nova funkcija\break
+  $g \circ f : A \to C$ koja je definisana tako da je
+  $$
+    (g \circ f)(x) = g(f(x)), \text{\ \ za sve\ \ } x \in A.
+  $$
+  \v Citamo: ``$g$ kru\v zi\'c $f$''.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft08-f3.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+Funkcija $g \circ f$ deluje tako da se na $x$ prvo primeni $f$, pa se na rezultat $f(x)$ primenjuje funkcija $g$. Zato se
+$g \circ f$ ponekad ozna\v cava i sa $f \mathbin; g$ i \v cita ``prvo $f$, onda~$g$''. Dakle,
+$$
+ (f \mathbin; g)(x) = (g \circ f)(x) = g(f(x)).
+$$
+
+\begin{EX}
+  Neka su $f : \RR \to \RR_{\ge 0}$ i $g : \RR_{\ge 0} \to \RR$ realne funkcije date sa
+  $f(x) = x^2$ i $g(x) = \sqrt x$, gde smo sa $\RR_{\ge 0}$ ozna\v cili skup svih nenegativnih realnih brojeva.
+  Tada je $g \circ f : \RR \to \RR$ funkcija data sa
+  $$
+    (g \circ f)(x) = g(f(x)) = g(x^2) = \sqrt{x^2} = |x|,
+  $$
+  dok je $f \circ g : \RR_{\ge 0} \to \RR_{\ge 0}$ funkcija data sa
+  $$
+    (f \circ g)(x) = f(g(x)) = f(\sqrt x) = (\sqrt{x})^2 = x.
+  $$
+\end{EX}
+
+\begin{EX}
+  Neka je $A = \{0, 1\}$ alfabet, neka je $\mathrm{len} : A^* \to \NN \cup \{0\}$ funkcija koja re\v ci dodeljuje njenu
+  du\v zinu (v.~Primer~\ref{ft08.ex.strlen}), a $\beta : \NN \to A^*$ funkcija koja svakom prirodnom broju dodeljuje
+  njegov zapis u binarnom sistemu (na primer, $\beta(1) = 1$, $\beta(9) = 1001$ itd). Tada je
+  $\mathrm{len} \circ \beta : \NN \to \NN \union \{0\}$ funkcija koja ra\v cuna du\v zinu binarnog zapisa prirodnog broja.
+  Na primer,
+  $$
+    (\mathrm{len} \circ \beta)(9) = \mathrm{len}(\beta(9)) = \mathrm{len}(1001) = 4.
+  $$
+\end{EX}
+
+\begin{EX}
+  Vratimo se na Primer~\ref{ft08.ex.stanje-mem} u kome smo opisali jedan jednostavan model stanja memorije.
+  Da se podsetimo, sa $A$ smo ozna\v cili alfabet. Neprazne re\v ci nad tim alfabetom odgovaraju imenima
+  promenljivih za koje smo pretpostavili da mogu da imaju samo celobrojne vrednosti.
+  Stanje promenljivih u memoriji ra\v cunara mo\v zemo da opi\v semo kao funkciju $S : A^+ \to \ZZ$
+  koja imenu promenljive pridru\v zuje njenu vrednost. Sa $\mathrm{MEM}$ smo ozna\v cili skup svih mogu\'cih stanja memorije.
+  
+  Svaka naredba programskog jezika menja stanje memorije,
+  i zato svakoj naredbi programskog jezika odgovara neka funkcija $\mathrm{MEM} \to \mathrm{MEM}$.
+  Izvr\v savanje dve naredbe jedne za drugom ta\v cno odgovara kompoziciji odgovaraju\'cih funkcija.
+  Na primer, neka je $T$ slede\'ce stanje memorije:
+  $$
+    \begin{array}{c|cccc}
+      W & a & b & c & \ldots\\
+      \hline
+      T(W) & 1 & 0 & 7 & \ldots
+    \end{array}
+  $$
+  Niz naredbi $a = 9;\; a = a + 3$ odgovara kompoziciji $N_{a = 9} \mathbin; N_{a = a + 3} : \mathrm{MEM} \to \mathrm{MEM}$
+  koja na stanje $T$ deluje ovako
+  $$
+    (N_{a = 9} \mathbin; N_{a = a + 3})(T) = N_{a = a + 3}(N_{a = 9}(T))
+  $$
+  (prvo $N_{a = 9}$, pa posle toga $N_{a = a + 3}$, zato \v sto su naredbe navedene tim redom). Navedeni niz funkcija menja
+  stanje memorije kako i o\v cekujemo:
+  \begin{center}
+    \input ft08-f4.pgf
+  \end{center}
+\end{EX}
+
+\clearpage
+
+\begin{THM}
+  Neka su $f : A \to B$, $g : B \to C$ i $h : C \to D$ tri funkcije. Tada je $(f \circ g) \circ h = f \circ (g \circ h)$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Jasno je da i funkcija $(f \circ g) \circ h$ i funkcija $f \circ (g \circ h)$ imaju domen $A$ i kodomen $D$, tako da jo\v s
+  samo treba dokazati da je $((f \circ g) \circ h)(x) = (f \circ (g \circ h))(x)$, za svako $x \in A$.
+  Mada na prvi pogled deluje komplikovano, ovo se dokazuje pravolinijski. S jedne strane je
+  $$
+    ((f \circ g) \circ h)(x) = (f \circ g)(h(x)) = f(g(h(x))).
+  $$
+  S druge strane,
+  $$
+    (f \circ (g \circ h))(x) = f((g \circ h)(x)) = f(g(h(x))).
+  $$
+  Dakle, za svako $x \in A$ je $((f \circ g) \circ h)(x) = f(g(h(x))) = (f \circ (g \circ h))(x)$,
+  \v cime je dokaz zavr\v sen.
+\end{proof}
+
+
+
+\section{Injektivne, sirjektivne i bijektivne funkcije}
+
+Funkcija $f : A \to B$ je \emph{injektivna} (ili ``1-1'') ako za sve $a_1, a_2 \in A$ imamo
+$$
+  a_1 \ne a_1 \Rightarrow f(a_1) \ne f(a_2).
+$$
+\v Cesto se injektivna funkcija defini\v se ovako: funkcija
+$f : A \to B$ je \emph{injektivna} (ili ``1-1'') ako za sve $a_1, a_2 \in A$ imamo
+$$
+  f(a_1) = f(a_2) \Rightarrow a_1 = a_2.
+$$
+Ove dve definicije su ekvivalentne zato je drugi zahtev kontrapozicija prvog, a kontrapozitivna
+tvr\dj enja su ekvivalentna. Dakle, svejedno je koju \'cemo definiciju usvojiti.
+
+\begin{EX}
+  Neka su elementi skupa $P$ nazivi proizvoda u jednoj prodavnici. \v Sifra proizvoda je prirodan broj
+  dodeljen nazivu proizvoda. Dakle, \v sifra proizvoda je funkcija
+  $$
+    \hbox{\v sifra} : P \to \NN.
+  $$
+  Jasno je da ne mora svaki prirodan broj biti upotrebljen kao \v sifra nekog proizvoda
+  (na kraju krajeva, skup prirodnih brojeva je beskona\v can, a skup proizvoda kona\v can).
+  Da bi \v sifrovanje bilo smisleno moramo razli\v citim proizvodima dodeliti razli\v cite \v sifre:
+  za svaka dva proizvoda $p_1, p_2 \in P$ treba da va\v zi
+  $$
+    p_1 \ne p_2 \Rightarrow \hbox{\v sifra}(p_1) \ne \hbox{\v sifra}(p_2).
+  $$
+  \begin{center}
+    \input ft08-f5.pgf
+  \end{center}
+  Dakle, svako smisleno \v sifrovanje je injektivna ili ``1-1'' funkcija (oznaka ``1-1''
+  poti\v ce od ove slike: jedan proizvod --- jedna \v sifra).
+\end{EX}
+
+\begin{EX}
+  U programskom jeziku Java imamo tip \verb`int` koji opisuje deo skupa $\ZZ$, i tip \verb`double` koji
+  opisuje deo skupa $\RR$. Iako je $\ZZ \subseteq \RR$, u programskom jeziku Java
+  $$
+    \hbox{\texttt{int}} \not\subseteq \hbox{\texttt{double}}
+  $$
+  zato \v sto se ma\v sinska reprezentacija celobrojnih vrednosti su\v stinski razlikuje od ma\v sinske reprezentacije
+  decimalnih vrednosti. \v Stavi\v se,
+  $$
+    \hbox{\texttt{int}} \cap \hbox{\texttt{double}} = \0.
+  $$
+  Me\dj utim, u programskom jeziku Java postoji funkcija
+  $$
+    \hbox{\texttt{(double)}} : \hbox{\texttt{int}} \to \hbox{\texttt{double}}
+  $$
+  koja celobrojnu vrednost transformi\v se u odgovaraju\'cu decimalnu vrednost. Jasno je da je funkcija
+  \verb`(double)` injektivna jer razli\v cite cele brojeve preslikava na razli\v cite decimalne brojeve.
+  Ova konstrukcija se u programskom jeziku Java zove \emph{type cast} i koristi se, na primer, ovako:
+  {\small
+\begin{verbatim}
+    int k = 9;
+    double x = (double)k;
+\end{verbatim}
+  }
+\end{EX}
+
+\bigskip
+
+Funkcija $f : A \to B$ je \emph{sirjektivna} (ili ``na'') ako za svako $b \in B$ postoji
+$a \in A$ takvo da je $f(a) = b$.
+
+\begin{EX}
+  Jedna \v skola ide na ekskurziju i za to je anga\v zovala nekoliko autobusa.
+  Neka je $U$ skup koji opisuje u\v cenike \v skole (recimo da je svaki u\v cenik predstavljen svojim JMBG brojem)
+  i neka je $B$ skup koji opisuje autobuse (recimo da je svaki autobus predstavljen svojim registarskim brojem).
+  Raspodela u\v cenika po autobusima se tada mo\v ze predstaviti kao funkcija
+  $$
+    \mathit{bus} : U \to B
+  $$
+  koja svakom u\v ceniku $u \in U$ dodeljuje autobus $\mathit{bus}(u)$. Da bi ekskurzija bila rentabilna
+  jedan od osnovnih zahteva je da u ovoj raspodeli nema praznih autobusa\footnote{realnost je, naravno, jo\v s zahtevnija}.
+  To zna\v ci da
+  \begin{quote}
+    za svaki $b \in B$ postoji bar jedan $u \in U$ takav da je $\mathit{bus}(u) = b$.
+  \end{quote}
+  \begin{center}
+    \input ft08-f6.pgf
+  \end{center}
+  Dakle, svaka smislena raspodela putnika po autobusima je sirjektivna ili ``na'' funkcija (oznaka ``na''
+  poti\v ce od ove slike: elementi domena se slikaju \emph{na ceo} kodomen).
+\end{EX}
+
+\bigskip
+
+Funkcija $f : A \to B$ je \emph{bijektivna} (ka\v zemo jo\v s i da je $f$ \emph{bijekcija}) ako je injektivna i sirjektivna.
+Tada funkcija $f$ preslikava razli\v cite elemente domena na razli\v cite elemente kodomena, i za svaki element kodomena
+postoji ta\v cno jedan element domena koji se na njega preslikava. Bijektivna funkcija, dakle, izgleda ovako:
+  \begin{center}
+    \input ft08-f7.pgf
+  \end{center}
+svaki element skupa $B$ je ``pogo\dj en'' \emph{ta\v cno jednom} strelicom.
+
+\begin{EX}\label{ft08.ex.DEC-SIXBIT}
+  Bijektivne funkcije se tipi\v cno koriste za potrebe kodiranja. \emph{Kodiranje} je proces u kome se
+  elementi nekog skupa zamenjuju elementima nekog drugog skupa, recimo 01-nizovima, u cilju sme\v stanja ili
+  prenosa informacija. Jedan od starih i jednostavnih sistema kodiranja je DEC SIXBIT koga smo ve\'c pominjali
+  ranije. On se koristio na samom po\v cetku ra\v cunarske ere za potrebe kodiranja simbola za 6-bitne ma\v sine.
+  To je 6-bitni kod koji mo\v ze da opi\v se $2^6 = 64$ simbola prema slede\'coj tabeli:
+  \begin{center}
+    \begin{tabular}{r|rrrrrrrr}
+             & ...000    & ...001   & ...010   & ...011   & ...100   & ...101   & ...110   & ...111  \\
+      \hline
+      000... & \verb*` ` & \verb`!` & \verb`"` & \verb`#` & \verb`$` & \verb`%` & \verb`&` & \verb`'`\\
+      001... & \verb`(`  & \verb`)` & \verb`*` & \verb`+` & \verb`,` & \verb`-` & \verb`.` & \verb`/`\\
+      010... & \verb`0`  & \verb`1` & \verb`2` & \verb`3` & \verb`4` & \verb`5` & \verb`6` & \verb`7`\\
+      011... & \verb`8`  & \verb`9` & \verb`:` & \verb`;` & \verb`<` & \verb`=` & \verb`>` & \verb`?`\\
+      100... & \verb`@`  & \verb`A` & \verb`B` & \verb`C` & \verb`D` & \verb`E` & \verb`F` & \verb`G`\\
+      101... & \verb`H`  & \verb`I` & \verb`J` & \verb`K` & \verb`L` & \verb`M` & \verb`N` & \verb`O`\\
+      110... & \verb`P`  & \verb`Q` & \verb`R` & \verb`S` & \verb`T` & \verb`U` & \verb`V` & \verb`W`\\
+      111... & \verb`X`  & \verb`Y` & \verb`Z` & \verb`[` & \verb`\` & \verb`]` & \verb`^` & \verb`_`
+    \end{tabular}
+  \end{center}
+  Na primer, kod simbola \verb`'A'` je 100001, a kod simbola \verb`'*'` je 001010.
+  Obrnuto, kod 110100 korira simbol \verb`'T'`. Ovom tabelom je, dakle, uspostavljena bijekcija
+  $f : A \to \{0,1\}^6$ izme\dj u alfabeta $A$ koji se sastoji od 64 simbola navedena u tabeli
+  i skupa $\{0,1\}^6$.
+  
+  Jo\v s jedan va\v zan 6-bitni kod je \emph{Brajovo pismo} (odnosno, \emph{Brajov kod}) koga koriste osobe sa o\v ste\'cenim vidom.
+  \v Sest bitova koda je raspore\dj eno kao \v sest ta\v ckica u tabelu $3 \times 2$, pri \v cemu su neke ta\v ckice
+  ispup\v cene, a neke ne. Tako svaki od 01-nizova iz skupa $\{0, 1\}^6$ generi\v se druga\v ciji reljef koga osobe
+  sa o\v ste\'cenim vidom mogu da osete pod prstima i tako prepoznaju o kom simbolu se radi.
+\end{EX}
+
+\begin{EX}
+  Neka je $A = \calP(\{1, 2, 3, 4, 5\})$ i $B = \{0,1\}^5$.
+  Svaki element $X$ skupa $A$ se mo\v ze kodirati 01-nizom $b_1 b_2 b_3 b_4 b_5 \in \{0, 1\}^5$
+  gde je
+  $$
+    b_i = \begin{cases}
+      0, & i \notin X,\\
+      1, & i \in X.
+    \end{cases}
+  $$
+  Na primer, neka je  i $X = \{1, 3, 4\}$. Tada je $X$ predstavljen nizom $10110$
+  zato \v sto $1 \in B$, $2 \notin B$, $3 \in B$ itd. Jasno, je da je prazan skup predstavljen nizom $00000$,
+  a ceo skup $\{1m 2m 3m 4m 5\}$ nizom $11111$. Evo tabelarnog pregleda:
+  $$
+    \begin{array}{c|ccccc}
+                        & 1 & 2 & 3 & 4 & 5 \\ \hline
+      \0                & 0 & 0 & 0 & 0 & 0 \\
+      \{1, 3, 4\}       & 0 & 1 & 0 & 1 & 1 \\
+      \{1, 2, 3, 4, 5\} & 1 & 1 & 1 & 1 & 1 
+    \end{array}
+  $$
+  Lako se vidi da va\v zi i i obrnuto: svaki 01-niz odre\dj uje ta\v cno jedan element skupa $A$. Na primer
+  niz $01101$ odre\dj uje skup $\{2, 3, 5\}$. Na ovaj na\v cin je, dakle, uspostavljena bijekcija
+  $f : \calP(\{1, 2, 3, 4, 5\}) \to \{0,1\}^5$.
+\end{EX}
+
+\begin{EX}
+  Funkcija $f : \NN \to \NN$ data sa $f(n) = n + 1$ je injektivna ($n \ne m \Rightarrow n + 1 \ne m + 1$),
+  ali nije sirjektivna (jer ne postoji $n \in \NN$ takvo da je $f(n) = 1$).
+
+  Funkcija $f : \ZZ \to \ZZ$ data sa $f(n) = n + 1$ je bijektivna (injektivnost sledi kao gore, a sirjektivnost je o\v cigledna
+  jer je $f(n - 1) = n$, pa za svako $n$ postoji neko $m$ takvo da je $f(m) = n$).
+
+  Funkcija $f : \ZZ \to \NN$ data sa $f(n) = |n + 1|$ je sirjektivna, ali nije injektivna
+  (sirjektivnost sledi lako jer je $f(n - 1) = n$; funkcija nije injektivna jer $f(-5) = f(3) = 4$).
+\end{EX}
+
+\begin{EX}\label{ft08.ex.id-A}
+  Za svaki skup $A$ postoji funkcija $\id_A : A \to A$ koja je definisana ovako: $\id_A(a) = a$ za sve $a \in A$.
+  Ovako definisana funkcija je zove \emph{identi\v cka funkcija} i ona ne radi ni\v sta -- prosto svaki element preslika u sebe.
+  \begin{center}
+    \input ft08-f11.pgf
+  \end{center}
+  To je, o\v cito, bijekcija. Lako se pokazuje (i bi\'ce nam va\v zno kasnije) da za svaku funkciju $f : A \to B$ va\v zi:
+  $$
+    \id_B \circ f = f \circ \id_A = f.
+  $$
+\end{EX}
+
+\begin{THM}
+  \begin{enumerate}
+  \item
+    Kompozicija dve injektivne funkcije je injektivna funkcija.
+  \item
+    Kompozicija dve sirjektivne funkcije je sirjektivna funkcija.
+  \item
+    Kompozicija dve bijektivne funkcije je bijektivna funkcija.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  Neka su $f : A \to B$ i $g : B \to C$ proizvoljne funkcije.
+
+  \medskip
+
+  (1)
+  Pretpostavimo da su $f$ i $g$ injektivne i poka\v zimo da je tada i njihova kompozicija $g \circ f : A \to C$ injektivna.
+  Neka su $a, b \in A$ takvi da je $a \ne b$. Zato \v sto je $f$ injektivna funkcija zaklju\v cujemo da je
+  $f(a) \ne f(b)$. No tada je i $g(f(a)) \ne g(f(b))$ zato \v sto je $g$ injektivna funkcija.
+  \begin{center}
+    \input ft08-f8.pgf
+  \end{center}
+  Dakle, pokazali smo
+  da za proizvoljne $a, b \in A$,
+  $$
+    a \ne b \Rightarrow (g \circ f)(a) \ne (g \circ f)(b),
+  $$
+  \v sto zna\v ci da je $g \circ f$ injektivna funkcija.
+
+  \medskip
+  
+  (2)
+  Pretpostavimo da su $f$ i $g$ sirjektivne i poka\v zimo da je tada i njihova kompozicija $g \circ f : A \to C$ sirjektivna.
+  Uzmimo proizvoljno $c \in C$. Zato \v sto je $g$ sirjektivna funkcija postoji neko $b \in B$ takvo da je $g(b) = c$.
+  Zato \v sto je $f$ sirjektivna funkcija postoji neko $a \in A$ takvo da je $f(a) = b$. Dakle,
+  $c = g(b) = g(f(a))$.
+  \begin{center}
+    \input ft08-f10.pgf
+  \end{center}
+  Ovim smo pokazali da za svako $c \in C$ postoji $a \in A$ takvo da je $(g \circ f)(a) = c$ \v sto
+  zna\v ci da je $g \circ f$ sirjektivna funkcija.
+  
+  \medskip
+  
+  (3)
+  Sledi direktno iz (1) i (2) zato \v sto je bijektivna funkcija istovremeno i injektivna i sirjektivna.
+\end{proof}
+
+\begin{THM}
+  Neka su $f : A \to B$ i $g : B \to C$ proizvoljne funkcije.
+  \begin{enumerate}
+  \item
+    Ako je $g \circ f$ injektivna, onda je $f$ injektivna.
+  \item
+    Ako je $g \circ f$ sirjektivna, onda je $g$ sirjektivna.
+  \item
+    Ako je $g \circ f$ bijektivna, onda je $f$ injektivna, a $g$ sirjektivna.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  (1)
+  Da bismo pokazali da je $f$ injektivna, pokaza\'cemo da za sve $a_1, a_2 \in A$ va\v zi slede\'ce:
+  $$
+    f(a_1) = f(a_2) \Rightarrow a_1 = a_2.
+  $$
+  Neka je $f(a_1) = f(a_2)$. Onda je $g(f(a_1)) = g(f(a_2))$, odnosno $(g \circ f)(a_1) = (g \circ f)(a_2)$.
+  Zato \v sto je $g \circ f$ injektivna poslednja jednakost implicira da je $a_1 = a_2$. Dakle, pokazali smo da
+  $f(a_1) = f(a_2)$ implicira $a_1 = a_2$.
+  
+  \medskip
+  
+  (2)
+  Uzmimo proizvoljno $c \in C$. Zato \v sto je $g \circ f$ sirjektivna postoji $a \in A$ takvo da je
+  $(g \circ f)(a) = c$. No tada je $g(f(a)) = c$ pa za $b = f(a) \in B$ imamo da je $g(b) = c$.
+  Dakle, pokazali smo da za svako $c \in C$ postoji $b \in B$ takvo da je $g(b) = c$.
+  %\begin{center}
+  %  \input ft08-f10.pgf
+  %\end{center}
+
+  \medskip
+  
+  (3)
+  Sledi direktno iz (1) i (2) zato \v sto je bijektivna funkcija istovremeno i injektivna i sirjektivna.
+\end{proof}
+
+\clearpage
+
+\section{Inverzna funkcija}
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}Funkcija $f : A \to B$ je \emph{invertibilna} ako postoji funkcija $g : B \to A$ takva da je
+  $$
+    f(a) = b \Leftrightarrow g(b) = a
+  $$
+  za sve $a \in A$ i sve $b \in B$. To zna\v ci: ako $f$ preslika $a$ na $b$,
+  onda $g$ to $b$ ``vrati ku\'ci'' na $a$, i obrnuto.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft08-f12.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\begin{EX}
+  Invertibilne funkcije se tipi\v cno koriste za potrebe \v sifrovanja. Ako je $M$ skup
+  poruka (\emph{messages}), a $C$ skup \v sifri (\emph{codes}) onda funkcija
+  $
+    \mathit{enode} : M \to C
+  $
+  \v sifruje poruke, a njoj odgovaraju\'ca funkcija
+  $
+    \mathit{decode} : C \to M
+  $
+  de\v sifruje k\=odove. Da bi \v sifrovanje imalo smisla mora da va\v zi
+  $$
+    \mathit{encode}(m) = c \Leftrightarrow \mathit{decode}(c) = m.
+  $$
+  Dakle, algoritam za \v sifrovanje je smislen ako va\v zi slede\'ce:
+  \begin{quote}
+    \v sifrovanjem poruke $m$ se dobija k\=od $c$ ako i samo ako se de\v sifrovanjem k\=oda $c$ dobija
+    polazna poruka $m$.
+  \end{quote}
+  Jedan va\v zan kriptosistem, RSA, smo ve\'c prodiskutovali na samom po\v cetku kursa!
+\end{EX}
+
+\begin{THM}
+  Funkcija $f : A \to B$ je invertibilna ako i samo ako je bijektivna.
+\end{THM}
+\begin{proof}[Dokaz]
+  $(\Rightarrow)$
+  Neka je $f : A \to B$ invertibilna funkcija i neka je $g : B \to A$ funkcija takva da je
+  $$
+    f(a) = b \Leftrightarrow g(b) = a
+  $$
+  Lako se pokazuje da je funkcija $f$ sirjektivna. Neka je $b \in B$ proizvoljno i neka je $a = g(b)$. Tada je
+  $f(a) = b$, pa za svako $b \in B$ postoji $a \in A$ takvo da je $f(a) = b$.
+
+  Dokaza\'cemo da je $f$ injektivna funkcija tako \v sto \'cemo pokazati
+  $$
+    f(a_1) = f(a_2) \Rightarrow a_1 = a_2.
+  $$
+  Neka je $f(a_1) = f(a_2) = b$ za neko $b \in B$. Zbog $f(a_1) = b$ je $g(b) = a_1$, a zbog
+  $f(a_2) = b$ je $g(b) = a_2$. Dakle, $a_1 = g(b) = a_2$.
+
+  $(\Leftarrow)$
+  Neka je $f : A \to B$ bijektivna funkcija. To zna\v ci da za svako $b \in B$ postoji ta\v cno jedno
+  $a \in A$ takvo da je $f(a) = b$. Zato je sa
+  $$
+    g(b) = a \Leftrightarrow f(a) = b
+  $$
+  definisana funkcija $g : B \to A$ koja po konstrukciji ima tra\v zenu osobinu.
+\end{proof}
+
+Za dalja razmatranja \'ce nam biti korisno da preformuli\v semo pojam invertibilnosti. Naredna teorema
+nam pokazuje kako svojstvo invertibilnosti mo\v zemo da zapi\v semo na drugi na\v cin. Njen dokaz je veoma
+jednostavan zato \v sto se, prakti\v cno, radi o prevo\dj enju sa jednog na drugi jezik.
+
+\begin{THM}
+  Funkcija $f : A \to B$ je invertibilna ako i samo ako postoji funkcija $g : B \to A$ takva da je
+  $g \circ f = \id_A$ i $f \circ g = \id_B$.
+\end{THM}
+\begin{proof}[Dokaz]
+  $(\Rightarrow)$
+  Neka je $f : A \to B$ invertibilna funkcija. Onda postoji funkcija $g : B \to A$ takva da
+  je $f(a) = b \Leftrightarrow g(b) = a$. Sada se lako pokazuje da je $g \circ f = \id_A$. Uzmimo proizvoljno $a \in A$
+  i neka je $b = f(a)$. Tada je $g(b) = a$ pa je $(g \circ f)(a) = g(f(a)) = g(b) = a = \id_A(a)$. Zato je $g \circ f = \id_A$.
+  Na isti na\v cin se pokazuje da je $f \circ g = \id_B$.
+  
+  $(\Leftarrow)$
+  Neka je $g : B \to A$ funkcija takva da je $g \circ f = \id_A$ i $f \circ g = \id_B$. Poka\v zimo da tada va\v zi
+  $$
+    f(a) = b \Leftrightarrow g(b) = a.
+  $$
+  Neka je $f(a) = b$. Zato \v sto je $g \circ f = \id_A$ dobijamo da je
+  $g(f(a)) = a$, pa kako je $f(a) = b$ sledi da je $g(b) = a$. Druga implikacija se dokazuje na isti na\v cin.
+\end{proof}
+
+\begin{THM}
+  Neka je $f : A \to B$ invertibilna funkcija. Tada postoji ta\v cno jedna funkcija $g : B \to A$ takva da je
+  $g \circ f = \id_A$ i $f \circ g = \id_B$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Pretpotavimo da su $g_1 : B \to A$ i $g_2 : B \to A$ funkcije sa navedenom osobinom. Doka\v zimo da je tada $g_1 = g_2$.
+  Prema konstataciji iz Primera~\ref{ft08.ex.id-A} znamo da je $g_1 = g_1 \circ \id_B$, a prema pretpostavci je
+  $\id_B = f \circ g_2$. Zato je
+  $$
+    g_1 = g_1 \circ \id_B = g_1 \circ (f \circ g_2) = (g_1 \circ f) \circ g_2 = \id_A \circ g_2 = g_2,
+  $$
+  gde smo jo\v s jednom koristili pretpostavku teoreme i konstatciju iz Primera~\ref{ft08.ex.id-A}.
+\end{proof}
+
+Ako je $f : A \to B$ invertibilna funkcija, onda jedinstvenu funkciju $g : B \to A$ za koju je
+$g \circ f = \id_A$ i $f \circ g = \id_B$ zovemo \emph{inverzna funkcija funkcije $f$} i ozna\v cavamo je sa~$f^{-1}$.
+
+\begin{THM}
+  Neka je $f$ invertibilna funkcija. Tada je $(f^{-1})^{-1} = f$.
+\end{THM}
+
+
+\section[UPORE\Dj IVANJE KONA\v CNIH SKUPOVA]{Upore\dj ivanje kona\v cnih skupova}
+
+Neka su $A$ i $B$ kona\v cni skupovi. Da bismo utvrdili da li $A$ i $B$ imaju isti broj elemenata
+ili neki od njih ima vi\v se elemenata od ono drugog dovoljno je prebrojati elemente jednog i drugog skupa
+i uporediti dobijene brojeve. Me\dj utim, postoje situacije u kojima nije lako utvrditi $|A|$ i $|B|$
+(videti Primer~\ref{ft08.ex.22-34}), ali se ipak mo\v ze utvrditi odnos brojeva $|A|$ i $|B|$ koriste\'ci
+mala lukavstva.
+
+\paragraph{Princip bijekcije.}
+  Neka su $A$ i $B$ kona\v cni skupovi. Tada je $|A| = |B|$ ako i samo ako postoji bar jedna bijektivna funkcija $f : A \to B$.
+\begin{center}
+  \input ft08-f7.pgf
+\end{center}
+
+\begin{EX}\label{ft08.ex.22-34}
+  Kojih brojeva ima vi\v se u skupu $\{1, 2, \ldots, 999\;999\}$: onih \v ciji zbir cifara je~22, ili onih \v ciji zbir cifara je~32?
+\end{EX}
+\begin{proof}[Re\v senje]
+  Neka je $S = \{1, 2, \ldots, 999\;999\}$. Svaki broj iz skupa $S$ mo\v zemo zapisati kao \v sectocifren broj dopisivanjem nula
+  na po\v cetak ako je to potrebno. Na primer, 499 \'cemo zapisati kao 000\;499, a 910\;877 \'cemo ostaviti u tom obliku.
+  Neka je
+  \begin{align*}
+    A &= \{ a \in S : \text{ zbir cifara broja $a$ je 22}\}, \text{ i}\\
+    B &= \{ b \in S : \text{ zbir cifara broja $b$ je 32}\}.
+  \end{align*}
+  Pokaza\'cemo da je $|A| = |B|$ tako \v sto \'cemo konstruisati bijekciju $f : A \to B$.
+  Za \v sestocifreni broj $\overline{a_1 a_2 a_3 a_4 a_5 a_6} \in A$ stavimo
+  $$
+    f(\overline{a_1 a_2 a_3 a_4 a_5 a_6}) = \overline{b_1 b_2 b_3 b_4 b_5 b_6}
+  $$
+  gde je $b_i = 9 - a_i$. Na primer, $f(000\;499) = 999\;500$.
+  Da bismo pokazali da je $f$ zaista funkcija iz $A$ u $B$ treba da poka\v zemo da se svaki element skupa $A$ preslikava
+  na neki element skupa $B$. Neka je \hbox{$\overline{a_1 a_2 a_3 a_4 a_5 a_6} \in A$}. Tada je
+  $a_1 + a_2 + a_3 + a_4 + a_5 + a_6 = 22$. Neka je, dalje,
+  $f(\overline{a_1 a_2 a_3 a_4 a_5 a_6}) = \overline{b_1 b_2 b_3 b_4 b_5 b_6}$. Tada je
+  \begin{align*}
+  b_1 + b_2 &+ b_3 + b_4 + b_5 + b_6 = \\
+  &= (9 - a_1) + (9 - a_2) + (9 - a_3) + (9 - a_4) + (9 - a_5) + (9 - a_6)\\
+  &= 54 - (a_1 + a_2 + a_3 + a_4 + a_5 + a_6) = 54 - 22 = 32.
+  \end{align*}
+  Dakle, $f$ je zaista funkcija koja preslikava elemente skupa $A$ u elemente skupa~$B$.
+  Funkcija $f$ je injektivna po konstrukciji, a lako se pokazuje i da je sirjektivna. Neka je
+  $\overline{b_1 b_2 b_3 b_4 b_5 b_6} \in B$. Napravimo \v sestocifreni broj
+  $\overline{a_1 a_2 a_3 a_4 a_5 a_6}$ tako da je $a_i = 9 - b_i$. Tada se kao i gore pokazuje
+  da je $\overline{a_1 a_2 a_3 a_4 a_5 a_6} \in A$, dok je
+  $f(\overline{a_1 a_2 a_3 a_4 a_5 a_6}) = \overline{b_1 b_2 b_3 b_4 b_5 b_6}$
+  zato \v sto je $9 - a_i = 9 - (9 - b_i) = b_i$. Na primer, ako \v zelimo da utvrdimo koji broj se preslikava
+  na broj $910\;877 \in B$ samo redom oduzmemo njegove cifre od 9 i tako dobijamo da je
+  $f(089\;122) = 910\;877$.
+\end{proof}
+
+\paragraph{Princip sirjekcije.}
+  Neka su $A$ i $B$ kona\v cni skupovi. Tada je $|A| \ge |B|$ ako i samo ako postoji bar jedna sirjektivna funkcija $f : A \to B$.
+\begin{center}
+  \input ft08-f13.pgf
+\end{center}
+
+\paragraph{Princip injekcije.}
+  Neka su $A$ i $B$ kona\v cni skupovi. Tada je $|A| \le |B|$ ako i samo ako postoji bar jedna injektivna funkcija $f : A \to B$.
+\begin{center}
+  \input ft08-f14.pgf
+\end{center}
+
+Kontrapozicija Principa injekcije je tvr\dj enje poznato kod nas kao Dirihleov princip, a na engleskom govornom podru\v cju kao
+\emph{Pigeon-Hole Principle} (``princip golubova i rupa'').
+
+\paragraph{Dirihleov princip.}
+  Neka su $A$ i $B$ kona\v cni skupovi. Tada je $|A| > |B|$ ako i samo ako ne postoji injektivno preslikavanje $f : A \to B$.
+  
+\medskip
+
+Poetskija formulacija ovog principa se zove \emph{Pigeon-Hole Principle} (``princip golubova i rupa'') i glasi ovako:
+ako upla\v simo $n + 1$ golubova i oni odlete i sakriju se u $n$ rupa na golubarniku, onda sigurno postoji bar jedna rupa
+u kojoj su se sakrila bar dva goluba.
+
+\begin{EX}
+  Vojnik je deset puta pucao u kvadratnu metu dimenzija $210\mathit{cm} \times 210\mathit{cm}$ i svaki put pogodio.
+  Dokazati da postoje dva pogotka koji su na rastojanju manjem of $1\mathit{m}$.
+\end{EX}
+
+\noindent
+\begin{minipage}{3in}
+  \begin{proof}[Re\v senje]
+    Podelimo metu na devet manjih kvadrata dimenzija $70\mathit{cm} \times 70\mathit{cm}$ kao na slici pored.
+    Vojnik je pucao u metu deset puta, pa prema Dirihleovom principu
+    postoji manji kvadrat u kome se nalaze dva pogotka.
+    Najve\'ce rastojanje koje dve ta\v cke u kvadratu mogu da postignu je du\v zina dijagonale kvadrata, \v sto zna\v ci
+    da su ona dva pogotka koja se nalaze u istom kvadratu na rastojanju koje je najvi\v se
+    $$
+      70\mathit{cm} \cdot \sqrt 2 = 98.9949\ldots\mathit{cm} < 100\mathit{cm}.\qedhere
+    $$
+  \end{proof}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft08-f15.pgf
+  \end{center}
+\end{minipage}
+
+
+\section[UPORE\Dj IVANJE BESKONA\v CNIH SKUPOVA]{Upore\dj ivanje beskona\v cnih skupova}
+
+Neka su $A$ i $B$ beskona\v cni skupovi. Da bismo utvrdili da li $A$ i $B$ imaju isti broj elemenata
+ili neki od njih ima vi\v se elemenata od ono drugog vi\v se ne mo\v zemo da se oslanjamo na ideju da \'cemo
+``prebrojati'' elemente oba skupa i onda uporediti dobijene ``brojeve''.
+Postoji matemati\v cki jezik koji nam omogu\'cuje da govorimo o broju elemenata beskona\v cnog skupa ali je on
+veoma komplikovan i daleko prevazilazi teorijske osnove koje smo do sada izlo\v zili.
+
+Me\dj utim, i dalje mo\v zemo koristiti ideje koje su izlo\v zene u prethodnom odeljku:
+dva skupa (kona\v cna ili beskona\v cna) mo\v zemo da uporedimo po veli\v cini tako \v sto
+utvrdimo kakvi tipovi funkcija se mogu uspostaviti izme\dj u njih.
+Koriste\'ci iste ideje mo\v zemo precizno da ka\v zemo kada je skup kona\v can, a kada je beskona\v can.
+
+Skup $A$ je \emph{kona\v can} ako je svaka injektivna funkcija $f : A \to A$ ujedno i bijektivna.
+Skup $A$ je \emph{beskona\v can} ako postoji injektivna funkcija $f : A \to A$ koja nije bijektivna.
+
+\begin{EX}
+  Skup $A = \{1, 2, 3, 4, 5\}$ je kona\v can zato \v sto svaka injektivna funkcija $f : A \to A$ mora da
+  preslika $A$ na ceo kodomen, pa je stoga bijektivna.
+  
+  Skup $\NN$ je beskona\v can zato \v sto je funkcija $f : \NN \to \NN$ data sa $f(n) = n + 1$ injektivna, a nije
+  bijektivna (nijedan element se ne preslikava na broj~1).
+\end{EX}
+
+\begin{THM}
+  \begin{enumerate}
+  \item Ako je $A$ kona\v can skup i $B \subseteq A$ onda je i $B$ kona\v can skup.
+  \item Ako je $A$ beskona\v can skup i $A \subseteq C$ onda je i $C$ beskona\v can skup.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  (1)
+  Neka je $A$ kona\v can skup i neka je $B \subseteq A$. Neka je $f : B \to B$ proizvoljna injektivna funkcija.
+  Defini\v simo funkciju $g : A \to A$ ovako
+  $$
+    g(x) = \begin{cases}
+      f(x), & x \in B\\
+      x     & x \in A \setminus B.
+    \end{cases}
+  $$
+
+\noindent
+\begin{minipage}{3in}
+  Tada je $g$ injektivna funkcija, pa mora biti bijektivna zato \v sto je $A$ kona\v can skup.
+  Odatle lako sledi da i $f$ mora biti bijektivna funkcija. Naime, $g$ je sirjektivna \v sto zna\v ci
+  da je svaki element kodomena slika nekog elementa. Kako na delu $A \setminus B$ funkcija $g$ ne radi
+  ni\v sta interesantno, zaklju\v cujemo da funkcija $f$ mora da preslika $B$ na ceo $B$, pa je zato $f$ sirjektivna
+  funkcija.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft08-f16.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}(2)
+  Neka je $A$ beskona\v can skup i neka je $A \subseteq C$. Neka je $f : A \to A$ injektivna funkcija koja nije bijektivna.
+  Defini\v simo funkciju $g : C \to C$ ovako
+  $$
+    g(x) = \begin{cases}
+      f(x), & x \in A\\
+      x     & x \in C \setminus A.
+    \end{cases}
+  $$
+  Tada je $g$ injektivna funkcija koja nije bijektivna, i zato $C$ nije kona\v can skup.\qedhere
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft08-f17.pgf
+  \end{center}
+\end{minipage}
+\end{proof}
+
+\begin{EX}
+  Skupovi $\ZZ$, $\QQ$ i $\RR$ su beskona\v cni zato \v sto je $\NN$ beskona\v can skup i $\NN \subseteq \ZZ \subseteq \QQ \subseteq \RR$.
+\end{EX}
+
+\medskip
+
+Skupovi $A$ i $B$ (kona\v cni ili beskona\v cni) \emph{imaju isti broj elemenata}, i to zapisujemo ovako $|A| = |B|$,
+ako postoji bar jedna bijekcija $f : A \to B$.
+
+\begin{THM}
+  $|\NN| = |\ZZ|$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Pokaza\'cemo da je $|\NN| = |\ZZ|$ tako \v sto \'cemo konstruisati bijekciju $f : \NN \to \ZZ$. Tabelom bijekciju $f$
+  mo\v zemo da opi\v semo ovako:
+  $$
+    \begin{array}{c|ccccccccccccccccc}
+      n    & 1 & 2  & 3 & 4  & 5 & 6  & 7 & 8  & 9 & \ldots \\ \hline
+      f(n) & 0 & -1 & 1 & -2 & 2 & -3 & 3 & -4 & 4 & \ldots
+    \end{array},
+  $$
+  a formulom ovako:
+  $$
+    f(n) = \begin{cases}
+      \displaystyle \frac{n-1}{2}, & n \text{\ neparno},\\[5mm]
+      \displaystyle -\frac{n}{2},  & n \text{\ parno}.\qquad\qedhere
+    \end{cases}
+  $$
+\end{proof}
+
+Skup $A$ je \emph{prebrojivo beskona\v can} ako je $|A| = |\NN|$. Ime poti\v ce od toga \v sto je $\NN = \{1, 2, 3, \ldots\}$, i
+svaki prebrojivo beskona\v can skup $A$ mo\v ze da se zapi\v se na isti na\v cin (elementi mogu da mu se \emph{nabroje}):
+$$
+  A = \{a_1, a_2, a_3, \ldots \}.
+$$
+Prethodna teoreme nam, dakle, ka\v ze da je $\ZZ$ prebrojivo beskona\v can skup jer njegovi elementi mogu da se nabroje ovako:
+$$
+  \ZZ = \{ 0, -1, 1, -2, 2, -3, 3, \ldots \}.
+$$
+
+Skup $A$ ima \emph{manje ili jednako} elemenata kao skup $B$, i pi\v semo $|A| \le |B|$, ako postoji injektivno
+preslikavanje $f : A \to B$.
+
+\begin{THM}
+  Ako je $A \subseteq B$ onda je $|A| \le |B|$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Neka je $A \subseteq B$. Tada je preslikavanje $f : A \to B$ dato sa $f(a) = a$ za sve $a \in A$ injektivno,
+  pa je $|A| \le |B|$.
+\end{proof}
+
+Ako je $|A| \le |B|$ i $|A| \ne |B|$ onda pi\v semo da je $|A| < |B|$ ili da je $|B| > |A|$, kako nam odgovara.
+Za kona\v cne skupove je jasno da
+\begin{itemize}
+\item
+  va\v zi ta\v cno jedan od ova tri odnosa: $|A| < |B|$, $|A| = |B|$ ili $|A| > |B|$; kao i da
+\item
+  iz $|A| \le |B|$ i $|B| \le |A|$ sledi da je $|A| = |B|$.
+\end{itemize}
+Za beskona\v cne skupove, me\dj utim, ovi stavovi nisu nimalo o\v cigledni. Na primer,
+da bi se pokazao prvi stav treba pokazati da za svaka dva beskona\v cna skupa $A$ i $B$ ili postoji injektivno preslikavanje
+$f : A \to B$, ili postoji bijektivno preslikavanje iz $g : A \to B$, ili postoji injektivno preslikvanje iz $h : B \to A$.
+Da bi se pokazao drugi stav treba pokazati da iz \v cinjenice
+da postoji injektivno preslikavanje $f : A \to B$ i injektivno preslikavanje $g : B \to A$ sledi da postiji
+bijekcija $h : A \to B$. Sre\'com, oba ova stava su ta\v cna i za beskona\v cne skupove, ali njihovi dokazi prevazilaze
+ambicije ovog teksta. Zato \'cemo samo navesti odgovaraju\'ce teoreme bez dokaza.
+
+\begin{THM}[Trihotomija]
+  Neka su $A$ i $B$ proizvoljni skupovi. Tada va\v zi ta\v cno jedan od ova tri odnosa: $|A| < |B|$, $|A| = |B|$ ili $|A| > |B|$.
+\end{THM}
+
+\begin{THM}[Kantor, Bern\v stajn, \v Sreder]
+  Neka su $A$ i $B$ proizvoljni skupovi. Ako je $|A| \le |B|$ i $|B| \le |A|$, onda je $|A| = |B|$.
+\end{THM}
+
+Koriste\'ci Teoremu Kantora, Bern\v stajna i \v Sredera dokaza\'cemo da je $\QQ$ prebrojivo beskona\v can skup.
+
+\begin{THM}
+  $|\NN| = |\QQ|$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Zbog $\NN \subseteq \QQ$ je $|\NN| \le |\QQ|$. Doka\v zimo sada da je $|\QQ| \le |\NN|$. Svaki racionalan broj
+  $x \in \QQ$ mo\v ze na vi\v se na\v cina da se prika\v ze u obliku
+  $$
+    x = \frac mn
+  $$
+  gde je $m \in \ZZ$ i $n \in \NN$. Na primer,
+  $$
+    \frac{-4}{7} = \frac{-8}{14} = \frac{-44}{77} = \ldots
+  $$
+  Za konstrukciju koja sledi moramo da se opredelimo za jedinstven na\v cin da
+  racionalan broj prika\v zemo u obliku razlomka, pa \'cemo postupiti na slede\'ci na\v cin.
+  Racionalan broj $x = 0$ \'cemo prikazati kao $\frac 01$. Ako je $x \ne 0$ onda od svih oblika
+  $
+    x = \frac mn
+  $
+  odaberimo onaj za koga je $|m|$ najmanje mogu\'ce. Na primer, u slu\v caju
+  $$
+    x = \frac{9}{8} = \frac{18}{16} = \frac{108}{96} = \ldots
+  $$
+  biramo oblik $x = \frac{9}{8}$, dok za
+  $$
+    x = \frac{-4}{7} = \frac{-8}{14} = \frac{-44}{77} = \ldots
+  $$
+  biramo oblik $x = \frac{-4}{7}$.
+  
+  Definisa\'cemo sada funkciju $f : \QQ \to \NN$ koja razlomke kodira prirodnim brojevima oblika $2^r \cdot 3^s \cdot 5^t$
+  gde stepen broja $2$ kodira znak razlomka ($r = 1$ ako je razlomak negativan, i $r = 0$ ako je razlomak nenegativan),
+  stepen broja $3$ kodira apsolutnu vrednost imenioca, a stepen broja 5 kodira brojilac razlomka. Dakle,
+  $$
+    f(\textstyle\frac mn) = 2^r \cdot 3^{|m|} \cdot 5^n
+  $$
+  gde je $r = 1$ ako je $m < 0$, a u ostalim slu\v cajevima je $r = 0$. Na primer,
+  \begin{align*}
+    f(\textstyle\frac 01) &= 2^0 \cdot 3^0 \cdot 5^1\\[3mm]
+    f(\textstyle\frac 98) &= 2^0 \cdot 3^9 \cdot 5^8\\[3mm]
+    f(\textstyle\frac{-4}{7}) &= 2^1 \cdot 3^4 \cdot 5^7
+  \end{align*}
+  Lako se vidi da je $f$ injektivna funkcija (kodiranje je jednozna\v cno!) tako da je $|\QQ| \le |\NN|$. Prema
+  Teoremi Kantora, Bern\v stajna i \v Sredera sada zaklju\v cujemo da je $|\NN| = |\QQ|$.
+\end{proof}
+
+Svi skupovi koje smo do sada videli su bili kona\v cni ili prebrojivo beskona\v cni. No, to nije kraj pri\v ce!
+Kantor je pokazao da skup $\RR$ nije prebrojivo beskona\v can. On, dakle, ima vi\v se elemenata od skupa $\NN$:
+
+\begin{THM}[Kantor]
+  $|\NN| < |\RR|$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Podsetimo se, prvo, da svaki realan broj $x \in \RR$ mo\v ze da se predstavi u obliku
+  $$
+    x = k_0,k_1 k_2 k_3 \ldots
+  $$
+  gde je $k_0 \in \ZZ$ ceo deo broja $x$, a $k_1$, $k_2$, $k_3$, \ldots su decimale broja $x$. Na primer za
+  $$
+    x = 3,1415926\ldots
+  $$
+  je $k_0 = 3$, $k_1 = 1$, $k_2 = 4$, $k_3 = 1$ itd, dok za
+  $$
+    x = -12,5
+  $$
+  imamo da je $k_0 = -12$, $k_1 = 5$, $k_2 = 0$, $k_3 = 0$ itd.
+
+  Pre\dj imo sada na dokaz teoreme.
+  Zbog $\NN \subseteq \RR$ je $|\NN| \le |\RR|$. Da bismo dokazali teoremu dovoljno je da poka\v zemo da $|\NN| \ne |\RR|$.
+  Pretpostavimo suprotno: $|\NN| = |\RR|$. Tada postoji bijekcija $f : \NN \to \RR$. Neka je
+  \begin{align*}
+    f(1) &= a_0, a_1 a_2 a_3 a_4 \ldots\\
+    f(2) &= b_0, b_1 b_2 b_3 b_4 \ldots\\
+    f(3) &= c_0, c_1 c_2 c_3 c_4 \ldots\\
+         &\vdots
+  \end{align*}
+  Posmatrajmo broj $\gamma \in \RR$ koji je konstruisan ovako:
+  $$
+    \gamma = 0, z_1 z_2 z_3 z_4 \ldots
+  $$
+  gde je
+  $$
+    z_1 = \begin{cases}
+      1, & a_1 = 0\\
+      0, & a_1 \ne 0,
+    \end{cases},
+    \quad
+    z_2 = \begin{cases}
+      1, & b_2 = 0\\
+      0, & b_2 \ne 0,
+    \end{cases},
+    \quad
+    z_3 = \begin{cases}
+      1, & c_3 = 0\\
+      0, & c_3 \ne 0,
+    \end{cases},
+    \quad
+    \text{itd.}
+  $$
+  Broj $\gamma$ je konstruisan tako da bude $z_1 \ne a_1$, $z_2 \ne b_2$, $z_3 \ne c_3$ itd.
+  Dakle, uo\v cili smo dijagonalu me\dj u decimalama niza
+  \begin{align*}
+    f(1) &= a_0, \underline{a_1} a_2 a_3 a_4 \ldots\\
+    f(2) &= b_0, b_1 \underline{b_2} b_3 b_4 \ldots\\
+    f(3) &= c_0, c_1 c_2 \underline{c_3} c_4 \ldots\\
+         &\vdots
+  \end{align*}
+  i konstruisali broj $\gamma$ tako da je $n$-ta decimala broja $\gamma$ razli\v cita od $n$-te decimale broja $f(n)$.
+  Zbog toga se ova konstrukcija
+  zove \emph{Kantorov dijagonalni postupak} ili \emph{Kantorova dijagonalizacija}.
+  Po\v sto je $f : \NN \to \RR$ bijekcija i po\v sto je $\gamma \in \RR$ postoji neko $n$ takvo da je
+  $f(n) = \gamma$. Neka je
+  $$
+    f(n) = k_0, k_1 k_2 \ldots \underline{k_n} \ldots
+  $$
+  Tada je
+  $$
+    k_0, k_1 k_2 \ldots \underline{k_n} \ldots = 0, z_1 z_2 \ldots z_n \ldots
+  $$
+  odakle sledi da je $k_n = z_n$. To je u kontradikciji sa konstrukcijom broja $\gamma$ koja garantuje da je
+  $n$-ta decimala broja $\gamma$ razli\v cita od $n$-te decimale broja $f(n)$.
+\end{proof}
+
+Videli smo svojevremeno (Teorema~\ref{ft06.thm.A-PA}) da za kona\v can skup $A$ sa $n$ elemenata
+skup $\calP(A)$ ima vi\v se elemenata od skupa $A$. Sada \'cemo pokazati da je to ta\v cno i za
+beskona\v cne skupove.
+
+\begin{THM}
+  Za svaki (kona\v can ili beskona\v can) skup $A$ je $|A| < |\calP(A)|$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Poka\v zimo, prvo, da je $|A| \le |\calP(A)|$. Neka je $f : A \to \calP(A)$ funkcija data sa
+  $f(x) = \{x\}$. Na primer, za $A = \{1, 2, 3\}$ je $\calP(A) = \{\0$, $\{1\}$, $\{2\}$, $\{3\}$, $\{1,2\}$,
+  $\{1,3\}$, $\{2,3\}$, $\{1,2,3\}\}$,
+  a funkcija $f$ je definisana tako da je $f(1) = \{1\}$, $f(2) = \{2\}$ i $f(3) = \{3\}$.
+  Jasno je da je $f$ injektivna funkcija, i zato je $|A| \le |\calP(A)|$.
+
+  Da bismo dokazali teoremu dovoljno je da poka\v zemo da $|A| \ne |\calP(A)|$.
+  Pretpostavimo suprotno: $|A| = |\calP(A)|$. Tada postoji bijekcija $g : A \to \calP(A)$. Neka je
+  $$
+    B = \{ x \in A : x \notin g(x) \}.
+  $$
+  O\v cito je $B \in \calP(A)$, pa kako je $g$ bijekcija, postoji neko $z$ takvo da je $g(z) = B$.
+  Pogledajmo sada da li je $z \in B$. Ako je $z \in B$ onda $z \notin g(z) = B$. S druge strane,
+  ako $z \notin B$ onda $z \notin g(z)$, pa je $z \in B$ jer je skup $B$ tako definisan.
+  Dakle, $z \in B \Leftrightarrow z \notin B$.
+  Kontradikcija.
+\end{proof}
+
+Ve\'c smo videli da je $|\NN| < |\RR|$, a prethodna teorema nam ka\v ze da je
+\hbox{$|\RR| < |\calP(\RR)|$}. Dakle, imamo niz beskona\v cnih skupova od kojih svaki ima
+ve\'ci broj elemenata od onog prethodnog:
+$$
+  |\NN| < |\RR| < |\calP(\RR)| < |\calP(\calP(\RR))| < |\calP(\calP(\calP(\RR)))| < \ldots
+$$
+Situacija je, zapravo, mnogo interesantnija, ali je to po\v cetak jedne sasvim druge pri\v ce.
+
+
+
+
+
+
+

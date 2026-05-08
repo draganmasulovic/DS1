@@ -1,0 +1,40 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-112.5}{-587.5}}
+
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{400.0}{612.5}}
+    \pgfpathlineto{\pgfpointxy{500.0}{612.5}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{437.5}{618.529}}
+    \pgfpatharcaxes{240.0}{270.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{460.0}{612.5}}
+    \pgfpatharcaxes{90.0}{120.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{black}
+    \pgfpathellipse{\pgfpointxy{200.0}{612.5}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{black}
+    \pgfpathellipse{\pgfpointxy{400.0}{612.5}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{black}
+    \pgfpathellipse{\pgfpointxy{500.0}{612.5}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \pgftext[bottom,at={\pgfpointxy{200.0}{662.0}}]{$n = 1$}
+  \pgftext[bottom,at={\pgfpointxy{450.0}{662.0}}]{$n = 2$}
+\end{pgfpicture}

@@ -1,0 +1,30 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-368.677}{-109.944}}
+
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{575.0}{325.0}}{\pgfpointxy{134.921}{0.0}}{\pgfpointxy{0.0}{134.921}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{white}
+    \pgfpathellipse{\pgfpointxy{471.905}{237.965}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{white}
+    \pgfpathellipse{\pgfpointxy{701.922}{279.235}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetfillcolor{white}
+    \pgfpathellipse{\pgfpointxy{551.173}{457.8}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \pgftext[top,right,at={\pgfpointxy{458.716}{223.876}}]{$a$}
+  \pgftext[top,left,at={\pgfpointxy{716.702}{266.988}}]{$b$}
+  \pgftext[bottom,at={\pgfpointxy{551.173}{477.8}}]{$c$}
+\end{pgfpicture}

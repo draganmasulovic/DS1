@@ -1,0 +1,18 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-309.292}{-267.896}}
+
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{586.187}{487.052}}{\pgfpointxy{193.069}{0.0}}{\pgfpointxy{0.0}{193.069}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{583.36}{436.181}}{\pgfpointxy{75.3623}{0.0}}{\pgfpointxy{0.0}{75.3623}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[bottom,right,at={\pgfpointxy{421.899}{608.409}}]{$B$}
+  \pgftext[bottom,right,at={\pgfpointxy{520.192}{495.522}}]{$A$}
+\end{pgfpicture}

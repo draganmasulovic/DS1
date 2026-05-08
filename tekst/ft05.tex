@@ -1,0 +1,1236 @@
+\chapter{Dokazi u matematici}
+
+Tokom hiljadugodi\v snjeg razvoja matematike razvile su se i razne tehnike dokazivanja matemati\v ckih tvr\dj enja.
+Ovo poglavlje je posve\'ceno pregledu najzna\v cajnijih. Kroz primere \'cemo demonstritari:
+\begin{itemize}\itemsep -1pt
+\item direktne dokaze,
+\item dokaze kontrapozicijom,
+\item dokaze svo\dj enjem na kontradikciju,
+\item dokaze ekvivalentnih tvr\dj enja, i
+\item dokaze matemati\v ckom indukcijom.
+\end{itemize}
+Na kraju glave \'cemo pokazati kako se tehnike koje smo pokazali u slu\v caju matemati\v ckih tvr\dj enja koriste
+za rezonovanje o pona\v sanju ra\v cunarskih programa.
+
+\section{Matemati\v cka tvr\dj enja}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textcolor{red}{!!!   AKSIOME, TEOREME, LEME, STAVOVI, TVR\Dj ENJA, DOKAZI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Direktni dokazi}
+
+Direktni dokazi u matematici se izvode tako \v sto po\dj emo od tvr\dj enja za koje znamo da je ta\v cno
+i u kona\v cnom broju ``koraka'' u kojima primenjujemo \emph{Modus ponens}:
+$$
+  \vDash p \land (p \Rightarrow q) \Rightarrow q
+$$
+do\dj emo do zaklju\v cka. Dakle, ako treba dokazati tvr\dj enje oblika
+$$
+  p \Rightarrow q
+$$
+od nas se o\v cekuje da na osnovu onoga \v sto znamo od ranije izvedemo ovakav niz zaklju\v caka:
+\begin{center}
+  \begin{tabular}{ll}
+    Znamo:                & $p$\\
+    Doka\v zemo:          & $p \Rightarrow r_1$\\
+    Zaklju\v cimo:        & $r_1$\\
+    Doka\v zemo:          & $r_1 \Rightarrow r_2$\\
+    Zaklju\v cimo:        & $r_2$\\
+    \qquad $\vdots$\\
+    Zaklju\v cimo:        & $r_k$\\
+    Doka\v zemo:          & $r_k \Rightarrow q$\\
+    Zaklju\v cimo:        & $q$
+  \end{tabular}
+\end{center}
+
+
+\begin{EX}
+  Dokazati da je
+  $$
+    a^k - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1)
+  $$
+  za svaki realan broj $a$ i svaki prirodan broj $k \ge 2$.
+\end{EX}
+\begin{proof}[Dokaz]
+  Krenu\'cemo od desne strane:
+  \begin{align*}
+    (a - 1)&(a^{k-1} + a^{k-2} + \ldots + a + 1) =\\
+          &= a(a^{k-1} + a^{k-2} + \ldots + a + 1) - (a^{k-1} + a^{k-2} + \ldots + a + 1)\\
+          &= (a^{k} + \underbrace{a^{k-1} + \ldots + a^2 + a}) - (\underbrace{a^{k-1} + a^{k-2} + \ldots + a} + 1)\\
+          &= a^k - 1.\qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{EX}\label{ft05.ex.a-g-sredina} (\emph{Nejednakost aritmeti\v cke i geometrijske sredine})
+  Za sve realne brojeve $a, b \ge 0$ va\v zi slede\'ci odnos:
+  $$
+    \frac{a + b}{2} \ge \sqrt{ab}.
+  $$
+\end{EX}
+\begin{proof}[Dokaz]
+  Kvadrat svakog realnog broja je nenegativan, pa
+  $$
+    (\sqrt a - \sqrt b)^2 \ge 0.
+  $$
+  Nakon kvadriranja binoma na levoj strani dobijamo:
+  $$
+    a - 2 \sqrt{ab} + b \ge 0,
+  $$
+  \v sto je izraz koji se sada lako transformi\v se do
+  $$
+    \frac{a + b}{2} \ge \sqrt{ab}.\qedhere
+  $$
+\end{proof}
+
+Prirodan broj $n > 1$ je \emph{prost} ako ima \emph{ta\v cno dva} delioca: 1 i $n$.
+Ako broj $n > 1$ nije prost, za njega ka\v zemo da je \emph{slo\v zen}.
+Va\v zno je napomenuti da broj 1 nije ni prost ni slo\v zen broj!
+
+Obzirom da je svaki prirodan broj $n > 1$ deljiv sa 1 i sa $n$, ova dva delioca broja $n$
+se zovu \emph{trivijalni delioci} broja $n$. Dakle, broj $n > 1$ je slo\v zen ako i samo ako ima
+netrivijalan delilac. Ta\v cno je i slede\'ce: broj $n$ je slo\v zen ako i samo ako je $n = ab$
+za neke prirodne brojeve $a \ge 2$ i $b \ge 2$.
+
+\begin{EX}
+  Dokazati da za svaki prirodan broj $n \ge 3$ bar jedan od brojeva $2^n - 1$, $2^n + 1$ nije prost.
+\end{EX}
+\begin{proof}[Dokaz]
+  Brojevi $2^n - 1$, $2^n$, $2^n + 1$ su tri uzastopna prirodna broja, pa je bar jedan od njih deljiv sa~3.
+  To ne mo\v ze biti $2^n$, \v sto zna\v ci da je $2^n - 1$ deljivo sa 3 ili je $2^n + 1$ deljivo sa~3.
+  Zbog $n \ge 3$ je $2^n + 1 > 2^n - 1 > 3$, pa je 3 netrivijalan delilac.
+\end{proof}
+
+\begin{EX} (\emph{Niz prostih brojeva sadr\v zi proizvoljno velike ``rupe''})
+  Dokazati da za svaki prirodan broj $n \ge 2$ postoji niz od $n$ uzastopnih
+  prirodnih brojeva od kojih nijedan nije prost.
+\end{EX}
+\begin{proof}[Dokaz]
+  Da se podsetimo, za svaki prirodan broj $n$, \emph{faktorijel} broja $n$ je slede\'ci proizvod:
+  $$
+    n! = 1 \cdot 2 \cdot 3 \ldots \cdot n.
+  $$
+  Posmatrajmo sada slede\'ci niz celih brojeva:
+  $$
+    (n + 1)! + 2, \quad, (n + 1)! + 3, \quad \ldots, \quad (n+1)! + (n+1).
+  $$
+  Ovo je niz du\v zine $n$ i nijedan broj u tom nizu nije prost: za svako $k \in \{2, 3, \ldots, n+1\}$
+  broj $(n + 1)! + k$ je deljiv sa $k$, \v sto je njegov netrivijalan delilac.
+\end{proof}
+
+\begin{EX}
+  Gde je gre\v ska u slede\'cem ``dokazu'' da je $1 = 2$:
+  \begin{align*}
+    -2 &= -2 \\
+    1 - 3 &= 4 - 6 \\
+    1 - 3 + \frac 94 &= 4 - 6 + \frac 94 \\
+    \left(1 - \frac 32\right)^2 &= \left(2 - \frac 32\right)^2 \\
+    \sqrt{\left(1 - \frac 32\right)^2} &= \sqrt{\left(2 - \frac 32\right)^2} \\
+    1 - \frac 32 &= 2 - \frac 32 \\
+    1 &= 2 ?
+  \end{align*}
+\end{EX}
+
+\begin{EX}
+  Gde je gre\v ska u slede\'cem ``dokazu'' da je $1 = -1$:
+  $$
+    1 = \sqrt{1} = \sqrt{(-1) \cdot (-1)} = \sqrt{-1} \cdot \sqrt{-1} = i \cdot i = i^2 = -1
+  $$
+  (gde je $i$ imaginarna jedinica)?
+\end{EX}
+
+\begin{EX}
+  Gde je gre\v ska u slede\'cem ``dokazu'' da je svaki trougao jednakostrani\v can?
+
+  Neka je $ABC$ proizvoljan trougao. Dokaza\'cemo da je $[AC] \cong [BC]$. Onda se na isti
+  na\v cin doka\v ze da je $[AB] \cong [AC]$ i dokaz je zavr\v sen.
+  
+  \smallskip
+  
+  \noindent
+  \begin{minipage}{3in}
+  \hspace*{1.5em}Da bismo dokazali da je $[AC] \cong [BC]$, uo\v cimo simetralu stranice $[AB]$ i simetralu
+  ugla $C$ tog trougla. Ove dve prave se seku u ta\v cki $S$. Neka su $P$ i $Q$ podno\v zja
+  normala iz $S$ na du\v zi $[AC]$, odnosno, $[BC]$. Trouglovi $CPS$ i $CQS$ su podudarni jer su to
+  pravougli trouglovi sa zajedni\v ckom hipotenuzom i istim jednim o\v strim uglom (setimo se da je prava
+  $CS$ simetrala ugla $C$). Zato je $[CP] \cong [CQ]$. Osim toga, i trouglovi $PAS$ i $QBS$ su podudarni jer su to
+  pravougli trouglovi kojima su podudarne hipotenuze i jedan par kateta ($[SP] \cong [SQ]$ jer je svaka ta\v cka simetrale
+  ugla jednako udaljena od krakova tog ugla, dok je $[SA] \cong [SB]$ jer je svaka ta\v cka simetrale
+  du\v zi jednako udaljena od krajeva te du\v zi). Zato je $[PA] \cong [QB]$. Dakle,
+  $[CA] \cong [CP] + [PA] \cong [CQ] + [QB] \cong [CB]$.
+  \end{minipage}\hfill
+  \begin{minipage}{2in}
+    \begin{center}
+      \input ft05-t.pgf
+    \end{center}
+  \end{minipage}
+\end{EX}
+
+\section{Dokazi kontrapozicijom}
+
+Nekada se de\v sava da nije lako na\'ci direktan dokaz. Jedan na\v cin da doka\v zemo
+tvr\dj enje oblika $p \Rightarrow q$ je da koristimo tautologiju
+$$
+  \vDash (p \Rightarrow q) \Leftrightarrow (\lnot q \Rightarrow \lnot p)
+$$
+koja ka\v ze da je logi\v cki svejedno da li \'cemo dokazivati da
+$$
+  p \Rightarrow q
+$$
+ili da
+$$
+  \lnot q \Rightarrow \lnot p.
+$$
+Dokazi zasnovani na ovoj strategiji se zovu \emph{dokazi kontrapozicijom}.
+
+\begin{EX}\label{ft05.ex.n2-paran}
+  Neka je $n$ prirodan broj. Ako je $n^2$ paran broj onda je i $n$ paran broj.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{n^2 \text{ je paran broj}}_p
+    \;\;\Rightarrow\;\;
+    \underbrace{n \text{ je paran broj}}_q.
+  $$
+  Kontrapozicija ovog tvr\dj enja glasi:
+  $$
+    \underbrace{n \text{ je neparan broj}}_{\lnot q}
+    \;\;\Rightarrow\;\;
+    \underbrace{n^2 \text{ je neparan broj}}_{\lnot p},
+  $$
+  i to se lako dokazuje. Neka je $n$ neparan broj. Tada je
+  $$
+    n = 2k + 1
+  $$
+  za neko $k \ge 0$. No, tada je
+  $$
+    n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(\underbrace{2k^2 + 2k}_m) + 1 = 2m + 1
+  $$
+  \v sto zna\v ci da je $n^2$ neparan broj.
+\end{proof}
+
+\begin{EX}\label{ft05.ex.ak-1} (\emph{Mersenovi brojevi})
+  Neka je $n$ prirodan broj. Ako je $2^n - 1$ prost broj onda je i $n$ prost broj.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{2^n - 1 \text{ je prost broj}}_p
+    \;\;\Rightarrow\;\;
+    \underbrace{n \text{ je prost broj}}_q.
+  $$
+  Kontrapozicija ovog tvr\dj enja glasi:
+  $$
+    \underbrace{n \text{ nije prost broj}}_{\lnot q}
+    \;\;\Rightarrow\;\;
+    \underbrace{2^n - 1 \text{ nije prost broj}}_{\lnot p},
+  $$
+  a ovu implikaciju je mnogo lak\v se dokazati.
+  
+  Pretpostavimo da $n$ nije prost broj. Ako je $n = 1$ onda je $2^n - 1 = 1$, \v sto nije prost broj.
+  Pretpostavimo, zato, da je $n \ge 2$. Kako $n$ nije prost broj, postoje prirodni brojevi $m \ge 2$ i $k \ge 2$
+  takvi da je $n = mk$. Sada je
+  $$
+    2^n - 1 = 2^{mk} - 1 = (2^m)^k - 1 = a^k - 1,
+  $$
+  gde smo stavili $a = 2^m$ da bismo lak\v se pratili nastavak dokaza.
+  U Primeru~\ref{ft05.ex.ak-1} smo videli da je
+  $$
+    a^k - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1)
+  $$
+  i zato je
+  $$
+    2^n - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1).
+  $$
+  Kako je $a = 2^m$ i $m \ge 2$ zaklju\v cujemo da je $a - 1 \ge 3$. S druge strane iz $k \ge 2$ i $a \ge 4$ sledi da je
+  $a^{k-1} + a^{k-2} + \ldots + a + 1 \ge 5$. Dakle,
+  $$
+    2^n - 1 = \underbrace{(a - 1)}_{\ge 3}\underbrace{(a^{k-1} + a^{k-2} + \ldots + a + 1)}_{\ge 5}
+  $$
+  odakle jasno sledi da je $2^n - 1$ slo\v zen broj.
+\end{proof}
+
+\begin{EX}
+  Svaki prost broj $\ge 7$ je oblika $6k + 1$ ili $6k + 5$ za neko $k \ge 1$.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{n \ge 7 \text{ i } n \text{ je prost broj}}_p
+    \;\;\Rightarrow\;\;
+    \underbrace{n = 6k + 1 \text{ ili } n = 6k + 5 \text{ za neko } k \ge 1}_q.
+  $$
+  Kontrapozicija ovog tvr\dj enja glasi:
+  $$
+    \underbrace{n \ne 6k + 1 \text{ i } n \ne 6k + 5 \text{ za svako } k \ge 1}_{\lnot q}
+    \;\;\Rightarrow\;\;
+    \underbrace{n < 7 \text{ ili } n \text{ nije prost broj}}_{\lnot p}
+  $$
+  i ovu implikaciju mo\v zemo lako da doka\v zemo.
+  
+  Pretpostavimo da $n \ne 6k + 1$ i $n \ne 6k + 5$ za svako $k \ge 1$. Imamo dva slu\v caja:
+  $n < 7$ ili $n \ge 7$. Ako je $n < 7$ dokaz je gotov. Razmotrimo, zato, drugu mogu\'cnost: $n \ge 7$.
+  Da bismo dokazali implikaciju treba da poka\v zemo da $n$ nije prost broj.
+  Ostatak pri deljenju bilo kog broja sa $6$ mo\v ze biti 0, 1, 2, 3, 4 ili 5. Kako smo pretpostavili da
+  $n \ne 6k + 1$ i da $n \ne 6k + 5$, zna\v ci da ostatak pri deljenju broja $n$ sa 6 mo\v ze biti
+  0, 2, 3 ili 4.
+  \begin{itemize}
+  \item Ako $n$ pri deljenju sa 6 daje ostatak 0, onda je $n = 6k$ za neko $k \ge 1$, pa nije prost.
+  \item Ako $n$ pri deljenju sa 6 daje ostatak 2, onda je $n = 6k + 2 = 2(3k + 1)$ za neko $k \ge 1$, pa nije prost.
+  \item Ako $n$ pri deljenju sa 6 daje ostatak 3, onda je $n = 6k + 3 = 3(2k + 1)$ za neko $k \ge 1$, pa nije prost.
+  \item Ako $n$ pri deljenju sa 6 daje ostatak 4, onda je $n = 6k + 4 = 2(3k + 2)$ za neko $k \ge 1$, pa nije prost.
+  \end{itemize}
+  Dakle, u svakom slu\v caju dolazimo do zaklju\v cka da $n$ nije prost.
+\end{proof}
+
+
+\section{Dokazi svo\dj enjem na kontradikciju}
+
+Nekada se da doka\v zemo tvr\dj enje oblika $p \Rightarrow q$ koristi tautologija
+$$
+  \vDash (p \Rightarrow q) \Leftrightarrow (p \land \lnot q \Rightarrow \bot)
+$$
+koja ka\v ze da je logi\v cki svejedno da li \'cemo dokazivati da
+$$
+  p \Rightarrow q
+$$
+ili da
+$$
+  p \land \lnot q \Rightarrow \bot.
+$$
+Poslednja formula zna\v ci da treba da pretpostavimo da va\v zi i $p$ i $\lnot q$ i da
+na osnovu te dve pretpostavke poku\v samo da do\dj emo do kontradikcije.
+Dokazi zasnovani na ovoj strategiji se zovu \emph{svo\dj enje na kontradikciju} (ili lat.\ \emph{reductio ad absurdum}).
+
+\begin{EX} (\emph{$\sqrt 2$ je iracionalan broj})
+  Dokazati da ne postoji pozitivan racionalan broj \v ciji kvadrat je~2.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{x \text{\ \ je pozitivan racionalan broj}}_p
+    \;\;\Rightarrow\;\;
+    \underbrace{x^2 \ne 2}_q.
+  $$
+  Ovo tvr\dj enje \'cemo pokazati svo\dj enjem na kontradikciju tako \v sto \'cemo pokazati da
+  $$
+    \underbrace{x \text{\ \ je pozitivan racionalan broj}}_p \;\;\land\;\; \underbrace{x^2 = 2}_{\lnot q}
+    \;\;\Rightarrow\;\; \bot.
+  $$
+  Neka je $x$ racionalan broj takav da je $x > 0$ i $x^2 = 2$. Svaki pozitivan racionalan broj mo\v ze
+  na vi\v se na\v cina da se prika\v ze u obliku
+  $$
+    x = \frac mn
+  $$
+  gde su $m$ i $n$ prirodni brojevi. Od svih ovakvih reprezentacija odaberimo onu u kojoj je $m$ najmanje mogu\'ce.
+  (Na primer, u slu\v caju
+  $$
+    x = \frac{2}{3} = \frac{4}{6} = \frac{10}{15} = \ldots
+  $$
+  odabrali bismo reprezentaciju $x = \frac{2}{3}$.) Kako je
+  $$
+    x^2 = 2
+  $$
+  dobijamo da je
+  $$
+    \left(\frac mn\right)^2 = \frac{m^2}{n^2} = 2
+  $$
+  odakle sledi da je
+  $$
+    m^2 = 2n^2.
+  $$
+  Ovo zna\v ci da je $m^2$ paran broj, pa je onda i $m$ paran broj (Primer~\ref{ft05.ex.n2-paran}). Zato mo\v zemo da stavimo
+  da je $m = 2p$ za neko $p$ i onda je
+  $$
+    \frac{m^2}{n^2} = \frac{(2p)^2}{n^2} = 2.
+  $$
+  Poslednji izraz se lako transformi\v se u
+  $$
+    4p^2 = 2n^2,
+  $$
+  odnosno,
+  $$
+    n^2 = 2p^2,
+  $$
+  odakle sledi da je $n^2$ paran broj. Prema rezultatu iz Primera~\ref{ft05.ex.n2-paran} zaklju\v cujemo da je $n$ paran broj, pa mo\v zemo
+  da stavimo $n = 2q$. Zaklju\v cili smo da je $m = 2p$ i $n = 2q$, tako da dobijamo
+  $$
+    x = \frac{m}{n} = \frac{2p}{2q} = \frac{p}{q}.
+  $$
+  Dakle, $x = \frac{p}{q}$ je reprezentacija racionalnog broja $x$ u obliku koli\v cnika dva prirodna broja takva da je $p < m$.
+  Ali reprezentacija $x = \frac{m}{n}$ je odabrana tako da je $m$ najmanje magu\'ce.~$\lightning$
+\end{proof}
+
+Za prirodne brojeve $m$ i $n$
+sa $m \mid n$ ozna\v cavamo da se $m$ sadr\v zi u $n$ (``bez ostatka''), odnosno, da postoji prirodan broj
+$s$ takav da je $n = m \cdot s$. Lako se vidi da iz $k \mid m$ i $m \mid n$ sledi $k \mid m$.
+
+\begin{EX}\label{ft05.ex.min-prime}
+  Neka je $n$ prirodan broj i neka je $m$ najmanji prirodan broj takav da je $m > 1$ i $m \mid n$. Onda je $m$ prost broj.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{m \text{\ \ je najmanji broj takav da je } m > 1 \text{ i } m \mid n}_p
+    \;\;\Rightarrow\;\;
+    \underbrace{m \text{\ \ je prost broj}}_q.
+  $$
+  Ovo tvr\dj enje \'cemo pokazati svo\dj enjem na kontradikciju tako \v sto \'cemo pokazati:
+  $$
+    \underbrace{m \text{\ \ je najmanji broj takav da je } m > 1 \text{ i } m \mid n}_p \;\;\land\;\;
+    \underbrace{m \text{\ \ je nije prost broj}}_{\lnot q}
+    \;\;\Rightarrow\;\; \bot.
+  $$
+  Neka je $m$ najmanji broj takav da je $m > 1$ i $m \mid n$, i neka $m$ nije prost broj.
+  Onda postoji prirodan broj $k$ takav da je $1 < k < m$ i $k \mid m$.
+  Kako iz $k \mid m$ i $m \mid n$ sledi da $k \mid n$ dobili smo da je $k > 1$ delilac broja $n$ koji je manji od $m$,
+  \v sto je nemogu\'ce, jer je $m$ odabran kao najmanji takav broj.~$\lightning$
+\end{proof}
+
+U nekim slu\v cajevima tvr\dj enje koje dokazujemo nema oblik $p \Rightarrow q$ ve\'c ima samo oblik pojedina\v cnog iskaza:~$q$.
+Tada se dokaz kontradikcijom zasniva na slede\'coj tautologiji:
+$$
+  \vDash q \Leftrightarrow (\lnot q \Rightarrow \bot).
+$$
+
+\begin{EX} (\emph{Euklidova teorema o prostim brojevima})
+  Beskona\v cno mnogo prirodnih brojeva su prosti.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{\text{beskona\v cno mnogo prirodnih brojeva su prosti}}_q.
+  $$
+  Ovo tvr\dj enje \'cemo pokazati svo\dj enjem na kontradikciju tako \v sto \'cemo pokazati:
+  $$
+    \underbrace{\text{samo kona\v cno mnogo prirodnih brojeva su prosti}}_{\lnot q}
+    \;\;\Rightarrow\;\; \bot.
+  $$
+  Pretpostavimo da ima samo kona\v cno mnogo prirodnih brojeva koji su prosti. Neka su to
+  \begin{equation}\label{ft05.eq.1}
+    p_1,\;\; p_2,\;\; \ldots,\;\; p_n.
+  \end{equation}
+  Posmatrajmo broj
+  $$
+    N = p_1 \cdot p_2 \cdot \ldots \cdot p_n + 1.
+  $$
+  Broj $N$ ne mo\v ze biti prost broj, jer je ve\'ci od svakog broja sa spiska \eqref{ft05.eq.1}, a to je spisak svih prostih brojeva.
+  Dakle, broj $N$ je slo\v zen, pa ima netrivijalni delilac. Neka je $d$ najmanji netrivijalni delilac broja $N$.
+  Tada je $1 < d < N$ i $d \mid N$ (zato \v sto je $d$ je netrivijalni delilac broja $N$), i pri tome je $d$ najmanji takav broj.
+  Na osnovu Primera~\ref{ft05.ex.min-prime} znamo da je tada $d$ prost broj. Kako je \eqref{ft05.eq.1} spisak svih
+  prostih brojeva, mora biti $d = p_i$ za neko~$i$. Zato je
+  $$
+    N = p_i \cdot m
+  $$
+  za neki prirodan broj $m$. Sada dobijamo
+  $$
+    p_i \cdot m = p_1 \cdot p_2 \cdot \ldots \cdot p_n + 1
+  $$
+  odakle sledi
+  $$
+    p_i (m - p_1 \cdot \ldots \cdot p_{i-1} \cdot p_{i+1} \cdot \ldots \cdot p_n) = 1,
+  $$
+  odnosno, $p_i \mid 1$, \v sto je nemogu\'ce jer je $p_i \ge 2$ zato \v sto je to prost broj.~$\lightning$
+\end{proof}
+
+\clearpage
+
+\section[Dokazi ekvivalentnih tvr\Dj enja]{Dokazi ekvivalentnih tvr\dj enja}
+
+Tvr\dj enja oblika
+$$
+  p \Leftrightarrow q
+$$
+su veoma va\v zna u matematici jer ona pokazuju kako se neko svojstvo $p$ mo\v ze opisati na drugi
+na\v cin. Taj drugi na\v cin mo\v ze biti jednostavniji za proveru, ili nam mo\v ze re\'ci kako se neko
+geometrijsko svojstvo opisuje algebarski. Tvr\dj enja oblika
+$$
+  p \Leftrightarrow q
+$$
+se dokazuju koriste\'ci tautologiju
+$$
+  \vDash (p \Leftrightarrow q) \Leftrightarrow ((p \Rightarrow q) \land (q \Rightarrow p)).
+$$
+To zna\v ci da se ekvivalencija dva tvr\dj enja dokazuje tako \v sto se doka\v zu dve implikacije: implikacija
+sleva na desno, i implikacija zdesna na levo. Ove dve implikacije dokazujemo kao nezavisna tvr\dj enja primenom
+neke od tehnika koje smo demonstrirali ranije.
+
+U Primeru~\ref{ft05.ex.a-g-sredina} smo pokazali da za svaka dva nenegativna realna broja $a$ i $b$ va\v zi
+$$
+  \frac{a + b}{2} \ge \sqrt{ab}.
+$$
+Sada \'cemo dokazati da u ovoj relaciji jednakost va\v zi ako i samo ako je $a = b$.
+
+\begin{EX} (\emph{Nejednakost aritmeti\v cke i geometrijske sredine 2})
+  Neka su $a$ i $b$ realni brojevi takvi da je $a, b \ge 0$. Tada:
+  $$
+    \frac{a+b}{2} = \sqrt{ab} \text{\quad ako i samo ako\quad} a = b.
+  $$
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{\frac{a+b}{2} = \sqrt{ab}}_p \;\;\Leftrightarrow\;\; \underbrace{a = b}_q.
+  $$
+  Ovo tvr\dj enje \'cemo pokazati tako \v sto \'cemo dokazati dve implikacije:
+  $$
+    \bigg(\underbrace{\frac{a+b}{2} = \sqrt{ab}}_p \;\;\Rightarrow\;\; \underbrace{a = b}_q\bigg)
+    \;\;\land\;\;
+    \bigg(\underbrace{a = b}_q \;\;\Rightarrow\;\; \underbrace{\frac{a+b}{2} = \sqrt{ab}}_q\bigg)
+  $$
+  U dokazu koji sledi znak u zagradi na po\v cetku pasusa nam govori o tome koji smer ekvivalencije dokazujemo.
+
+  $(\Leftarrow)$ Ako je $a = b$ onda je
+  $$
+    \frac{a+b}{2} = \frac{a + a}{2} = a,
+  $$
+  i, s druge strane,
+  $$
+    \sqrt{ab} = \sqrt{a^2} = |a| = a
+  $$
+  jer je $a \ge 0$.
+  
+  \medskip
+  
+  $(\Rightarrow)$
+  Neka je
+  $$
+    \frac{a+b}{2} = \sqrt{ab}.
+  $$
+  Tada, nakon mno\v zenja sa 2 dobijamo:
+  $$
+    a + b = 2 \sqrt{ab},
+  $$
+  odnosno
+  $$
+    a - 2 \sqrt{ab} + b = 0.
+  $$
+  Primetimo da je izraz na levoj strani kvadrat binoma:
+  $$
+    (\sqrt a - \sqrt b)^2 = 0,
+  $$
+  odakle sledi
+  $$
+    \sqrt a - \sqrt b = 0
+  $$
+  jer je 0 jedini broj \v ciji kvadrat je 0. Dakle,
+  $$
+    \sqrt a = \sqrt b,
+  $$
+  pa nakon kvadriranja dobijamo
+  $$
+    a = b,
+  $$
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+\begin{EX}
+  Neka je $n \ge 2$ prirodan broj.
+  Tada: $n$ je slo\v zen ako i samo ako je deljiv brojem $m$ za koga va\v zi $1 < m \le \sqrt n$.
+\end{EX}
+\begin{proof}[Dokaz]
+  Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{n \text{\ \ je slo\v zen}}_p \;\;\Leftrightarrow\;\; \underbrace{n \text{\ \ je deljiv brojem $m$ sa osobinom\ \ } 1 < m \le \sqrt n}_q.
+  $$
+
+  $(\Leftarrow)$
+  Neka je $n$ deljiv brojem $m$ takvim da je $1 < m \le \sqrt n$. Kako je $n \ge 2$ sledi da je $\sqrt n < n$.
+  Dakle, $n$ deljiv brojem $m$ takvim da je $1 < m < n$, \v sto zna\v ci da $n$ ima netrivijalni delilac, pa je slo\v zen.
+  
+  $(\Rightarrow)$
+  Neka je $n$ slo\v zen broj. Onda postoje prirodni brojevi $k, m \ge 2$ takvi da je $n = mk$. Bez umanjenja op\v stosti
+  mo\v zemo pretpostaviti da je $m \le k$. Tada je
+  $$
+    m^2 \le mk = n
+  $$
+  odakle sledi
+  $$
+    m \le \sqrt n.
+  $$
+  Dakle, $m$ je prirodan broj koji se sadr\v zi u $n$ i pri tome je $1 < m \le \sqrt n$.
+\end{proof}
+
+\begin{EX} (\emph{Pitagorina teorema})
+  Trougao je pravougli ako i samo ako je kvadrat njegove najve\'ce strane jednak zbiru kvadrata druge dve strane.
+\end{EX}
+\begin{proof}[Dokaz]
+  Neka je $ABC$ proizvoljan trougao \v cije strane su $a$, $b$ i $c$, gde su oznake uvedene tako da je $a$ strana
+  naspram temena $A$, $b$ strana naspram temena $B$ i $c$ strana
+  naspram temena $C$. Bez umanjenja op\v stosti mo\v zemo pretpostaviti
+  da je $c \ge b \ge a$. Treba da poka\v zemo slede\'ce:
+  $$
+    \underbrace{ABC \text{\ \ je pravougli trougao}}_p \;\;\Leftrightarrow\;\; \underbrace{c^2 = a^2 + b^2}_q.
+  $$
+  
+\begin{figure}
+  \centering
+  \input ft05-pitagora.pgf
+  \caption{Dokaz Pitagorine teoreme}
+  \label{ft05.fig.pitagora}
+\end{figure}
+
+  $(\Rightarrow)$ Neka je $ABC$ pravougli trougao sa katetama $a$ i $b$ i hipotenuzom $c$.
+  Posmatrajmo kvadrat strane $a + b$ koga \'cemo podeliti na manje figure na dva na\v cina koji su prikazani na
+  Sl.~\ref{ft05.fig.pitagora}. Ra\v cunaju\'ci povr\v sine manjih figura iz konfiguracije na Sl.~\ref{ft05.fig.pitagora}~$(a)$
+  zaklju\v cujemo:
+  $$
+    (a + b)^2 = a^2 + b^2 + 2ab,
+  $$
+  dok iz konfiguracije na Sl.~\ref{ft05.fig.pitagora}~$(b)$ zaklju\v cujemo:
+  $$
+    (a + b)^2 = c^2 + 4 \cdot \frac 12 ab = c^2 + 2ab.
+  $$
+  Kako su leve strane jednake u ova dva izraza, moraju biti jednake i desne strane, odakle sledi
+  $$
+    c^2 + 2ab = a^2 + b^2 + 2ab,
+  $$
+  odnosno, $c^2 = a^2 + b^2$.
+  
+  $(\Leftarrow)$
+  Da bismo dokazali drugu implikaciju:
+  $$
+    \underbrace{c^2 = a^2 + b^2}_q \;\;\Rightarrow\;\; \underbrace{ABC \text{\ \ je pravougli trougao}}_p,
+  $$
+  dokaza\'cemo njenu kontrapoziciju:
+  $$
+    \underbrace{ABC \text{\ \ nije pravougli trougao}}_{\lnot p} \;\;\Rightarrow\;\; \underbrace{c^2 \ne a^2 + b^2}_{\lnot q}.
+  $$
+  Pretpostavimo da $ABC$ nije pravougli trougao. Onda je $ABC$ o\v strougli ili tupougli trougao, pa razmatramo dva slu\v caja.
+  
+  \medskip
+  
+  Slu\v caj $1^\circ$: $ABC$ je o\v strougli trougao.
+  Neka je $[AA_1]$ visina trougla iz temena $A$ i neka je $h$ njena du\v zina. Ozna\v cimo sa $x$ du\v zinu du\v zi $[A_1C]$.
+  Tada je $a - x$ du\v zina du\v zi $[BA_1]$, Sl.~\ref{ft05.fig.pitagora2}~$(a)$. Kako su trouglovi $AA_1B$ i $AA_1C$ pravougli,
+  na osnovu onoga \v sto smo dokazali u smeru $(\Rightarrow)$ znamo da je
+  $$
+    c^2 = (a - x)^2 + h^2 = a^2 - 2ax + \underbrace{x^2 + h^2}_{b^2} = a^2 + b^2 - 2ax < a^2 + b^2.
+  $$
+
+\begin{figure}
+  \centering
+  \input ft05-pitagora2.pgf
+  \caption{Dokaz obratne Pitagorine teoreme}
+  \label{ft05.fig.pitagora2}
+\end{figure}
+
+  \medskip
+
+  Slu\v caj $2^\circ$: $ABC$ je tupougli trougao.
+  Kako je tup ugao najve\'ci ugao u trouglu i kako je $c$ najve\'ca strana trougla, sledi da mora ugao kod temena $C$ biti tup.
+  Neka je $[AA_1]$ visina trougla iz temena $A$ i neka je $h$ njena du\v zina. Ozna\v cimo sa $x$ du\v zinu du\v zi $[A_1C]$,
+  Sl.~\ref{ft05.fig.pitagora2}~$(b)$. Kako su trouglovi $AA_1B$ i $AA_1C$ pravougli,
+  na osnovu onoga \v sto smo dokazali u smeru $(\Rightarrow)$ znamo da je
+  $$
+    c^2 = (a + x)^2 + h^2 = a^2 + 2ax + \underbrace{x^2 + h^2}_{b^2} = a^2 + b^2 + 2ax > a^2 + b^2.
+  $$
+  
+  Da zaklju\v cimo: nezavisno od toga da li je trougao o\v strougli ili tupougli, dobijamo da je $c^2 \ne a^2 + b^2$.
+\end{proof}
+
+\section{Matemati\v cka indukcija}
+
+Ako treba dokazati da je neko tvr\dj enje o prirodnim brojevima $\phi(n)$ ta\v cno za sve prirodne brojeve, nekada
+je najlak\v se koristiti slede\'cu strategiju koja se zove \emph{matmati\v cka indukcija}:
+\begin{itemize}
+\item doka\v zemo da je ta\v cno $\phi(1)$;
+\item doka\v zemo da je za svaki prirodan broj $n$ ta\v cno $\phi(n) \Rightarrow \phi(n+1)$.
+\end{itemize}
+Lako se vidi da iz ova dva stava sledi da je $\phi(n)$ ta\v cno za svaki prirodan broj $n$:
+\begin{itemize}
+\item $\phi(1)$ je ta\v cno zato \v sto smo to dokazali direktno;
+\item $\phi(1) \Rightarrow \phi(2)$ je ta\v cno, jer je $\phi(n) \Rightarrow \phi(n+1)$ ta\v cno za svako $n$;
+\item dakle, $\phi(2)$ je ta\v cno (modus ponens);
+\item $\phi(2) \Rightarrow \phi(3)$ je ta\v cno, jer je $\phi(n) \Rightarrow \phi(n+1)$ ta\v cno za svako $n$;
+\item dakle, $\phi(3)$ je ta\v cno (modus ponens);
+\item i tako dalje.
+\end{itemize}
+Obi\v cno se matemati\v cka indukcija operativno izvodi u tri koraka:
+\begin{enumerate}
+\item doka\v zemo $\phi(1)$ (\emph{baza indukcije});
+\item pretpostavimo da je ta\v cno $\phi(n)$ (\emph{induktivna hipoteza});
+\item koriste\'ci pretpostavku doka\v zemo da je ta\v cno $\phi(n + 1)$ (\emph{induktivni korak}).
+\end{enumerate}
+
+\begin{EX}
+  Dokazati da $7 \mid 2^{n+2} + 3^{2n + 1}$ za sve prirodne brojeve $n$.
+\end{EX}
+\begin{proof}[Dokaz]
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 1$ treba dokazati da $7 \mid 8 + 27$, odnosno da $7 \mid 35$, \v sto je ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da $7 \mid 2^{n+2} + 3^{2n + 1}$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da $7 \mid 2^{(n + 1)+2} + 3^{2(n + 1) + 1}$ koriste\'ci pretpostavku.
+    Primetimo, prvo, da je
+    \begin{align*}
+      2^{(n + 1) + 2} + 3^{2(n + 1) + 1}
+      &= 2^{n + 3} + 3^{2n + 3}\\
+      &= 2 \cdot 2^{n + 2} + 9 \cdot 3^{2n + 1}\\
+      &= 2 \cdot (2^{n + 2} + 3^{2n + 1}) + 7 \cdot 3^{2n + 1}.
+    \end{align*}
+    Drugi sabirak je o\v cito deljiv sa 7, dok je prvi deljiv sa 7 po induktivnoj hipotezi. Dakle, ceo zbir je deljiv sa~7.\qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{EX}
+  Neka je $x > -1$ realan broj. Dokazati da za svaki prirodan broj $n$ va\v zi
+  $(1 + x)^n \ge 1 + nx$.
+\end{EX}
+\begin{proof}[Dokaz]
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 1$ treba dokazati da je $1 + x \ge 1 + x$, \v sto je ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je $(1 + x)^n \ge 1 + nx$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je $(1 + x)^{n + 1} \ge 1 + (n + 1)x$. Prema induktivnoj pretpostavci znamo da je
+    $$
+      (1 + x)^n \ge 1 + nx.
+    $$
+    Kako je $x > -1$ znamo da je $1 + x > 0$, pa mno\v zenje gornje nejednakosti sa $1 + x$ ne menja smer nejednakosti:
+    $$
+      (1 + x)^n \cdot (1 + x) \ge (1 + nx) \cdot (1 + x).
+    $$
+    Sre\dj ivanjem i leve i desne strane dobijamo:
+    $$
+      (1 + x)^{n + 1} \ge 1 + nx + x + nx^2 = 1 + (n + 1)x + nx^2 \ge 1 + (n + 1)x,
+    $$
+    jer je $nx^2 \ge 0$. Time je dokaz zavr\v sen.\qedhere
+  \end{itemize}
+\end{proof}
+
+Indukcija ne mora da po\v cinje od 1. Ako treba dokazati da neko tvr\dj enje va\v zi za sve prirodne brojeve $n \ge a$,
+onda baza indukcije predstavlja tvr\dj enje $\phi(a)$.
+
+\begin{EX}
+  Dokazati da je $n! > 2^n$ za sve $n \ge 4$.
+\end{EX}
+\begin{proof}[Dokaz]
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 4$ treba dokazati da je $4! > 2^4$, \v sto je ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je $n! > 2^n$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je $(n + 1)! > 2^{n + 1}$. Prema induktivnoj pretpostavci znamo da je
+    $$
+      n! > 2^n.
+    $$
+    Nakon mno\v zenja i leve i desne strane sa $(n + 1)$ dobijamo
+    $$
+      (n + 1) \cdot n! > (n + 1) \cdot 2^n.
+    $$
+    Imaju\'ci u vidu da je $n \ge 4$ dobijamo
+    $$
+      (n + 1)! > (n + 1) \cdot 2^n > 2 \cdot 2^n = 2^{n+1}
+    $$
+    (jer iz $n \ge 4$ sledi $n + 1 \ge 5 > 2$).\qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{EX}
+  (\textit{De Moavrov obrazac})
+  Dokazati da za sve $n \ge 1$:
+  $$
+    (\cos x + i \sin x)^n = \cos nx + i \sin nx.
+  $$
+\end{EX}
+\begin{proof}[Dokaz]
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 1$ tvr\dj enje je trivijalno ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za $n$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je
+    $$
+      (\cos x + i \sin x)^{n+1} = \cos (n + 1)x + i \sin (n + 1)x.
+    $$
+    Prema induktivnoj pretpostavci znamo da je
+    $$
+      (\cos x + i \sin x)^n = \cos nx + i \sin nx.
+    $$
+    Nakon mno\v zenja i leve i desne strane sa $\cos x + i \sin x$ dobijamo
+    $$
+      \underbrace{(\cos x + i \sin x)^n \cdot (\cos x + i \sin x)}_{(\cos x + i \sin x)^{n + 1}} = (\cos nx + i \sin nx) \cdot (\cos x + i \sin x),
+    $$
+    odakle, koriste\'ci adicione formule
+    \begin{align*}
+      \cos(\alpha + \beta) &= \cos \alpha \cos \beta - \sin \alpha \sin \beta\\
+      \sin(\alpha + \beta) &= \sin \alpha \cos \beta + \cos \alpha \sin \beta
+    \end{align*}
+    i \v cinjenicu da je $i^2 = -1$ dobijamo:
+    \begin{align*}
+      &(\cos x + i \sin x)^{n + 1} = \\
+      & = (\cos nx + i \sin nx) \cdot (\cos x + i \sin x)\\
+      & = \cos nx \cdot \cos x + i \sin nx \cdot \cos x + i \cos nx \cdot \sin x - \sin nx \cdot \sin x\\
+      & = (\cos nx \cdot \cos x  - \sin nx \cdot \sin x) + i (\sin nx \cdot \cos x + \cos nx \cdot \sin x)\\
+      & = \cos (n + 1)x + i \sin (n + 1)x.\qedhere
+    \end{align*}
+  \end{itemize}
+\end{proof}
+
+\begin{EX}
+  Sada \'cemo indukcijom ``dokazati'' da su svi ljudi na svetu iste visine. Gde je gre\v ska u ``dokazu''?
+\end{EX}
+\begin{proof}[Dokaz]
+  Indukcijom po $n \ge 1$ dokazujemo slede\'ce tvr\dj enje:
+  \begin{quote}
+    U svakoj grupi koja ima $n$ ljudi svi imaju istu visinu.
+  \end{quote}
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 1$ tvr\dj enje je o\v cigledno ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za $n$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je tvr\dj enje ta\v cno i za $n + 1$.
+    Uo\v cimo proizvoljnu grupu od $n + 1$ ljudi:
+    $$
+      \UOLunderbrace{H_1, \quad }[H_2, \quad \ldots, \quad H_n,]_{\text{$n$ ljudi}}\UOLoverbrace{ \quad H_{n+1}}^{\text{$n$ ljudi}}
+    $$
+    Grupa $H_1$, \ldots, $H_n$ ima $n$ ljudi i u njoj su, prema induktivnoj hipotezi, svi iste visine.
+    Grupa $H_2$, \ldots, $H_{n+1}$ tako\dj e ima $n$ ljudi pa su i u njoj, prema induktivnoj hipotezi, svi iste visine.
+    Dakle, svi ljudi u uo\v cenoj grupi od $n + 1$ ljudi su iste visine.\qedhere
+  \end{itemize}
+\end{proof}
+
+
+\section{Totalna indukcija}
+
+Totalna indukcija je verzija matemati\v cke indukcije kod koje umesto zaklju\v civanja ``prelaskom sa $n$ na $n + 1$''
+zaklju\v civanje izvodimo ``prelaskom sa svih koji su manji od $n$ na $n$''. Drugim re\v cima,
+ako treba dokazati da je neko tvr\dj enje o prirodnim brojevima $\phi(n)$ ta\v cno za sve prirodne brojeve, mo\v zemo
+koristiti slede\'cu strategiju koja se zove \emph{totalna indukcija}:
+\begin{itemize}
+\item doka\v zemo da je ta\v cno $\phi(1)$;
+\item doka\v zemo da za svaki prirodan broj $n \ge 2$ va\v zi $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$.
+\end{itemize}
+Lako se vidi da iz ova dva stava sledi da je $\phi(n)$ ta\v cno za svaki prirodan broj $n$:
+\begin{itemize}
+\item $\phi(1)$ je ta\v cno zato \v sto smo to dokazali direktno;
+\item $\phi(1) \Rightarrow \phi(2)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 2$;
+\item dakle, $\phi(2)$ je ta\v cno (modus ponens);
+\item $\phi(1) \land \phi(2) \Rightarrow \phi(3)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 3$;
+\item ta\v cno je i $\phi(1) \land \phi(2)$ (jer su oba tvr\dj enja ta\v cna);
+\item dakle, $\phi(3)$ je ta\v cno (modus ponens);
+\item $\phi(1) \land \phi(2) \land \phi(3) \Rightarrow \phi(4)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 4$;
+\item ta\v cno je i $\phi(1) \land \phi(2) \land \phi(3)$ (jer su sva tri tvr\dj enja ta\v cna);
+\item dakle, $\phi(4)$ je ta\v cno (modus ponens);
+\item i tako dalje.
+\end{itemize}
+Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
+\begin{enumerate}
+\item doka\v zemo $\phi(1)$ (\emph{baza indukcije});
+\item pretpostavimo da je ta\v cno $\phi(k)$ za sve $k < n$ (\emph{induktivna hipoteza});
+\item koriste\'ci pretpostavku doka\v zemo da je ta\v cno $\phi(n)$ (\emph{induktivni korak}).
+\end{enumerate}
+
+\begin{EX}
+  Pravougaona tabla \v cokolade je \v zlebovima podeljena na $n$ kockica, recimo ovako:
+    \begin{center}
+      \input ft05-coko-n.pgf
+    \end{center}
+  Dokazati da je dovoljno $n - 1$ poteza da se ona
+  podeli na pojedni\v cne kockice \v cokolade, pri \v cemu je u jednom potezu dozvoljeno uzeti jedan
+  pravougaoni deo \v cokolade koji nastaje u ovom procesu i prelomiti ga na dva dela du\v z neke od
+  pravih linija (\v zlebova) na \v cokoladi.
+\end{EX}
+\begin{proof}[Dokaz]
+  Dokaz provodimo totalnom indukcijom po broju $n$ kockica \v cokolade.
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 1$ i $n = 2$ tabla izgleda ovako:
+    \begin{center}
+      \input ft05-coko-12.pgf
+    \end{center}
+    i jasno je da nam za $n = 1$ treba 0 poteza, dok nam za $n = 2$ treba 1 potez da podelimo tablu na pojedina\v cne kockice.
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za sve table \v cokolade sa $k < n$ kockica.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je tvr\dj enje ta\v cno i za table \v cokolade sa $n$ kockica.
+    Posmatrajmo neku tablu sa $n$ kockica.
+    Uo\v cimo proizvoljni \v zleb i lomljenjem \v cokolade du\v z tog \v zleba podelimo tablu na dve manje table. Neka jedna ima
+    $p$ kockica, a druga~$q$. Jasno je da je $p + q = n$. Kako je $p < n$ i $q < n$ znamo (prema induktivnoj hipotezi)
+    da se prva tabla mo\v ze podeliti na pojedina\v cne kockice sa $p - 1$ poteza, a druga sa $q - 1$ poteza. Tada tome
+    dodamo prvi potez koji je podelio tablu na dve manje, dobijamo da smo tablu podelili na pojedina\v cne kockice u
+    $$
+      1 + (p - 1) + (q - 1) = p + q - 1 = n - 1
+    $$
+    poteza, \v cime je dokaz zavr\v sen.\qedhere
+  \end{itemize}
+\end{proof}
+
+Indukcija ne mora da po\v cinje od 1. Ako treba dokazati da neko tvr\dj enje va\v zi za sve prirodne brojeve $n \ge a$,
+onda baza indukcije predstavlja tvr\dj enje $\phi(a)$. Tako\dj e, mo\v ze se desiti da je potrebno proveriti
+nekoliko po\v cetnih vrednosti u bazi indukcije.
+
+\begin{EX}(\textit{Teorema o faktorizaciji prirodnih brojeva})
+  Svaki prirodan broj $n \ge 2$ je prost, ili je proizvod prostih brojeva.
+\end{EX}
+\begin{proof}[Dokaz]
+  Dokaz provodimo totalnom indukcijom.
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Za $n = 2$ tvr\dj enje je trivijalno ta\v cno.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za sve prirodne brojeve $k$ takve da je $2 \le k < n$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je tvr\dj enje ta\v cno i za prirodni broj $n$.
+    Ako je $n$ prost broj, dokaz je zavr\v sen. Pretpostavimo, zato, da $n$ nije prost broj.
+    Tada je postoje prirodni brojevi $k, m \ge 2$ takvi da je $n = k \cdot m$. Kako je $2 \le k < n$, prema induktivnoj hipotezi
+    znamo da je $k$ prost broj ili proizvod prostih projeva, recimo:
+    $$
+      k = p_1 \cdot \ldots \cdot p_r,
+    $$
+    gde su svi $p_i$ prosti brojevi. Sli\v cno, zbog $2 \le m < n$, induktivna hipoteza garantuje da je $m$ prost broj ili proizvod prostih projeva, recimo:
+    $$
+      m = q_1 \cdot \ldots \cdot q_s,
+    $$
+    gde su svi $q_j$ prosti brojevi. Dakle,
+    $$
+      n = k \cdot m = p_1 \cdot \ldots \cdot p_r \cdot q_1 \cdot \ldots \cdot q_s,
+    $$
+    \v sto je proizvod prostih brojeva.
+  \end{itemize}
+\end{proof}
+
+\begin{EX}
+  Po\v sta jedne dr\v zave je od\v stampala po\v stanske marke u vrednosti od 4 bakrenjaka i od 5 bakrenjaka.
+  Koji iznosi po\v starine se mogu platiti koriste\'ci ove markice?
+\end{EX}
+\begin{proof}[Re\v senje]
+  O\v cigledno je da se po\v stanskim markama od 4 i 5 bakrenjaka mogu platiti po\v starine u iznosu
+  4, 5, 8, 9 i 10 bakrenjaka. Osim toga, mogu\'ce je platiti i svaku po\v starina koja je $\ge 12$ bakrenjaka.
+  Doka\v zimo ovo poslednje koriste\'ci totalnu indukciju. Dakle, dokazujemo slede\'ce:
+  \begin{quote}
+    svaka po\v starina od $n \ge 12$ bakrenjaka se mo\v ze platiti po\v stanskim markama od 4 i 5 bakrenjaka.
+  \end{quote}
+  Po\v sto \'cemo u dokazu primenjivati induktivnu hipotezu tako \v sto \'cemo smanjivati iznos po\v starine za 4 ili za 5 bakrenjaka,
+  moramo u bazi indukcije proveriti ne\v sto vi\v se slu\v cajeva.
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Lako se vidi da se po\v stanskim markama od 4 i 5 bakrenjaka mogu platiti
+    po\v starine od 12, 13, 14 i 15 bakrenjaka:
+    \begin{align*}
+      12 &= 4 + 4 + 4,\\
+      13 &= 4 + 4 + 5,\\
+      14 &= 4 + 5 + 5,\\
+      15 &= 5 + 5 + 5.
+    \end{align*}
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za sve po\v starine od $k$ barkenjaka gde je $12 \le k < n$.
+  \item
+    \emph{Induktivni korak.} Doka\v zimo da je tvr\dj enje ta\v cno i za po\v starinu od $n$ bakrenjaka.
+    Zbog baze indukcije slobodno mo\v zemo pretpostaviti da je $n \ge 16$. O\v cito je
+    $$
+      n = 4 + k
+    $$
+    gde smo stavili $k = n - 4$. Kako je $12 \le k < n$, induktivna hipoteza nam garantuje da se po\v starina od $k$ bakrenjaka mo\v ze
+    platiti po\v stanskim markama od 4 i 5 bakrenjaka. Kada na to dodamo jo\v s jednu po\v stansku marku od 4 bakrenjaka, dobijamo
+    po\v starinu od $k + 4 = n$ bakrenjaka.\qedhere
+  \end{itemize}
+\end{proof}
+
+\section{Predikatski ra\v cun i indukcija u analizi programskog koda}
+
+Sada \'cemo na tri primera pokazati kako se ve\v sine koje smo do sada stekli koriste u formalnoj analizi programskog koda.
+Vide\'cemo da pri razmatranju pona\v sanja ``for''-ciklusa obi\v cno koristi matemati\v cka indukcija, dok pri
+razmatranju rekurzivnih funkcija totalna indukcija mo\v ze biti od koristi.
+
+\begin{EX}\label{ft05.ex.max-niza}
+  Posmatrajmo slede\'ci programski fragment:
+{\small
+\begin{verbatim}
+    int i, p, m, n;
+    // ovde ucitamo n
+    int[] A = new int[n];
+    // ovde ucitamo elemente niza A
+    p = 0; m = A[0];
+    // (1)
+    for(i = 0; i < n; i++) {
+      if(A[i] > m) {
+        p = i; m = A[i];
+      }
+    }
+    // (2)
+\end{verbatim}
+}
+\noindent
+  Dokazati da po okon\v canju ovog koda promenljiva $m$ sadr\v zi najve\'ci element niza $A$, a promeljiva $p$ njegovu
+  poziciju u nizu. Drugim re\v cima, dokazati da u ta\v cki (2) koda va\v zi slede\'ca formula:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le n - 1 \Rightarrow A[j] \le m).
+  $$
+  (Prva dva uslova ka\v zu da je $p$ indeks niza i da se $m$ nalazi na mestu $p$ u nizu, dok tre\'ci uslov govori da je
+  $m$ ve\'ci od svakog elementa niza -- drugim re\v cima, $m$ je maksimum niza.)
+\end{EX}
+\begin{proof}[Re\v senje]
+  Ozna\v cimo sa $\phi(k)$ slede\'cu formulu:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le k - 1 \Rightarrow A[j] \le m).
+  $$
+  Lako se pokazuje da u ta\v cki (1) koda va\v zi formula $\phi(0)$ koja glasi:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(\underbrace{0 \le j \le -1}_\bot \Rightarrow A[j] \le m).
+  $$
+  Naime, znamo da u ta\v cki (1) va\v zi d je $p = 0$ i $m = A[0]$. S druge strane, uslov $0 \le j \le -1$ u tre\'cem ``delu'' formule
+  je neta\v can. Zato je implikacija ta\v cna, pa je i cela formula ta\v cna.
+  
+  \v Zelimo da poka\v zemo da je po okon\v canju ``for''-ciklusa ta\v cna formula $\phi(n)$. Ideja dokaza se sastoji u tome
+  da se poka\v ze slede\'ce: ako je pre izvr\v senja tela ciklusa ta\v cno $\phi(i)$, onda je po izvr\v senju tela ciklusa
+  ta\v cno $\phi(i + 1)$. Pretpostavimo da je ta\v cno $\phi(i)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i - 1 \Rightarrow A[j] \le m).
+  $$
+  i posmatrajmo telo ciklusa:
+{\small
+\begin{verbatim}
+      if(A[i] > m) {
+        p = i; m = A[i];
+      }
+\end{verbatim}
+}
+\noindent
+  Ako je $A[i] \le m$ onda iz $\phi(i)$ sledi da je ta\v cno i:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le m),
+  $$
+  odnosno, ta\v cno je $\phi(i + 1)$. Posmatrajmo sada drugu mogu\'cnost: $A[i] > m$. Tada je
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i - 1 \Rightarrow A[j] \le A[i])
+  $$
+  (jer je $A[j] \le m < A[i]$) pa sledi da je ta\v cno i slede\'ce:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le A[i]).
+  $$
+  Sada je jasno da nakon naredbi
+{\small
+\begin{verbatim}
+        p = i; m = A[i];
+\end{verbatim}
+}
+  \noindent
+  va\v zi $\phi(i + 1)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le m).
+  $$
+  Dakle, kada se poslednji put izvr\v si telo ``for''-ciklusa znamo da \'ce va\v ziti $\phi(n)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le n - 1 \Rightarrow A[j] \le m),
+  $$
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+
+
+\begin{EX}
+  Posmatrajmo slede\'ci programski fragment:
+{\small
+\begin{verbatim}
+    static double sqr(double x) { return x * x; }
+    
+    static double pow(double x, int n) {
+      if(n == 0) { return 1.0; }
+      else if(n == 1) { return x; }
+      else if(n % 2 == 0) { return sqr(pow(x, n/2)); }
+      else { return x * sqr(pow(x, n/2)); }
+    }
+\end{verbatim}
+}
+\noindent
+  Dokazati da je $\mathit{pow}(x, n) = x^n$ za sve $x \ne 0$ i $n \ge 0$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Dokaz provodimo totalnom indukcijom po $n$.
+  \begin{itemize}
+  \item
+    \emph{Baza indukcije.} Lako se vidi da je tvr\dj enje ta\v cno za $n = 0$ i $n = 1$:
+    za $n = 0$ je $\mathit{pow}(x, 0) = 1 = x^0$, a za $n = 1$ je $\mathit{pow}(x, 1) = x = x^1$.
+  
+  \item
+    \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za sve $k < n$, odnosno, da je $\mathit{pow}(x, k) = x^k$.
+  \item
+    \emph{Induktivni korak.} Neka je $n > 1$. Ako je $n$ paran broj onda je $n/2 = \frac n2$, pa koriste\'ci induktivnu hipotezu dobijamo:
+    $$\textstyle
+      \mathit{pow}(x, n) = (\mathit{pow}(x, n/2))^2 = (\mathit{pow}(x, \frac n2))^2 = (x^{\frac n2})^2 = x^n.
+    $$
+    Ako je $n$ neparan broj onda je $n/2 = \frac{n-1}2$, pa koriste\'ci induktivnu hipotezu dobijamo:
+    $$\textstyle
+      \mathit{pow}(x, n) = x \cdot (\mathit{pow}(x, n/2))^2 = x \cdot (\mathit{pow}(x, \frac{n-1}2))^2 = x \cdot (x^{\frac{n-1}2})^2 = x \cdot x^{n-1} = x^n. \qedhere
+    $$
+  \end{itemize}
+\end{proof}
+
+
+\begin{EX}
+  Sortiranje formiranjem uzastopnih minimuma (tzv.\ \emph{selection sort}) se mo\v ze realizovati na slede\'ci na\v cin:
+{\small
+\begin{verbatim}
+  static void swap(int[] A, int i, int j) {
+    int tmp = A[i];
+    A[i] = A[j];
+    A[j] = tmp;
+  }
+  
+  static int posMin(int[] A, int i, int n) {
+    int m = i;
+    for(int j = i + 1; j < n; j++) {
+      if(A[j] < A[m]) { m = j; }
+    }
+    return m;
+  }
+  
+  static void Sort(int[] A, int n) {
+    for(int i = 0; i < n; i++) {
+      int m = posMin(A, i, n);
+      swap(A, i, m);
+    }
+  }
+\end{verbatim}
+}
+  \noindent
+  Dokazati da metod \textit{Sort} sortira niz $A$ \v cija du\v zina je $n$. Drugim re\v cima, dokazati da
+  po okon\v canju metoda \textit{Sort} za elemente niza $A$ va\v zi slede\'ce:
+  $$
+    (\forall p)(\forall q)(0 \le p \le q < n \Rightarrow A[p] \le A[q]).
+  $$
+\end{EX}
+\begin{proof}[Dokaz]
+  Primetimo, prvo, da je formula koja opisuje \v cinjenicu da je niz sortiran ekvivalentna slede\'coj:
+  $$
+    (\forall p)(0 \le p < n \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  Naime, formula data u formulaciji problema ka\v ze: ``za sve $p$ i $q$ koji su indeksi niza, ako je $p \le q$ onda je $A[p] \le A[q]$''.
+  S druge strane, formula koju smo upravo naveli ka\v ze: ``za svako $p$ koje je indeks niza, $A[p]$ je manji ili jednak od svakog elementa
+  niza koji se javlja iza njega''. Jasno je da su ova dva zahteva ekvivalentna.
+
+  Prvo \'cemo kratko opisati pona\v sanje metoda \textit{swap} i \textit{posMin}. Pona\v sanje metoda \textit{swap} je
+  najjednostavnije opisati ovako: ako je pre izvr\v senja naredbe
+{\small
+\begin{verbatim}
+      swap(A, p, q);
+\end{verbatim}
+}
+  \noindent
+  va\v zilo $A[p] = \alpha$ i $A[q] = \beta$, tada \'ce nakon izvr\v senja ove naredbe va\v ziti
+  $A[p] = \beta$ i $A[q] = \alpha$.
+  Sli\v cno Primeru~\ref{ft05.ex.max-niza} mo\v zemo pokazati da nakon izvr\v senja metoda $\mathit{posMin}(A, i, n)$
+  kao rezultat dobijamo broj $m$ za koga va\v zi slede\'ce:
+  $$
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]).
+  $$
+  Pre\dj imo sada na analizu metoda \textit{Sort}. Neka je $\phi(i)$ slede\'ca formula:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  Lako se vidi da pre nego \v sto metodu \textit{Sort} krene sa izvr\v savanjem ``for''-ciklusa
+  va\v zi formula $\phi(0)$ koja glasi:
+  $$
+    (\forall p)(0 \le p < 0 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  jer je antecedent $0 \le p < 0$ neta\v can, pa je implikacija trivijalno ta\v cna.
+  \v Zelimo da poka\v zemo da je po okon\v canju ``for''-ciklusa ta\v cna formula $\phi(n)$. Kao i ranije,
+  ideja dokaza se sastoji u tome da se poka\v ze slede\'ce: ako je pre izvr\v senja tela ciklusa ta\v cno $\phi(i)$,
+  onda je po izvr\v senju tela ciklusa ta\v cno $\phi(i + 1)$. Pretpostavimo da je ta\v cno $\phi(i)$:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  i posmatrajmo telo ciklusa. Nakon naredbe
+{\small
+\begin{verbatim}
+      int m = posMin(A, i, n);
+\end{verbatim}
+}
+\noindent
+  promenljiva $m$ sadr\v zi vrednost za koju znamo da zadovoljava slede\'ce:
+  $$
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]),
+  $$
+  pa pre poziva metoda \textit{Swap} va\v zi:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+    \;\;\land\;\;
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]).
+  $$
+  U metodu \textit{Swap} promenljive $A[m]$ i $A[i]$ razmenjuju vrednosti, pa zaklju\v cujemo
+  da nakon poziva metoda \textit{Swap} va\v zi:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+    \;\;\land\;\;
+    (\forall q)(i \le q < n \Rightarrow A[i] \le A[q]).
+  $$
+  Sada uo\v cavamo da je desni konjunkt zapravo konsekvent implikacije prve formule za $p = i$, pa dobijamo:
+  $$
+    (\forall p)(0 \le p < i + 1 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])),
+  $$
+  \v sto je ta\v cno formula $\phi(i + 1)$.
+  Dakle, kada se poslednji put izvr\v si telo ``for''-ciklusa znamo da \'ce va\v ziti $\phi(n)$:
+  $$
+    (\forall p)(0 \le p < n \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+  $$
+  \v sto je i trebalo dokazati.
+\end{proof}
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ZADACI:
+
+Svaki broj se mo\v ze zapisati kao zbir razli\v citih stepena broja~2.
+
+Neka je niz $a_1, a_2, a_3, \ldots$ celih brojeva definisan ovako:
+$$
+  a_1 = 1, a_2 = 2, a_3 = 3, a_n = a_{n-1} + a_{n-2} + a_{n-3}$. Dokazati da je $a_n < 2^n$ za sve $n$.
+$$
+
+Neka je niz $a_1, a_2, a_3, \ldots$ celih brojeva definisan ovako:
+$$
+  a_1 = 1, a_2 = 3, a_3 = 7, a_n = a_{n-1} + a_{n-2} + a_{n-3}$. Dokazati da su svi $a_n$ neparni.
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

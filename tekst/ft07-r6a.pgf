@@ -1,0 +1,14 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-474.778}{-124.95}}
+
+  \begin{pgfscope}
+    \pgfsetfillcolor{white}
+    \pgfpathellipse{\pgfpointxy{550.0}{250.0}}{\pgfpointxy{8.0}{0.0}}{\pgfpointxy{0.0}{8.0}}
+    \pgfusepath{fill,stroke}
+  \end{pgfscope}
+  \pgftext[top,at={\pgfpointxy{550.0}{230.0}}]{1}
+\end{pgfpicture}

@@ -1,0 +1,987 @@
+\newcommand\Pal{\mathit{Pal}}
+\newcommand\Zag{\mathit{Zag}}
+\newcommand\BinSab{\mathit{BinSab}}
+\newcommand\Sab{\mathit{Sab}}
+\newcommand\Mnoz{\mathit{Mnoz}}
+\newcommand\Sloz{\mathit{Sloz}}
+\newcommand\Prost{\mathit{Prost}}
+\newcommand\Th{\mathrm{Th}}
+
+\chapter{Formalne teorije}
+
+Formalne teorije predstavljaju apstrakciju deduktivnog procesa. U ovom poglavlju
+se sre\'cemo sa osnovnim pojmovima formalnih teorija i razmatramo nekoliko
+veoma jednostavnih, ve\v sta\v ckih primera kako bismo se navikli na terminologiju
+i strategije koje su uobi\v cajene u rezonovanju o formalnim matemati\v ckim
+teorijama. U naredna dva poglavlja \'cemo predstaviti dve va\v zne formalne teorije
+u matematici: iskazni ra\v cun i predikatski ra\v cun.
+
+\section{Pojam formalne teorije}
+
+\emph{Alfabet}%
+    \index{alfabet}
+je proizvoljan neprazan kona\v can skup. Elemente alfabeta $A$ \'cemo
+zvati \emph{slova}%
+    \index{slovo},
+a \emph{re\v c nad $A$}%
+    \index{re\v c}
+je svaki niz simbola iz~$A$.
+Preciznije, \emph{re\v c du\v zine $k$ nad alfabetom $A$} je proizvoljan element skupa~$A^k$.
+Prilikom zapisivanja re\v ci ne\'cemo pisati zareze i zagrade kako bi re\v ci vi\v se li\v cile na
+re\v ci na koje smo navikli.
+
+\paragraph{Primer.}
+  Evo nekoliko re\v ci nad alfabetom $A = \{a, b, n\}$: \textit{banana}, \textit{abba},
+  \textit{aa}, ili prosto \textit{n}. Prva od njih ima \v sest slova, slede re\v c sa \v cetiri
+  slova, re\v c sa dva slova i na kraju re\v c od jednog slova.
+
+\bigskip
+
+Va\v zno je razumeti da su re\v ci sa kojima \'cemo raditi u ovom kursu \emph{formalne re\v ci},
+dakle, nizovi simbola kojima nije pridru\v zeno nikakvo zna\v cenje. Prema tome,
+\textit{nbbaaa} je jednako dobra re\v c kao \textit{banana}. Problem zna\v cenja
+re\v ci \'cemo prepusiti drugim disciplinama.
+
+Neka je~$\lambda$ re\v c nad alfabetom~$A$.
+Du\v zinu re\v ci~$\lambda$%
+    \index{du\v zina re\v ci}%
+    \index{re\v c!du\v zina}
+\'cemo ozna\v citi sa~$|\lambda|$%
+    \glossary{{$|\lambda|$}{du\v zina re\v ci $\lambda$}}.
+Za slovo~$a \in A$ sa $|\lambda|_a$%
+    \glossary{{$|\lambda|_a$}{broj pojavljivanja slova $a$ u re\v ci $\lambda$}}
+ozna\v cavamo broj pojavljivanja slova~$a$ u re\v ci~$\lambda$.
+
+\paragraph{Primer.}
+  Neka je $A = \{a, b, c, n\}$ i neka je $\lambda = banana$ re\v c nad~$A$. Tada je $|\lambda| = 6$,
+  $|\lambda|_a = 3$, $|\lambda|_b = 1$, $|\lambda|_c = 0$ i $|\lambda|_n = 2$.
+
+\bigskip
+
+Najjednostavnija i najprirodnija operacija nad formalnim re\v cima je nadovezivanje re\v ci.
+Neka su $\lambda$ i $\mu$ dve re\v ci nad alfabetom~$A$. Tada sa $\lambda\mu$ ozna\v cavamo re\v c koja se dobija
+tako \v sto re\v ci $\lambda$ i $\mu$ nadove\v zu, odnosno, tako \v sto se slova re\v ci $\mu$
+dopi\v su odmah iza slova re\v ci~$\lambda$. Za re\v c $\lambda\mu$ ka\v zemo da je dobijena
+\emph{konkatenacijom}%
+    \index{konkatenacija}
+ili \emph{nadovezivanjem}%
+    \index{nadovezivanje re\v ci}
+re\v ci~$\lambda$ i~$\mu$.
+
+\paragraph{Primer.} Neka je $A = \{a, b, c, n\}$ i neka je $\lambda = ban$ i $\mu = ana$.
+  Tada je $\lambda\mu = banana$.
+
+\bigskip
+
+Dopu\v stamo i re\v ci bez slova. Na svakom alfabetu postoji ta\v cno jedna takva re\v c
+koju zovemo \emph{prazna re\v c}%
+    \index{prazna re\v c}%
+    \index{re\v c!prazna}
+i ozna\v cavamo je sa~$\epsilon$%
+    \glossary{{$\epsilon$}{prazna re\v c}}.
+To je re\v c du\v zine~$0$.
+Napomenimo jo\v s da je $\epsilon \lambda = \lambda \epsilon = \lambda$ za svaku re\v c~$\lambda$.
+Drugim re\v cima, prazna re\v c je neutralni element za operaciju nadovezivanja re\v ci.
+Skup \emph{svih} re\v ci (uklju\v cuju\'ci i praznu re\v c) nad alfabetom $A$ ozna\v cavamo sa $A^*$,%
+    \glossary{{$A^*$}{skup svih re\v ci nad alfabetom $A$, uklju\v cuju\'i i praznu re\v c}}
+dok skup svih \emph{nepraznih} re\v ci nad alfabetom $A$ ozna\v cavamo sa~$A^+$.%
+    \glossary{{$A^+$}{skup svih nepraznih re\v ci nad alfabetom $A$}}
+    
+\paragraph{Definicija.}
+  \emph{Formalna teorija} je ure\dj ena \v cetvorka $T = (A, F, X, R)$ gde je $A$ neki alfabet, $F$ je podskup skupa
+  $A^*$ koga zovemo \emph{skup formula}, $X$ je podskup skupa $F$ koga zovemo \emph{skup aksioma},
+  a $R$ je skup relacija na $F$ raznih arnosti koje zovemo \emph{pravila izvo\dj enja}.
+
+\paragraph{Primer: Formalna teorija $\Pal$.} Neka je $\Pal = (A, F, X, R)$ formalna teorija \v ciji alfabet je
+$A = \{a, d, i, m\}$, gde je $F = A^*$ (dakle, formule su sve re\v ci nad alfabetom~$A$),
+aksiome su sve jednoslovne re\v ci $X = \{a, d, i, m\}$, i koja ima \v cetiri pravila izvo\dj enja $R = \{r_a, r_d, r_i, r_m\}$, gde je:
+$$
+  \begin{array}{l@{\qquad}l}
+  r_a = \{(\phi, a\phi a) : \phi \in F\}, & r_i = \{(\phi, i\phi i) : \phi \in F\},\\
+  r_d = \{(\phi, d\phi d) : \phi \in F\}, & r_m = \{(\phi, m\phi m) : \phi \in F\}.
+  \end{array}
+$$
+Pravila izvo\dj enja do\v zivljavamo na slede\'ci na\v cin: pravilo $r_a$ zna\v ci da iz formule $\phi$
+``mo\v zemo da izvedemo'' formulu $a \phi a$, i sli\v cno za ostala dva pravila. Zato pravila izvo\dj enja
+\v ce\v s\'ce (i preglednije) zapisujemo i ovako:
+$$
+  r_a : \begin{array}{c}
+    \phi \\ \hline
+    a \phi a
+  \end{array}, \qquad
+  r_d : \begin{array}{c}
+    \phi \\ \hline
+    d \phi d
+  \end{array}, \qquad
+  r_i : \begin{array}{c}
+    \phi \\ \hline
+    i \phi i
+  \end{array}, \qquad
+  r_m : \begin{array}{c}
+    \phi \\ \hline
+    m \phi m
+  \end{array}.
+$$
+
+\paragraph{Primer: Formalna teorija $\Zag$.} Neka je $\Zag = (A, F, X, R)$ formalna teorija \v ciji alfabet je
+$A = \{(, )\}$, gde je
+$
+  F = \{ \lambda \in A^* : |\lambda|_( = |\lambda|_)\}
+$
+skup svih re\v ci u kojima je broj otvorenih zagrada jednak broju zatvorenih zagrada,
+koja ima samo jednu aksiomu $X = \{()\}$, i dva pravila izvo\dj enja $R = \{r, s\}$, gde je:
+$$
+  r = \{(\phi, (\phi)) : \phi \in F\}, \qquad s = \{(\phi, \psi, \phi\psi) : \phi, \psi \in F\},
+$$
+ili, preglednije,
+$$
+  r : \begin{array}{c}
+    \phi \\ \hline
+    (\phi)
+  \end{array}, \qquad
+  s : \begin{array}{c}
+    \phi \qquad \psi \\ \hline
+    \phi\psi
+  \end{array}.
+$$
+Pravilo $s$ zna\v ci da iz formule $\phi$ i formule $\psi$ ``mo\v zemo da izvedemo'' formulu $\phi\psi$.
+
+\bigskip
+
+Pravila izvo\dj enja u formalnim teorijama nam omogu\'cuju da, polaze\'ci od aksioma formalne teorije, izvedemo neke
+od formula formalne teorije (te formule koje se mogu ``izvesti''
+smatramo ``dobrim'' ili ``va\v znim'').
+
+%\paragraph{Primer: Formalna teorija $\Pal$ (nastavak).} Evo primera ``izvo\dj enja'' jedne formule u formalnoj
+%teoriji $\Pal$:
+%$$
+%  i \;\overset{r_m}{\longrightarrow}\; mim
+%    \;\overset{r_a}{\longrightarrow}\; amima
+%    \;\overset{r_d}{\longrightarrow}\; damimad
+%    \;\overset{r_a}{\longrightarrow}\; adamimada
+%    \;\overset{r_m}{\longrightarrow}\; madamimadam.
+%$$
+
+\bigskip
+
+\begin{explanationpic}
+  \paragraph{Primer: Formalna teorija $\Pal$ (nastavak).} Pored je dat primer ``izvo\dj enja'' jedne formule u formalnoj
+  teoriji $\Pal$.
+  
+  Pitanje: Da li mo\v zemo da pretpostavimo \v sta daje svako ``izvo\dj enje'' u ovoj formalnoj teoriji?
+  (Uputstvo: ``Madam, I'm Adam.'')
+\sidepic
+  \ \\
+  \input ft01-pal.pgf
+\end{explanationpic}
+
+\paragraph{Primer: Formalna teorija $\Zag$ (nastavak).} Evo primera ``izvo\dj enja'' jedne formule u formalnoj
+  teoriji $\Zag$.
+
+\begin{center}
+  \input ft01-zag.pgf
+\end{center}
+
+  Pitanje: Da li mo\v zemo da pretpostavimo \v sta daje svako ``izvo\dj enje'' u ovoj formalnoj teoriji?
+  (Uputstvo: setiti se algebarskih izraza sa zagradama.)
+
+
+\bigskip
+
+Kada bi formule u formalnoj teoriji bile neke matemati\v cke tvrdnje onda bi
+``izvo\dj enje'' formule zapravo odgovaralo dokazu tvrdnje. Zato se pojam ``izvo\dj enja''
+formalizuje na slede\'ci na\v cin.
+
+\paragraph{Definicija.} \emph{Dokaz} u formalnoj teoriji $T$ je niz formula
+$
+  \phi_1, \, \phi_2, \, \ldots, \, \phi_n
+$
+teorije $T$ takav da je svaka formula u nizu ili aksioma teorije $T$, ili je dobijena od nekih od
+prethodnih formula u nizu primenom nekog od pravila izvo\dj enja teorije~$T$.
+Za poslednju formulu u dokazu ka\v zemo da je \emph{posledica} formalne teorije~$T$.
+Skup svih posledica formalne teorije~$T$ ozna\v cavamo sa~$\Th(T)$.
+
+\paragraph{Primer: Formalna teorija $\Pal$ (nastavak).}
+Poka\v zimo da je $\Th(\Pal)$ skup svih palindroma neparne du\v zine
+koji se mogu napisati na alfabetu~$A$.
+(Re\v c je \emph{palindrom} ako se i sleva na desno i zdesna na levo \v cita na isti na\v cin;
+na primer \textit{abba} i \textit{potop} su palindromi, prvi parne, a drugi neparne du\v zine.)
+Dakle, dokazujemo slede\'cu jednakost skupova:
+$$
+  \Th(\Pal) = \{ \lambda \in A^* : \lambda \text{ je palindrom neparne du\v zine}\}.
+$$
+
+$(\subseteq)$ Neka je $\lambda \in \Th(\Pal)$. Tada postoji dokaz u kome je $\lambda$
+poslednja formula. Dokazujemo da je $\lambda$ palindrom neparne du\v zine
+indukcijom po du\v zini dokaza za~$\lambda$.
+
+Ako postoji dokaz za $\lambda$ du\v zine~1, ovako:
+$$
+  \lambda
+$$
+onda je $\lambda$ aksioma (jer ne mo\v ze biti izvedena iz nekih prethodnih formula primenom nekog od
+pravila izvo\dj enja), a sve aksiome teorije $\Pal$ su palnidromi neparne du\v zine.
+
+Pretpostavimo da je tvr\dj enje ta\v cno za sve posledice teorije $\Pal$ koje imaju dokaz du\v zine
+manje od $n$ i neka je $\lambda$ posledica teorije $\Pal$ koja ima dokaz du\v zine~$n$:
+$$
+  \phi_1, \, \phi_2, \, \ldots, \, \phi_{n-1}, \, \lambda.
+$$
+Ako je $\lambda$ aksioma, tvr\dj enje sledi odmah. Pretpostavimo, zato, da $\lambda$ nije aksioma.
+Onda postoji neko $k < n$ i neko pravilo izvo\dj enja $r_x$ takvo da je formula $\lambda$ dobijena
+od formule $\phi_k$ primenom pravila $r_x$. Odatle sledi da je
+$$
+  \lambda = x \phi_k x.
+$$
+Obzirom da formula $\phi_k$ ima dokaz du\v zine $k < n$, ona je palindrom neparne du\v zine
+prema induktivnoj hipotezi, pa je onda
+i formula $x \phi_k x = \lambda$ palindrom neparne du\v zine.
+
+\medskip
+
+$(\supseteq)$ Neka je $\lambda \in A^*$ palindrom neparne du\v zine. Poka\v zimo indukcijom po du\v zini
+re\v ci $\lambda$ da je $\lambda \in \Th(\Pal)$.
+
+Ako je $|\lambda| = 1$ onda je $\lambda$ re\v c du\v zine 1 nad alfabetom $A$, a sve takve re\v ci su
+aksiome teorije $\Pal$. Zato je $\lambda \in \Th(\Pal)$.
+
+Pretpostavimo da je tvr\dj enje ta\v cno za sve palindrome neparne du\v zine koja je strogo
+manja od $n$ i neka je $\lambda$ palindrom neparne du\v zine~$n$. Kako je $\lambda$ palindrom,
+postoji slovo $x \in A$ i re\v c $\mu \in A^*$ takvi da je $\lambda = x \mu x$. Zato \v sto je $\lambda$
+palindrom neparne du\v zine lako se zaklju\v cuje da je $\mu$ tako\dj e palindrom i da je
+$|\mu| = |\lambda| - 2$ neparan broj manji od $n$. Prema induktivnoj hipotezi, postoji dokaz
+u $T$ \v cija poslednja formula je $\mu$:
+$$
+  \phi_1, \; \phi_2, \; \ldots, \; \phi_l, \; \mu.
+$$
+Sada se lako vidi da je
+$$
+  \phi_1, \; \phi_2, \; \ldots, \; \phi_l, \; \mu, \; \underbrace{x \mu x}_{= \lambda}
+$$
+tako\dj e dokaz u $T$ jer se poslednja formula u ovom dokazu dobija od pretposlednje primenom pravila $r_x$.
+
+Ovim je okon\v can dokaz tvr\dj enja da je $\Th(\Pal)$ skup svih palindroma neparne du\v zine
+koji se mogu napisati na alfabetu~$A$.
+
+\paragraph{Primer: Formalna teorija $\Zag$ (nastavak).}
+Poka\v zimo da je $\Th(\Zag)$ skup svih \emph{pravilnih zagradastih re\v ci}.
+
+\emph{Zagradasta re\v c} je svaka re\v c nad alfabetom $A = \{ (, ) \}$. Za zagradastu re\v c $\lambda$
+ka\v zemo da je \emph{pravilna} ako
+\begin{itemize}
+\item
+  ima isti broj otvorenih i zatvorenih zagrada, i
+\item
+  u svakom po\v cetnom segmentu je broj otvorenih zagrada $\ge$ od broja zatvorenih zagrada.
+\end{itemize}
+Na primer, $))())()$ je jedna zagradasta re\v c. Ona nije pravilna jer nema isti broj otvorenih i zatvorenih zagrada.
+Zagradasta re\v c $())(()$ ima isti broj otvorenih i zatvorenih zagrada, ali nije pravilna jer po\v cetni segment
+$())$ ne ispunjava drugi zahtev. Primer pravilne zagradaste re\v ci bi bio, recimo, $(())()(()())$. Intuitivno,
+u pravilnoj zagradastoj re\v ci su zagrade raspore\dj ene ``pravilno'' u smislu raspore\dj ivanja zagrada u
+algebarskom izrazu. Svaka pravilna zagradasta re\v c se mo\v ze dobiti od nekog pravilno zapisanog algebarskog izraza
+kada iz njega izbacimo sve simbole koji nisu zagrade.
+Dakle, poka\v zimo da je:
+$$
+  \Th(\Zag) = \{ \lambda \in F : \lambda \text{ je pravilna zagradasta re\v c} \}.
+$$
+
+$(\subseteq)$ Neka je $\lambda \in \Th(\Zag)$. Tada postoji dokaz u kome je $\lambda$
+poslednja formula. Dokazujemo da je $\lambda$ pravilna zagradasta re\v c
+indukcijom po du\v zini dokaza za~$\lambda$.
+
+Ako postoji dokaz za $\lambda$ du\v zine~1
+onda je $\lambda$ aksioma (jer ne mo\v ze biti izvedena iz nekih prethodnih formula primenom nekog od
+pravila izvo\dj enja), a jedina aksiome teorije $\Zag$ je $()$, \v sto je pravilna zagradasta re\v c.
+
+Pretpostavimo da je tvr\dj enje ta\v cno za sve posledice teorije $\Zag$ koje imaju dokaz du\v zine
+manje od $n$ i neka je $\lambda$ posledica teorije $\Zag$ koja ima dokaz du\v zine~$n$:
+$$
+  \phi_1, \, \phi_2, \, \ldots, \, \phi_{n-1}, \lambda.
+$$
+Ako je $\lambda$ aksioma, tvr\dj enje sledi odmah. Pretpostavimo, zato, da $\lambda$ nije aksioma.
+Onda je $\lambda$ dobijena primenom nekog od pravila izvo\dj enja na neke od formula koje se javljaju
+ranije u dokazu. Obzirom da teorija ima dva pravila izvo\dj enja, razmatramo dva slu\v caja:
+
+\medskip
+
+$(1^\circ)$ $\lambda$ je dobijena primenom pravila $r$ na formulu $\phi_j$ za neko $j < n$. Tada je
+$\lambda = (\phi_j)$. Formula $\phi_j$ je pravilna zagradasta re\v c prema induktivnoj hipotezi, pa odatle
+odmah sledi da je i $\lambda = (\phi_j)$ pravilna zagradasta re\v c.
+
+\medskip
+
+$(2^\circ)$ $\lambda$ je dobijena primenom pravila $s$ na formule $\phi_j$  i $\phi_k$
+za neke $j, k < n$. Tada je $\lambda = \phi_j \phi_k$.
+Formule $\phi_j$ i $\phi_k$ su pravilne zagradaste re\v ci prema induktivnoj hipotezi, pa odatle
+odmah sledi da je i $\lambda = \phi_j \phi_k$ pravilna zagradasta re\v c.
+
+\medskip
+
+$(\supseteq)$ Neka je $\lambda \in F$ pravilna zagradasta re\v c. Poka\v zimo indukcijom po du\v zini
+re\v ci $\lambda$ da je $\lambda \in \Th(\Zag)$.
+
+Nijedna re\v c du\v zine 1 ne mo\v ze biti pravilna zagradasta re\v c, tako da indukciju po\v cinjemo
+od $|\lambda| = 2$. Jedina pravilna zagradasta re\v c du\v zine~2 je $()$, \v sto je
+aksioma teorije $\Zag$. Zato je $\lambda \in \Th(\Zag)$.
+
+Pretpostavimo da je tvr\dj enje ta\v cno za sve pravilne zagradaste re\v ci \v cina du\v zina je strogo
+manja od $n$ i neka je $\lambda$ pravilna zagradasta re\v c du\v zine~$n$. Tada, prema definiciji
+pravilne zagradaste re\v ci, prvo slovo re\v ci $\lambda$ mora biti~$($. Uo\v cimo zatvorenu zagradu
+koja odgovara ovoj otvorenoj zagradi. Ovim parom odgovaraju\'cih zagrada je re\v c $\lambda$ razlo\v zena
+na slede\'ci na\v cin:
+$$
+  \lambda = (\mu)\sigma
+$$
+Zato \v sto je $\lambda$ pravilna zagradasta re\v ci i zato \v sto je uo\v ceni par zagrada par
+odgovaraju\'cih zagrada sledi da svaka od re\v ci $\mu$ i $\sigma$ prazna re\v c ili pravilna zagradasta
+re\v c du\v zine manje od $|\lambda|$. Sada bi trebalo razmotriti \v cetiri slu\v caja u zavisnosti od
+toga da li su $\mu$ i $\sigma$ prazne re\v ci. Mi razmotriti samo najinteresantniji slu\v caj
+kada ni $\mu$ ni $\sigma$ nisu prazne re\v ci jer se dokazi u preostala tri slu\v caja mogu dobiti
+modifikacijom ovog dokaza.
+
+Prema induktivnoj hipotezi postoje dokazi u $T$ \v cija poslednje formule su $\mu$, odnosno,~$\sigma$:
+$$
+  \phi_1, \; \phi_2, \; \ldots, \; \phi_k, \; \mu \text{\qquad i\qquad}
+  \psi_1, \; \psi_2, \; \ldots, \; \psi_l, \; \sigma.
+$$
+Nadovezivanjem ova dva dokaza se lako dobija dokaz formule $\lambda$:
+$$
+  \phi_1, \; \phi_2, \; \ldots, \; \phi_k, \; \mu, \;
+  \psi_1, \; \psi_2, \; \ldots, \; \psi_l, \; \sigma, \;
+  (\mu), \; \underbrace{(\mu)\sigma}_{= \lambda},
+$$
+gde smo pretposlednju formulu novog dokaza dobili tako \v sto smo na formulu $\mu$ primenili pravilo $r$,
+a poslednju tako \v sto smo na pretposlednju formule $(\mu)$ i $\sigma$
+primenili pravilo~$s$.
+
+Ovim je okon\v can dokaz tvr\dj enja da je $\Th(\Zag)$ skup svih pravilnih zagradastih re\v ci.
+
+\paragraph{Primer.} Na\'ci formalnu teoriju nad alfabetom $A = \{0, 1\}$ \v cije posledice su sve re\v ci
+kod kojih je broj jedinica paran.
+
+\medskip
+
+\noindent
+\textit{Re\v senje.} To je formalna teorija $T = (A, F, X, R)$ gde je $A = \{0, 1\}$, $F = A^*$,
+$X = \{\epsilon\}$ i koja ima dva pravila izvo\dj enja:
+$$
+  r : \begin{array}{c}
+    \phi \\ \hline
+    11\phi
+  \end{array}, \qquad
+  s : \begin{array}{c}
+    \phi\psi \\ \hline
+    \phi0\psi
+  \end{array}.
+$$
+Pravilo $s$ zna\v ci da se iz formule $\lambda = \phi\psi$ mo\v ze izvesti formula $\mu = \phi0\psi$,
+odnosno, da se u formuli $\lambda$ mo\v ze dopisati nula gdegod to po\v zelimo.
+
+\paragraph{Primer: Sve mo\v ze da se opi\v se formalnom teorijom.}
+Za dati proizvoljan alfabet $A$ i proizvoljno $S \subseteq A^*$ na\'ci formalnu teoriju $T$ nad alfabetom
+$A$ takvu da je $\Th(T) = S$.
+
+\medskip
+
+\noindent
+\textit{Re\v senje.} To je formalna teorija $T = (A, F, X, R)$ gde je $A$ dato, $F = A^*$,
+$X = S$ i koja ima samo jedno pravilo izvo\dj enja:
+$$
+  r : \begin{array}{c}
+    \phi \\ \hline
+    \phi
+  \end{array}.
+$$
+Ova formalna teorija ne mo\v ze ni\v sta novo da ``izvede'' jer su svi dokazi oblika
+$$
+  \phi, \; \phi, \; \ldots, \; \phi.
+$$
+Zato je $\Th(T) = X = S$.
+
+\bigskip
+
+Prethodni primer pokazuje za\v sto je va\v zno insistirati na tome da skupovi aksioma ``va\v znih'' teorija
+imaju neka specijalna svojstva. Da bi teorija bila ``interesantna'' i ``korisna'' va\v zno je da njen skup aksioma
+bude ``minimalan'', ``efektivno nabrojiv'' ili na neki drugi na\v cin ``lep''.
+
+\section{Formalne teorije umeju da ra\v cunaju}
+
+Postoje situacije u kojima je proces izvo\dj enja formule interesantniji od opisa skupa svih formula
+koje su posledice formalne teorije. Primer koga pokazujemo u ovom odeljku ilustruje nekoliko takvih situacija.
+Pokaza\'cemo formalnu teoriju koja sabira brojeve, formalnu teoriju koja mno\v zi brojeve,
+formalnu teoriju koja opisuje sve slo\v zene brojeve i
+formalnu teoriju koja opisuje sve proste brojeve. Sve formalne teorije koje ovde pokazujemo
+je predlo\v zio Daglas Hof\v stater u svojoj knjizi ``Gedel, E\v ser, Bah: Beskrajna zlatna pletenica''\footnote{%
+  Douglas R. Hofstadter: ``G\"odel, Escher, Bach: An Eternal Golden Braid'',
+  Basic Books 1999 (first published 1979)}. Mi smo samo prilagodili oznake i prezentaciju ovih teorija.
+
+\begin{quote}
+  \textbf{Ovo je samo prvi, mali korak ka osnovnom cilju kursa:
+  demonstrirati da formalne teorije mogu da izvode proizvoljne ra\v cunske procese.}
+\end{quote}
+
+
+\subsection{Formalna teorija $\Sab$}
+
+Formalna teorija $\Sab$ opisuje proces sabiranja prirodnih brojeva. Brojeve \'cemo predstavljati kao nizove recki, ovako:
+\begin{align*}
+  &1 \quad\to\quad !\\
+  &2 \quad\to\quad !!\\
+  &3 \quad\to\quad !!!
+\end{align*}
+Da bismo napravili jasnu razliku izme\dj u simbola formalne teorije i simbola metajezika, aritmeti\v cke izraze \'cemo zapisivati ovako:
+\begin{align*}
+  &2 + 3 = 5 \quad\to\quad !! \oplus !!! \equiv !!!!!
+\end{align*}
+Neka je $\Sab = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \Boxed\oplus, \Boxed\equiv\}$ \v ciji skup formula
+je $F = A^*$, \v ciji skup aksioma je
+$$
+  X = \{\phi \oplus ! \equiv \phi! : \phi \in \{!\}^+\}
+$$
+i koja ima jedno pravilo izvo\dj enja:
+$$
+  \begin{array}{c}
+    \phi \oplus \psi \equiv \theta \\ \hline
+    \phi \oplus \psi! \equiv \theta!
+  \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+$$
+Tada se lako vidi da je
+$$
+  \Th(\Sab) = \{\phi \oplus \psi \equiv \theta : \phi, \psi, \theta \in \{!\}^+ \text{ i } |\phi| + |\psi| = |\theta|\}.
+$$
+Dokaz se zasniva na \v cinjenici da je $x + (y + 1) = (x + y) + 1$.
+
+\subsection{Formalna teorija $\Mnoz$}
+
+Sada \'cemo opisati formalnu teoriju $\Mnoz$ koja opisuje proces mno\v zenja prirodnih brojeva.
+Brojeve \'cemo, kao i ranije, predstavljati kao nizove recki, a odgovaraju\'ce aritmeti\v cke izraze \'cemo zapisivati ovako:
+\begin{align*}
+  &2 \cdot 3 = 6 \quad\to\quad !! \otimes !!! \equiv !!!!!!
+\end{align*}
+Neka je $\Mnoz = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \Boxed\otimes, \Boxed\equiv\}$ \v ciji skup formula je
+$F = A^*$, \v ciji skup aksioma je
+$$
+  X = \{\phi \otimes ! \equiv \phi : \phi \in \{!\}^+\}
+$$
+i koja ima jedno pravilo izvo\dj enja:
+$$
+  \begin{array}{c}
+    \phi \otimes \psi \equiv \theta \\ \hline
+    \phi \otimes \psi! \equiv \theta\phi
+  \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+$$
+Opet se lako vidi da je
+$$
+  \Th(\Mnoz) = \{\phi \otimes \psi \equiv \theta : \phi, \psi, \theta \in \{!\}^+ \text{ i } |\phi| \cdot |\psi| = |\theta|\}.
+$$
+Dokaz se zasniva na \v cinjenici da je $x \cdot (y + 1) = xy + x$.
+
+\subsection{Formalna teorija $\Sloz$}
+
+Formalna teorija $\Sloz$ je pro\v sirenje formalne teorije $\Mnoz$ koja nam omogu\'cuje da opi\v semo \v cinjenicu da je neki
+broj slo\v zen. Da se podsetimo, broj $n$ je slo\v zen ako postoje $a, b \ge 2$ takvi da je $n = ab$.
+
+Neka je $\Sloz = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \Boxed\otimes, \Boxed\equiv, S\}$ \v ciji skup formula je
+$F = A^*$, \v ciji skup aksioma je
+$$
+  X = \{\phi \otimes ! \equiv \phi : \phi \in \{!\}^+\}
+$$
+i koja ima dva pravila izvo\dj enja:
+$$
+  \begin{array}{c}
+    \phi \otimes \psi \equiv \theta \\ \hline
+    \phi \otimes \psi! \equiv \theta\phi
+  \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+$$
+i
+$$
+  \begin{array}{c}
+    \phi! \otimes \psi! \equiv \theta \\ \hline
+    S\theta
+  \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+$$
+Sada kada znamo sve posledice teorije $\Mnoz$, lako se vidi da je
+\begin{align*}
+  \Th(\Sloz) = \mathstrut
+    &\{\phi \otimes \psi \equiv \theta : \phi, \psi, \theta \in \{!\}^+ \text{ i } |\phi| \cdot |\psi| = |\theta|\}\\
+    &\mathstrut \union \{S\theta : \theta \in \{!\}^+ \text{ i } |\theta| \text{ je slo\v zen broj} \}.
+\end{align*}
+
+\subsection{Formalna teorija $\Prost$}
+
+Kona\v cno, pokaza\'cemo i formalnu teoriju koja mo\v ze da opi\v se \v cinjenicu da je broj prost.
+Da se podsetimo, broj $n \ge 2$ je prost ako ima samo dva delioca, 1 i $n$. Ako je $n \ge 3$ onda mo\v zemo re\'ci i ovako:
+broj $n$ je prost ako nije deljiv nijednim od brojeva 2, 3, \ldots,  $n - 1$.
+
+Neka je $\Prost = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \#, @, P\}$ \v ciji skup formula je
+$F = A^*$, \v ciji skup aksioma je
+$$
+  X = \{\phi \psi \# \phi : \phi, \psi \in \{!\}^+\} \union \{P!!\}
+$$
+i \v cija pravila izvo\dj enja su:
+$$
+  r_1 : \begin{array}{c}
+    \phi \# \psi \\ \hline
+    \phi \# \phi\psi
+  \end{array}, \qquad
+  r_2 : \begin{array}{c}
+    !! \# \phi \\ \hline
+    \phi @ !!
+  \end{array},\qquad
+  r_3 : \begin{array}{c}
+    \theta @ \phi \qquad \phi! \# \theta\\ \hline
+    \theta @ \phi!
+  \end{array},\qquad
+  r_4 : \begin{array}{c}
+    \phi! @ \phi \\ \hline
+    P\phi!
+  \end{array},
+$$
+za sve $\phi, \psi, \theta \in \{!\}^+$.
+
+Pre nego \v sto nastavimo sa analizom ovog sistema da\'cemo intuiciju koju opisuju ova pravila.
+Formula
+$$
+  \phi \# \psi
+$$
+zna\v ci ``broj $|\phi|$ se ne sadr\v zi u broju $|\psi|$''.
+Na primer, aksioma $!!!!\#!!!$ zna\v ci ``4 se ne sadr\v zi u 3'' ili, kra\'ce, $4 \nmid 3$.
+Formula
+$$
+  \phi @ \psi
+$$
+zna\v ci ``broj $|\phi|$ nije deljiv nijednim od brojeva $2, \ldots, |\psi|$''.
+Na primer, formula $!!!!!!!@!!!!!$ zna\v ci ``7 nije deljiv nijednim od brojeva $2, 3, 4, 5$. Kona\v cno, formula
+$$
+  P\phi
+$$
+zna\v ci ``$|\phi|$ je prost broj''.
+
+Sada je lako protuma\v citi aksiome: poslednja ka\v ze da je 2 prost broj, dok ostale aksiome zna\v ce da $(n + k) \nmid n$
+za sve $n, k \ge 1$.
+
+Pravilo $r_1$ ka\v ze: ``ako $n \nmid k$ onda $n \nmid (n + k)$''.
+
+Pravilo $r_2$ ka\v ze: ``ako $2 \nmid n$ onda $n$ nije deljiv brojem 2''.
+
+Pravilo $r_3$ ka\v ze: ``ako $n$ nije deljiv nijednim od brojeva 2, \ldots, $k$ i ako $(k + 1) \nmid n$ onda
+$n$ nije deljiv nijednim od brojeva 2, \ldots, $k + 1$.
+
+Kona\v cno, pravilo $r_4$ ka\v ze: ``ako $n + 1$ nije deljiv nijednim od brojeva 2, \ldots, $n$ onda je $n + 1$ prost broj''.
+
+Sada se mo\v ze pokazati da za $\phi \in \{!\}^+$ va\v zi slede\'ce:
+$$
+  P\phi \in \Th(\Prost) \text{ ako i samo ako je } |\phi| \text{ prost broj}.
+$$
+Ovaj dokaz nije te\v zak, ali je tehni\v cki zahtevan. Zato \'cemo umesto dokaza dati primer izvo\dj enja teoreme
+$P!!!!!$ koja ka\v ze da je 5 prost broj.
+
+\begin{center}
+  \input ft01-prost.pgf
+\end{center}
+
+\paragraph{Zadaci.}
+
+\ZAD{ft01-01}{%
+  Opisati sve posledice formalne teorije $T = (A, F, X, R)$ \v ciji alfabet je
+  $A = \{a, b\}$, gde je $F = A^*$,
+  aksioma je samo formula $b$ i koja ima dva pravila izvo\dj enja:
+  $$
+    r_1 : \begin{array}{c}
+      \phi \\ \hline
+      a \phi b
+    \end{array}, \qquad
+    r_2 : \begin{array}{c}
+      \phi \\ \hline
+      \phi b
+    \end{array}.
+  $$
+}
+
+\ZAD{ft01-02a}{%
+  Opisati sve posledice formalne teorije $T = (A, F, X, R)$ \v ciji alfabet je
+  $A = \{a, b\}$, gde je $F = A^*$,
+  aksioma je samo formula $a$ i koja ima dva pravila izvo\dj enja:
+  $$
+    r_1 : \begin{array}{c}
+      \phi \\ \hline
+      \phi a
+    \end{array}, \qquad
+    r_2 : \begin{array}{c}
+      \phi \\ \hline
+      \phi b
+    \end{array}.
+  $$
+}
+
+\ZAD{ft01-02b}{%
+  Opisati sve posledice formalne teorije $T = (A, F, X, R)$ \v ciji alfabet je
+  $A = \{a, b\}$, gde je $F = A^*$,
+  aksioma je samo formula $b$ i koja ima dva pravila izvo\dj enja:
+  $$
+    r_1 : \begin{array}{c}
+      \phi \\ \hline
+      a \phi
+    \end{array}, \qquad
+    r_2 : \begin{array}{c}
+      \phi \\ \hline
+      b \phi
+    \end{array}.
+  $$
+}
+
+\ZAD{ft01-03a}{%
+  Opisati sve posledice formalne teorije $T = (A, F, X, R)$ \v ciji alfabet je
+  $A = \{a, b, \ldots, z, 0, 1, \ldots, 9\}$ (sva mala slova engleske abecede i sve cifre),
+  gde je $F = A^*$, aksiome su $X = \{a, b, \ldots, z\}$ i koja za svako slovo $\sigma \in A$
+  ima po jedno pravilo izvo\dj enja:
+  $$
+    r_\sigma : \begin{array}{c}
+      \phi \\ \hline
+      \phi \sigma
+    \end{array}.
+  $$
+}
+
+\ZAD{ft01-03b}{%
+  Opisati sve posledice formalne teorije $T = (A, F, X, R)$ \v ciji alfabet je
+  $A = \{0, 1, \ldots, 9, -, .\}$ (sve cifre, simbol ``minus'' i simbol ``ta\v cka''),
+  gde je $F = A^*$, aksiome su $X = \{0, 1, \ldots, 9\}$ i koja za svako $\sigma \in \{0, 1, \ldots, 9\}$
+  ima po jedno pravilo izvo\dj enja:
+  $$
+    r_\sigma : \begin{array}{c}
+      \phi \\ \hline
+      \phi \sigma
+    \end{array},
+  $$
+  i jo\v s dva pravila izvo\dj enja:
+  $$
+    r_. : \begin{array}{c}
+      \phi \text{\ je formula koja ne sadr\v zi simbol . (ta\v cka)} \\ \hline
+      \phi.
+    \end{array}
+  $$
+  $$
+    r_- : \begin{array}{c}
+      \phi \text{\ je formula koja ne sadr\v zi simbol $-$ (minus)}\\ \hline
+      -\phi
+    \end{array}.
+  $$
+}
+
+\ZAD{ft01-04}{%
+  Opisati formalnu teoriju nad alfabetom $A = \{0, 1\}$ \v cije posledice su sve re\v ci oblika
+  $
+    \underbrace{0\ldots 0}_k \underbrace{11\ldots 11}_{2k}
+  $
+  i ni\v sta drugo, $k \ge 1$.
+}
+
+\ZAD{ft01-04a}{%
+  Opisati formalnu teoriju nad alfabetom $A = \{0, 1\}$ \v cije posledice su sve re\v ci kod kojih
+  se 0 pojavljuje paran broj puta.
+}
+
+\ZAD{ft01-04b}{%
+  Opisati formalnu teoriju nad alfabetom $A = \{0, 1\}$ \v cije posledice su sve re\v ci kod kojih
+  se 0 pojavljuje paran broj puta, a 1 neparan broj puta.
+}
+
+\ZAD{ft01-07a}{%
+  Opisati \textbf{jednom re\v cenicom} teoreme formalne teorije
+  nad alfabetom $\{a, b\}$ \v cije formule su sve re\v ci nad alfabetom, koja ima samo jednu
+  aksiomu~$ba$, i koja ima samo jedno pravilo izvo\dj enja:
+  $$
+  \begin{array}{c}
+    \varphi \\ \hline
+    ba \varphi
+  \end{array}.
+  $$
+}
+
+\ZAD{ft01-07b}{%
+  Opisati \textbf{jednom re\v cenicom} teoreme formalne teorije
+  nad alfabetom $\{e, m\}$ \v cije formule su sve re\v ci nad alfabetom, koja ima samo jednu
+  aksiomu~$me$, i koja ima samo jedno pravilo izvo\dj enja:
+  $$
+  \begin{array}{c}
+    \varphi \\ \hline
+    m \varphi e
+  \end{array}.
+  $$
+}
+
+\ZAD{ft01-07d}{%
+  Neka je $(A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \Boxed\otimes, \Boxed\equiv, D\}$ \v ciji skup formula je
+  $F = A^*$, \v ciji skup aksioma je
+  $$
+    X = \{\phi \otimes ! \equiv \phi : \phi \in \{!\}^+\}
+  $$
+  i koja ima dva pravila izvo\dj enja:
+  $$
+    \begin{array}{c}
+      \phi \otimes \psi \equiv \theta \\ \hline
+      \phi \otimes \psi! \equiv \theta\phi
+    \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+  $$
+  i
+  $$
+    \begin{array}{c}
+      !!!!! \otimes \psi \equiv \theta \\ \hline
+      D\theta
+    \end{array}, \text{\quad za sve } \psi, \theta \in \{!\}^+.
+  $$
+  Opisati posledice ove formalne teorije koje su oblika $Q\theta$.
+}
+
+\ZAD{ft01-07d}{%
+  Neka je $(A, F, X, R)$ formalna teorija nad alfabetom $A = \{!, \Boxed\otimes, \Boxed\equiv, Q\}$ \v ciji skup formula je
+  $F = A^*$, \v ciji skup aksioma je
+  $$
+    X = \{\phi \otimes ! \equiv \phi : \phi \in \{!\}^+\}
+  $$
+  i koja ima dva pravila izvo\dj enja:
+  $$
+    \begin{array}{c}
+      \phi \otimes \psi \equiv \theta \\ \hline
+      \phi \otimes \psi! \equiv \theta\phi
+    \end{array}, \text{\quad za sve } \phi, \psi, \theta \in \{!\}^+.
+  $$
+  i
+  $$
+    \begin{array}{c}
+      \psi \otimes \psi \equiv \theta \\ \hline
+      Q\theta
+    \end{array}, \text{\quad za sve } \psi, \theta \in \{!\}^+.
+  $$
+  Opisati posledice ove formalne teorije koje su oblika $Q\theta$.
+}
+
+
+\ZAD{ft01-05a}{%
+  Da li je re\v c $ccbaaccbcbabcbaba$ teorema formalne teorije nad alfabetom $\{a, b, c\}$
+  \v cije formule su sve re\v ci nad alfabetom, \v ciji skup aksioma je $\{a, b, c\}$ i \v cija pravila izvo\dj enja su
+  $$
+    \begin{array}{c}
+      \varphi \\ \hline
+      ba \varphi c
+    \end{array}, \quad
+    \begin{array}{c}
+      \varphi \\ \hline
+      ac \varphi b
+    \end{array}, \quad
+    \begin{array}{c}
+      \varphi \\ \hline
+      c \varphi ba
+    \end{array}?
+  $$
+}
+
+\ZAD{ft01-05x}{%
+  Da li je re\v c $1011001011010101011000110$ posledica formalne teorije nad alfabetom $\{0, 1\}$
+  \v cije formule su sve re\v ci nad alfabetom, \v ciji skup aksioma je $\{0, 011, 101\}$ i \v cija pravila izvo\dj enja su
+  $$
+    \begin{array}{c}
+      \varphi \\ \hline
+      1\varphi 10
+    \end{array}, \quad
+    \begin{array}{c}
+      \varphi \\ \hline
+      101\varphi
+    \end{array}, \quad
+    \begin{array}{c}
+      \varphi \\ \hline
+      \varphi011
+    \end{array}, \quad
+    \begin{array}{c}
+      \varphi \qquad \psi \\ \hline
+      \varphi 0 \psi
+    \end{array}?
+  $$
+}
+
+\ZAD{ft01-06a}{%
+  Na\'ci dokaz posledice $001011010011$ formalne teorije nad alfabetom $\{0, 1\}$ \v cije formule su sve re\v ci,
+  koja ima samo jednu aksiomu $01$ i dva pravila izvo\dj enja:
+  $$
+  \begin{array}{c}
+    \varphi \quad \psi \\ \hline
+    \varphi\psi
+  \end{array}, \quad
+  \begin{array}{c}
+    \varphi \\ \hline
+    0 \varphi 1
+  \end{array}.
+  $$
+}
+
+\ZAD{ft01-MIU}{%
+  (Daglas Hof\v stater, 1979)
+  Formalna teorija MIU ima alfabet $A = \{M, I, U\}$, formule su sve re\v ci nad $A$, ima samo jednu
+  aksiomu, $MI$, i \v cetiri pravila izvo\dj enja:
+  $$
+  \begin{array}{c}
+    \varphi I \\ \hline
+    \varphi IU
+  \end{array}, \quad
+  \begin{array}{c}
+    M\varphi \\ \hline
+    M \varphi\varphi
+  \end{array}, \quad
+  \begin{array}{c}
+    \varphi III \psi\\ \hline
+    \varphi U \psi
+  \end{array}, \quad
+  \begin{array}{c}
+    \varphi UU \psi\\ \hline
+    \varphi \psi
+  \end{array}.
+  $$
+
+  $(a)$ Dokazati da su $MIUIUIUIU$ i $MUIIIIU$ teoreme ovog sistema.
+
+  $(b)$ Da li je $MU$ teorema ovog sistema?
+}
+% In the MIU formal system introduced by Hofstadter in [Hof79], every word Mx where x is a sequence of U's and I's
+% having a number of I's which is not a multiple of 3, is a theorem.
+
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{$\lambda$-ra\v cun kao formalna teorija}
+
+!!! $\lambda$-ra\v cun 
+
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+!!!Ovo je stara formalna teorija koja sabira decimalne brojeve cifru po cifru:
+
+Neka je $\Sab = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{\Boxed\oplus, 0, 1, \ldots, 9\}$ \v ciji skup formula
+je $F = \{\lambda \in A^* : |\lambda|_\oplus \le 1\}$, \v ciji skup aksioma je $X = \{0, 1, \ldots, 9\}^+$
+i koja ima slede\'ca pravila izvo\dj enja.
+
+Pravilo $\mathit{input}$ se mo\v ze primeniti samo na dve aksiome $\alpha, \beta \in X$ iste du\v zine.
+Pravilo $\mathit{input}$ preuredi slova ove dve aksiome, postavi inicijalni prenos i marker $\oplus$ na kraj, i tako
+omogu\'ci primenu ostalih pravila koja realizuju sabiranje:
+$$
+  \mathit{input} : \begin{array}{c}
+    \alpha \qquad \beta \\ \hline
+    \xi 0 \oplus
+  \end{array}, \text{\quad samo za } \alpha, \beta \in X \text{ takve da je } |\alpha| = |\beta|,
+$$
+gde je $\xi$ formula koja za $\alpha = a_1 a_2 \ldots a_k$ i $\beta = b_1 b_2 \ldots b_k$ izgleda ovako:
+$$
+  \xi = a_1 b_1 a_2 b_2 \ldots a_k b_k.
+$$
+
+
+Pravila $\mathit{output}_0$ i $\mathit{output}_1$ bri\v su marker $\oplus$ sa po\v cetka re\v ci kada se sabiranje zavr\v si.
+Ispred markera ostaje prenos poslednjeg zabiranja koji se ignori\v se ako se radi o nuli:
+$$
+  \mathit{output}_0 : \begin{array}{c}
+    0 \oplus \lambda\\ \hline
+    \lambda
+  \end{array}, \qquad
+  \mathit{output}_1 : \begin{array}{c}
+    1 \oplus \lambda\\ \hline
+    1\lambda
+  \end{array},
+$$
+gde je $\lambda$ neka formula.
+
+Pored ova tri, teorija $\Sab$ ima jo\v s 200 pravila koja (sre\'com!) imaju sli\v cnu strukturu. Za sve
+$c, d \in \{0, 1, \ldots, 9\}$ (odgovaraju\'ce cifre prvog i drugog sabirka) i svako
+$p \in \{0, 1\}$ (prenos), pravilo $r_{cdp}$ izgleda ovako:
+$$
+  r_{cdp} : \begin{array}{c}
+    \lambda cdp \oplus \mu\\ \hline
+    \lambda a \oplus b \mu
+  \end{array},
+$$
+gde su $\lambda$ i $\mu$ neke formule, a $a, b \in \{0, 1, \ldots, 9\}$ su takvi da je $c + d + p = 10 a + b$.
+Intuitivno, simbol $\oplus$ sabere tri cifre koje mu prethode, cifru zbira ``gurne'' iza sebe, a cifru prenosa
+ostavi ispred sebe kako bi u\v cestvovala u narednom sabiranju. Na primer, pravilo $r_{841}$ izgleda ovako:
+$$
+  r_{841} : \begin{array}{c}
+    \lambda 841 \oplus \mu\\ \hline
+    \lambda 1 \oplus 3 \mu
+  \end{array},
+$$
+zato \v sto je $8 + 4 + 1 = 13$, \v sto zna\v ci da ``3 pi\v sem, a 1 prenosim''.
+
+Pogledajmo sada jedno izvo\dj enje u formalnoj teoriji $\Sab$ da bismo se uverili da ovaj niz pravila
+zaista ume da sabere dva broja.
+
+\begin{center}
+  \input ft01-sab.pgf
+\end{center}
+
+
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Primer: Formalna teorija BinSab.}
+Neka je $\BinSab = (A, F, X, R)$ formalna teorija nad alfabetom $A = \{0, 1, \Boxed\oplus\}$ \v ciji skup formula
+je $F = \{\lambda \in A^* : |\lambda|_\oplus \le 1\}$, \v ciji skup aksioma je $X = \{0,1\}^+$ (dakle, sve neprazne re\v ci
+nad alfabetom $\{0, 1\}$), i koja ima slede\'cih deset pravila izvo\dj enja, gde je $\lambda, \mu \in X$, a operacija
+$\star$ \'ce biti opisana kasnije:
+$$
+  d : \begin{array}{c}
+    \oplus \lambda\\ \hline
+    \lambda
+  \end{array},\qquad
+  p : \begin{array}{c}
+    \lambda, \; \mu \; (\text{samo kada je } |\lambda| = |\mu|) \\ \hline
+    00 (\lambda \star \mu) 0 \oplus
+  \end{array},
+$$
+$$
+  r_0 : \begin{array}{c}
+    \lambda 000 \oplus \mu\\ \hline
+    \lambda 0 \oplus 0 \mu
+  \end{array}, \qquad
+  r_1 : \begin{array}{c}
+    \lambda 001 \oplus \mu\\ \hline
+    \lambda 0 \oplus 1 \mu
+  \end{array}, \qquad
+  r_2 : \begin{array}{c}
+    \lambda 010 \oplus \mu\\ \hline
+    \lambda 0 \oplus 1 \mu
+  \end{array}, \qquad
+  r_3 : \begin{array}{c}
+    \lambda 011 \oplus \mu\\ \hline
+    \lambda 1 \oplus 0 \mu
+  \end{array},
+$$
+$$
+  r_4 : \begin{array}{c}
+    \lambda 100 \oplus \mu\\ \hline
+    \lambda 0 \oplus 1 \mu
+  \end{array}, \qquad
+  r_5 : \begin{array}{c}
+    \lambda 101 \oplus \mu\\ \hline
+    \lambda 1 \oplus 0 \mu
+  \end{array},\qquad
+  r_6 : \begin{array}{c}
+    \lambda 110 \oplus \mu\\ \hline
+    \lambda 1 \oplus 0 \mu
+  \end{array}, \qquad
+  r_7 : \begin{array}{c}
+    \lambda 111 \oplus \mu\\ \hline
+    \lambda 1 \oplus 1 \mu
+  \end{array}.
+$$
+Operacija $\star$ je definisana na re\v cima $\alpha = a_1 a_2 \ldots a_k$ i $\beta = b_1 b_2 \ldots b_k$
+iste du\v zine na slede\'ci na\v cin:
+$
+  \alpha \star \beta = a_1 b_1 a_2 b_2 \ldots a_k b_k
+$.
+
+

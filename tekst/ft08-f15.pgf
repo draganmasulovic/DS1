@@ -1,0 +1,56 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-425.0}{-275.0}}
+
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{750.0}}
+    \pgfpathlineto{\pgfpointxy{950.0}{750.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{750.0}}
+    \pgfpathlineto{\pgfpointxy{500.0}{300.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{300.0}}
+    \pgfpathlineto{\pgfpointxy{950.0}{300.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{950.0}{300.0}}
+    \pgfpathlineto{\pgfpointxy{950.0}{750.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{650.0}{750.0}}
+    \pgfpathlineto{\pgfpointxy{650.0}{300.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{800.0}{750.0}}
+    \pgfpathlineto{\pgfpointxy{800.0}{300.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{600.0}}
+    \pgfpathlineto{\pgfpointxy{950.0}{600.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{450.0}}
+    \pgfpathlineto{\pgfpointxy{950.0}{450.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfsetdash{{1.5pt}{2pt}}{0pt}
+    \pgfpathmoveto{\pgfpointxy{500.0}{600.0}}
+    \pgfpathlineto{\pgfpointxy{650.0}{750.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[top,at={\pgfpointxy{575.0}{588.0}}]{$70\mathit{cm}$}
+  \pgftext[left,at={\pgfpointxy{662.0}{675.0}}]{$70\mathit{cm}$}
+\end{pgfpicture}

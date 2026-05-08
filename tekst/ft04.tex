@@ -1,0 +1,1504 @@
+%!TeX root=main-DS1.tex
+\def\Consist{\mathrm{Con}}
+\chapter{Predikatski ra\v cun}
+
+Iskazni ra\v cun nema dovoljnu izra\v zajnu mo\'c. Recimo, ako bismo slede\'ci iskaz
+\begin{center}
+  \textit{\enquote{Svaki prost broj koji je ve\'ci ili jednak sa 5}\\
+  \textit{ima oblik $6k + 1$ ili $6k + 5$ za neko $k$}}
+\end{center}
+poku\v sali da zapi\v semo formulom iskaznog ra\v cuna, najbolje \v sto mo\v zemo da dobijemo je
+$$
+  p \land q \Rightarrow r \lor s
+$$
+gde je smo slovima $p$, $q$, $r$ i $s$ ozna\v cili slede\'ce iskaze:
+
+\begin{tabular}{l@{\quad$\leadsto$\quad}l}
+  $p$ & \enquote{$n$ je prost broj}\\
+  $q$ & \enquote{$n \ge 5$}\\
+  $r$ & \enquote{$n = 6k + 1$}\\
+  $s$ & \enquote{$n = 6k + 5$}.
+\end{tabular}
+
+\noindent
+Lako se vidi da u formulaciji istog stava govornim jezikom ima mnogo vi\v se finesa, i da je zato
+gornja iskazna formula veoma gruba reprezentacija tog iskaza.
+
+Krajem XIX veka Gotlob Frege predla\v ze novi jezik matematike koji se danas zove \emph{predikatski ra\v cun}.
+Frege oboga\'cuje iskazni ra\v cun tako \v sto uvodi na\v cin da se govori o svojstvima objekata
+koriste\'ci posebne konstrukte koje zovemo \emph{predikati}. Predikati predstavljaju \enquote{iskazna slova sa strukturom},
+na primer ovako:
+
+\medskip
+
+\begin{tabular}{l@{\quad$\leadsto$\quad}l}
+  $P(n)$ & \enquote{$n$ je prost broj}\\
+  $Q(n)$ & \enquote{$n \ge 5$}\\
+  $R_1(n, k)$ & \enquote{$n = 6k + 1$}\\
+  $R_5(n, k)$ & \enquote{$n = 6k + 5$}
+\end{tabular}
+
+\medskip
+
+\noindent
+i u jezik uvodi \emph{kvantifikatore:}
+
+\medskip
+
+\begin{tabular}{l@{\quad$\leadsto$\quad}l}
+  $\forall$ & za svaki (od nema\v ckog \enquote{alle}), i\\
+  $\exists$ & postoji (od nema\v ckog \enquote{existiert}).\\
+\end{tabular}
+
+\medskip
+
+\noindent
+U ovom novom jeziku mogu\'ce je iskazati mnoge matemati\v cke tvrdnje, pa i onu sa po\v cetka:
+$$
+  (\forall n) (P(n) \land Q(n) \Rightarrow (\exists k) (R_1(n, k) \lor R_5(n, k)).
+$$
+Sada je struktura govorne re\v cenice mnogo bolje predstavljena formulom koja se \v cita ovako:
+$$
+  \begin{array}{cccccccccccccccccccc}
+    (\forall n)          & \Big( & P(n)               & \land    & Q(n)    & \Rightarrow \\
+    \text{Za svako } n,  &   & n\text{ je prost}  & \text{i} & n \ge 5 & \text{implicira}\\[3mm]
+    & & (\exists k)          & ( & R_1(n, k)            & \lor     & R_5(n, k) & ) & \Big) \\
+    & & \text{postoji } k \text{ takvo da }  &   & n = 6k + 1  & \text{ili} & n = 6k + 5
+  \end{array}
+$$
+
+\section{Formule predikatskog ra\v cuna}
+
+Zbog ve\'ce izra\v zajne mo\'ci predikatski ra\v cun je komplikovaniji od iskaznog, pa \'ce nam
+za precizno uvo\dj enje pojma formule predikatskog ra\v cuna trebati malo vi\v se vremena.
+
+Predikati predikatskog ra\v cuna opisuju osobine i uzajamne odnose objekata o kojima govorimo.
+Objekte ozna\v cavamo \emph{promenljivim} dok me\dj usobne odnose objekata ozna\v cavamo
+\emph{predikatima} koji povezuju neke od tih promenljivih.
+Predikat ima \emph{ime} koje naj\v ce\v s\'ce zapisujemo kao latini\v cno slovo,
+i ima \emph{arnost}, \v sto je broj objekata o kojima predikat govori. Na primer:
+
+\begin{center}
+\begin{tabular}{lll}
+  \hline
+  $P(x)$&neka osobina objekta $x$&predikat arnosti 1 \\
+        &npr.\ \enquote{$x$ je paran broj} & (\emph{unarni predikat})\\
+  \hline
+  $Q(x, y)$&neki odnos objekata $x$ i $y$&predikat arnosti 2\\
+        &npr.\ \enquote{$x$ je deljiv sa $y$} & (\emph{binarni predikat})\\
+  \hline
+  $R(x, y, m)$&neki odnos objekata $x$, $y$ i $m$&predikat arnosti 3\\
+        &npr.\ \enquote{$x \equiv_m y$} & (\emph{ternarni predikat})\\
+  \hline
+  $S(x, y, z, t)$&neki odnos objekata $x$, $y$, $z$ i $t$&predikat arnosti 4\\
+        &npr.\ \enquote{$|x - y| > |z - t|$} & (\emph{kvaternarni predikat})\\
+  \hline
+\end{tabular}
+\end{center}
+
+\noindent
+Pre nego \v sto krenemo da gradimo formule, moramo se dogovoriti o tome koja slova koristimo kao promenljive
+i koja svojsta objekata \v zelimo da modelujemo. Zato je potrebno specificirati 
+spisak promenljvih, kao i \emph{jezik} na kome govorimo, a to je spisak predikata i njihovih arnosti.
+Na primer,
+
+\begin{center}
+  \begin{tabular}{ll}
+    Promenljive: & $x$, $y$, $z$, $u$, $v$\\
+    Jezik:   & $A(\cdot)$, $B(\cdot)$, $P(\cdot, \cdot)$, $W(\cdot, \cdot, \cdot, \cdot, \cdot)$.
+  \end{tabular}
+\end{center}
+
+\noindent
+Ovaj jezik ima dva unarna predikata, jedan binarni predikat i jedan predikat arnosti pet.
+U ovom zapisu ta\v ckicama su ozna\v cena prazna mesta na koja mo\v zemo da stavimo neku od promenljivih
+$x$, $y$, $z$, $u$, $v$. U jeziku \'cemo uvek imati simbol $=$ koji ozna\v cava jednakost
+i njega nikada ne\'cemo navoditi u spisku predikata jer se podrazumeva.
+
+\begin{DEF}
+  Neka je dat \emph{kona\v can niz promenljivih} $x_1, x_2, \ldots, x_h$ i jezik $L$.
+  \emph{Atomi\v cka formula} na jeziku $L$ je niz simbola oblika
+  $$
+    x_i = x_j
+  $$
+  gde su $x_i$ i $x_j$ neke od promenljivih $x_1$, $x_2$, $x_3$, \ldots, $x_h$,
+  ili niz simbola oblika
+  $$
+    R(x_{i_1}, x_{i_2}, \ldots, x_{i_n})
+  $$
+  gde je $R$ predikat jezika $L$ arnosti $n$, a $x_{i_1}$, $x_{i_2}$, \ldots, $x_{i_n}$
+  su neke od promenljivih $x_1$, $x_2$, $x_3$, \ldots, $x_h$ me\dj u kojima mo\v ze biti i istih.
+\end{DEF}
+
+\begin{NAP}\it
+  Obratimo pa\v znju na to da je u atomi\v ckoj formuli nanizano onoliko promenljivih kolika je arnost predikata!
+\end{NAP}
+
+Atomi\v cke formule su najjednostavnije predikatske formule. Od njih, logi\v ckih veznika i kvantifikatora pravimo
+slo\v zenije predikatske formule kako je opisano u definiciji koja sledi.
+
+\begin{DEF}
+  Neka je dat kona\v can niz promenljivih $x_1, x_2, \ldots, x_h$ i jezik $L$.
+  \emph{Predikatska formula} na jeziku $L$ je niz simbola koji je formiran prema slede\'cim pravilima:
+  \begin{enumerate}\itemsep -1mm
+  \item
+    atomi\v cke formule na jeziku $L$ su predikatske formule;
+  \item
+    ako su $\phi$ i $\psi$ predikatske formule, onda su to i slede\'ci nizovi simbola:
+    $$
+      \lnot \phi, \quad (\phi \land \psi), \quad (\phi \lor \psi), \quad (\phi \Rightarrow \psi), \quad (\phi \Leftrightarrow \psi);
+    $$
+  \item
+    ako je $\phi$ predikatska formula i $x_i$ neka promenljiva, onda su i slede\'ci nizovi simbola predikatske formule:
+    $$
+      (\forall x_i)\phi, \quad (\exists x_i)\phi
+    $$
+  \item
+    svaka predikatska formula se dobija kona\v cnom primenom pravila (1)--(3).
+  \end{enumerate}
+  (Zahtev (4) obezbe\dj uje da predikatske formule budu uvek kona\v cni nizovi simbola, kao i da nijedan drugi niz
+  simbola nije predikatska formula.)
+\end{DEF}
+
+\paragraph{Primer.} Slede\'ci nizovi simbola su predikatske formule nad jezikom $P(\cdot)$, $Q(\cdot, \cdot)$, $R(\cdot, \cdot, \cdot)$
+i sa promenljivim $x$, $y$, $z$:
+\begin{itemize}
+\item $R(z, y, z)$,
+\item $(\forall x) Q(x, y)$,
+\item $(\forall x)(\exists y)(Q(x, y) \land P(y))$,
+\item $(\forall x)\big((\exists y) Q(x, y) \Rightarrow (\forall z) R(z, y, x)\big)$.
+\end{itemize}
+Primetimo: svaka promenljiva koja se javlja u poslednje dve formule je \enquote{napadnuta} kvantifikatorom,
+dok sa prve dve formule to nije slu\v caj: u prvoj formuli nijedna promenljiva nije \enquote{napadnuta} kvantifikatorom,
+a u drugoj formuli promenljiva $x$ je napadnuta kvantifikatorom, dok promenljiva $y$ nije.
+
+\begin{NAP}\it
+U ovom ud\v zbeniku razmatra\'cemo uglavnom predikatske formule kod kojih je svaka promenljiva
+\enquote{napadnuta} kvantifikatorom. Takve formule se zovu \emph{re\v cenice}.
+\end{NAP}
+
+\begin{CONVENTION}
+  Kao i kod iskaznih formula, prilikom zapisivanja predikatskih formula usvajamo slede\'ce konvencije:
+  \begin{itemize}
+  \item
+    nikada ne pi\v semo spolja\v snje zagrade kod formula koje ne po\v cinju kvantifikatorom; i
+  \item
+    veznici $\land$ i $\lor$ imaju vi\v si prioritet nego veznici~$\Rightarrow$ i~$\Leftrightarrow$.
+  \end{itemize}
+\end{CONVENTION}
+
+
+\section{Interpretacija predikatske formule}
+
+Posmatrajmo slede\'cu formulu sa promenljivim $x$ i $y$ i na jeziku $P(\cdot, \cdot)$, $Q(\cdot)$:
+$$
+  (\forall x)(\exists y)(P(x, y) \land Q(y)).
+$$
+Da li je ona ta\v cna?
+
+\bigskip
+
+Pitanje, zapravo, nema smisla jer ne znamo \v sta zna\v ce predikati $P$ i $Q$. Da bismo mogli da govorimo o
+tome da li je formula ta\v cna moramo prvo da znamo:
+\begin{enumerate}
+\item
+  sa kojim objektima radimo, i
+\item
+  \v sta zna\v ce predikati koji se javljaju u jeziku formule.
+\end{enumerate}
+Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpretacija formule}.
+
+\begin{EX}
+  Neka su $P$ i $Q$ predikati na skupu $\NN$ prirodnih brojeva dati ovako:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+    $Q(x)$ & \enquote{$x$ je paran broj}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\exists y)(P(x, y) \land Q(y))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaki prirodan broj $x$ postoji prirodan $y$ takav da je $x < y$ i $y$ je paran,}
+  \end{center}
+  \v sto je ta\v cno tvr\dj enje.
+\end{EX}
+
+\begin{EX}
+  Neka su $P$ i $Q$ predikati na skupu $\NN$ prirodnih brojeva dati ovako:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x > y$}\\
+    $Q(x)$ & \enquote{$x$ je paran broj}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\exists y)(P(x, y) \land Q(y))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaki prirodan broj $x$ postoji prirodan $y$ takav da je $x > y$ i $y$ je paran,}
+  \end{center}
+  \v sto nije ta\v cno tvr\dj enje, jer za $x = 1$ ne mo\v zemo da na\dj emo paran prirodan broj koji je manji od njega.
+\end{EX}
+
+\begin{NAP}\it
+  Dakle, ta\v cnost formule zavisi od interpretacije. Kao \v sto smo upravo videli, mo\v ze se desiti da jedna ista formula
+  bude ta\v cna u jednoj interpretaciji, a neta\v cna u drugoj.
+\end{NAP}
+
+\ifBIOINF\else
+    \begin{DEF}
+      Neka je dat jezik $L$ koga \v cine simboli $Q_1, Q_2, \ldots$ \v cije arnosti su, redom, $n_1, n_2, \ldots$.
+      \emph{Interpretaciju} jezika $L$ \v cine skup $D$ koji se zove \emph{domen interpretacije}, i relacije
+      $\rho_1, \rho_2, \ldots$ na skupu $D$ \v cije arnosti su $n_1, n_2, \ldots$. Tada je relacija $\rho_1$
+      interpretacija simbola $Q_1$, relacija $\rho_2$ je interpretacija simbola $Q_2$ i tako dalje.
+      Dakle, svako relacijsko slovo jezika $L$ se interpretira kao odgovaraju\'ca relacija na domenu $D$ koja
+      ima istu arnost kao njeno slovo.
+    \end{DEF}
+\fi
+
+\begin{EX}
+  Dat je jezik koga \v cini jedan binarni simbol $R(\cdot, \cdot)$. Na\'ci interpretaciju u kojoj je slede\'ca
+  formula ta\v cna:
+  \begin{align*}
+    (\exists x)(\exists y)(\exists z)(\exists u)
+    (&x \ne y \land x \ne z \land x \ne u \land y \ne z \land y \ne u \land z \ne u \land\\
+     &\land R(x, y) \land R(x, z) \land R(x, u) \land R(y, z) \land \lnot R(y, u) \land \lnot R(z, u)).
+  \end{align*}
+\end{EX}
+
+\noindent
+\begin{minipage}{3in}
+\begin{proof}[Re\v senje]
+  Ako pa\v zljivo pogledamo, ova formula ka\v ze da postoje \v cetiri razli\v cita elementa koji su
+  u nekim me\dj usobnim odnosima. Zato \'cemo za domen interpretacije uzeti skup
+  $D = \{a, b, c, d\}$, a binarni simbol $R$ \'cemo interpretirati binarnom relacijom
+  $\rho$ na skupu $D$ koja je prikazana crte\v zom pored.
+\end{proof}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r12.pgf
+  \end{center}
+\end{minipage}
+
+% \begin{EX}
+%   Dat je jezik koga \v cini jedan unarni simbol $P(\cdot)$ i jedan binarni simbol $Q(\cdot, \cdot)$.
+%   Na\'ci interpretaciju u kojoj je slede\'ca formula ta\v cna:
+%   \begin{align*}
+%     (\exists x)P(x) \; &\land \; (\exists y)\lnot P(y) \; \land \; (\forall x)\big(P(x) \Rightarrow\\
+%      &(\exists y_1)(\exists y_2)(y_1 \ne y_2 \land \lnot P(y_1) \land \lnot P(y_2) \land Q(x, y_1) \land Q(x, y_2))\big).
+%   \end{align*}
+% \end{EX}
+
+% \medskip
+
+% \noindent
+% \textit{Re\v senje.}
+%   Unarni predikat opisuje svojstva pojedina\v cnih objekata. Prema tome, ima\'cemo dve vrste objekata, one koje
+%   imaju svojstvo $P$ i one koje ga nemaju. Formula, dalje, ka\v ze da postoji objekat koji ima svojstvo $P$, kao i
+%   objekat koji ga nema, i pri tome za svaki objekat koji ima svojstvo $P$ postoje dva razli\v cita objekta koji nemaju svojstvo
+%   $P$ i koji su sa tim objektom u vezi~$Q$.
+
+%   Neka je $D = \{a, b, c, d\}$ domen interpretacije. Unarni simbol $P$ \'cemo interpretirati
+%   unarnom relacijom $\pi = \{a, b\}$ na skupu $D$, a binarni simbol $Q$ \'cemo interpretirati binarnom relacijom $\rho$
+%   na skupu~$D$. 
+
+% \smallskip
+
+% \noindent
+% \begin{minipage}{3in}
+%   \hspace*{1.5em}Elementi binarne relacije $\rho$ su na crte\v zu pored ozna\v ceni strelicama, dok su elementi
+%   unarne relacije $\pi$ ozna\v ceni crnim ta\v ckicama. U ovoj interpretaciji formula ka\v ze: \enquote{Postoji bar jedna crna
+%   ta\v ckica i postoji bar jedna bela ta\v ckica, i za svaku crnu ta\v ckicu postoje dve razli\v cite bele ta\v ckice
+%   koje su povezane strelicom sa tom crnom ta\v ckicom.}\hfill~$\square$
+% \end{minipage}
+% \hfill
+% \begin{minipage}{2.5in}
+%   \begin{center}
+%     \input ft07-r13.pgf
+%   \end{center}
+% \end{minipage}
+
+\begin{EX}
+  Dat je jezik koga \v cini jedan ternarni simbol $R(\cdot, \cdot, \cdot)$.
+  Na\'ci interpretaciju u kojoj je slede\'ca formula ta\v cna:
+  $$
+    (\forall x)(\forall y)(x \ne y \Rightarrow (\exists z)(z \ne x \land z \ne y \land R(x, z, y))).
+  $$
+\end{EX}
+
+\noindent
+\textit{Re\v senje.}
+    Simbol $R$ \'cemo interpretirati relacijom \enquote{izme\dj u} na krugu kako sledi.
+    Neka je $D = \{a, b, c\}$ domen interpretacije. Zamislimo da su ta\v cke $a$, $b$ i $c$ raspore\dj ene
+    na krugu kako je to pokazano pored. Tada je svaka izme\dj u one druge dve i to samo treba formalno
+    da zapi\v semo.
+
+\medskip
+    
+\noindent
+\begin{minipage}{3in}
+    \hspace*{1.5em}U ovom slu\v caju \'ce biti najpogodnije da prosto navedemo sve ure\dj ene trojke
+    koje \v cije ternarnu relaciju $\rho$ na skupu $D$ koja je interpretacija simbola~$R$:
+    \begin{align*}
+      \rho = \{ &(a, b, c), \, (c, b, a), \, (b, c, a),\\
+                &(a, c, b), \, (c, a, b), \, (b, a, c)\}. \rlap{\hspace*{1cm}$\square$}
+    \end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r14.pgf
+  \end{center}
+\end{minipage}
+
+\begin{EX}
+  $(a)$ Na\'ci predikatsku formulu koja ima slede\'cu osobinu: svaki model ove formule ima bar tri elementa.
+  
+  $(b)$ Neka je $n \ge 2$ prirodan broj.
+  Na\'ci predikatsku formulu koja ima slede\'cu osobinu: svaki model ove formule ima bar $n$ elemenata.
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$ To je formula: $(\exists x_1)(\exists x_2)(\exists x_3)(x_1 \ne x_2 \land x_1 \ne x_3 \land x_2 \ne x_3)$.
+  
+  $(b)$ To je formula: $(\exists x_1)(\exists x_2)\ldots (\exists x_n)(x_1 \ne x_2 \land x_1 \ne x_3 \land \ldots \land x_{n-1} \ne x_n)$.
+\end{proof}
+
+\begin{EX}
+  $(a)$ Na\'ci predikatsku formulu koja ima slede\'cu osobinu: svaki model ove formule ima ta\v cno tri elementa.
+  
+  $(b)$ Neka je $n \ge 2$ prirodan broj.
+  Na\'ci predikatsku formulu koja ima slede\'cu osobinu: svaki model ove formule ima ta\v cno $n$ elemenata.
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$ To je formula:
+  $$
+    (\exists x_1)(\exists x_2)(\exists x_3)\big(x_1 \ne x_2 \land x_1 \ne x_3 \land x_2 \ne x_3 \land (\forall y)(y = x_1 \lor y = x_2 \lor y = x_3)\big).
+  $$
+  
+  $(b)$ To je formula:
+  \begin{align*}
+    (\exists x_1)(\exists x_2)\ldots (\exists x_n)\big(&x_1 \ne x_2 \land x_1 \ne x_3 \land \ldots \land x_{n-1} \ne x_n \,\land\\
+                                                       &(\forall y)(y = x_1 \lor y = x_2 \lor \ldots \lor y = x_n)\big). \qedhere
+  \end{align*}
+\end{proof}
+
+Interesantno je da \emph{ne postoji} predikatska formula sa osobinom da svaki model te formule mora da bude kona\v can skup.
+Tako\dj e, \emph{ne postoji} predikatska formula sa osobinom da svaki model te formule mora da ima paran broj elemenata.
+Dokazi ova dva tvr\dj enja prevazilaze okvire ovog ud\v zbenika, ali nam daju va\v zan ose\'caj o ograni\v cenjima
+izra\v zajne mo\'ci predikatskog ra\v cuna.
+
+
+\begin{DEF}
+  Interpretacija u kojoj je fomula $\phi$ ta\v cna zove se \emph{model formule~$\phi$}.
+  Interpretacija u kojoj je fomula $\phi$ neta\v cna zove se \emph{kontramodel formule~$\phi$}.
+\end{DEF}
+
+\begin{EX}
+  Na\'ci model formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Uo\v cimo slede\'ci predikat na skupu $\RR$ realnih brojeva:
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaka dva realna broja $x$ i $y$, ako je $x < y$ onda}\\
+    \textit{postoji realan broj $z$ takav da je $x < z$ i $z < y$}
+  \end{center}
+  \v sto je ta\v cno tvr\dj enje za realne brojeve (uvek mo\v zemo uzeti da je $z = \frac{x+y}{2}$).
+\end{proof}
+
+\begin{EX}
+  Na\'ci kontramodel formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Da se podsetimo: kontramodel formule je interpretacija u kojoj formula nije ta\v cna.
+  Uo\v cimo slede\'ci predikat na skupu $\NN$ prirodnih brojeva:
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaka dva \textbf{prirodna} broja $x$ i $y$, ako je $x < y$ onda}\\
+    \textit{postoji \textbf{prirodan} broj $z$ takav da je $x < z$ i $z < y$}
+  \end{center}
+  \v sto \emph{nije ta\v cno tvr\dj enje za prirodne brojeve} jer ne va\v zi za, recimo, $x = 1$ i $y = 2$.
+\end{proof}
+
+
+\section{Oblast dejstva kvantifikatora}
+
+Zadatak kvantifikatora je da istakne neku promenljivu u formuli koja mu sledi
+i da nam stavi do znanja da li formula treba da va\v zi za svaku mogu\'cu vrednost te promenljive
+(kvantifikator~$\forall$), ili za bar jednu njenu vrednost (kvantifikator~$\exists$).
+Pri tome, kvantifikator deluje \emph{samo na formulu koja mu sledi!}
+Na primer:
+$$
+  (\exists x)\underbrace{(P(x) \land Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $\exists x$}}} \; \land \;
+  (\exists y)\underbrace{(P(y) \land \lnot Q(y))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $\exists y$}}}
+$$
+Po\v sto dejstvo kvantifikatora prestaje kada se zavr\v si formula ispred koje se nalazi, \v cest je
+obi\v caj da se isto slovo iskoristi vi\v se puta. Tako, gornja formula ima potpuno isto zna\v cenje kao i
+slede\'ca formula:
+$$
+  \overset{K_1}{(\exists x)} \underbrace{(P(x) \land Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $K_1$}}} \; \land \;
+  \overset{K_2}{(\exists x)} \underbrace{(P(x) \land \lnot Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $K_2$}}}
+$$
+
+\begin{EX}
+  Dat je jezik sa dva unarna simbola $P(\cdot)$ i $Q(\cdot)$. Posmatrajmo interpretaciju
+  u kojoj na skupu $\NN$ prirodnih brojeva ovi predikati imaju slede\'ce zna\v cenje:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x)$ & \enquote{$x$ je paran broj}\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}\\
+  \end{tabular}
+  
+  \medskip
+
+  \noindent
+  Ta interpretacija je model formule
+  $$
+    (\exists \textcolor{red}{x})P(\textcolor{red}{x}) \land (\exists \textcolor{blue}{x})Q(\textcolor{blue}{x})
+  $$
+  jer postoji broj $\textcolor{red}{x} \in \NN$ koji je paran i postoji broj
+  $\textcolor{blue}{x} \in \NN$ koji je neparan. Primetimo da, iako smo koristili isto slovo $x$
+  i u levoj i u desnoj podformuli, kada se zavr\v si dejstvo prvog kvantifikatora promenljiva $x$ je
+  \emph{oslobo\dj ena njegovog uticaja}, pa pod dejstvom drugog kvantifikatora mo\v ze da poprimi novu,
+  mo\v zda neku druga\v ciju vrednost.
+
+  Situacija je identi\v cna situaciju u programiranju gde je promenljiva vezana za blok u kome je deklarisana,
+  pa kada se njen blok zavr\v si promenljiva je \emph{oslobo\dj ena} i mo\v ze da se koristi ponovo, sa drugim
+  zna\v cenjem, u nekom drugom bloku. Na primer, u Javi mo\v ze da se napi\v se slede\'ce:
+  \begin{verbatim}
+    int[] domen = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    for(int x : domen){
+        if(x % 2 == 0) System.out.println(x);
+    }
+    for(int x : domen){
+        if(x % 2 == 1) System.out.println(x);
+    }
+  \end{verbatim}
+\end{EX}
+
+
+\begin{EX}
+  Dat je jezik sa dva unarna simbola $P(\cdot)$ i $Q(\cdot)$. Na\'ci interpretaciju u kojoj slede\'ca
+  formula nije ta\v cna:
+  $$
+    (\exists x)P(x) \land (\exists x)Q(x) \Rightarrow (\exists x)(P(x) \land Q(x)).
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  Neka su $P$ i $Q$ slede\'ci predikati na prirodnim brojevima:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x)$ & \enquote{$x$ je paran broj}\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\exists x)P(x) \land (\exists x)Q(x) \Rightarrow (\exists x)(P(x) \land Q(x)).
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{ako postoji paran prirodan broj i postoji neparan prirodan broj}\\
+    \textit{onda postoji prirodan broj koji je i paran i neparan}
+  \end{center}
+  \v sto nije ta\v cno tvr\dj enje.
+\end{proof}
+
+\begin{EX}
+  Dat je jezik sa dva unarna simbola $P(\cdot)$ i $Q(\cdot)$. Na\'ci interpretaciju u kojoj slede\'ca
+  formula nije ta\v cna:
+  $$
+    (\forall x)(P(x) \lor Q(x)) \Rightarrow (\forall x)P(x) \lor (\forall x)Q(x).
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  Neka su $P$ i $Q$ slede\'ci predikati na prirodnim brojevima:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x)$ & \enquote{$x$ je paran broj}\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(P(x) \lor Q(x)) \Rightarrow (\forall x)P(x) \lor (\forall x)Q(x)
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{ako je svaki prirodan broj paran ili neparan}\\
+    \textit{onda su svi prirodni brojevi parni, ili su svi prirodni brojevi neparni}
+  \end{center}
+  \v sto nije ta\v cno tvr\dj enje.
+\end{proof}
+
+
+
+\section{Valjane formule}
+
+Predikatska formula mo\v ze u nekoj interpretaciji da bude ta\v cna, a u nekoj drugoj neta\v cna. Me\dj utim,
+postoje predikatske formule koje su uvek ta\v cne, nezavisno od interpretacije.
+Takve formule se zovu valjane formule.
+
+\begin{DEF}
+  \emph{Valjana formula} je re\v cenica koja je ta\v cna u svakoj interpretaciji.
+  Izjavu \enquote{\textit{$\phi$ je valjana formula}} skra\'ceno zapisujemo ovako
+  $$
+    \vDash \phi
+  $$
+\end{DEF}
+
+\begin{EX}
+  Od svake tautologije se mo\v ze napraviti valjana formula, na primer ovako:
+  
+  \medskip
+  
+  \begin{tabular}{ll}
+    \hline
+    Tautologija & Valjana formula\\
+    \hline
+    $p \lor \lnot p$ & $(\forall x)(P(x) \lor \lnot P(x))$\\
+    $p \land (p \Rightarrow q) \Rightarrow q$ & $(\forall x)(P(x) \land (P(x) \Rightarrow Q(x)) \Rightarrow Q(x))$
+  \end{tabular}
+\end{EX}
+
+\begin{EX}
+  Postoji mnogo valjanih formula koje ne poti\v cu od tautologija. Neke od najzna\v cajnijih su:
+  
+  \medskip
+  
+  \begin{tabular}{l}
+  $\vDash (\forall x)(P(x) \land Q(x)) \Leftrightarrow (\forall x)P(x) \land (\forall x)Q(x)$\\[3mm]
+  $\vDash (\exists x)(P(x) \lor Q(x))  \Leftrightarrow (\exists x)P(x) \lor  (\exists x)Q(x)$\\[3mm]
+  $\vDash (\forall x)P(x) \lor (\forall x)Q(x) \Rightarrow (\forall x)(P(x) \lor Q(x))$\\[3mm]
+  $\vDash (\exists x)(P(x) \land Q(x)) \Rightarrow (\exists x)P(x) \land (\exists x)Q(x)$\\[3mm]
+  $\vDash \lnot(\exists x)P(x) \Leftrightarrow (\forall x)\lnot P(x)$\\[3mm]
+  $\vDash \lnot(\forall x)P(x) \Leftrightarrow (\exists x)\lnot P(x)$
+  \end{tabular}
+\end{EX}
+
+\begin{EX}
+  Dokazati da je slede\'ca formula valjana:
+  $$
+    (\exists x)(\exists y)(\forall z)(R(x, y, z) \lor \lnot R(y, x, z)).
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  Uo\v cimo proizvoljnu interpretaciju ove formule.
+  Neka je $a$ proizvoljan objekt u toj interpretaciji i stavimo $x = y = a$. Tada formula postaje
+  $$
+    (\forall z)(R(a, a, z) \lor \lnot R(a, a, z)).
+  $$
+  Ova formula je ta\v cna nezavisno od toga \v sta zna\v ci predikat $R$ zato \v sto je iskaz
+  $$
+    R(a, a, z) \lor \lnot R(a, a, z)
+  $$
+  ta\v can za svaki objekat $z$ (Princip isklju\v cenja tre\'ceg).
+\end{proof}
+
+Poka\v zimo sada kako se valjane formule koriste kao \enquote{transformaciona pravila}, kao \v sto je bio
+slu\v caj sa tautologijama. Tako \'cemo dobiti alat koji \'ce nam omogu\'citi da transformi\v semo formule
+u nove formule koje mo\v zda imaju jednostavniji ili \enquote{lep\v si} oblik, vode\'ci ra\v cuna o tome
+da se pri transformacijama logi\v cka vredost formule ne menja.
+
+\ifBIOINF\else
+    \begin{DEF}
+      Predikatske formule $\phi$ i $\psi$ su \emph{ekvivalentne}, i pi\v semo $\phi \equiv \psi$, ako i samo ako je
+      $\vDash \phi \Leftrightarrow \psi$.
+    \end{DEF}
+\fi 
+
+Kao i ranije, simbol $\equiv$ ne treba me\v sati sa logi\v ckim veznikom $\Leftrightarrow$. Logi\v cki veznik
+$\Leftrightarrow$ je deo jezika iskaznog ra\v cuna i koristi se kao simbol prilikom formiranja iskaznih formula, dok
+simbol $\equiv$ pripada metajeziku.
+
+\clearpage
+
+\begin{EX}
+  Dokazati da je $(\forall x)\phi \equiv \lnot (\exists x) \lnot \phi$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Krenu\'cemo od formule sa desne strane i primeniti niz ekvivalentnih transformacija da bismo dobili formulu sa leve strane:
+  \begin{align*}
+    \lnot (\exists x) \lnot \phi
+    &\;\;\equiv\;\; (\forall x) \lnot \lnot \phi\\
+    &\;\;\equiv\;\; (\forall x) \phi
+  \end{align*}
+  jer je $\vDash \lnot \lnot \phi \Leftrightarrow \phi$ valjana formula izvedena iz odgovaraju\'ce tautologije.
+\end{proof}
+
+\begin{EX}
+  Dokazati da je $(\exists x)\phi \equiv \lnot (\forall x) \lnot \phi$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Krenu\'cemo od formule sa desne strane:
+  \begin{align*}
+    \lnot (\forall x) \lnot \phi
+    &\;\;\equiv\;\; (\exists x) \lnot \lnot \phi\\
+    &\;\;\equiv\;\; (\exists x) \phi\qedhere
+  \end{align*}
+\end{proof}
+
+\v Cesto je potrebno na\'ci negaciju neke formule, i neophodne tehnike smo videli u slu\v caju
+iskaznog ra\v cuna. U slu\v caju predikatskog ra\v cuna
+\emph{negirati formulu $\phi$} zna\v ci krenuti od formule $\lnot \phi$ i primeniti niz ekvivalentnih
+transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo atomi\v cke formule.
+
+\begin{EX}\label{ft04.ex.density}
+  Negirati formulu $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Ozna\v cimo datu formulu sa $\phi$. Tada:
+  \begin{align*}
+    \lnot \phi
+    &\;\;\equiv\;\; \lnot(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))\\
+    &\;\;\equiv\;\; (\exists x)\lnot(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))\\
+    &\;\;\equiv\;\; (\exists x)(\exists y)\lnot(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))\\
+    &\;\;\equiv\;\; (\exists x)(\exists y)(P(x, y) \land \lnot(\exists z)(P(x, z) \land P(z, y)))\\
+    &\;\;\equiv\;\; (\exists x)(\exists y)(P(x, y) \land (\forall z)\lnot(P(x, z) \land P(z, y)))\\
+    &\;\;\equiv\;\; (\exists x)(\exists y)(P(x, y) \land (\forall z)(\lnot P(x, z) \lor \lnot P(z, y))).\qedhere
+  \end{align*}
+\end{proof}
+
+Ovo je korisna ve\v stina izme\dj u ostalog i zato \v sto se nala\v zenje kontramodela formule
+svodi na nala\v zenje modela njene negacije. Da se podsetimo,
+kontramodel formule $\phi$ je interpretacija u kojoj formula $\phi$ nije ta\v cna.
+Dakle, u toj interpretaciji mora biti ta\v cna formula $\lnot\phi$, pa se problem svodi na to da na\dj emo
+model formule $\lnot\phi$:
+
+\begin{NAP}\it
+  Da bi se na\v sao kontramodel formule $\phi$ treba na\'ci model formule $\lnot \phi$.
+\end{NAP}
+
+\begin{EX}
+  Na\'ci kontramodel formule
+  $$
+    \phi = (\forall x)(\forall y)((\exists z)(P(z, x) \land P(z, y)) \Rightarrow (\forall z)(P(z, x) \land P(z, y))).
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  Prema gornjoj napomeni, problem se svodi na to da na\dj emo model formule
+  $$
+    \lnot \phi = (\exists x)(\exists y)((\exists z)(P(z, x) \land P(z, y)) \land (\exists z)(\lnot P(z, x) \lor \lnot P(z, y))).
+  $$
+  Uo\v cimo slede\'ci predikat na skupu $\NN$ prirodnih brojeva:
+  
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  Formula $\lnot\phi$ je ta\v cna, recimo, za $x = 2$ i $y = 3$ \v sto se lako vidi jer je
+  $1 < 2 \land 1 < 3$ i pri tome $\lnot 4 < 3$.
+\end{proof}
+
+\ifBIOINF
+  \endinput
+\fi
+
+\section{Uvo\dj enje novih kvantifikatora}
+
+\v Ceste su situacije kada \v zelimo da ka\v zemo da \emph{postoji ta\v cno jedan objekat} sa nekom
+osobinom~$\phi$. Formula
+$$
+  (\exists x) \phi(x)
+$$
+ka\v ze da objekat sa tom osobinom postoji, ali ne garantuje da je on jedinstven.
+Kvantifikator $\exists$ mo\v ze da se unapredi do kvantifikatora $\exists!$ koga \v citamo
+\enquote{postoji samo jedno}. Interesantno je da se ovim ne unosi nova izra\v zajna mo\'c u predikatski ra\v cun
+jer se formula
+$$
+  (\exists! x) \phi(x)
+$$
+(\enquote{postoji samo jedno $x$ sa osobinom $\phi(x)$}) mo\v ze shvatiti kao \enquote{skra\'cenica} za:
+$$
+  \underbrace{(\exists x) \phi(x)}_{\text{egzistencija}} \quad \land \quad
+  \underbrace{(\forall y)(\forall z)(\phi(y) \land \phi(z) \Rightarrow y = z)}_{\text{jedinstvenost}}.
+$$
+
+
+Kada se govori o rezultatima koji se odnose na skupove, veoma su \v ceste izjave oblika
+  \textit{Za svako $x \in A$ va\v zi \ldots}
+ili
+  \textit{Postoji $x \in A$ takvo da \ldots}
+Zato je uobi\v cajeno da se jezik predikatskog ra\v cuna pro\v siri \emph{ograni\v cenim verzijama kvantifikatora $\forall$
+i $\exists$} koje pi\v semo ovako:
+\begin{center}
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $(\forall x \in A) \phi(x)$ & Za svako $x \in A$ va\v zi $\phi(x)$\\
+    $(\exists x \in A) \phi(x)$ & Postoji $x \in A$ takvo da va\v zi $\phi(x)$
+  \end{tabular}
+\end{center}
+Ni ograni\v ceni kvantifikatori ne unose novu izra\v zajnu mo\'c u predikatski ra\v cun ve\'c samo
+predstavljaju pogodne \enquote{skra\'cenice}:
+\begin{center}
+  \begin{tabular}{l@{\quad je skra\'ceni zapis formule\quad}l}
+    $(\forall x \in A) \phi(x)$ & $(\forall x)(x \in A \Rightarrow \phi(x))$ \\
+    $(\exists x \in A) \phi(x)$ & $(\exists x)(x \in A  \land      \phi(x))$
+  \end{tabular}
+\end{center}
+Da bismo videli da je to tako i na formalnom nivou, pokaza\'cemo da se negiranje ograni\v cenih kvantifikatora pona\v sa
+na o\v cekivani na\v cin.
+
+\begin{THM}
+  $(a)$ $\lnot (\exists x \in A) \phi(x) \equiv (\forall x \in A) \lnot \phi(x)$;
+
+  $(b)$ $\lnot (\forall x \in A) \phi(x) \equiv (\exists x \in A) \lnot \phi(x)$.
+\end{THM}
+\begin{proof}[Dokaz]
+  $(a)$ Koriste\'ci tautologiju $\models (p \Rightarrow q) \Leftrightarrow (\lnot p \lor q)$
+  lako se vidi da je:
+  \begin{align*}
+    \lnot (\exists x \in A) \phi(x)
+    & \equiv \lnot (\exists x)(x \in A \land \phi(x))\\
+    & \equiv (\forall x)\lnot(x \in A \land \phi(x))\\
+    & \equiv (\forall x)(\lnot(x \in A) \lor \lnot \phi(x))\\
+    & \equiv (\forall x)(x \in A \Rightarrow \lnot \phi(x))\\
+    & \equiv (\forall x \in A) \lnot \phi(x).
+  \end{align*}
+  Dokaz tvr\dj enja $(b)$ ostavljamo za ve\v zbu.
+\end{proof}
+
+
+% \section{Predikatski ra\v cun kao formalna teorija}
+
+% U prethodnim poglavljima smo koristili \enquote{skra\'cenu definiciju} predikatskog ra\v cuna kako bismo
+% pa\v znju \v citaoca fokusirali na odnos sintakse (formule) i semantike (interpretacije).
+% Za nastavak diskusije nam treba puna snaga predikatskog ra\v cuna, pa \'cemo sada pro\v siriti
+% definicije sa po\v cetka.
+
+% \begin{DEF}
+  % Jezik $\calL$ predikatskog ra\v cuna je unija tri po parovima disjunktna skupa:
+  % $$
+    % \calL = \calR \cup \calF \cup \calC,
+  % $$
+  % gde je $\calR$ skup \emph{relacionih simbola}, $\calF$ skup \emph{funkcijskih simbola} i $\calC$ skup
+  % \emph{konstantnih simbola}. Svakom relacijskom i funkcijskom simbolu pridru\v zujemo prirodan broj koji
+  % se zove \emph{arnost} tog simbola.
+% \end{DEF}
+
+% \begin{EX}
+  % Na primer, jezik
+  % $\calL = \{P(\cdot), Q(\cdot, \cdot, \cdot)\} \cup \{f(\cdot), g(\cdot, \cdot)\} \cup \{a, b\}$
+  % ima dva relacijska simbola (simbol $P$ arnosti~1 i simbol $Q$ arnosti~3), dva funkcijska simbola
+  % (simbol $f$ arnosti~1 i simbol $g$ arnosti~2) i dve konstante ($a$ i $b$).
+% \end{EX}
+
+% \begin{DEF}
+  % Neka je dat kona\v can niz promenljivih $x_1, x_2, \ldots, x_h$ i jezik $\calL = \calR \cup \calF \cup \calC$.
+  % \emph{Term} na jeziku $\calL$ je niz simbola izgra\dj en prema slede\'cim pravilima:
+  % \begin{enumerate}\itemsep -1mm
+  % \item
+    % promenljive $x_1, x_2, \ldots, x_h$ i konstante iz $\calC$ su termi;
+  % \item 
+    % ako je $f \in \calF$ funkcijski simbol arnosti $n$ i $t_1, \ldots, t_n$ termi, onda je i niz simbola
+    % $f(t_1, \ldots, t_n)$ term;
+  % \item
+    % svaka term se dobija kona\v cnom primenom pravila (1)--(2).
+  % \end{enumerate}
+  % (Zahtev (3) obezbe\dj uje da termi budu uvek kona\v cni nizovi simbola, kao i da nijedan drugi niz
+  % simbola nije term.)
+% \end{DEF}
+
+% \begin{DEF}
+  % Neka je dat kona\v can niz promenljivih $x_1, x_2, \ldots, x_h$ i jezik $\calL = \calR \cup \calF \cup \calC$.
+  % \emph{Atomi\v cka formula} na jeziku $L$ je niz simbola oblika
+  % $$
+    % t_1 = t_2
+  % $$
+  % gde su $t_1$ i $t_2$ termi na jeziku $\calL$, ili niz simbola oblika
+  % $$
+    % R(t_1, t_2, \ldots, t_n)
+  % $$
+  % gde je $R \in \calR$ relacijski simbol jezika $\calL$ arnosti $n$, a $t_1$, $t_2$, \ldots, $t_n$
+  % su termi na jeziku $\calL$.
+% \end{DEF}
+
+% \begin{DEF}
+  % Neka je dat kona\v can niz promenljivih $x_1, x_2, \ldots, x_h$ i jezik $\calL = \calR \cup \calF \cup \calC$.
+  % \emph{Predikatska formula} na jeziku $\calL$ je niz simbola koji je formiran prema slede\'cim pravilima:
+  % \begin{enumerate}\itemsep -1mm
+  % \item
+    % atomi\v cke formule na jeziku $\calL$ su predikatske formule;
+  % \item
+    % ako su $\phi$ i $\psi$ predikatske formule, onda su to i slede\'ci nizovi simbola:
+    % $$
+      % \lnot \phi, \quad (\phi \land \psi), \quad (\phi \lor \psi), \quad (\phi \Rightarrow \psi), \quad (\phi \Leftrightarrow \psi);
+    % $$
+  % \item
+    % ako je $\phi$ predikatska formula i $x_i$ neka promenljiva, onda su i slede\'ci nizovi simbola predikatske formule:
+    % $$
+      % (\forall x_i)\phi, \quad (\exists x_i)\phi
+    % $$
+  % \item
+    % svaka predikatska formula se dobija kona\v cnom primenom pravila (1)--(3).
+  % \end{enumerate}
+  % (Zahtev (4) obezbe\dj uje da predikatske formule budu uvek kona\v cni nizovi simbola, kao i da nijedan drugi niz
+  % simbola nije predikatska formula.)
+% \end{DEF}
+
+% U verziji koju \'cemo ovde pokazati predikatski ra\v cun kao formalna teorija ima \v sest \emph{shema-aksioma}
+% i dva pravila izvo\dj enja. Shema-aksioma je modla po kojoj se dalje \v stancuju aksiome tako \v sto umesto \enquote{plejsholdera}
+% $\phi$ i $\psi$ udenemo bilo koju formulu. To je na\v cin da se iz skupa pravila izbaci pravilo supstitucije
+% (koje je ovde vrlo pipavo za uvo\dj enje), po cenu da aksiomatski sistem sada postaje \emph{beskona\v can skup
+% formula} jer od svake shema-aksiome mo\v ze da se napravi beskona\v cno formula koje su zapravo aksiome sistema.
+
+% Postojanje kvantifikatora i \v cinjenica da oni vezuju promenljive stvara \v citav niz tehni\v ckih pote\v sko\'ca.
+% Izme\dj u ostalog, to je jedan od klju\v cnih razloga za\v sto smo odustali od pravila supstitucije i pre\v sli
+% na shema-aksiome. Druga tehnikalija sa kojom \'cemo morati da se izborimo je re\v sena slede\'com definicijom.
+
+% \begin{DEF}
+  % Za term $t$ ka\v zemo da je \emph{slobodan za promenljivu $x$ u formuli $\phi(x)$} u kojoj se $x$ javlja kao slobodna
+  % promenljiva, ako nakon zamene simbola $x$ termom $t$ nijedna promenljiva terma $t$ ne postaje vezana u formuli
+  % $\phi(t)$.
+% \end{DEF}
+
+% \begin{EX}
+  % Neka je $\phi(x) = (\forall y)R(x, y)$. Tada je term $t_1 = f(z, x)$ slobodan za $x$ u formuli $\phi(x)$
+  % jer nakon zamene $x$ sa $t_1$ dobijamo
+  % $\phi(t_1) = (\forall y)R(f(z, x), y)$ gde nijedna od promenljivih $z$ i $x$ nije napadnuta nijednim
+  % kvantifikatorom formule $\phi$. S druge strane term $t_2 = f(y, x)$ nije slobodan za $x$ u formuli $\phi(x)$
+  % jer nakon zamene $x$ sa $t_2$ dobijamo
+  % $\phi(t_2) = (\forall y)R(f(y, x), y)$ gde je promenljiva $y$ u termu $f(y, x)$ napadnuta
+  % kvantifikatorom formule $\phi$.
+% \end{EX}
+
+% Ako nam je fiksiran jezik $\calL$, predikatski ra\v cun kao formalna teorija je zadat slede\'cim shema-aksiomama:
+
+% \begin{description}
+% \item[A1:] $\phi \Rightarrow (\psi \Rightarrow \phi)$;
+% \item[A2:] $(\phi \Rightarrow (\psi \Rightarrow \rho)) \Rightarrow ((\phi \Rightarrow \psi) \Rightarrow (\phi \Rightarrow \rho))$;
+% \item[A3:] $(\lnot \psi \Rightarrow \lnot \phi) \Rightarrow (\phi \Rightarrow \psi)$;
+% \item[A4:] $\lnot \phi \Rightarrow (\phi \Rightarrow \psi)$;
+% \item[A5:] $(\forall x)(\phi \Rightarrow \psi(x)) \Rightarrow (\phi \Rightarrow (\forall x)\psi(x))$, ako promenljiva $x$
+           % nije slobodna u formuli $\phi$;
+% \item[A6:] $((\forall x)\phi(x)) \Rightarrow \phi(t)$ ako je term $t$ slobodan za promenljivu $x$ u  formuli $\phi$.
+% \end{description}
+% Pravila izvo\dj enja ove teorije su \emph{Modus ponens} i \emph{Pravilo generalizacije}:
+% $$
+  % \mathit{MP}: \begin{array}{c}
+    % \phi \qquad \phi \Rightarrow \psi \\ \hline
+    % \psi
+  % \end{array},\qquad
+  % \mathit{Gen}: \begin{array}{c}
+    % \phi \\ \hline
+    % (\forall x)\phi
+  % \end{array}
+% $$
+
+% \medskip
+
+% I u ovom pro\v sirenom ra\v cunu imamo pojam sintaksne posledice kao i
+% izuzetno va\v znu i korisnu Teoremu dedukcije.
+
+% \begin{DEF}
+  % Neka je $\calL$ jezik predikatskog ra\v cuna,
+  % neka je $\Sigma$ skup formula i neka je $\phi$ neka formula. Tada oznaka
+  % $\Sigma \vdash \phi$ zna\v ci da postoji kona\v can niz formula
+  % $$
+    % \alpha_1, \; \alpha_2, \; \ldots, \; \alpha_n
+  % $$
+  % takav da je $\alpha_n = \phi$, i za svako $i \in \{1, \ldots, n\}$ formula $\alpha_i$ je ili aksioma
+  % (dobijena od neke shema-aksiome zamenom \enquote{plejsholdera} proizvoljnim formulama), ili
+  % neka od formula iz $\Sigma$, ili je dobijena primenom nekog pravila izvo\dj enja na neke od formula koje joj
+  % prethode u nizu. Navedeni niz formula tada nazivamo \emph{dokaz formule $\phi$ iz pretpostavki $\Sigma$}.
+% \end{DEF}
+
+% \begin{THM}[Teorema dedukcije za predikatski ra\v cun]
+  % Neka je $\Sigma$ skup formula predikatskog ra\v cuna na jeziku $\calL$
+  % i neka su $\phi$ i $\psi$ jo\v s dve formule. Tada $\Sigma \vdash \phi \Rightarrow \psi$
+  % ako i samo ako $\Sigma \union \{\phi\} \vdash \psi$, pri \v cemu nijedna od promenljivih pomo\'cu kojih
+  % primenjujemo pravilo (Gen) nije slobodna u formuli $\phi$.
+% \end{THM}
+
+% Teorema dedukcije za predikatski ra\v cun dobija pitomiju formulaciju ako svedemo diskusiju na specijalnu klasu formula.
+
+% \begin{DEF}
+  % \emph{Re\v cenica} je predikatska formula bez slobodnih promenljivih.
+% \end{DEF}
+
+% \begin{THM}[Teorema dedukcije za predikatski ra\v cun V2.0]
+  % Neka je $\Sigma$ skup formula predikatskog ra\v cuna na jeziku $\calL$
+  % i neka su $\phi$ i $\psi$ jo\v s dve formule, pri \v cemu je $\phi$ re\v cenica.
+  % Tada $\Sigma \vdash \phi \Rightarrow \psi$
+  % ako i samo ako $\Sigma \union \{\phi\} \vdash \psi$.
+% \end{THM}
+
+% Sli\v cno iskaznom ra\v cunu, uz mnogo truda mo\v ze se pokazati da su sve valjane formule
+% posledice formalne teorije predikatskog ra\v cuna, i nijedna druga formula to nije.
+% Dakle, valjane formule mo\v zemo precizno opisati formalnim teorijama.
+
+% \begin{THM}[G\"odel 1929]
+  % Neka je $\phi$ re\v cenica. Tada $\vdash \phi$ ako i samo ako je $\phi$ valjana formula.
+% \end{THM}
+
+% Ako izjavu $\vDash \phi$ shvatimo kao \enquote{$\phi$ je ta\v cno}, a izjavu $\vdash \phi$ kao
+% \enquote{$\phi$ je dokazivo iz aksioma} onda prethodna veoma va\v zna teorema mo\v ze da se shvati i ovako:
+% formula predikatskog ra\v cuna je ta\v cna ako i samo ako je dokaziva iz aksioma.
+
+% Dakle, i predikatski ra\v cun kako smo ga ovde pokazali ima tu super-va\v znu osobinu
+% da se \emph{semantika} (pojam ta\v cnosti) i \emph{sintaksa} (pojam formalne dokazivosti) poklapaju,
+% \v sto nije uvek slu\v caj!
+
+% \section{Peanova aritmetika}
+
+% Shema-aksiome A1--A6 se jo\v s zovu i \emph{logi\v cke aksiome} jer one reguli\v su
+% deduktivni proces. Ako unutar predikatskog ra\v cuna \v zelimo da govorimo o nekoj specifi\v cnoj
+% teoriji, onda je formalnom sistemu potrebno dodati specifi\v cne, \emph{ne-logi\v cke} aksiome
+% koje reguli\v su specifi\v cno pona\v sanje.
+
+% Na primer, Peanova aritmetika nam omogu\'cuje da rezonujemo o aritmetici kao formalnoj teoriji.
+% Jezik Peanove aritmetike nema relacijskih simbola, ima jedan funkcijski simbol $s$ i jednu konstantu~0.
+% Aksiome Peanove aritmetike se sastoje od dve \enquote{obi\v ne} aksiome i jedne shema-aksiome koje dodajemo
+% predikatskom ra\v cunu kao \emph{ne-logi\v cke aksiome}:
+
+% \begin{description}
+% \item[PA1:] $\lnot(\exists x) s(x) = 0$;
+% \item[PA2:] $(\forall x)(\forall y)(s(x) = s(y) \Rightarrow x = y)$;
+% \item[PA3:] $\big(\phi(0) \land (\forall x)(\phi(x) \Rightarrow \phi(s(x)))\big) \Rightarrow (\forall x)\phi(x)$.
+% \end{description}
+
+% Skup aksioma Peanove aritmetike \'cemo ozna\v citi sa $PA$.
+
+% \begin{EX}
+  % Dokazati da $PA \vdash (\forall x)(x = 0 \lor (\exists y)x = s(y))$.
+
+  % \medskip
+
+  % \textit{Re\v senje.}
+  % Neka je $\phi(x)$ formula $[x = 0 \lor (\exists y)x = s(y)]$. Formulu \'cemo ograditi uglastim zagradama
+  % da bismo lak\v se mogli da ispratimo \v sta se de\v sava u dokazu.
+
+% \begin{enumerate}
+% \item%1
+  % $\big([0 = 0 \lor (\exists y)0 = s(y)] \land (\forall x)([x = 0 \lor (\exists y)x = s(y)]
+  % \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)])\big) \Rightarrow (\forall x)[x = 0 \lor (\exists y)x = s(y)]$\newline
+  % [PA3 raspisana za formulu $\phi$]
+% \item%2
+  % $0 = 0$\newline
+  % [refleksivnost jednakosti]
+% \item%3
+  % $0 = 0 \Rightarrow [0 = 0 \lor (\exists y)0 = s(y)]$\newline
+  % [tautologija $p \Rightarrow (p \lor q)$]
+% \item%4
+  % $[0 = 0 \lor (\exists y)0 = s(y)]$\newline
+  % [MP na (2) i (3)]
+% \item%5
+  % $s(x) = s(x)$\newline
+  % [refleksivnost jednakosti]
+% \item%6
+  % $s(x) = s(x) \Rightarrow (\exists y)s(x) = s(y)$\newline
+  % [valjana formula $\phi(x, x) \Rightarrow (\exists y)\phi(x, y)$]
+% \item%7
+  % $(\exists y)s(x) = s(y)$\newline
+  % [MP na (5) i (6)]
+% \item%8
+  % $((\exists y)s(x) = s(y)) \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)]$\newline
+  % [tautologija $p \Rightarrow (q \lor p)$]
+% \item%9
+  % $[s(x) = 0 \lor (\exists y)s(x) = s(y)]$\newline
+  % [MP na (7) i (8)]
+% \item%10
+  % $[s(x) = 0 \lor (\exists y)s(x) = s(y)] \Rightarrow ([x = 0 \lor (\exists y)x = s(y)] \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)])$\newline
+  % [tautologija $p \Rightarrow (q \Rightarrow p)$]
+% \item%11
+  % $[x = 0 \lor (\exists y)x = s(y)] \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)]$\newline
+  % [MP na (9) i (10)]
+% \item%12
+  % $(\forall x)([x = 0 \lor (\exists y)x = s(y)] \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)])$\newline
+  % [Gen na (11)]
+% \item%13
+  % $(4) \Rightarrow ((12) \Rightarrow ((4) \land (12)))$\newline
+  % [tautologija $p \Rightarrow (q \Rightarrow (p \land q))$; (4) i (12) su formule iz dokaznog niza]
+% \item%14
+  % $(12) \Rightarrow ((4) \land (12))$\newline
+  % [MP na (4) i (13)]
+% \item%15
+  % $[0 = 0 \lor (\exists y)0 = s(y)] \land (\forall x)([x = 0 \lor (\exists y)x = s(y)] \Rightarrow [s(x) = 0 \lor (\exists y)s(x) = s(y)])$\newline
+  % [MP na (12) i (14); ovo je formula $(4) \land (12)$]
+% \item%16
+  % $(\forall x)[x = 0 \lor (\exists y)x = s(y)]$\newline
+  % [MP na (15) i (1)]
+% \end{enumerate}
+% Ovim je formalni dokaz zavr\v sen.
+% \end{EX}
+
+% Peanovoj aritmetici sada mo\v zemo lako da dodamo operacije sabiranja i mno\v zenja slede\'cim \emph{rekurzivnim definicijama}:
+
+% \begin{description}
+% \item[S1:] $x + 0 = x$;
+% \item[S2:] $x + s(y) = s(x + y)$;
+% \item[M1:] $x \cdot 0 = 0$;
+% \item[M2:] $x \cdot s(y) = (x \cdot y) + y$.
+% \end{description}
+
+% Uz mnogo truda mo\v ze se sada (sli\v cno dokazu koga smo videli) pokazati da su sabiranje i mno\v zenje komutativne
+% i asocijativne operacije, i da imamo distributivnost mno\v zenja prema sabiranju. Dakle, sve \v sto o\v cekujemo od
+% ove dve operacije mo\v ze se pokazati strogo formalno.
+
+% \section{Gedelove teoreme o nepotpunosti}
+
+% Gedelove (G\"odel) teoreme o nepotpunosti (ima ih dve)
+% spadaju me\dj u najva\v znije rezultate savremene logike i imaju duboke posledice ne samo u matematici.
+% Recimo, Drugi Penrouzov argument o nemogu\'cnosti kognitivne simulacije iz 1994.~se oslanja upravo da Drugu Gedelovu
+% teoremu o nepotpunosti.
+
+% Gedelove teoreme govore o dokazivosti u formalnim aksiomatskim teorijama \v ciji aksiomatski sistemi imaju \enquote{pravilnu
+% strukturu} koja se mo\v ze ma\v sinski odlu\v citi. Prva Gedelova teorema ka\v ze da u svakom konzistentnom
+% formalnom sistemu \v cije aksiome se mogu algoritamski nabrojati i u kome se mo\v ze izvesti ozvesna
+% količina aritmetike, postoje iskazi na jezika tog sistema koji se ne mogu ni dokazati ni opovrgnuti u unutar sistema.
+% Druga Gedelova teorema onda pokazuje da takav formalni sistem ne mo\v ze dokazati za sebe da je konzistentan
+% (pod pretpostavkom da zaista i jeste konzistentan).
+
+% Za formalni sistem $F$ ka\v zemo da je \emph{konzistentan} ako
+% $$
+  % \text{\textbf{\textit{nije} }} \calF \vdash \bot.
+% $$
+% Po\v sto znamo za \v cuvenu tautologiju \emph{ex falso quodlibet}:
+% $$
+  % \bot \Rightarrow \phi, \text{ za svaku formulu } \phi,
+% $$
+% mo\v zemo, ekvivalentno, re\'ci da je formalni sistem $F$ konzistentan ako
+% $$
+  % \text{postoji formula $\phi$ takva da \textbf{\textit{nije} }} \calF \vdash \phi.
+% $$
+% Formalni sistem je \emph{potpun} ili \emph{kompletan} ako za svaku formulu $\phi$:
+% $$
+  % \text{ili } \calF \vdash \phi \text{ ili } \calF \vdash \lnot\phi.
+% $$
+% To zna\v ci da u potpunim formalnim sistemima za svaku formulu $\phi$ mo\v zemo utvrdimo njenu ta\v cnost
+% \emph{sintaksno}: ili je $\phi$ dokazivo iz $\calF$ (\v sto zna\v ci da je $\phi$ ta\v cno u sistemu $\calF$),
+% ili je $\lnot\phi$ dokazivo iz $\calF$ (\v sto zna\v ci da je $\phi$ neta\v cno u sistemu $\calF$).
+
+% Jedna od osnovnih premisa Hilbertovog programa je da je matematika konzistentna i da \'cemo
+% sve u matematici mo\'ci da svedemo na formalnu dedukciju.
+
+% Avaj, nije tako! Ranih 1930-ih Gedel je poslao Hilbertov program u arhive istorije matematike svojim
+% teoremama o nepotpunosti.
+
+% \begin{THM}[Prva Gedelova teorema o nepotpunosti]
+  % Posmatrajmo formalni sistem $F$ koji sadr\v zi sve logi\v cke aksiome, aksiome Peanove aritmetike, kao i
+  % formule kojima je definisano sabiranje i mno\v zenje. Takav formalni sistem mo\v ze da sadr\v zi i druge
+  % ne-logi\v cke aksiome sve dok postoji algoritam koji mo\v ze sve da ih izlista.
+  % Ako je $\calF$ konzistentan, onda nije potpun, \v sto zna\v ci da postoji re\v cenica $\phi$ na jeziku tog sistema
+  % takva da ni $\phi$ ni $\lnot\phi$ nisu dokazivi unutar sistema.
+% \end{THM}
+
+% Klju\v cna dosetka u Gedelovim dokazima je upotreba aritmetike da bi se kodirale
+% formule i dokazi formalne logike. Ako je $F$ formalni sistem kao u formulaciji Prve Gedelove teoreme,
+% onda se (uz mnogo muke!) na jeziku sistema $F$ mo\v ze formulisati re\v cenica $\Consist(F)$ koja kodira stav:
+% $$
+   % \Consist(F) \equiv \text{\enquote{Sistem $F$ je konzistentan}}.
+% $$
+
+% \begin{THM}[Druga Gedelova teorema o nepotpunosti]
+  % Posmatrajmo formalni sistem $F$ kao u Prvoj Gedelovoj teoremi. 
+  % Ako je $\calF$ konzistentan, onda
+  % $$
+    % \text{\textbf{\textit{nije} }} \calF \vdash \Consist(F).
+  % $$
+% \end{THM}
+
+% Dakle, ako je formalni sistem dovoljno mo\'can da se u njemu mogu obavljati logi\v cke i aritmeti\v cke operacije,
+% ali i dovoljno jednostavan da se sve \v sto on inicijalno zna o sebi mo\v ze izlistati jedim algoritmom,
+% onda taj sistem nema dovoljno logi\v cke snage da doka\v ze sopstvenu konzistentnost!
+
+\section{Predikatski ra\v cun u analizi programskog koda}
+
+Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do sada stekli koriste u formalnoj analizi programskog koda.
+
+\begin{EX}\label{ft05.ex.max-niza}
+  Posmatrajmo slede\'ci programski fragment:
+{\small
+\begin{verbatim}
+    int i, p, m, n;
+    // ovde ucitamo n
+    int[] A = new int[n];
+    // ovde ucitamo elemente niza A
+    p = 0; m = A[0];
+    // (1)
+    for(i = 0; i < n; i++) {
+      if(A[i] > m) {
+        p = i; m = A[i];
+      }
+    }
+    // (2)
+\end{verbatim}
+}
+\noindent
+  Dokazati da po okon\v canju ovog koda promenljiva $m$ sadr\v zi najve\'ci element niza $A$, a promeljiva $p$ njegovu
+  poziciju u nizu. Drugim re\v cima, dokazati da u ta\v cki (2) koda va\v zi slede\'ca formula:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le n - 1 \Rightarrow A[j] \le m).
+  $$
+  (Prva dva uslova ka\v zu da je $p$ indeks niza i da se $m$ nalazi na mestu $p$ u nizu, dok tre\'ci uslov govori da je
+  $m$ ve\'ci od svakog elementa niza -- drugim re\v cima, $m$ je maksimum niza.)
+\end{EX}
+\begin{proof}[Re\v senje]
+  Ozna\v cimo sa $\phi(k)$ slede\'cu formulu:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le k - 1 \Rightarrow A[j] \le m).
+  $$
+  Lako se pokazuje da u ta\v cki (1) koda va\v zi formula $\phi(0)$ koja glasi:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(\underbrace{0 \le j \le -1}_\bot \Rightarrow A[j] \le m).
+  $$
+  Naime, znamo da u ta\v cki (1) va\v zi d je $p = 0$ i $m = A[0]$. S druge strane, uslov $0 \le j \le -1$ u tre\'cem \enquote{delu} formule
+  je neta\v can. Zato je implikacija ta\v cna, pa je i cela formula ta\v cna.
+  
+  \v Zelimo da poka\v zemo da je po okon\v canju \enquote{for}-ciklusa ta\v cna formula $\phi(n)$. Ideja dokaza se sastoji u tome
+  da se poka\v ze slede\'ce: ako je pre izvr\v senja tela ciklusa ta\v cno $\phi(i)$, onda je po izvr\v senju tela ciklusa
+  ta\v cno $\phi(i + 1)$. Pretpostavimo da je ta\v cno $\phi(i)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i - 1 \Rightarrow A[j] \le m).
+  $$
+  i posmatrajmo telo ciklusa:
+{\small
+\begin{verbatim}
+      if(A[i] > m) {
+        p = i; m = A[i];
+      }
+\end{verbatim}
+}
+\noindent
+  Ako je $A[i] \le m$ onda iz $\phi(i)$ sledi da je ta\v cno i:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le m),
+  $$
+  odnosno, ta\v cno je $\phi(i + 1)$. Posmatrajmo sada drugu mogu\'cnost: $A[i] > m$. Tada je
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i - 1 \Rightarrow A[j] \le A[i])
+  $$
+  (jer je $A[j] \le m < A[i]$) pa sledi da je ta\v cno i slede\'ce:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le A[i]).
+  $$
+  Sada je jasno da nakon naredbi
+{\small
+\begin{verbatim}
+        p = i; m = A[i];
+\end{verbatim}
+}
+  \noindent
+  va\v zi $\phi(i + 1)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le m).
+  $$
+  Dakle, kada se poslednji put izvr\v si telo \enquote{for}-ciklusa znamo da \'ce va\v ziti $\phi(n)$:
+  $$
+    0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le n - 1 \Rightarrow A[j] \le m),
+  $$
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+
+\begin{EX}
+  Sortiranje formiranjem uzastopnih minimuma (tzv.\ \emph{selection sort}) se mo\v ze realizovati na slede\'ci na\v cin:
+{\small
+\begin{verbatim}
+  static void swap(int[] A, int i, int j) {
+    int tmp = A[i];
+    A[i] = A[j];
+    A[j] = tmp;
+  }
+  
+  static int posMin(int[] A, int i, int n) {
+    int m = i;
+    for(int j = i + 1; j < n; j++) {
+      if(A[j] < A[m]) { m = j; }
+    }
+    return m;
+  }
+  
+  static void Sort(int[] A, int n) {
+    for(int i = 0; i < n; i++) {
+      int m = posMin(A, i, n);
+      swap(A, i, m);
+    }
+  }
+\end{verbatim}
+}
+  \noindent
+  Dokazati da metod \textit{Sort} sortira niz $A$ \v cija du\v zina je $n$. Drugim re\v cima, dokazati da
+  po okon\v canju metoda \textit{Sort} za elemente niza $A$ va\v zi slede\'ce:
+  $$
+    (\forall p)(\forall q)(0 \le p \le q < n \Rightarrow A[p] \le A[q]).
+  $$
+\end{EX}
+\begin{proof}[Dokaz]
+  Primetimo, prvo, da je formula koja opisuje \v cinjenicu da je niz sortiran ekvivalentna slede\'coj:
+  $$
+    (\forall p)(0 \le p < n \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  Naime, formula data u formulaciji problema ka\v ze: \enquote{za sve $p$ i $q$ koji su indeksi niza, ako je $p \le q$ onda je $A[p] \le A[q]$}.
+  S druge strane, formula koju smo upravo naveli ka\v ze: \enquote{za svako $p$ koje je indeks niza, $A[p]$ je manji ili jednak od svakog elementa
+  niza koji se javlja iza njega}. Jasno je da su ova dva zahteva ekvivalentna.
+
+  Prvo \'cemo kratko opisati pona\v sanje metoda \textit{swap} i \textit{posMin}. Pona\v sanje metoda \textit{swap} je
+  najjednostavnije opisati ovako: ako je pre izvr\v senja naredbe
+{\small
+\begin{verbatim}
+      swap(A, p, q);
+\end{verbatim}
+}
+  \noindent
+  va\v zilo $A[p] = \alpha$ i $A[q] = \beta$, tada \'ce nakon izvr\v senja ove naredbe va\v ziti
+  $A[p] = \beta$ i $A[q] = \alpha$.
+  Sli\v cno Primeru~\ref{ft05.ex.max-niza} mo\v zemo pokazati da nakon izvr\v senja metoda $\mathit{posMin}(A, i, n)$
+  kao rezultat dobijamo broj $m$ za koga va\v zi slede\'ce:
+  $$
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]).
+  $$
+  Pre\dj imo sada na analizu metoda \textit{Sort}. Neka je $\phi(i)$ slede\'ca formula:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  Lako se vidi da pre nego \v sto metodu \textit{Sort} krene sa izvr\v savanjem \enquote{for}-ciklusa
+  va\v zi formula $\phi(0)$ koja glasi:
+  $$
+    (\forall p)(0 \le p < 0 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  jer je antecedent $0 \le p < 0$ neta\v can, pa je implikacija trivijalno ta\v cna.
+  \v Zelimo da poka\v zemo da je po okon\v canju \enquote{for}-ciklusa ta\v cna formula $\phi(n)$. Kao i ranije,
+  ideja dokaza se sastoji u tome da se poka\v ze slede\'ce: ako je pre izvr\v senja tela ciklusa ta\v cno $\phi(i)$,
+  onda je po izvr\v senju tela ciklusa ta\v cno $\phi(i + 1)$. Pretpostavimo da je ta\v cno $\phi(i)$:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+  $$
+  i posmatrajmo telo ciklusa. Nakon naredbe
+{\small
+\begin{verbatim}
+      int m = posMin(A, i, n);
+\end{verbatim}
+}
+\noindent
+  promenljiva $m$ sadr\v zi vrednost za koju znamo da zadovoljava slede\'ce:
+  $$
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]),
+  $$
+  pa pre poziva metoda \textit{Swap} va\v zi:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+    \;\;\land\;\;
+    (\forall q)(i \le q < n \Rightarrow A[m] \le A[q]).
+  $$
+  U metodu \textit{Swap} promenljive $A[m]$ i $A[i]$ razmenjuju vrednosti, pa zaklju\v cujemo
+  da nakon poziva metoda \textit{Swap} va\v zi:
+  $$
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+    \;\;\land\;\;
+    (\forall q)(i \le q < n \Rightarrow A[i] \le A[q]).
+  $$
+  Sada uo\v cavamo da je desni konjunkt zapravo konsekvent implikacije prve formule za $p = i$, pa dobijamo:
+  $$
+    (\forall p)(0 \le p < i + 1 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])),
+  $$
+  \v sto je ta\v cno formula $\phi(i + 1)$.
+  Dakle, kada se poslednji put izvr\v si telo \enquote{for}-ciklusa znamo da \'ce va\v ziti $\phi(n)$:
+  $$
+    (\forall p)(0 \le p < n \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q]))
+  $$
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+\section{Zadaci}
+
+\ZAD{07.zad.1}{
+Sastaviti predikatsku re\v cenicu (pomo\' cu kvantifikatora) koja ka\v ze:
+\begin{enumerate}[(a)]
+\item Postoji paran ceo broj.
+\item Svaki prirodan broj deljiv je sa samim sobom.
+\item Postoji ceo broj deljiv sa tri.
+\item Svaki prirodan broj deljiv je sa $-1$.
+\item Postoji prirodan broj koji nije kvadrat prirodnog broja.
+\item Ne postoji najve\' ci prirodan broj.
+\end{enumerate}
+}
+
+\ZAD{07.zad.2}{
+Napisati predikatsku re\v cenicu re\v cima, i odgovoriti na pitanje da li je data re\v cenica ta\v cna:
+\begin{enumerate}[(a)]
+\item $(\forall x\in \mathbb Q)(\exists y\in \mathbb Q)(y^2=x)$;
+\item $(\forall x\in \mathbb N)(\exists y\in \mathbb Z)(x>y\wedge x\mid y)$;
+\item $(\forall x\in \mathbb Z)(\exists y\in \mathbb Z)(x>y\wedge x\mid y)$;
+\item $(\forall x\in \mathbb Q)(\exists y\in \mathbb Q)(x\cdot y=\sqrt 2)$;
+\item $(\forall x\in \mathbb Q^+)(\exists y\in \mathbb Q)(x\cdot y=\sqrt 2)$;
+\item $(\forall x\in \mathbb Q)(\exists y\in \mathbb Q)(x+y=\sqrt 2)$.
+\end{enumerate}
+}
+
+\ZAD{07.zad.3}{
+Napisati re\v cima slede\' ce predikatske re\v cenice, odgovoriti na pitanje da li je data re\v cenica ta\v cna i obrazlo\v ziti odgovor:
+\begin{enumerate}[(a)]
+\item $(\forall x\in \mathbb N)(\exists y\in\mathbb N)(y<x)$;
+\item $(\forall x\in \mathbb N)(\exists y\in\mathbb N)(y<x+1)$;
+\item $(\exists x\in \mathbb R)(\exists y\in\mathbb R)(y<x\wedge x<y^2)$;
+\item $(\forall x\in\mathbb Q)(\exists y\in \mathbb Q)(x\cdot y\in\mathbb Z)$;
+\item $(\forall x\in\mathbb Q)(\exists y\in \mathbb Z)(x\cdot y\in\mathbb Z)$;
+\item $(\forall x\in \mathbb R)(\exists y\in\mathbb R)(0<x\cdot y\wedge x\cdot y<2)$;
+\item $(\forall x\in \mathbb Q)(\forall y\in\mathbb Q)(\exists z\in\mathbb Q)(x\leq z\leq y\vee y\leq z\leq x)$;
+\item $(\exists x\in \mathbb Z)(\exists y\in\mathbb Z)(x\mid y\vee y\mid x)$;
+
+\item $(\forall x\in\mathbb Q^+)(\exists y\in \mathbb Q^+)(x< y\wedge y<x^2)$;
+\item $(\exists x\in \mathbb Z)(\forall y\in\mathbb Z)(y+x\cdot y=0)$;
+\item $(\forall x\in \mathbb Q)(\forall y\in\mathbb Q)(\exists z\in\mathbb Q)(x\cdot z=y)$;
+\item $(\exists x\in \mathbb N)(\exists y\in\mathbb N)(x\neq y\wedge x\mid y\wedge y\mid x)$;
+\item $(\forall x\in \mathbb Q^+)(\exists y\in\mathbb N)(\frac 1y<x)$;
+\item $(\exists x\in \mathbb Z)(\exists y\in\mathbb Z)(x\neq y\wedge x\mid y\wedge y\mid x)$;
+\item $(\exists x\in\mathbb Q^+)(\exists y\in \mathbb Q^+)(x^2< y\wedge y<x)$;
+\item $(\exists x\in \mathbb Z)(\forall y\in\mathbb Z)(-y=x\cdot y)$.
+\end{enumerate}
+}
+
+\ZAD{07.zad.4}{
+Negirati predikatsku formulu:
+\begin{enumerate}[(a)]
+\item $(\forall x)\big[  R(x)\Rightarrow(\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big];$
+\item $(\exists x)\big[\neg S(x,x)\Rightarrow(\exists y)\big[S(x,y)\vee S(y,x)\Rightarrow(\forall z)R(z,z)\big]\big];$
+\item $(\exists x)\big[ \big[(\forall y)(R(x,y)\vee S(y))\big]\Rightarrow (\exists z)\neg T(z)   \big];$
+\item $(\forall x)\big[ \big[(\forall y)(R(x,y)\wedge S(x))\big]\Rightarrow(\forall z) R(z,x)      \big];$
+\item $(\exists x)\big[(\exists z)\big[R(x,z)\wedge (\forall y)S(z,y)\big]\wedge (\forall t)\big[R(x,t)\Rightarrow(\forall u)R(x,u)\big]      \big];$
+\item $(\exists x)(\exists y)\big[\big[S(x,y)\vee R(x,y)\big]\Rightarrow (\exists z)\neg\big[S(x,z)\wedge S(z,y)\wedge R(x,y)\Rightarrow T(x,y)\big]    \big];$
+\item $(\forall x)\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big];$
+\item $(\forall x)(\exists y)(\exists z)\big[ P(x)\Rightarrow\big(  P(y)\wedge P(z)\wedge\neg Q(y,z )      \big)   \big].$
+\end{enumerate}
+}
+
+%\ZAD{07.zad.5}{
+%Prevesti predikatsku formulu u preneksni oblik, tj. \enquote{izvu\' ci} kvantifikatore na po\v cetak:\footnote{Preneksni oblik nije ra\dj en na predavanju. Mo\v zda ni ovi zadaci onda ne bi trebali biti tu.}
+%\begin{enumerate}[(a)]
+%\item $(\forall x)\big[  R(x)\Rightarrow(\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big];$
+%\item $(\exists x)\big[\neg S(x,x)\Rightarrow(\exists y)\big[S(x,y)\vee S(y,x)\Rightarrow(\forall z)R(z,z)\big]\big];$
+%\item $(\exists x)\big[ \big[(\forall y)(R(x,y)\vee S(y))\big]\Rightarrow (\exists z)\neg T(z)   \big];$
+%\item $(\forall x)\big[ \big[(\forall y)(R(x,y)\wedge S(x))\big]\Rightarrow(\forall z) R(z,x)      \big];$
+%\item $(\exists x)\big[(\exists z)\big[R(x,z)\wedge (\forall y)S(z,y)\big]\wedge (\forall t)\big[R(x,t)\Rightarrow(\forall u)R(x,u)\big]      \big];$
+%\item $(\exists x)(\exists y)\big[\big[S(x,y)\vee R(x,y)\big]\Rightarrow (\exists z)\neg\big[S(x,z)\wedge S(z,y)\wedge R(x,y)\Rightarrow T(x,y)\big]    \big];$
+%\item $(\forall x)\big[(\exists y)S(x,y)\Rightarrow(\forall z)\big[R(z)\vee S(x,z)\big] \big].$
+%\end{enumerate}
+%}
+
+
+\ZAD{10.zad.1}{
+Na\' ci model slede\' ce predikatske formule.
+\begin{align*}
+&(\forall x)(P(x)\Rightarrow \neg Q(x))\wedge (\exists x)R(x)\\
+&\wedge (\forall x)(R(x)\Rightarrow P(x))\wedge(\exists x)(R(x)\wedge\neg Q(x))\}
+\end{align*}
+}
+
+\ZAD{10.zad.2}{
+Dokazati da slede\' ca formula nije valjana:
+\[(\forall x)(A(x)\Rightarrow B(x))\Rightarrow \neg\big((\exists x)A(x)\wedge(\exists x)\neg B(x)\big).\]
+}
+
+\ZAD{10.zad.3}{
+Data je formula:
+\[\neg(\forall x)\big(  P(x)\Rightarrow(\forall y)\big(P(y)\Rightarrow   ( Q(x)\Rightarrow\neg Q(y) ) \vee (\forall z) P(z)  \big)\big).\]
+\begin{enumerate}[(a)]
+\item Na\' ci jedan model formule;
+\item Dokazati da formula nije valjana.
+\end{enumerate}
+}
+
+\ZAD{10.zad.4}{
+Na\' ci model slede\' ce formule:
+\begin{enumerate}[(a)]
+\item $(\forall x)(\forall y)(R(x,y)\wedge R(y,x)\Rightarrow x=y)$;
+\item $(\forall x)(\forall y)(\forall z)\big(   R(x,y,z)\wedge R(y,z,x)\wedge R(z,x,y)\Rightarrow T(x,y,z)    \big)$;
+\item $(\forall x) R(x,x) \wedge (\forall x)(\forall y)(\forall z) \big(R(x,y)\wedge R(y,z)\Rightarrow R(x,z)\big)$\\
+$\wedge (\forall x)(\exists y)\neg R(x,y)$.
+\end{enumerate}
+}
+
+\ZAD{10.zad.5}{
+Dokazati da slede\' ca formula nije valjana:
+\begin{enumerate}[(a)]
+\item $(\forall x)(P(x)\Rightarrow Q(x))\Rightarrow \neg\big(    (\exists x)P(x)\wedge(\exists x)\neg Q(x)    \big)$;
+\item $(\exists x)\big(P(x)\wedge\neg Q(x)\big)\wedge  (\exists x)\big(Q(x)\wedge\neg S(x)\big)\Rightarrow(\forall x)\big(S(x)\Rightarrow P(x)\big)$;
+\item $(\forall x)(\exists y)(\exists z)\big( P(x)\Rightarrow\big(  P(y)\wedge P(z)\wedge\neg Q(y,z )      \big)   \big)$;
+\item $(\exists x)(\exists y)\big(\big(S(x,y)\vee R(x,y)\big)\\ \Rightarrow (\exists z)\neg\big(S(x,z)\wedge S(z,y)\wedge R(x,y)\Rightarrow T(x,y)\big)\big)$;
+\item $(\forall x)\big( \big((\forall y)(R(x,y)\wedge S(x))\big)\Rightarrow(\forall z) R(z,x)      \big)$;
+\item $(\exists x)\big(\neg S(x,x)\Rightarrow(\exists y)\big(S(x,y)\vee T(y,x)\Rightarrow(\forall z)R(z,z)\big)\big)$.
+\end{enumerate}
+}
+
+\ZAD{10.zad.6}{
+Na\' ci model za slede\' ce predikatske formule:
+\setlength{\multicolsep}{\topsep}
+%\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $(\forall x)(P(x)\Rightarrow\neg Q(x))\wedge (\exists x) S(x)\wedge\\(\forall x)(S(x)\Rightarrow P(x))\wedge(\exists x)(\neg S(x)\wedge\neg Q(x))$;
+\item $(\forall x)(P(x)\wedge Q(x)\Rightarrow S(x))\wedge(\forall x)(T(x)\Rightarrow S(x))\\
+\wedge(\exists x)(P(x)\wedge\neg Q(x)) \wedge (\exists x)(Q(x)\wedge\neg P(x) \wedge (\exists x)(S(x)\wedge\neg T(x))$;
+\item $(\forall x)(P(x)\wedge Q(x)\Rightarrow (x))\wedge (\forall x)(S(x)\Rightarrow T(x)) \\ \wedge (\exists x)(P(x)\wedge\neg Q(x)) \wedge (\exists x)(Q(x)\wedge\neg P(x) \wedge (\exists x)(S(x)\wedge\neg T(x))$.
+\end{enumerate}
+}
+
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Predikatski ra\v cun kao formalna teorija.
+
+Ta\v cnost i dokazivost (formula je valjana ako i samo ako je dokaziva).
+
+Teorema nepotpunosti za aritmetiku!

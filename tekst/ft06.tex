@@ -1,0 +1,1627 @@
+%!TeX root=main-DS1.tex
+\chapter{Skupovi}
+
+\emph{Skup} predstavlja kolekciju apstraktnih matemati\v ckih objekata. Za objekte koji pripadaju nekoj takvoj
+kolekciji ka\v zemo
+da su njeni \emph{elementi}. Skup ozna\v cavamo tako \v sto izme\dj u viti\v castih zagrada $\{$ i $\}$ navedemo
+njegove elemente ili na neki drugi uglavnom neformalan na\v cin nazna\v cimo \v sta su mu elementi.
+
+\begin{EX*}
+  Skup cifara sistema sa osnovom~10 je $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
+  Ponekad je zgodno skupove predstaviti slikom, i za to koristimo Venove dijagrame. Skup $C$ bismo
+  tada predstavili ovako:
+  \begin{center}
+    \input ft06-sk2.pgf
+  \end{center}
+\end{EX*}
+
+\begin{EX*}
+  Svi prirodni brojevi \v cine skup $\NN = \{ 1, 2, 3, \ldots \}$, a svi celi brojevi skup
+  $\ZZ = \{ \ldots, -3, -2, -1, 0, 1, 2, 3, \ldots \}$.
+\end{EX*}
+
+\begin{EX*}
+  Skup svih ta\v caka neke ravni obrazuje skup: $\alpha = \{A, B, C, \ldots\}$.
+  \begin{center}
+    \input ft06-sk1.pgf
+  \end{center}
+\end{EX*}
+
+\begin{EX*}
+  Postoji skup koji nema elemenata. On se zove \emph{prazan skup} i ozna\v cava ovako: $\0$.
+\end{EX*}
+
+\begin{EX*}
+  Svi studenti jednog studijskog programa \emph{ne \v cine skup} zato \v sto je skup kolekcija
+  \emph{apstraktnih matemati\v ckih} objekata. Iz istog razloga sve knjige na jednoj polici ne \v cine skup, niti
+  sve jabuke u nekoj korpi \v cine skup.
+\end{EX*}
+
+\begin{EX*}
+  U programskom jeziku Java (i mnogim drugim modernim programskim jezicima) tip \texttt{char} je skup svih simbola
+  koji se mogu kodirati standardom UNICODE:
+  \begin{center}
+    \verb"char"$\mathstrut = \{$\verb"'a'", \verb"'b'", \ldots, \verb"'A'", \verb"'B'", \ldots, \verb*"' '", \verb"'!'", \verb"'?'", \ldots,
+                                \verb"'0'", \verb"'1'", \ldots $\}$.
+  \end{center}
+  Sli\v cno, tip \verb"int" predstavlja slede\'ci skup celih brojeva:
+  \begin{center}
+    \verb"int"$\mathstrut = \{ -2\,147\,483\,648, \ldots, -1, 0, 1, \ldots, 2\,147\,483\,647\}$,
+  \end{center}
+  dok tip \verb"boolean" ima samo dve vrednosti:
+  \begin{center}
+    \verb"boolean"$\mathstrut = \{$\verb"false", \verb"true"$\}$.
+  \end{center}
+\end{EX*}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}Za objekte koji pripadaju nekom skupu ka\v zemo da su njegovi \emph{elementi}.
+  Iskaz \enquote{$x$ je element skupa $A$} kra\'ce zapisujemo ovako $x \in A$,
+  dok iskaz \enquote{$y$ nije element skupa $A$} kra\'ce zapisujemo ovako $\lnot(y \in A)$
+  ili jo\v s kra\'ce ovako $y \notin A$.
+  Venovim dijagramom se \v cinjenica da je $x \in A$ i da $y \notin A$ prikazuje kako je pokazano pored.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk4.pgf
+  \end{center}
+\end{minipage}
+
+
+
+
+\begin{EX*}
+  Neka je $A = \{1, \{2, 3\}, 4\}$ (primetimo da skupovi mogu biti elementi drugih skupova).
+  Skup $A$ ima tri elementa: broj $1$,
+  dvo\v clani skup $\{2, 3\}$ i broj $4$. Zato je $1 \in A$, $2 \notin A$ (jer se $2$ ne javlja kao element skupa $A$)
+  i $\{2, 3\} \in A$.
+\end{EX*}
+
+\begin{EX*}
+  Neka je $A = \{\0, \{\0, \{\0\}\}\}$ (primetimo da i prazan skup mo\v ze da se pojavi kao element nekog skupa).
+  Skup $A$ ima samo dva elementa: prazan skup $\0$ i dvoelementni skup $\{\0, \{\0\}\}$. Zato je $\0 \in A$, $\{\0\} \notin A$ i
+  $\{\0, \{\0\}\} \in A$.
+\end{EX*}
+
+Elemente skupa mo\v zemo da \enquote{filtriramo} po nekom svojstvu.
+Ako je $A$ neki skup i $Q(x)$ neki predikat, onda postoji i skup svih elemenata skupa $A$ koji imaju svojstvo $Q$.
+Njega zapisujemo ovako:
+$$
+  \{ x \in A : Q(x) \}.
+$$
+
+\begin{EX*}
+  Podsetimo se da smo sa $\calE$ ozna\v cili skup ta\v caka neke ravni. Neka su $O, P, Q \in \calE$ tri ta\v cke.
+  \emph{Krug} sa centrom $O$ i polupre\v cnikom $[PQ]$ je skup ta\v caka ravni $\calE$ koje su na rastojanju $[PQ]$ od ta\v cke~$O$:
+  $$
+    K(O, [PQ]) = \{X \in \calE : [OX] \cong [PQ]\}.
+  $$
+\end{EX*}
+
+\begin{EX*}
+  Skup svih parnih prirodnih brojeva mo\v zemo zapisati ovako:
+  $$
+    \{ n \in \NN : 2 \mid n \},
+  $$
+  a skup svih negativnih celih brojeva ovako:
+  $$
+    \{ k \in \ZZ : k < 0 \}.
+  $$
+\end{EX*}
+
+\section{Jednakost skupova, podskup skupa}
+
+Skupovi su jednaki ako imaju iste elemente. Na primer,
+$$
+  \{ 1, 2, 3, 4 \} = \{ 4, 1, 3, 2 \}.
+$$
+Drugi primer mo\v zda predstavlja malo iznena\dj enje:
+$$
+  \{1\} = \{1, 1, 1, 1\}
+$$
+jer oba skupa imaju samo jedan element -- broj 1. Ovo je jedno neobi\v cno svojstvo skupova koje zahteva malo privikavnja
+i zato je va\v zno da imamo preciznu definiciju.
+
+\begin{DEF}
+  Skupovi $A$ i $B$ su \emph{jednaki}, i to zapisujemo ovako $A = B$, ako va\v zi
+  slede\'ce:
+  $$
+    \fbox{$x \in A \Leftrightarrow x \in B.$}
+  $$
+\end{DEF}
+
+
+Drugi na\v cin na koji mo\v zemo da shvatimo jednakost skupova je ovaj: \emph{redosled navo\dj enja
+elemenata, kao i eventualno vi\v sestruko pojavljivanje jednog istog elementa nisu bitni!}
+
+Upravo zbog ovog svojstva skupova smo insistirali na tome da je skup kolekcija \emph{apstraktnih matemati\v ckih objekata}.
+Kao \v sto smo upravo videli, za skupove va\v zi slede\'ce:
+$$
+  \Big\{\fbox{\$100}, \fbox{\$100}\Big\} = \Big\{\fbox{\$100}, \fbox{\$100}, \fbox{\$100}, \fbox{\$100}\Big\}.
+$$
+Ova relacija nema smisla ako \fbox{\$100} ozna\v cava neki konkretan objekat (na primer nov\v canicu od 100 dolara),
+ali mo\v ze da ima smisla ako \fbox{\$100} ozna\v cava neki apstraktan matemati\v cki objekat (na primer, geometrijsku figuru).
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{DEF}
+  Skup $A$ je \emph{podskup} skupa $B$, i to zapisujemo ovako $A \subseteq B$, ako je svaki element skupa $A$ ujedno i element
+  skupa $B$. Preciznije, $A \subseteq B$ ako:
+  $$
+    \fbox{$x \in A \Rightarrow x \in B.$}
+  $$
+  \end{DEF}
+  Venovim dijagramom se \v cinjenica da je skup $A$ podskup skupa $B$ prikazuje kako je pokazano pored.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk3.pgf
+  \end{center}
+\end{minipage}
+
+\begin{EX}
+  $\{1, 2\} \subseteq \NN$, $\{2, 4, 6, \ldots \} \subseteq \ZZ$, $\{1, 2\} \subseteq \{2, 1\}$, $\{1, 1, 1, 1\} \subseteq \{1, 2\}$.
+\end{EX}
+
+\begin{EX}
+  Za svaki skup $X$ je $X \subseteq X$ i $\0 \subseteq X$. Posebno nagla\v savamo da je $\0 \subseteq \0$.
+\end{EX}
+
+\begin{EX}
+  Neka je $A = \{\0, \{\0\}, \{\0, \{\0\}\}\}$. Tada je slede\'ce ta\v cno:
+  $$
+    \begin{array}{c@{\qquad}c@{\qquad}c}
+      \0 \in A,        & \{\0\} \in A,        & \{\{\0\}\} \notin A,\\
+      \0 \subseteq A,  & \{\0\} \subseteq A,  & \{\{\0\}\} \subseteq A.
+    \end{array}
+  $$
+\end{EX}
+
+\begin{EX}
+  Svi podskupovi skupa $\{a, b, c\}$ su: $\0$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a, b\}$, $\{a, c\}$, $\{b, c\}$ i $\{a, b, c\}$.
+\end{EX}
+
+\begin{THM}
+  Za proizvoljne skupove $A$, $B$ i $C$ va\v zi slede\'ce:
+  
+  (1) $A = B$ ako i samo ako je $A \subseteq B$ i $B \subseteq A$;
+
+  (2) $\0 \subseteq A$;
+  
+  (3) $A \subseteq A$;
+  
+  (4) ako je $A \subseteq B$ i $B \subseteq C$ onda je $A \subseteq C$.
+\end{THM}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{proof}[Dokaz]
+    Dokaza\'cemo samo (4). Znamo da je $A \subseteq B$ i da je $B \subseteq C$, i treba da doka\v zemo da je $A \subseteq C$.
+    Drugim re\v cima, treba da doka\v zemo da iz $x \in A$ sledi $x \in C$.
+    Neka je $x \in A$. Tada iz $A \subseteq B$ sledi $x \in B$, dok iz $B \subseteq C$ sledi $x \in C$. Time je dokaz zavr\v sen.
+    Intuitivno, ovo tvr\dj enje se lako uo\v cava sa Venovog dijagrama koji je dat pored.
+  \end{proof}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk5.pgf
+  \end{center}
+\end{minipage}
+
+\section{Osnovne skupovne operacije}
+
+Presek, unija i razlika dva skupa predstavljaju tri najva\v znije skupovne operacije:
+presek \'ce iz dva skupa izdvojiti zajedni\v cke elemente, unija \'ce objediniti sve elemente dva skupa, dok \'ce
+razlika izdvojiti one elemente jednog skupa koji se ne nalaze u drugom.
+
+\begin{DEF}
+  \emph{Presek} dva skupa je skup \v ciji elementi
+  su zajedni\v cki elementi polaznih skupova:
+  $$
+    A \cap B = \{ x : x \in A \land x \in B \}.
+  $$
+  Drugim re\v cima,
+  $$
+    \fbox{$x \in A \cap B \Leftrightarrow x \in A \land x \in B.$}
+  $$
+  \emph{Unija} dva skupa je skup \v ciji elementi pripadaju bar jednom od polaznih skupova:
+  $$
+    A \cup B = \{ x : x \in A \lor x \in B \}.
+  $$
+  Drugim re\v cima,
+  $$
+    \fbox{$x \in A \cup B \Leftrightarrow x \in A \lor x \in B.$}
+  $$
+  \emph{Razlika} skupova $A$ i $B$ skup \v ciji elementi su oni elementi skupa $A$ koji ne pripadaju skupu $B$;
+  $$
+    A \setminus B = \{ x : x \in A \land x \notin B \}.
+  $$
+  Drugim re\v cima,
+  $$
+    \fbox{$x \in A \setminus B \Leftrightarrow x \in A \land x \notin B.$}
+  $$
+\end{DEF}
+
+Sve tri operacije su prikazane Venovim dijagramima na Sl.~\ref{f06.sl.skupovne-op}. Na slici se jasno vidi
+da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$ razli\v citi skupovi.
+
+\begin{figure}
+  \centering
+  \input ft06-sk6.pgf
+  \caption{Presek, unija i razlika skupova $A$ i $B$}
+  \label{f06.sl.skupovne-op}
+\end{figure}
+
+\begin{DEF}
+  Skupovi $A$ i $B$ su \emph{disjunktni} ako je $A \cap B = \0$.
+\end{DEF}
+
+\begin{EX}
+  Neka su $A$ i $B$ proizvoljni skupovi. Poka\v zimo da su $A \setminus B$ i $B \setminus A$ disjunktni
+  (vidi Sl.~\ref{f06.sl.skupovne-op}). Pretpostavimo da to nije ta\v cno. Tada
+  $$
+    (A \setminus B) \cap (B \setminus A) \ne \0,
+  $$
+  pa uzmimo proizvoljno $x \in (A \setminus B) \cap (B \setminus A)$. To zna\v ci da je
+  $$
+    x \in A \setminus B \quad \land \quad x \in B \setminus A,
+  $$
+  odnosno, kada raspi\v semo \v cinjenicu da $x$ pripada razlici skupova,
+  $$
+    x \in A \land x \notin B \quad \land \quad x \in B \land x \notin A.
+  $$
+  Dakle, dobili smo da je $x \in A \land x \notin A$, \v sto je kontradikcija. Time je tvr\dj enje dokazano.
+\end{EX}
+
+\clearpage
+
+\begin{THM}\label{ft06.thm.osnovne-osobine}
+  Neka su $A$, $B$ i $C$ proizvoljni skupovi. Tada:
+  \begin{enumerate}
+  \item $A \cap A = A$,\newline
+        $A \cup A = A$;
+  \item $A \cap B = B \cap A$,\newline
+        $A \cup B = B \cup A$;
+  \item $A \cap (B \cap C) = (A \cap B) \cap C$,\newline
+        $A \cup (B \cup C) = (A \cup B) \cup C$;
+  \item $A \cap (A \cup B) = A$,\newline
+        $A \cup (A \cap B) = A$;
+  \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$,\newline
+        $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$;
+  \item $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$,\newline
+        $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$;
+  \item $A \cap \0 = \0$,\quad$A \setminus A = \0$,\newline
+        $A \cup \0 = A$,\quad$A \setminus \0 = A$.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  Dokaza\'cemo samo jedan od navedenih identiteta, recimo prvi identitet naveden pod (6):
+  $$
+    \underbrace{A \setminus (B \cup C)}_X = \underbrace{(A \setminus B) \cap (A \setminus C)}_Y.
+  $$
+  Da se podsetimo, da bismo dokazali $X = Y$ treba da doka\v zemo
+  $$
+    x \in X \Leftrightarrow x \in Y.
+  $$
+  Dokaz izvodimo koriste\'ci definicije skupovnih operacija i poznate tautologije:
+  \begin{align*}
+    x \in A \setminus (B \cup C)
+    & \Leftrightarrow x \in A \land x \notin B \cup C && \text{[definicija razlike skupova]}\\
+    & \Leftrightarrow x \in A \land \lnot(x \in B \cup C) \\
+    & \Leftrightarrow x \in A \land \lnot(x \in B \lor x \in C) && \text{[definicija unije skupova]}\\
+    & \Leftrightarrow x \in A \land \lnot(x \in B) \land \lnot(x \in C) && \text{[DeMorganov zakon]}\\
+    & \Leftrightarrow x \in A \land x \notin B \land x \notin C \\
+    & \Leftrightarrow x \in A \land x \in A \land x \notin B \land x \notin C && \text{[tautologija $\vDash p \Leftrightarrow p \land p$]}\\
+    & \Leftrightarrow (x \in A \land x \notin B) \land (x \in A \land x \notin C) \\
+    & \Leftrightarrow x \in A \setminus B \land x \in A \setminus C && \text{[definicija razlike skupova]} \\
+    & \Leftrightarrow x \in (A \setminus B) \cap (A \setminus C) && \text{[definicija preseka skupova]}
+  \end{align*}
+  \v cime je dokaz zavr\v sen.
+\end{proof}
+
+\section{Broj elemenata skupa}
+
+Skupovi mogu biti \emph{kona\v cni} kao, na primer, skup $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$,
+ili \emph{beskona\v cni} kao, na primer, skupovi $\NN = \{ 1, 2, 3, \ldots \}$ i $\ZZ = \{ \ldots, -1, 0, 1, 2, \ldots\}$.
+Za kona\v cne skupove lako mo\v zemo da utvrdimo njihov \emph{broj elemenata}. Broj elemenata skupa $A$ ozna\v cavamo ovako $|A|$.
+Na primer, $|C| = 10$, gde je $C$ skup naveden u prvoj re\v cenici. Mo\v zemo govoriti i o broju elemenata beskona\v cnog
+skupa, ali je to mnogo osetljivije pitanje kojim \'cemo se baviti na samom kraju kursa.
+
+\begin{EX}
+  Za skupove $\0$ i $\{1, 1, 1, 1\}$ je $|\0| = 0$ i $|\{1, 1, 1, 1\}| = 1$.
+  Dok je prva \v cinjenica nesporna, druga zavre\dj uje mali komentar. Podsetimo se da je
+  $\{1, 1, 1, 1\} = \{1\}$. Zato je $|\{1, 1, 1, 1\}| = |\{1\}| = 1$.
+\end{EX}
+
+\begin{THM}
+  Neka su $A$ i $B$ kona\v cni skupovi.
+  \begin{enumerate}
+  \item{} [Monotonost] Ako je $A \subseteq B$ onda je $|A| \le |B|$.
+  \item{} [Princip zbira] Ako je $A \cap B = \0$ onda je $|A \union B| = |A| + |B|$.
+  \end{enumerate}
+\end{THM}
+
+\noindent
+Princip zbira je ilustrovan na Sl.~\ref{ft06.sl.pp-zbira}.
+
+\begin{figure}[h]
+  \centering
+  \input ft06-sk7.pgf
+  \caption{Princip zbira: $|A \cup B| = |A| + |B| = 11 + 8 = 19$}
+  \label{ft06.sl.pp-zbira}
+\end{figure}
+
+Za niz skupova $A_1$, $A_2$, \ldots, $A_n$ ka\v zemo da su \emph{po parovima disjunktni} ako je $A_i \cap A_j = \0$
+za sve $i \ne j$.
+
+\begin{THM}
+  Neka su $A_1$, $A_2$, \ldots, $A_n$ po parovima disjunktni kona\v cni skupovi. Onda je
+  $$
+    |A_1 \cup A_2 \cup \ldots \cup A_n| = |A_1| + |A_2| + \ldots + |A_n|.
+  $$
+\end{THM}
+\begin{proof}[Dokaz]
+  Dokaz provodimo indukcijom po $n$. Za $n = 1$ je tvr\dj enje trivijalno ta\v cno, dok se za $n = 2$ radi o Principu zbira.
+  Pretpostavimo da je tvr\dj enje ta\v cno za $n \ge 3$ i posmatrajmo niz
+  $A_1$, $A_2$, \ldots, $A_n$, $A_{n+1}$ po parovima disjunktnih kona\v cnih skupova. Neka je
+  $$
+    B = A_1 \cup A_2 \cup \ldots \cup A_n.
+  $$
+  Doka\v zimo da je $B \cap A_{n+1} = \0$:
+  \begin{align*}
+    B \cap A_{n+1}
+    &= (A_1 \cup \ldots \cup A_n) \cap A_{n+1}\\
+    &= (A_1 \cap A_{n+1}) \cup \ldots \cup (A_n \cap A_{n+1}) && \text{[Teorema~\ref{ft06.thm.osnovne-osobine} (5)]}\\
+    &= \0 \cup \ldots \cup \0 = \0 && \text{[skupovi su po parovima disj.]}
+  \end{align*}
+  Tada prema Principu zbira i prema induktivnoj hipotezi dobijamo:
+  \begin{align*}
+    |A_1 \cup \ldots \cup A_n \cup A_{n+1}|
+    &= |(A_1 \cup \ldots \cup A_n) \cup A_{n+1}| \\
+    &= |B \cup A_{n+1}| \\
+    &= |B| + |A_{n+1}| && \text{[Princip zbira]}\\
+    &= |A_1 \cup \ldots \cup A_n| + |A_{n+1}| \\
+    &= |A_1| + \ldots + |A_n| + |A_{n+1}| && \text{[induktivna hipoteza]}
+  \end{align*}
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+Princip zbira nam daje formulu za $|A \cup B|$ kada su $A$ i $B$ kona\v cni disjunktni skupovi. Ako $A$ i $B$ nisu
+disjunktni, formula je malo komplikovanija, kako pokazuje naredna teorema.
+
+\begin{THM}\label{ft06.thm.pui-2}
+  Neka su $A$ i $B$ kona\v cni skupovi. Tada je
+  $$
+    |A \cup B| = |A| + |B| - |A \cap B|.
+  $$
+\end{THM}
+\begin{proof}[Dokaz]
+  Neka je $P = A \setminus B$, $Q = A \cap B$ i $R = B \setminus A$, Sl.~\ref{ft06.sl.kard-unije}:
+
+\begin{figure}[!h]
+  \centering
+  \input ft06-sk8.pgf
+  \caption{Broj elemenata unije}
+  \label{ft06.sl.kard-unije}
+\end{figure}
+
+  \noindent
+  Lako se pokazuje da su $P$, $Q$ i $R$ po parovima disjunktni skupovi, pa je zato, prema Principu zbira,
+  $$
+    |A| = |P \cup Q| = |P| + |Q| \text{\quad i\quad} |B| = |Q \union R| = |Q| + |R|.
+  $$
+  Sada lako dobijamo:
+  \begin{align*}
+    |A| + |B| - |A \cap B|
+    &= |P| + |Q| + |Q| + |R| - |Q|\\
+    &= |P| + |Q| + |R| = |P \cup Q \cup R| = |A \cup B|
+  \end{align*}
+  \v sto je i trebalo dokazati.
+\end{proof}
+
+Prethodna teorema se mo\v ze uop\v stiti na razne na\v cine, a mi \'cemo sada dati njenu verziju za tri skupa.
+Umesto formalnog dokaza da\'cemo intuitivno obrazlo\v zenje koje omogu\'cuje da se ova relativno komplikovana
+formula lako zapamti.
+
+\begin{THM}[Princip uklju\v cenja-isklju\v cenja]\label{ft06.thm.pui-3}
+  Neka su $A$, $B$ i $C$ kona\v cni skupovi. Tada je
+  $$
+    |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|.
+  $$
+\end{THM}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \noindent\textit{\enquote{Dokaz uz mahanje rukama}}.
+    \v Zelimo da prebrojimo sve elemente skupa $A \cup B \cup C$, ali svaki ta\v cno jednom.
+    Krenu\'cemo da razmatramo desnu stranu izraza i svaki put kada dodamo novi sabirak, na slici \'cemo
+    upisati recku u segmente \v cije elemente smo ubrojali. Na primer za sabirak $|A|$ \'cemo dodati
+    recku u \v cetiri segmenta iz kojih se sastoji skup $A$ kao na slici pored.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9a.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Slede\'ci sabirak na desnoj strani je $|B|$, pa dodajemo po jednu
+  recku u \v cetiri segmenta iz kojih se sastoji skup $B$. Tako dobijamo stanje prikazano na slici pored.
+  Vidimo da su u neke segmente upisane dve recke \v sto zna\v ci da su elementi koji se tu nalazi ubrojani dva puta.
+  U neke segmente nije jo\v s uvek upisana nijedna recka, \v sto zna\v ci da ti elementi nisu ubrojani.
+  Uskoro \'ce sve do\'ci na svoje mesto \ldots
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9b.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Naredni sabirak na desnoj strani je $|C|$, pa dodajemo po jednu
+  recku u \v cetiri segmenta iz kojih se sastoji skup $C$. Vidimo da su sada svi elementi
+  unije ubrojani bar jednom, ali su neki ubrojani vi\v se puta, \v sto nije dobro.
+  Zato u izrazu slede korektivni faktori.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9c.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Nakon tri pozitivna sabirka u izrazu na desnoj strani sledi prvi negativan sabirak:
+  $- |A \cap B|$. To zna\v ci da \'cemo ukloniti po jednu recku iz oba segmenta iz kojih se sastoji $A \cap B$.
+  Novo stanje je prikazano na slici pored.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9d.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Sledi sabirak $-|A \cap C|$ \ldots
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9e.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \ldots\ pa sabirak $-|B \cap C|$. Kako slika pored sugeri\v se, oduzeli smo vi\v se nego \v sto je
+  trebalo jer elementi preseka $A \cap B \cap C$ nakon ova tri oduzimanja nisu ura\v cunati.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9f.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  To \'ce ispraviti poslednji sabirak $|A \cap B \cap C|$. Sada su svi elementi unije
+  $A \cup B \cup C$ ura\v cunati ta\v cno jednom, i time je ovaj \enquote{dokaz uz mahanje rukama} zavr\v sen.\hfill$\square$
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk9g.pgf
+  \end{center}
+\end{minipage}
+
+\begin{EX}
+  Dati su skupovi $A$, $B$ i $C$ takvi da je $|A| = 55$, $|B| = 40$, $|C| = 80$, $|A \cap B| = 20$,
+  $|B \cap C| = 24$, $|A \cap B \cap C| = 17$ i $|A \cup C| = 100$. Odrediti $|(A \cap C) \setminus B|$, $|(B \cup C) \setminus A|$ i
+  $|B \setminus (A \cup C)|$.
+\end{EX}
+\noindent
+\begin{minipage}{3in}
+  \noindent\textit{Re\v senje}. Krenemo od tri skupa \enquote{u op\v stem polo\v zaju}.
+  Zato \v sto je $|A \cap B \cap C| = 17$ upisa\'cemo 17 u odgovaraju\'ci segment.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10a.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Dalje, zbog $|B \cap C| = 24$ i $|A \cap B \cap C| = 17$, upisa\'cemo 7 u odgovaraju\'ci segment
+  tako da ceo skup $B \cap C$ ima 24 elementa.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10b.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Sli\v cno tome, zbog $|A \cap C| = 20$ upisa\'cemo 3 u odgovaraju\'ci segment
+  tako da ceo skup $A \cap C$ ima 20 elementa.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10c.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Ceo skup $B$ ima 40 elemenata, pa \'cemo u odgovaraju\'ci segment upisati 13, kao na slici pored.
+  Time smo dobili prvi deo re\v senja:
+  $$
+    |B \setminus (A \cup C)| = 13.
+  $$
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10d.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Prema Teoremi~\ref{ft06.thm.pui-2} je
+  $$
+    |A \cup C| = |A| + |C| - |A \cap C|.
+  $$
+  Kako je $|A| = 55$, $|C| = 80$ i $|A \cup C| = 100$, lako
+  dobijamo da je $|A \cap C| = 35$. Zato u odgovaraju\'ci segment upisujemo 18
+  da bi ceo presek $A \cap C$ imao 35 elemenata. Time smo dobili drugi deo re\v senja:
+  $$
+    |(A \cap C) \setminus B| = 18.
+  $$
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10e.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  Kona\v cno, na osnovu do sada popunjenih segmenata i znaju\'ci da je $|A| = 55$ i $|C| = 80$
+  mo\v zemo popuniti preostala dva segmenta. Tako dobijamo i poslednji deo re\v senja:
+  $$
+    |(B \cup C) \setminus A| = 58.
+  $$
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk10f.pgf
+  \end{center}
+\end{minipage}
+
+\section{Dekartov proizvod skupova}
+
+Niz $(a_1, a_2, \ldots, a_n)$ du\v zine $n$ \'cemo ponekad zvati \emph{ure\dj ena $n$-torka}.
+Za razliku od skupova, kod nizova je redosled
+navo\dj enja elemenata va\v zan, i va\v zno je da li je neki element naveden jednom ili vi\v se puta. Zato za nizove va\v zi
+jednostavnije (i prirodnije) pravilo: dva niza su jednaki ako imaju istu du\v zinu i ako imaju iste elemente navedene istim redom.
+Na primer,
+$$
+  \begin{array}{c@{\qquad}c}
+    \text{Nizovi} & \text{Skupovi} \\ \hline
+    (1, 2, 3) \ne (2, 3, 1) & \{1, 2, 3\} = \{2, 3, 1\}\\
+    (1, 1, 2) \ne (1, 2) & \{1, 1, 2\} = \{1, 2\}\\
+    (1, 1, 2) = (1, 1, 2) & \{1, 1, 2\} = \{1, 1, 2\}
+  \end{array}
+$$
+Posebno, \emph{ure\dj eni par} je niz du\v zine~2. Za ure\dj ene parove, dakle, va\v zi
+\begin{center}
+  \fbox{$(a, b) = (c, d)$ \ \ ako i samo ako je\ \ $a = c$ i $b = d$.}
+\end{center}
+
+\begin{DEF}
+  \emph{Dekartov proizvod skupova $A$ i $B$} je skup \v ciji elementi su svi ure\dj eni parovi \v ciji prvi
+  element pripada skupu $A$, a drugi skupu $B$:
+  $$
+    A \times B = \{(a, b) : a \in A \land b \in B\}.
+  $$
+\end{DEF}
+
+\begin{EX}\label{ft06.ex.3x2}
+  Neka je $A = \{1, 2, 3\}$ i $B = \{s, t\}$.
+  Tada je
+  \begin{align*}
+  A \times B = \{ &(1,s), (2,s), (3,s),\\
+                  &(1,t), (2,t), (3,t)\}
+  \end{align*}
+\end{EX}
+
+\noindent
+Vidimo, dakle, da za Dekartov proizvod skupova va\v zi slede\'ce:
+$$
+  \fbox{$(x, y) \in A \times B \Leftrightarrow x \in A \land y \in B.$}
+$$
+
+\begin{THM}
+  Neka su $A$, $B$ i $C$ proizvoljni skupovi.
+  \begin{enumerate}
+  \item
+    Ako je $A \subseteq B$ onda je $A \times C \subseteq B \times C$.
+  \item
+    Ako je $C \ne \0$ onda iz $A \times C \subseteq B \times C$ sledi $A \subseteq B$.
+  \item
+    $A \times (B \cup C) = (A \times B) \cup (A \times C)$.
+  \item
+    $A \times (B \cap C) = (A \times B) \cap (A \times C)$.
+  \item
+    $A \times (B \setminus C) = (A \times B) \setminus (A \times C)$.
+  \item
+    $\0 \times A = A \times \0 = \0$.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  (1)
+  Pretpostavimo da je $A \subseteq B$. Da bismo dokazali da je $A \times C \subseteq B \times C$ uzmimo
+  proizvoljno $(x, y) \in A \times C$. Tada je $x \in A \land y \in C$. Zbog $A \subseteq B$ znamo da
+  $x \in A$ implicira $x \in B$. Dakle, $x \in B \land y \in C$, pa je $(x, y) \in B \times C$.
+  
+  \medskip
+  
+  (2) Neka je $C \ne \0$ i $A \times C \subseteq B \times C$. Fiksirajmo proizvoljno $c \in C$.
+  Da bismo pokazali da je $A \subseteq B$ uzmimo neko $x \in A$. Tada je $x \in A \land c \in C$ pa je
+  $(x, c) \in A \times C$. Kako je $A \times C \subseteq B \times C$ zaklju\v cujemo da je
+  $(x, c) \in B \times C$. Dakle, $x \in B \land c \in C$, odakle zaklju\v cujemo $x \in B$ (drugi deo
+  nam ne treba vi\v se).
+  
+  \medskip
+  
+  (3)
+  Ovo tvr\dj enje se dokazuje direktno, koriste\'ci definicije operacija i poznate tautologije:
+  \begin{align*}
+    (x, y) \in A \times (B \cup C)
+    &\Leftrightarrow x \in A \land y \in B \cup C\\
+    &\Leftrightarrow x \in A \land (y \in B \lor y \in C)\\
+    &\Leftrightarrow (x \in A \land y \in B) \lor (x \in A \land y \in C)\\
+    &\Leftrightarrow (x, y) \in A \times B \lor (x, y) \in A \times C\\
+    &\Leftrightarrow (x, y) \in (A \times B) \cup (A \times C).
+  \end{align*}
+  
+  \medskip
+  
+  (4) Sli\v cno kao (3).
+  
+  \medskip
+  
+  (5)
+  Za dokaz ovog tvr\dj enja krenu\'cemo od desne strane izraza:
+  \begin{align*}
+    (x, y) & \in (A \times B) \setminus (A \times C)\\
+    &\Leftrightarrow (x, y) \in A \times B \land \lnot((x, y) \in A \times C)\\
+    &\Leftrightarrow x \in A \land y \in B \land \lnot(x \in A \land y \in C)\\
+    &\Leftrightarrow x \in A \land y \in B \land (x \notin A \lor y \notin C)\\
+    &\Leftrightarrow (x \in A \land y \in B \land x \notin A) \lor (x \in A \land y \in B \land y \notin C)\\
+    &\Leftrightarrow \bot \lor (x \in A \land y \in B \land y \notin C)\\
+    &\Leftrightarrow x \in A \land y \in B \land y \notin C\\
+    &\Leftrightarrow x \in A \land y \in B \setminus C\\
+    &\Leftrightarrow (x, y) \in A \times (B \setminus C).
+  \end{align*}
+
+  \medskip
+
+  (6)
+  Doka\v zimo da je $\0 \times A = \0$. Pretpostavimo da to nije ta\v cno. Tada $\0 \times A \ne \0$ pa postoji neki
+  par $(x, y) \in \0 \times A$. Tada je $x \in \0 \land y \in A$. Drugim re\v cima, postoji neki element $x$ koji pripada
+  praznom skupu. Kontradikcija.
+\end{proof}
+
+Dekartov proizvod dva skupa se lako mo\v ze uop\v stiti na proizvod vi\v se skupova. Njegovi elementi su onda ure\dj ene
+$n$-torke gde prvi element $n$-torke pripada prvom skupu u proizvodu, drugi drugom i tako dalje.
+
+\begin{DEF}
+  \emph{Dekartov proizvod skupova $A_1$, $A_2$, \ldots, $A_n$} je slede\'ci skup:
+  $$
+    A_1 \times A_2 \times \ldots \times A_n = \{(a_1, a_2, \ldots, a_n) : a_1 \in A_1 \land a_2 \in A_2 \land \ldots \land a_n \in A_n \}.
+  $$
+\end{DEF}
+
+\begin{EX}\label{ft06.ex.3x2x2}
+  Neka je $A = \{1, 2, 3\}$, $B = \{s, t\}$ i $C = \{\square, \triangle\}$. Tada je
+  \begin{align*}
+  A \times B \times C = \{ &(1,s,\square), (2,s,\square), (3,s,\square), \quad(1,s,\triangle), (2,s,\triangle), (3,s,\triangle), \\
+                           &(1,t,\square), (2,t,\square), (3,t,\square), \quad(1,t,\triangle), (2,t,\triangle), (3,t,\triangle)\}.
+  \end{align*}
+\end{EX}
+
+\noindent
+Ako je $A_1 = A_2 = \ldots = A_n = A$, onda umesto $A \times A \times \ldots \times A$ pi\v semo kra\'ce $A^n$:
+\begin{center}
+  \fbox{$A^n = A \times A \times \ldots \times A = \{(a_1, a_2, \ldots, a_n) : a_1 \in A \land a_2 \in A \land \ldots \land a_n \in A \}.$}
+\end{center}
+Drugim re\v cima, $A^n$ je skup svih nizova du\v zine $n$ elemenata skupa~$A$.
+
+\begin{EX}
+  \v Cesto se nizovi $(a_1, a_2, \ldots, a_n)$ kra\'ce pi\v su bez zagrada i zareza, ako to ne mo\v ze da dovede do zabune.
+  Recimo, ako radimo sa nizovima nula i jedinica, onda se niz $(1, 0, 1, 0)$ mo\v ze kra\'ce zapisati i ovako $1010$.
+  Nizovi nula i jedinica se kra\'ce zovu \emph{01-nizovi}. Prema tome,
+  \begin{align*}
+    \{0, 1\}^4 = \{ &0000, 0001, 0010, 0011, 0100, 0101, 0110, 0111,\\
+                    &1000, 1001, 1010, 1011, 1100, 1101, 1110, 1111 \}
+  \end{align*}
+  je skup svih 01-nizova du\v zine~4.  
+\end{EX}
+
+\begin{EX}\label{ft06.ex.A-star}
+  Ako je $A$ kona\v can skup \v cije elemente do\v zivljavamo kao slova nekog alfabeta, onda $A^n$ mo\v zemo da shvatimo i kao
+  skup svih \emph{re\v ci du\v zine $n$ nad alfabetom $A$}. Na primer, ako je $A = \{a, b, c, d, \ldots, z\}$ skup svih
+  malih slova engleskog alfabeta, onda je $\mathit{information} \in A^{11}$ i $\mathit{technology} \in A^{10}$.
+
+  \emph{Re\v c} nad alfabetom $A$ je proizvoljan kona\v can niz slova tog alfabeta. \emph{Prazna re\v c} je re\v c
+  du\v zine~0. Postoji samo jedna takva prazna re\v c i nju \'cemo ozna\v cavati sa $\epsilon$, ukoliko ne postoji druga\v ciji
+  dogovor. \emph{Skup svih re\v ci} nad alfabetom $A$ je slede\'ci skup:
+  $$
+    A^* = \{\epsilon\} \cup A^1 \cup A^2 \cup \ldots \cup A^n \cup \ldots.
+  $$
+  Skup $A^1$ sadr\v zi sve re\v ci du\v zine 1 nad alfabetom~$A$,
+  $A^2$ sve re\v ci du\v zine 2 nad alfabetom~$A$,
+  $A^3$ sve re\v ci du\v zine 3 nad alfabetom~$A$, i tako dalje.
+  
+  Kona\v cno, u programskom jeziku Java tip \texttt{string} predstavlja skup svih nizova \v ciji elementi
+  su tipa \texttt{char}. Zato mo\v zemo da ka\v zemo da je
+  $$
+    \mathtt{string} = \mathtt{char}^* = \{\hbox{\verb+""+}\} \cup \mathtt{char}^1 \cup \mathtt{char}^2 \cup \mathtt{char}^3 \cup \ldots
+  $$
+  Primetimo da u programskom jeziku Java praznoj re\v ci odgovara \emph{prazan string}
+  i on se ozna\v cava sa \verb+""+, a ne sa~$\epsilon$.
+\end{EX}
+
+\noindent
+\begin{minipage}{3in}
+\begin{EX}
+  Pogledajmo ponovo Primer~\ref{ft06.ex.3x2}. Tamo smo videli da za
+  $A = \{1, 2, 3\}$ i $B = \{s, t\}$ imamo
+  \begin{align*}
+  A \times B = \{ &(1,s), (2,s), (3,s),\\
+                  &(1,t), (2,t), (3,t)\}
+  \end{align*}
+  Ovaj skup je ilustrovan pored. Lako se vidi da je $|A \times B| = |A| \cdot |B|$.
+\end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk11.pgf
+  \end{center}
+\end{minipage}
+
+\smallskip
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}S druge strane, u Primeru~\ref{ft06.ex.3x2x2} smo videli da za
+  $A = \{1, 2, 3\}$, $B = \{s, t\}$ i $C = \{\square, \triangle\}$ imamo
+  \begin{align*}
+  A \times B \times C = \{ &(1,s,\square), (2,s,\square), (3,s,\square), \\
+                           &(1,t,\square), (2,t,\square), (3,t,\square), \\
+                           &(1,s,\triangle), (2,s,\triangle), (3,s,\triangle),\\
+                           &(1,t,\triangle), (2,t,\triangle), (3,t,\triangle)\},
+  \end{align*}
+  \v sto je ilustrovano pored. I ovde se lako vidi da je $|A \times B \times C| = |A| \cdot |B| \cdot |C|$.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft06-sk12.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena, koji se zove \emph{Princip proizvoda:}
+
+\begin{THM}[Princip proizvoda] Neka su $A$ i $B$ kona\v cni skupovi. Tada je
+  $$
+    |A \times B| = |A| \cdot |B|.
+  $$
+  Uop\v steno, ako su $A_1$, $A_2$, \ldots, $A_n$ kona\v cni skupovi, tada je
+  $$
+    |A_1 \times A_2 \times \ldots \times A_n| = |A_1| \cdot |A_2| \cdot \ldots \cdot |A_n|.
+  $$
+\end{THM}
+
+\begin{EX}
+  $(a)$ Koliko ima petocifrenih brojeva?
+  
+  $(b)$ Koliko ima petocifrenih brojeva kod kojih je bar jedna cifra parna?
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$ Neka je $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$ i $D = C \setminus \{0\} = \{1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9\}$.
+  Tada skup $D \times C^4$ sadr\v zi decimalne zapise svih petocifrenih brojeva, pa petocifrenih brojeva ima
+  $$
+    |D \times C^4| = |D| \cdot |C|^4 = 9 \cdot 10^4.
+  $$
+  
+  \medskip
+  
+  $(b)$ Ovaj broj \'cemo odrediti tako \v sto \'cemo od broja svih petocifrenih brojeva oduzeti broj onih \v ciji decimalni
+  zapisi sadr\v ze samo neparne cifre. Neka je $N = \{1, 3, 5, 7, 9\}$ skup neparnih cifara. Decimlani zapisi
+  petocifrenih brojeva koji se zapisuju samo neparnim ciframa su elementi skupa $N^5$, pa ih ima
+  $$
+    |N^5| = |N|^5 = 5^5.
+  $$
+  Kako svih petocifrenih brojeva ima $9 \cdot 10^4$ (vidi pod $(a)$), petocifrenih brojeva kod kojih je bar jedna cifra parna ima
+  $9 \cdot 10^4 - 5^5$.
+\end{proof}
+
+\begin{EX}
+  U ve\'cini modernih programskih jezika identifikator ($=$ ime promenljive, metoda, itd) je niz simbola kod koga
+  prvi simbol u nizu mora biti slovo engleske abecede ili simbol \verb"_" (donja crta), dok svaki naredni simbol
+  mora da bude slovo engleske abecede, simbol \verb"_" (donja crta) ili cifra.
+  
+  $(a)$ Koliko se razli\v citih identifikatora du\v zine 5 mo\v ze formirati prema ovim pravilima?
+
+  $(b)$ Koliko se razli\v citih identifikatora du\v zine $n \ge 1$ mo\v ze formirati prema ovim pravilima?
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$ Neka je $E$ skup \v ciji elementi su mala i velika slova engleske abecede, kao i simbol \verb"_" (donja crta).
+  Lako se vidi da je $|E| = 26 + 26 + 1 = 53$. Neka je $F = E \union \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$. Jasno je da je
+  $|F| = |E| + 10 = 63$. Identifikatori du\v zine 5 su ta\v cno elementi skupa $E \times F \times F \times F \times F$
+  i ima ih
+  $$
+    |E \times F \times F \times F \times F| = |E| \cdot |F|^4 = 53 \cdot 63^4.
+  $$
+  
+  \medskip
+  
+  $(b)$ Neka su $E$ i $F$ skupovi kao pod $(a)$. Identifikatori du\v zine $n$ su ta\v cno elementi skupa
+  $E \times F^{n-1}$ i ima ih
+  $$
+    |E \times F^{n-1}| = |E| \cdot |F|^{n-1} = 53 \cdot 63^{n-1}.\qedhere
+  $$
+\end{proof}
+
+\begin{EX}
+  Koliko razli\v citih podataka mo\v ze da se smesti u jedan registar 64-bitnog procesora?
+\end{EX}
+\begin{proof}[Re\v senje]
+  Registar 64-bitnog procesora \v cini niz bitova du\v zine 64. Kako jedan bit mo\v ze imati stanje 0 ili 1,
+  u registar 64-bitnog procesora mo\v ze da se smesti proizvoljna 01-re\v c du\v zine 64. Dakle, skup mogu\'cih stanja
+  ovakvog registra je $\{0, 1\}^{64}$. Broj razli\v citih stanja je, zato,
+  $$
+    |\{0, 1\}^{64}| = |\{0,1\}|^{64} = 2^{64} = 18\;446\;744\;073\;709\;551\;616. \qedhere
+  $$
+\end{proof}
+
+\begin{EX}
+  Tip \texttt{int32} opisuje skup svih celobrojnih vrednosti koje se u binarnom zapisu mogu zapisati pomo\'cu 32 bita.
+  Pri tome \enquote{najlevlji bit} kodira znak (0 -- broj je pozitivan, 1 -- broj je negativan), tako da za zapis apsolutne
+  vrednosti broja ostaje na raspolaganju 31 bit (bitovi 0--30):
+  $$
+    \begin{array}{p{1em}p{1em}p{1em}p{0.5em}p{1em}p{0.5em}p{1em}p{1em}p{1em}}
+    \small 31 & \small 30 & \small 29 & & \ldots & & \small 2 & \small 1 & \small 0\\
+    \cline{1-4} \cline{6-9}
+    \multicolumn{1}{|c}{\ }&\multicolumn{1}{|c}{\ }&\multicolumn{1}{|c}{\ }&\multicolumn{1}{|c}{\ }&\multicolumn{1}{c}{\ldots}&\multicolumn{1}{c}{\ }&\multicolumn{1}{|c}{\ }&\multicolumn{1}{|c}{\ }&\multicolumn{1}{|c|}{\ }\\
+    \cline{1-4} \cline{6-9}
+    \multicolumn{1}{c}{\uparrow}\\
+    \multicolumn{1}{c}{\hbox{bit}\rlap{ znaka}}
+    \end{array}
+  $$
+  Pri tome se usvaja konvencija da niz bitova $1000\ldots0$ predstavlja kod negativnog broja (to je \enquote{najnegativniji} broj
+  koji mo\v ze da se kodira). Dakle, broj predstavljen 01-nizom je negativan ako i samo ako na \enquote{najlevljoj} poziciji
+  stoji bit~1. Koji je najve\'ci pozitivan broj koji se mo\v ze smestiti u celobrojnu promenljivu tipa \texttt{int32}?
+\end{EX}
+\begin{proof}[Re\v senje]
+  Nenegativne vrednosti (0, 1, 2, \ldots) su kodirane tako da na \enquote{najlevljoj} poziciji
+  stoji bit~0. Zato nam za zapis nenegativnog broja u binarnom sistemu ostaje 31 bit.
+  Ukupan broj podataka koji mo\v ze da se kodira 01-nizom du\v zine 31 je $2^{31} = 2\;147\;483\;648$.
+  Obzirom da je tu ura\v cunat i kod za nulu $000\ldots0$, maksimalna pozitivna vrednost koja mo\v ze
+  da se kodira na ovaj na\v cin je $2\;147\;483\;647$.
+\end{proof}
+
+\begin{EX}
+  Odrediti broj re\v ci du\v zine $n \ge 3$ nad alfabetom $\{a, b, c\}$ u kojima se svako slovo javlja bar jednom.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Neka je $R = \{a, b, c\}^n$ skup svih re\v ci du\v zine $n$ nad alfabetom $\{a, b, c\}$, a $S$ skup svih re\v ci
+  nad istim alfabetom u kojima se svako slovo javlja bar jednom. Neka je $A$ skup svih re\v ci du\v zine $n$ nad
+  alfabetom $\{a, b, c\}$ u kojima se ne pojavljuje slovo~$a$, neka je $B$ skup svih re\v ci du\v zine $n$ nad
+  alfabetom $\{a, b, c\}$ u kojima se ne pojavljuje slovo~$b$ i neka je $C$ skup svih re\v ci du\v zine $n$ nad
+  alfabetom $\{a, b, c\}$ u kojima se ne pojavljuje slovo~$c$. Lako se vidi da je
+  $$
+    S = R \setminus (A \cup B \cup C)
+  $$
+  tako da je
+  $$
+    |S| = |R| - |A \cup B \cup C| = 3^n - |A \cup B \cup C|.
+  $$
+  Da bismo odredili $|A \cup B \cup C|$ koristimo Princip uklju\v cenja-isklju\v cenja (Teorema~\ref{ft06.thm.pui-3}).
+  Tako dobijamo da je
+  $$
+    |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|.
+  $$
+
+  Kako je $A$ skup svih re\v ci du\v zine $n$ nad alfabetom $\{a, b, c\}$ u kojima se ne pojavljuje slovo~$a$, zaklju\v cujemo
+  da je to zapravo skup svih re\v ci du\v zine $n$ nad alfabetom $\{b, c\}$, pa je $|A| = 2^n$. Na isti na\v cin zaklju\v cujemo
+  da je $|B| = 2^n$ i $|C| = 2^n$.
+  
+  Skup $A \cap B$ predstavlja skup svih re\v ci du\v zine $n$ nad alfabetom $\{a, b, c\}$ u kojima se ne pojavljuje ni slovo~$a$
+  ni slovo $b$. Dakle, to je skup svih re\v ci du\v zine $n$ nad alfabetom $\{c\}$, pa je $|A \cap B| = 1$ jer postoji samo
+  jedna takva re\v c du\v zine $n$: $ccc\ldots c$. Na isti na\v cin zaklju\v cujemo
+  da je $|A \cap C| = 1$ i $|B \cap C| = 1$.
+  
+  Kona\v cno, skup $A \cap B \cap C$ predstavlja skup svih re\v ci du\v zine $n$ nad alfabetom $\{a, b, c\}$ u kojima se ne
+  pojavljuje ni slovo~$a$ ni slovo $b$ ni slovo~$c$. Drugim re\v cima, to je prazan skup. Zato je
+  \begin{align*}
+    |A \cup B \cup C| &= |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\\
+                      &= 2^n + 2^n + 2^n - 1 - 1 - 1 + 0\\
+                      &= 3 \cdot 2^n - 3,
+  \end{align*}
+  pa je $|S| = 3^n - |A \cup B \cup C| = 3^n - (3 \cdot 2^n - 3) = 3^n - 3 \cdot 2^n + 3$.
+\end{proof}
+
+\section{Pojam relacije}
+
+Relacija predstavlja odnos me\dj u nekom objektima. Na primer, cenovnik jedne prodavnice na dan 31.12.2018.\ je izgledao ovako:
+\begin{center}\label{ft07.page.tabela}
+  \begin{tabular}{rlr}
+  \hline
+  \v Sifra & Naziv proizvoda & Cena (din) \\
+  \hline
+  19775 & AMD Ryzen 5 1600 & 21\;918.95\\
+  16443 & Intel Core i5-6400 & 23\;810.31\\
+  18779 & HP Laserjet Pro M102a (G3Q34A) & 7\;994.50\\
+   6672 & DVI-HDMI M/M 1.8m & 681.00\\
+   9796 & WD Blue 1TB/WD10EZEX & 5\;081.25\\
+  18879 & HP Laserjet Pro M102w (G3Q35A) & 11\;448.90\\
+  11678 & Microsoft Windows 8.1 Pro 32Bit Eng & 21\;471.10\\
+  18574 & Asus DUAL-GTX1060-O3G & 33\;442.00
+  \end{tabular}
+\end{center}
+Ovom tabelom je predstavljen odnos izme\dj u nekih celih brojeva (\texttt{int}), nekih nizova karaktera (\texttt{string})
+i nekih decimalnih brojeva (\texttt{float}). Na primer, \v cetvrti red u tabeli ka\v ze da su ceo broj
+6672, string \verb`"DVI-HDMI M/M 1.8m"` i decimalni broj $681.00$ u vezi koja se govornim jezikom mo\v ze iskazati ovako:
+\begin{quote}
+  proizvod sa \v sifrom 6672 se zove \verb`"DVI-HDMI M/M 1.8m"` i njegova cena je $681.00$ din.
+\end{quote}
+Svaki red tabele ima istu strukturu (jedan \texttt{int}, jedan \texttt{string} i jedan \texttt{float}) \v sto zna\v ci da je ovom
+tabelom predstavljen jedan podskup skupa
+$$
+  \mathtt{int} \times \mathtt{string} \times \mathtt{float}.
+$$
+To je osnovni motiv za apstraktnu definiciju relacije.
+
+\begin{DEF}\label{ds1.def.rel-0}
+  Neka su $A_1$, $A_2$, \ldots, $A_n$ skupovi, $n \ge 1$. \emph{Relacija} na ovim skupovima je svaki podskup
+  $$
+    \rho \subseteq A_1 \times A_2 \times \ldots \times A_n.
+  $$
+  Za relaciju $\rho$ ka\v zemo da je \emph{$n$-arna relacija}, ili \emph{relacija arnosti~$n$}
+  zato \v sto dovodi u vezu $n$~objekata.
+\end{DEF}
+
+Relacije predstavljaju apstraktne modele konkretnih situacija, nezavisno od toga da li su zapisane u obliku tabele
+ili u obliku podskupa nekog Dekartovog proizvoda. Kako slede\'ci primer pokazuje, radi se samo o dva zapisa istog objekta
+i mo\v zemo da koristimo ovaj ili onaj zapis, kako nam je kad zgodno.
+
+\begin{EX}
+  Tabelom na str.~\pageref{ft07.page.tabela} predstavljena je relacija
+  $$
+    \mathrm{Cenovnik} \subseteq \mathtt{int} \times \mathtt{string} \times \mathtt{float}.
+  $$
+  Svaki element ove relacije je jedna ure\dj ena trojka koju \v cini
+  jedan ceo broj, jedan string i jedan decimalni broj. Na primer,
+  $$
+    (6672, \hbox{\verb`"DVI-HDMI M/M 1.8m"`}, 681.00) \in \mathrm{Cenovnik}.
+  $$
+  Vidimo da redovi tabele odgovaraju ure\dj enim trojkama koje \v cine ovu relaciju.
+  Relacije koje dovode u vezu tri objekta se zovu \emph{ternarne relacije}.
+\end{EX}
+
+\begin{EX}
+  Neka je $\rho = \{n \in \NN : n \text{\ je paran broj}\}$. Ovo je primer \emph{unarne relacije} jer govori o svojstvima
+  pojedina\v cnih objekata.
+\end{EX}
+
+\begin{EX}
+  Neka je $\Phi$ skup svih iskaznih formula koje su formirane nad nizom promenljivih $p_1, p_2, \ldots, p_n$.
+  Neka je $\Boxed{\vDash} = \{\phi \in \Phi : \phi$ je tautologija$\}$. To je jedna unarna relacija na skupu $\Phi$ i umesto
+  $\phi \in \Boxed\vDash$ uobi\v cajeno je da se pi\v se $\vDash \phi$.
+\end{EX}
+
+\begin{EX}
+  Relacija $\rho = \{(a, b, c, d) \in \NN^4 : a + b = c + d\}$ predstavlja primer relacije arnosti~4 na skupu $\NN$.
+\end{EX}
+
+\section{Pojam binarne relacije}
+
+Binarne relacije su od posebnog interesa. One odre\dj uju uzajamne odnose dva objekta i, istorijski posmatrano,
+to su relacije koje smo prve uo\v cili. Na primer, jednakost $x = y$ je binarna relacija,
+poredak na brojevima $m \le n$ je binarna relacija, relacija pripadanja $x \in A$ je binarna relacija.
+
+Zbog njihovog pre svega istorijskog zna\v caja, Definiciju~\ref{ds1.def.rel-0} \'cemo sada dati posebno za binarne relacije:
+
+\begin{DEF}
+  Neka su $A$ i $B$ skupovi. \emph{Binarna relacija} izme\dj u $A$ i $B$ je svaki podskup
+  $
+    \rho \subseteq A \times B
+  $.
+  Obi\v caj je da se umesto $(a, b) \in \rho$ pi\v se i $a \mathrel{\rho} b$.
+\end{DEF}
+
+\begin{EX}
+  Na skupu $\NN = \{1, 2, 3, \ldots\}$ prirodnih brojeva imamo standardnu relaciju $<$ koja poredi brojeve.
+  Formalno, $<$ je skup ure\dj enih parova:
+  $$
+    \mbox{$<$} = \{ (1, 2), (1, 3), (2, 3), (1, 4), (2, 4), \ldots \}
+  $$
+  Umesto $(2, 5) \in \mbox{$<$}$ uobi\v cajeno je da pi\v semo $2 < 5$.
+\end{EX}
+
+\begin{EX}
+  Na svakom skupu $A$ mo\v zemo definisati relaciju jednakosti $=_A$ ovako:
+  $$
+    (\mbox{$=_A$}) = \{ (a, a) : a \in A \}.
+  $$
+  Dva elementa skupa $A$ su u ovoj relaciji samo ako su jednaki.
+\end{EX}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}\label{ft07.ex.01}
+    Neka je $A = \{0, 1, 2, 3, 4\}$ i neka je $\rho = \{(0,1), (1,2), (2,3), (3,4), (4,0)\}$.
+    Binarne relacije na jednom skupu se mogu lako predstaviti crte\v zom: predstavimo skup $A$ Venovim dijagramom
+    i onda parove koji \v cine relaciju ozna\v cimo strelicama, kako je to pokazano na slici iznad.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r1.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}\label{ft07.ex.02}
+    Neka je $B = \{0, 1, 2, 3, 4, 5, 6, 7\}$ i neka je $\sigma$ skup svih parova $(a, b) \in B \times B$ takvih da
+	$a$ i $b$ imaju isti ostatak pri deljenju sa 3, \v sto pi\v semo ovako: $a \equiv_3 b$.
+    Relacija $\sigma$ je predstavljena crte\v zom pored. Da se podsetimo, strelica $0 \to 3$ zna\v ci da je
+    $(0,3) \in \sigma$, odnosno $0 \mathrel\sigma 3$.
+    Sli\v cno, strelica $2 \to 2$ zna\v ci da je $(2, 2) \in \sigma$, odnosno $2 \mathrel\sigma 2$. (Strelice koje
+    idu od elementa do istog tog elementa se zovu \emph{petlje}.) Po\v sto relacija $\sigma$ ima
+    mnogo parova lak\v se je analizirati svojstva relacije na osnovu crte\v za nego na osnovu spiska parova koji \v cine
+    relaciju.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r2.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}\label{ft07.ex.03}
+    Neka je $C = \{1, 2, 3, 4, 5\}$ i neka je $\theta = \{(a, b) \in C \times C : a \le b\}$.
+    Relacija $\theta$ je predstavljena crte\v zom pored sa koga se lako uvi\dj a
+    da i relacija $\theta$ ima interesantnu strukturu. Ovo je druga vrsta specijalnih binarnih
+    relacija o kojima \'cemo detaljno govoriti kasnije.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r3.pgf
+  \end{center}
+\end{minipage}
+
+
+
+
+\section{Partitivni skup}
+
+Partitivni skup nekog skupa se pravi tako \v sto u novi skup stavimo sve podskupove polaznog skupa.
+
+\begin{DEF}
+  \emph{Partitivni skup} nekog skupa \v cine svi njegovi podskupovi:
+  $$
+    \calP(A) = \{ X : X \subseteq A \}.
+  $$
+\end{DEF}
+
+\begin{EX}
+  Svi podskupovi skupa $A = \{a, b, c\}$ su $\0$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a, b\}$, $\{a, c\}$, $\{b, c\}$ i $\{a, b, c\}$,
+  tako da je
+  $$
+    \calP(A) = \big\{
+      \0, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}
+    \big\}.
+  $$
+\end{EX}
+
+\noindent
+Vidimo da za partitivni skup skupa $A$ va\v zi slede\'ce:
+$$
+  \fbox{$X \in \calP(A) \Leftrightarrow X \subseteq A$.}
+$$
+
+\begin{THM}
+  Neka su $A$ i $B$ skupovi.
+  \begin{enumerate}
+  \item
+    Ako je $A \subseteq B$ onda je $\calP(A) \subseteq \calP(B)$.
+  \item
+    $\calP(A) \cap \calP(B) = \calP(A \cap B)$.
+  \item
+    $\calP(A) \cup \calP(B) \subseteq \calP(A \cup B)$.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  (1)
+  Neka je $A \subseteq B$. Uzmimo proizvoljno $X \in \calP(A)$. Tada je $X \subseteq A$, pa iz
+  $A \subseteq B$ sledi $X \subseteq B$. Dakle, $X \in \calP(B)$.
+  
+  \medskip
+  
+  (2)
+  Lako se pokazuje da je
+  $$
+    X \subseteq A \cap B \Leftrightarrow X \subseteq A \land X \subseteq B.
+  $$
+  Sada tvr\dj enje (2) sledi direktno iz ovog niza ekvivalencija:
+  \begin{align*}
+    X \in \calP(A) \cap \calP(B)
+    &\Leftrightarrow X \in \calP(A) \land X \in \calP(B)\\
+    &\Leftrightarrow X \subseteq A \land X \subseteq B\\
+    &\Leftrightarrow X \subseteq A \cap B\\
+    &\Leftrightarrow X \in \calP(A \cap B).
+  \end{align*}
+
+  \medskip
+  
+  (3)
+  Lako se pokazuje da je
+  $$
+    X \subseteq A \lor X \subseteq B \Rightarrow X \subseteq A \cup B.
+  $$
+  Sada tvr\dj enje (3) sledi direktno iz ovog niza implikacija:
+  \begin{align*}
+    X \in \calP(A) \cup \calP(B)
+    &\Rightarrow X \in \calP(A) \lor X \in \calP(B)\\
+    &\Rightarrow X \subseteq A \lor X \subseteq B\\
+    &\Rightarrow X \subseteq A \cup B\\
+    &\Rightarrow X \in \calP(A \cup B).\qedhere
+  \end{align*}
+\end{proof}
+
+\begin{EX}
+  Dati primer skupova $A$ i $B$ takvih da $\calP(A \cup B) \not\subseteq \calP(A) \cup \calP(B)$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Neka je $A = \{1\}$ i $B = \{2\}$. Onda je
+  $
+    \calP(A) \cup \calP(B) = \big\{\0, \{1\}, \{2\}\big\}
+  $,
+  dok je
+  $
+    \calP(A \cup B) = \big\{\0, \{1\}, \{2\}, \{1, 2\}\big\}
+  $.
+\end{proof}
+
+\begin{THM}\label{ft06.thm.A-PA}
+  Neka je $A$ kona\v can skup. Ako je $|A| = n$ onda je $|\calP(A)| = 2^n$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Neka je $A = \{a_1, \ldots, a_n\}$. Tada se svaki podskup $B$ skupa $A$
+  mo\v ze predstaviti 01-nizom $b_1 \ldots b_n \in \{0, 1\}^n$
+  gde je
+  $$
+    b_i = \begin{cases}
+      0, & a_i \notin B,\\
+      1, & a_i \in B.
+    \end{cases}
+  $$
+  Na primer, neka je $A = \{a, b, c, d, e, f\}$ i $B = \{b, d, e\}$. Tada je $B$ predstavljen nizom $010110$
+  zato \v sto $a \notin B$, $b \in B$, $c \notin B$ itd. Jasno, je da je prazan skup predstavljen nizom $000000$,
+  a ceo skup $A$ nizom $111111$. Evo tabelarnog pregleda:
+  $$
+    \begin{array}{c|cccccc}
+        & a & b & c & d & e & f \\ \hline
+     \0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      B & 0 & 1 & 0 & 1 & 1 & 0 \\
+      A & 1 & 1 & 1 & 1 & 1 & 1
+    \end{array}
+  $$
+  Lako se vidi da va\v zi i i obrnuto: svaki 01-niz odre\dj uje ta\v cno jedan podskup skupa $A$. Na primer
+  niz $101101$ odre\dj uje podskup $\{a, c, d, f\}$.
+  Prema tome, broj podskupova skupa $A$ koji ima $n$ elemenata jednak je broju 01-nizova du\v zine $n$, a njih ima~$2^n$.
+\end{proof}
+
+
+
+
+
+\section{Reprezentacija malih skupova 01-nizovima}
+
+
+U dokazu Teoreme~\ref{ft06.thm.A-PA} smo podskupove nekog skupa opisivali 01-nizovima (nizovima nula i jedinica)
+na veoma prirodan na\v cin: utvrdimo redosled elemenata polaznog skupa, pa svaki podskup odgovara nizu nula i jedinica gde
+0 kodira informaciju da odgovaraju\'ci element ne pripada podskupu dok 1 kodira informaciju da odgovaraju\'ci element pripada podskupu.
+Kao \v sto smo videli, neki podskupovi skupa $A = \{a, b, c, d, e, f\}$ se mogu kodirati 01-nizovima ovako:
+$$
+  \begin{array}{r|cccccc}
+                & a & b & c & d & e & f \\ \hline
+   \0           & 0 & 0 & 0 & 0 & 0 & 0 \\
+    {\{b, d, e\}} & 0 & 1 & 0 & 1 & 1 & 0 \\
+    A           & 1 & 1 & 1 & 1 & 1 & 1
+  \end{array}
+$$
+U memoriji ra\v cunara svi podaci su predstavljeni nizovima bitova! Zato \'cemo sada pokazati kako se u ra\v cunarstvu
+efikasno implementiraju mali skupovi. U programiranju su to naj\v ce\v s\'ce nizovi tzv.\ \emph{flegova} --- indikatora da je neka
+osobina objekta nad kojim izvr\v savamo algoritam prisutna ili odsutna.
+
+\emph{Mali skup} je svaki podskup skupa $U = \{0, 1, \ldots, n-1\}$ gde je broj $n$ karakteristika arhitekture procesora.
+(Skup $U$ smo ozna\v cili ba\v s na ovaj na\v cin zato \v sto je to \emph{univerzalni skup} -- svi skupovi koje posmatramo moraju biti
+njegovi podskupovi.) Na primer, za 64-bitnu arhitekturu je $n = 64$ pa je $U = \{0, 1, \ldots, 63\}$.
+U $n$-bitnoj arhitekturi u svaki registar mo\v ze da se smesti niz bitova du\v zine $n$, pa je time ograni\v cena veli\v cina skupa~$U$.
+Broj $n$ je uvek neki stepen broja 2. Na primer postoje 8-bitna, 16-bitna, 32-bitna i danas aktuelna 64-bitna arhitektura.
+
+Da bismo lak\v se sagledali ideju, pretpostavi\'cemo da radimo sa 8-bitnom arhitekturom, gde je $U = \{0, 1, \ldots, 7\}$.
+U slu\v caju 64-bitnih procesora pri\v ca je ista, samo \v sto se tada radi o 01-nizovima du\v zine 64 kojima kodiramo
+podskupove skupa $\{0, 1, \ldots, 63\}$.
+
+Neka je $U = \{0, 1, \ldots, 7\}$ skup \v cije podskupove posmatramo.
+Osnovna ideja kodiranja skupova je ista kao i ranije. Recimo, podskup $\{0, 1, 2, 5\}$ skupa $U$ mo\v zemo da kodiramo ovako:
+$$
+    \begin{array}{cccccccc}
+      \small 7 & \small 6 & \small 5 & \small 4 & \small 3 & \small 2 & \small 1 & \small 0 \\
+      \hline
+      \multicolumn{1}{|c}{0}&\multicolumn{1}{|c}{0}&\multicolumn{1}{|c}{1}&\multicolumn{1}{|c}{0}&\multicolumn{1}{|c}{0}&\multicolumn{1}{|c}{1}&\multicolumn{1}{|c}{1}&\multicolumn{1}{|c|}{1}\\
+      \hline
+    \end{array}
+$$
+Pogledajmo sada kako se izvode osnovne skupovne operacije sa ovako predstavljenim skupovima. Unija skupova se svodi na to
+da se po koordinatama primeni operacija disjunkcije. Ta operacija se zove \enquote{bitwise-or} i \v cesto se ozna\v cava vertikalnom crtom $|$:
+$$
+  \begin{array}{r|cccccccc|l}
+                                    & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+  A = \{0, 2, 3, 7\}                & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & x\\
+  B = \{1, 2, 3, 5\}                & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & y\\ \hline
+  A \union B = \{0, 1, 2, 3, 5, 7\} & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & x|y
+  \end{array}
+$$
+Presek skupova se svodi na to
+da se po koordinatama primeni operacija konjunkcije. Ta operacija se zove \enquote{bitwise-and} i \v cesto se ozna\v cava simbolom $\&$:
+$$
+  \begin{array}{r|cccccccc|l}
+                           & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+  A = \{0, 2, 3, 7\}       & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & x\\
+  B = \{1, 2, 3, 7\}       & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & y\\ \hline
+  A \cap B = \{2,3\}       & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & x\&y
+  \end{array}
+$$
+\emph{Komplement} skupa $A \subseteq U$ je skup $A^c = U \setminus A$. Komplement predstavlja operaciju
+kod koje iz skupa izbacimo sve njegove elemente, a u skup ubacimo sve elemente koji u njemu
+nisu bili. Lako se vidi da se odre\dj ivanje komplementa skupa svodi na to
+da se po koordinatama primeni operacija negacije. Ta operacija se zove \enquote{bitwise-not} i \v cesto se ozna\v cava simbolom $\sim$:
+$$
+  \begin{array}{r|cccccccc|l}
+                            & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+  A = \{0, 2, 3, 7\}        & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & x\\
+  A^c= \{1, 4, 5, 6\}       & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & \sim x
+  \end{array}
+$$
+Razlika skupova se sada svodi na presek sa komplementom: za $A, B \subseteq U$ je $A \setminus B = A \cap B^c$:
+$$
+  \begin{array}{r|cccccccc|l}
+                           \text{Bit:}  & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+  A = \{0, 2, 3, 7\}                    & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & x\\
+  B = \{1, 2, 3, 5\}                    & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & y\\
+  B^c = \{0, 4, 6, 7\}                  & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & \sim y\\ \hline
+  A \setminus B = A \cap B^c = \{0, 7\} & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & x\&\sim y
+  \end{array}
+$$
+
+\section{Zadaci}
+
+
+\ZAD{05.zad.1}{
+Napisati sve elemente slede\' cih skupova:
+\begin{enumerate}[(a)]
+\item $\{x   :    x\in\mathbb Z\text{ i }-3<x<4\}$;
+\item $\{x^2+3x-2   :    x\in\mathbb Z\text{ i }-3<x<4\}$;
+\item $\{\sin(\frac\pi6x)  :  x\in\mathbb Z\text{ i }-2\leq x\leq 4\}$;
+\item $\{x   :  x\text{ je prirodni broj deljiv sa }3\}$;
+\item $\{x    :  x=y^2\text{ za neko }y\in\mathbb N\}$;
+\item $\{x   :  (3x-1)(x+2)=0\}$;
+\item $\{x   :  x\geq 0\text{ i }(3x-1)(x+2)=0\}$;
+\item $\{x\in\mathbb Z  :  (3x-1)(x+2)\leq 0\}$;
+\item $\{x\in\mathbb N :  (3x-1)(x+2)=0\}$;
+\item $\{x :  2x\text{ je pozitivan ceo broj}\}$;
+\item $\{x\in\mathbb N :  (\exists y\in\mathbb N)\big(x=y(y+1)\big)\}$;
+\item $\{x\in\mathbb N :  (\forall y\in\mathbb N)\big(y\in\{1,x\}\vee y{\not|}x\big)\}$.
+\end{enumerate}
+}
+
+\ZAD{05.zad.2}{
+Opisati slede\' ce skupove koriste\' ci notaciju $\{x :  P(x)\}$, i odrediti njihove kardinalnosti:
+\begin{enumerate}[(a)]
+\item $\{1,2,3,4,5\}$;
+\item $\{3,6,9,12,...,27,30\}$;
+\item $\{1,3,5,7,9,11,...\}$;
+\item $\{2,3,5,7,11,13,...\}$;
+\item $\{2,3,4,6,8,9,10,12,14,15,16,18\}$;
+\item $\{2,8,18,32,50,72,98,128,...\}$;
+\item Skup prirodnih brojeva koji mogu biti zapisani kao zbir kvadrata dva prirodna broja.
+\end{enumerate}
+}
+
+\ZAD{05.zad.3}{
+Proveriti da li su ta\v cni slede\' ci iskazi: 
+\setlength{\multicolsep}{\topsep}
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $2 \in\{1,2,3,4,5\}$;
+\item $\{2\} \in \{1,2,3,4,5\}$;
+\item $2 \subseteq \{1,2,3, 4,5\}$;
+\item $\{2\} \subseteq \{1,2,3,4,5\}$;
+\item $\emptyset\subseteq\{\emptyset,\{\emptyset\}\}$;
+\item $\{\emptyset\} \subseteq \{\emptyset,\{\emptyset\}\}$;
+\item $0\subseteq \emptyset$;
+\item $\{1, 2, 3, 4, 5\} = \{5, 4, 3, 2, 1\}$.
+\end{enumerate}
+\end{multicols}
+}
+
+\ZAD{05.zad.4}{
+Proveriti da li va\v zi $x\in A$, $x\subseteq A$, oba, ili ni jedno od ta dva:
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $x = \{1\}$, $A = \{1,2,3\}$;
+\item $x = \{1\}$, $A = \{\{1\},\{2\},\{3\}\}$;
+\item $x = \{1\}$, $A = \{1,2,\{1,2\}\}$;
+\item $x = \{1,2\}$, $A =\{1,2,\{1,2\}\}$;
+\item $x = \{1\}$, $A = \{\{1,2,3\}\}$;
+\item $x = 1$, $A = \{\{1\},\{2\},\{3\}\}$.
+\end{enumerate}
+\end{multicols}
+}
+
+\ZAD{05.zad.5}{
+Neka su $A$, $B$, $C$ i $D$ slede\' ci podskupovi skupa $X=\{1,2,3,...,10\}$.
+\begin{align*}
+&A= \{x\in X :  2\mid x\}&& B = \{3, 4, 5, 6\}\\
+&C= \{7, 8, 9, 10\}&& D = \{1, 3, 5, 7, 9\}.
+\end{align*}
+Napisati sve elemente slede\' cih skupova:
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $A \cup B$;
+\item $A \cap D$;
+\item $\overline{B \cup C}$;
+\item $A \cap (B \cup D)$;
+\item $B \cap(\overline A \cap\overline D)$;
+\item $(\overline{C \cap D}) \cup B$;
+\item $\overline B\cap\overline C$;
+\item $A \setminus (B \cap \overline C)$;
+\item $(A \setminus B)\cup (D \setminus C)$;
+\item $\overline {D \setminus C}$;
+\item $(\overline A \cup \overline B) \setminus (\overline{A \cup B})$;
+\item $( \overline C \setminus A)\cap (A \setminus\overline C)$.
+\end{enumerate}
+\end{multicols}
+}
+
+\ZAD{05.zad.6}{
+Dokazati skupovne jednakosti:
+\setlength{\multicolsep}{\topsep}
+\begin{enumerate}[(a)]
+\item $\overline{A\cup B}=\overline A\cap\overline B$;
+\item $\overline{A\cap B}=\overline A\cup\overline B$;
+\item $A\setminus B=A\setminus(A\cap B)$;
+\item $A \cap (B \setminus C) = (A \cap B) \setminus C$;
+\item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$;
+\item $(A \cup B) \setminus C = (A \setminus C) \cup (B \setminus C)$;
+\item $A \cup (B \setminus C) = (A \cup B) \setminus (\overline A \cap C)$;
+\item $(A \setminus B) \setminus C = A \setminus (B \cup C)$.
+\end{enumerate}
+}
+
+\ZAD{05.zad.7}{
+Ako je $X\triangle Y=(X\setminus Y)\cup(Y\setminus X)$ simetri\v cna razlika skupova $X$ i $Y$, dokazati da va\v zi:
+\[A\cap (B\triangle C)=(A\cap B)\triangle(A\cap C),\]
+i da ne va\v zi:
+\[A\cup (B\triangle C)=(A\cup B)\triangle(A\cup C).\]
+}
+
+%komp - nintendo switch
+%video - PC
+%sega - playstation
+
+\ZAD{06.zad.2}{
+U jednom istra\v zivanju sprovedenom nad 1000 srednjo\v skolaca, njih 275 igra igre na Nintendo Switchu, 455 na kompjuteru, 405 na PlayStationu, i 265 u\v cenika se izjasnilo da ne igraju igre ni na jednoj od tri navedene platforme. Ako je 145 njih igralo i na Nintendu i na kompjuteru, 195 i na kompjuteru i na PlayStationu, i 110 na Nintendu i PlayStationu, koliko anketiranih srednjo\v skolaca igra igre:
+\begin{enumerate}[(a)]
+\item na sve tri platforme?
+\item samo na kompjuteru?
+\item na kompjuteru i PlayStationu, ali ne i Nintendo Switchu?
+\item na kompjuteru i Nintendo Switchu, ali ne i na PlayStationu?
+\end{enumerate}
+}\label{prvi-iz-uklj-isklj}
+
+\ZAD{06.zad.1}{
+ Svaki od 100 studenata Departmana za matematiku i informatiku u Novom Sadu slu\v sa bar jedan od predmeta Ve\v sta\v cka inteligencija (VI), Analiti\v cka geometrija (AG) i Softverski praktikum (SP). VI slu\v sa 65 studenata, AG slu\v sa 45, SP slu\v sa 42, VI i AG 20 studenata, VI i SP 25, i AG i SP slu\v sa 15 studenata. Koliko studenata slu\v sa:
+\begin{enumerate}[(a)]
+\item sva tri izborna predmeta?
+\item VI i AG, ali ne i SP?
+\item samo AG kao izborni predmet?
+\end{enumerate}
+}
+
+\ZAD{06.zad.3}{
+U jednom gradu postoje tri biblioteke: Gradska biblioteka, Narodna biblioteka i Univerzitetska biblioteka. Svi \v clanovi Univerzitetske biblioteke su \v clanovi bar jo\v s jedne od druge dve biblioteke. Poznato je i da:
+\begin{enumerate}
+\item[] Gradska biblioteka ima 4200 \v clanova.
+\item[] Narodna biblioteka ima 4500 \v clanova.
+\item[] Gradska biblioteka i Narodna biblioteka imaju 700 zajedni\v ckih \v clanova.
+\item[] Gradska biblioteka i Univerzitetska biblioteka imaju 1100 zajedni\v ckih \v clanova.
+\item[] Narodna biblioteka i Univerzitetska biblioteka imaju 2800 zajedni\v ckih \v clanova.
+\item[] Duplo vi\v se je gra\dj ana koji su \v clanovi samo Gradske biblioteke nego gra\dj ana koji su \v clanovi samo Narodne biblioteke.
+\end{enumerate}
+Koliko je gra\dj ana u\v clanjeno u:
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item bar jednu biblioteku?
+\item sve tri biblioteke?
+\item Univerzitetsku biblioteku?
+\item samo Gradsku biblioteku?
+\end{enumerate}
+\end{multicols}
+}
+
+% \ZAD{06.zad.4}{
+% Proveriti koji od slede\' cih skupova \v cine particije skupa $A=\{2,3,7,9,10\}$:
+% \begin{multicols}{2}
+% \begin{enumerate}[(a)]
+% \item $\{\{2, 3\},\{3, 7, 9\},\{10\}\}$;
+% \item $\{\{2, 10\}, \{3, 7\}, \{9\}\}$;
+% \item $\{\{2, 3, 4\}, \{7, 9, 10\}\}$;
+% \item $\{\{2\}, \{3\},\{7\},\{9\},\{10\}\}$;
+% \item $\{2, 3, 7, 9, 10\}$;
+% \item $\{\{2, 3, 7, 9, 10\}\}$;
+% \item $\{\{10, 3\}, \{7, 2\}\}$;
+% \item $\{\{2, 9, 10\}, \{3, 7\},\emptyset\}$.
+% \end{enumerate}
+% \end{multicols}
+% }
+
+% \ZAD{06.zad.5}{
+% Proveriti koji od slede\' cih skupova \v cine particije skupa $\mathbb Z$:
+% \begin{enumerate}[(a)]
+% \item $\{\{n,n+1\} :  n\in\mathbb Z\}$;
+% \item $\{\{-n,n\} :  n\in\mathbb N\}$;
+% \item $\{\{-n,n\} :  n\in\mathbb N_0\}$;
+% \item $\{\{n,n^2,n^3\} :  n\in\mathbb Z\}$;
+% \item $\{\{2n :  n\in\mathbb Z\},\{2n+1 :  n\in\mathbb Z\}\}$;
+% \item $\{\{n,-2n,-2n-1\} :  n\in\mathbb N_0\}$.
+% \end{enumerate}
+% }
+
+\ZAD{06.zad.6}{
+Neka su $A=\{1,2,3\}$, $B=\{3,4\}$, $X=\{a,b\}$ i $Y=\{b,c\}$. Napisati elemente slede\' cih skupova:
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $(A\cap B)\times(X\cap Y)$;
+\item $(A\times X)\cap(B\times Y)$;
+\item $(A\times X)\cap Y$;
+\item $(A\times X)\cup(B\times Y)$.
+\end{enumerate}
+\end{multicols}
+}
+
+%\ZAD{06.zad.7}{
+%Grafi\v cki predstaviti skupove iz prethodnog zadatka ako su skupovi $A$, $B$, $X$ i $Y$ intervali realnih brojeva $[1,4]$, $[3,5]$, $[1,5]$ i $[2,7]$, redom.
+%}
+
+% \ZAD{06.zad.8}{
+% Dokazati skupovne jednakosti:
+% \begin{enumerate}[(a)]
+% \item $A\times(X\cap Y)=(A\times X)\cap(A\times Y)$;
+% \item $A\times(X\cup Y)=(A\times X)\cup(A\times Y)$.
+% \end{enumerate}
+% }
+
+\ZAD{06.zad.9}{
+Da li va\v ze slede\' ce skupovne jednakosti:
+\begin{enumerate}[(a)]
+\item $(A\times X)\cap(B\times Y)=(A\cap B)\times(X\cap Y)$;
+\item $(A\times X)\cup(B\times Y)=(A\cup B)\times(X\cup Y)$.
+\end{enumerate}
+Ukoliko neka jednakost ne va\v zi, proveriti da li va\v zi neka od inkluzija, i dokazati.
+}
+
+\ZAD{06.zad.10}{
+Dokazati slede\' ce skupovne jednakosti:
+\begin{enumerate}[(a)]
+\item $((A\setminus B)\times X)\times M=\big((A\times X)\setminus(B\times X)\big)\times M$;
+\item $(A\setminus B)\times(X\setminus Y)=(A\times X)\setminus\big((A\times Y)\cup(B\times X)\big)$;
+\item $\overline{(\overline A\cap B)}\times C=(A\times C)\cup(\overline B\times C)$;
+\item $(\overline A\cup B)\times ((B\cup A)\setminus C)=\overline{(A\setminus B)}\times ((B\setminus C)\cup( A\setminus C))$;
+\item $D\times ((B\cup A)\setminus C)=D\times ((B\setminus C)\cup( A\setminus C))$;
+\item $((B\cup A)\cap \overline C)\times E=((B\cap \overline C)\cup( A\setminus C))\times E$;
+\item $(B\setminus C)\times((A\cup B)\setminus D)=\overline{(C\cup\overline B)}\times((A\setminus D)\cup\overline{(D\cup \overline B)})$;
+\item $(\overline A\cup \overline C)\times(A\setminus(B\cup D))=\overline{(A\cap C)}\times ((A\setminus B)\cap(A\setminus D))$;
+\item $(B\setminus C)\times((A\cup \overline B)\setminus D)=\overline{(C\cup\overline B)}\times((A\setminus D)\cup\overline{(D\cup B)})$;
+\item $(\overline A\cup C)\times(A\setminus(B\cup D))=\overline{(A\setminus C)}\times ((A\setminus B)\cap(A\setminus D))$;
+\item $(B\setminus E)\times((A\cup \overline C)\setminus D)=\overline{(E\cup \overline B)}\times((A\setminus D)\cup\overline{(D\cup C)})$;
+\item $A\times (B\setminus(D\cap C))=(A\times (B\setminus D))\cup (A\times (B\setminus C))$;
+\item $A\times(B\cup (D\setminus \overline E))=(A\times (B\cup D))\cap(A\times(B\cup E))$.
+\end{enumerate}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

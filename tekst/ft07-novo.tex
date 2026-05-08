@@ -1,0 +1,1332 @@
+%!TeX root=main-DS1.tex
+\chapter{Binarne relacije}
+
+\v Zivot u savremenom svetu je postao nezamisliv bez procesa koji podrazumevaju obradu \emph{ogromnih} koli\v cina podataka.
+Zato i ne \v cudi \v sto se pojavljuju nove nau\v cne discipline (kao \v sto je nauka o podacima -- \emph{data science})
+koje su posve\'cene upravo tome.
+Mi, ljudi, kao vrsta imamo ozbiljna mentalna ograni\v cenja kada se radi o mogu\'cnosti
+sagledavanja i analize velikih koli\v cina podataka. Da bismo mogli da shvatimo savremene fenomene u nauci ili dru\v stvu
+moramo da se dovijamo na razne na\v cine kako bismo se izborili sa sve ve\'cim nivoom slo\v zenosti.
+
+Dve osnove strategije koje koristimo da se emotivno izborimo sa velikim koli\v cinama podataka su
+klasifikacija (grupisanje) podataka, i sortiranje (ure\dj ivanje) podataka.
+Klasifikacija podataka se svodi na to da se podaci organizuju u grupe (klase) podataka
+koji su \enquote{sli\v cni} u odnosu na neki kriterijum. S druge strane, sortiranje podataka se svodi na to da se
+podaci pore\dj aju u odnosu na neki kriterijum od \enquote{manjih} vrednosti ka \enquote{ve\'cim} ili obrnuto.
+
+U oba slu\v caja imamo potrebu da iz nekog skupa podataka $A$ uzmemo dva podatka
+$a, b \in A$ i da utvrdimo da li su oni u vezi: da li je $a$ \enquote{sli\v can} sa $b$ u prvom slu\v caju, odnosno
+da li je $a$ \enquote{manji} od $b$ u drugom slu\v caju.
+U apstraktnom smislu, to zna\v ci da treba da uspostavimo binarnu relaciju
+$\rho \subseteq A \times A$ na skupu $A$ takvu da
+$(a, b) \in \rho$ modeluje situaciju \enquote{$a$ je sli\v can sa $b$} u prvom slu\v caju,
+odnosno, \enquote{$a$ je manji od $b$} u drugom slu\v caju.
+
+\section{Klasifikacija}
+
+U ovom odeljku \'cemo odgovoriti na pitanje
+kada neka apstraktna binarna relacija $\rho \subseteq A \times A$ predstavlja
+\enquote{razuman} kriterijum za klasifikaciju.
+
+\begin{figure}
+    \centering
+    \input ft07-slicnost.pgf
+    \caption{Sli\v cnost trouglova}    
+    \label{ft07.fig.slicnost}
+\end{figure}
+
+Pogledajmo jedan jednostavan primer. Za dva trougla ka\v zemo da su \emph{sli\v cni} ako imaju iste
+uglove. Na primer, trouglovi $T$ i $P$ na Sl.~\ref{ft07.fig.slicnost} nisu sli\v cni, \v sto
+pi\v semo $T \not\sim P$, dok su trouglovi $P$, $Q$ i $R$ me\dj usobno sli\v cni,
+$P \sim Q$, $P \sim R$, $Q \sim R$.
+Lako je videti da relacija sli\v cnosti $\sim$ ima slede\'ce osobine:
+\begin{itemize}\itemsep -1.5pt
+\item svaki trougao je sli\v can sebi: $X \sim X$,
+\item ako je trougao $X$ sli\v can trouglu $Y$ onda je i trougao $Y$ sli\v can trouglu $X$:\newline
+      $X \sim Y \Rightarrow Y \sim X$, i
+\item ako su trouglovi $X$ i $Y$ sli\v cni, i ako su touglovi $Y$ i $Z$ sli\v cni, onda su i trouglovi $X$ i $Z$ sli\v cni:
+      $X \sim Y \land Y \sim Z \Rightarrow X \sim Z$.
+\end{itemize}
+
+\begin{EX}
+    Da se podsetimo: za dva prirodna broja ka\v zemo da su \emph{kongruentni po modulu $m$} i pi\v semo $a \equiv_m b$,
+    ako imaju isti ostatak pri deljenju sa $m$. Primetimo da relacija $\equiv_m$ ima tri upravo navedene
+    osobine:
+    \begin{itemize}
+    \item za svako $a \in \NN$ va\v zi: $a \equiv_m a$,
+    \item za sve $a, b \in \NN$ va\v zi: $a \equiv_m b \Rightarrow b \equiv_m a$, i
+    \item za sve $a, b, c \in \NN$: $a \equiv_m b \land b \equiv_m c \Rightarrow a \equiv_m c$.
+    \end{itemize}
+\end{EX}
+
+Ove tri osobine karakteri\v su pojam \enquote{sli\v cnosti} objekata s obzirom na neko svojstvo, a uop\v stavanjem
+dobijamo pojam \emph{relacije ekvivalencije} koji predstavlja apstrakciju \enquote{razumnog} kriterijuma za klasifikaciju podataka.
+
+\begin{DEF}
+    \emph{Relacija ekvivalencije (\enquote{razuman} kriterijum za klasifikaciju) na skupu $A$} je svaka binarna relacija $\rho \subseteq A \times A$
+    koja ima slede\'ce tri osobine:
+    \begin{itemize}\itemsep -1pt
+    \item za sve $a \in A$: $a \mathrel{\rho} a$, \hfill (\emph{refleksivnost})
+    \item za sve $a, b \in A$: $a \mathrel{\rho} b \Rightarrow b \mathrel{\rho} a$, \hfill (\emph{simetri\v cnost})
+    \item za sve $a, b, c \in A$: $a \mathrel{\rho} b \land b \mathrel{\rho} c \Rightarrow a \mathrel{\rho} c$. \hfill (\emph{tranzitivnost})
+    \end{itemize}
+\end{DEF}
+
+\begin{EX}\label{ft07.ex.01-weight}
+  Neka je $n \ge 1$ prirodan broj i neka je $A = \{0,1\}^n$ skup svih 01-nizova du\v zine $n$. Na skupu $A$ defini\v semo
+  relaciju $\sim$ ovako: za 01-nizove $u$ i $v$ stavimo $u \sim v$ ako i samo ako nizovi $u$ i $v$ imaju isti broj jedinica
+  (broj jedinica u 01-nizu se zove \emph{te\v zina} tog niza; dakle dva niza su ekvivalentni ako imaju istu te\v zinu).
+  Na primer, za $n = 8$ je $00001111 \sim 01010110$ i $00110011 \not\sim 11001000$.
+  Lako se vidi da je ovo relacija ekvivalencije na $A$.
+\end{EX}
+
+\begin{EX}\label{ft07.ex.iskazne-fle}
+  Neka je $\Phi$ skup svih iskaznih formula. Na skupu $\Phi$ smo definisali relaciju $\equiv$ ovako:
+  $\phi \equiv \psi$ ako i samo ako $\vDash \phi \Leftrightarrow \psi$. Relacija $\equiv$ je relacija
+  ekvivalencije na $\Phi$ zbog slede\'ce tri tautologije:
+  \begin{itemize}\itemsep -1.5pt
+  \item
+    Refleksivnost: $\vDash \phi \Leftrightarrow \phi$ za svaku iskaznu formulu $\phi$;
+  \item
+    Simetri\v cnost: $\vDash (\phi \Leftrightarrow \psi) \Leftrightarrow (\psi \Leftrightarrow \phi)$;
+  \item
+    Tranzitivnost: $\vDash (\phi \Leftrightarrow \psi) \land (\psi \Leftrightarrow \theta) \Rightarrow (\phi \Leftrightarrow \theta)$.
+  \end{itemize}
+\end{EX}
+
+Sada \'cemo pokazati da se relacija ekvivalencije pona\v sa kao kriterijum za klasifikaciju
+podataka tako \v sto \'cemo pokazati da svaka takva relacija razbija skup na kome je definisana
+na klastere \enquote{me\dj usobno sli\v cnih} objekata, \v sto i jeste cilj svake klasifikacije.
+
+\begin{figure}
+  \centering
+  \input ft07-01-nizovi.pgf
+  \caption{Relacija $\sim$ iz Primera~\ref{ft07.ex.01-weight-2}}
+  \label{ds1.sl.01-4}
+\end{figure}
+
+\begin{EX}\label{ft07.ex.01-weight-2}
+  Posmatrajmo ponovo situaciju opisanu u Primeru~\ref{ft07.ex.01-weight} s tim da \'cemo radi odre\dj enosti
+  uzeti da je $A = \{0,1\}^4$. Podsetimo se da za 01-nizove $u$ i $v$ sa $u \sim v$ ozna\v cavamo
+  da $u$ i $v$ imaju istu te\v zinu (= isti broj jedinica). Relaciju $\sim$ je ilustrovana na Sl.~\ref{ds1.sl.01-4}.
+  Vidimo da su elementi skupa $A$ podeljeni u grupe (klastere), i da se u istoj grupi nalaze
+  svi elementi koji su me\dj usobno \enquote{sli\v cni}, \v sto u ovom slu\v caju zna\v ci da imaju istu
+  te\v zinu. Niz 0000 je sam u klasi jer je to jedini niz sa te\v zinom~0. Sli\v cno je i niz 1111
+  sam u klasi. Relacija $\sim$ je tako klasifikovala elemente skupa $A$ po te\v zini.
+\end{EX}
+
+\begin{DEF}
+  Neka je $\Boxed\rho \subseteq A \times A$ relacija ekvivalencije na $A$ (\emph{kriterijum za klasifikaciju}).
+  \emph{Klaster} elementa $a \in A$ je skup svih elemenata skupa $A$ koji su \enquote{sli\v cni} sa $a$
+  u odnosu na svojstvo modelovano relacijom $\rho$:
+  $$
+    [a]_\rho = \{ b \in A : a \mathrel{\rho} b \} = \{ b \in A : b \mathrel{\rho} a \}.
+  $$
+  (Poslednja jednakost je posledica simetri\v cnosti relacije $\rho$.)
+\end{DEF}
+
+\begin{EX}
+  Evo klastera nekih od elemenata skupa $A$ iz Primera~\ref{ft07.ex.01-weight-2}:
+  \begin{align*}
+    [0000]_\sim &= \{0000\}\\
+    [0001]_\sim &= \{0001, 0010, 0100, 1000\}\\
+    [0010]_\sim &= \{0001, 0010, 0100, 1000\}\\
+    [0100]_\sim &= \{0001, 0010, 0100, 1000\}\\
+    [0011]_\sim &= \{0011, 0101, 1001, 0110, 1010, 1100\}\\
+    [1100]_\sim &= \{0011, 0101, 1001, 0110, 1010, 1100\}.
+  \end{align*}
+  Prime\'cujemo: klaster elementa $a$ sadr\v zi element $a$ (naravno!), i mo\v zda jo\v s neke elemente;
+  pored toga, ako je $u \sim v$, onda $u$ i $v$ pripadaju istom klasteru.
+\end{EX}
+
+Sada \'cemo sve \v sto smo uo\v cili na ovom malom primeru pokazati i formalno.
+
+\begin{THM}\label{ft07.thm.ekviv}
+  Neka je $\Boxed\rho \subseteq A \times A$ relacija ekvivalencije na $A$ (kriterijum za klasifikaciju).
+  \begin{enumerate}\itemsep -1pt
+  \item
+    Svaki element skupa $A$ pripada svom klasteru: $a \in [a]_\rho$.
+  \item
+    Elementi koji su u relaciji odre\dj uju isti klaster:
+    $a \mathrel{\rho} b \Rightarrow [a]_\rho = [b]_\rho$.
+  \item
+    Razli\v citi klasteri su disjunktni:
+    $[a]_\rho \ne [b]_\rho \Rightarrow [a]_\rho \cap [b]_\rho = \0$.
+  \item
+    Neka je $C_1$, \ldots, $C_k$ spisak svih klastera relacije $\rho$. Tada je
+	$A = C_1 \cup \ldots \cup C_k$.
+  \end{enumerate}
+\end{THM}
+\begin{proof}[Dokaz]
+  (1)
+  Neka je $a \in A$ proizvoljno. Zbog refleksivnosti je $a \mathrel{\rho} a$ pa je $a \in [a]_\rho$.
+  
+  \medskip
+  
+  (2)
+  Neka je $a \mathrel\rho b$. Imaju\'ci u vidu da su klasteri skupovi, da bismo pokazali da je $[a]_\rho = [b]_\rho$
+  treba da poka\v zemo da je $[a]_\rho \subseteq [b]_\rho$ i $[b]_\rho \subseteq [a]_\rho$. Pokaza\'cemo samo
+  $[a]_\rho \subseteq [b]_\rho$ zato \v sto se $[b]_\rho \subseteq [a]_\rho$ pokazuje na isti na\v cin.
+  
+  Uzmimo neko $x \in [a]_\rho$. Tada je $x \mathrel\rho a$ prema definiciji klastera. S druge strane, mi smo pretpostavili
+  da je $a \mathrel\rho b$, pa nam tranzitivnost relacije $\rho$ daje $x \mathrel\rho b$. Zato je $x \in [b]_\rho$.
+  Ovim je pokazano da je $[a]_\rho \subseteq [b]_\rho$.
+  
+  \medskip
+  
+  (3)
+  Neka su $a, b \in A$. Dokazujemo kontrapoziciju tvr\dj enja:
+  $$
+    [a]_\rho \cap [b]_\rho \ne \0 \Rightarrow  [a]_\rho = [b]_\rho.
+  $$
+  Neka $[a]_\rho \cap [b]_\rho \ne \0$ i neka je $x \in [a]_\rho \cap [b]_\rho$ proizvoljno.
+  Prema definiciji klastera, $x \in [a]_\rho$ zna\v ci da je $x \mathrel\rho a$, pa na osnovu (2) zaklju\v cujemo da je $[x]_\rho = [a]_\rho$.
+  Sli\v cno, $x \in [b]_\rho$ zna\v ci da je $x \mathrel\rho b$, pa na osnovu (2) zaklju\v cujemo da je $[x]_\rho = [b]_\rho$.
+  Dakle, $[a]_\rho = [x]_\rho = [b]_\rho$.
+
+  \medskip
+  
+  (4)
+  Da bismo dokazali da je $A = C_1 \cup \ldots \cup C_k$ dokaza\'cemo da je
+  $A \subseteq C_1 \cup \ldots \cup C_k$ i $C_1 \cup \ldots \cup C_k \subseteq A$.
+
+  Uzmimo proizvoljno $a \in A$. Kako smo videli u (1), $a \in [a]_\rho$. No, $[a]_\rho$ je neki od klastera sa spiska, recimo $C_i$.
+  Zato je $a \in [a]_\rho = C_i \subseteq C_1 \cup \ldots \cup C_k$.
+
+  S druge strane, svaki klaster je podskup skupa $A$. Prema tome, $C_1 \subseteq A$, \ldots, $C_k \subseteq A$,
+  pa onda mora biti i unija svih klastera sadr\v zana u $A$: $C_1 \cup \ldots \cup C_k \subseteq A$.
+\end{proof}
+
+\begin{DEF}
+  Neka je $\rho \subseteq A \times A$ relacija ekvivalencije na skupu $A$ koja razbija skup $A$ na klastere $C_1, \ldots, C_k$.
+  To kra\'ce pi\v semo ovako:
+  $$
+    A / \rho = \{C_1, \ldots, C_k\}.
+  $$
+  Skup $A / \rho$ se zove jo\v s i \emph{koli\v cni\v cki skup} relacije $\rho$.
+\end{DEF}
+
+\begin{EX}
+  Posmatrajmo relaciju $\equiv_5$ na skupu $\ZZ$. Podsetimo se da $a \equiv_5 b$ zna\v ci da
+  $a$ i $b$ imaju isti ostatak pri deljenju sa~5. (Sli\v cni su kada se podele sa~5.)
+  Tada je
+  \begin{align*}
+    [0]_{\equiv_5} &= \{\ldots, -10, -5, 0, 5, 10, \ldots\},\\
+    [1]_{\equiv_5} &= \{\ldots, -9, -4, 1, 6, 11, \ldots\},\\
+    [2]_{\equiv_5} &= \{\ldots, -8, -3, 2, 7, 12, \ldots\},\\
+    [3]_{\equiv_5} &= \{\ldots, -7, -2, 3, 8, 13, \ldots\},\\
+    [4]_{\equiv_5} &= \{\ldots, -6, -1, 4, 9, 14, \ldots\}.
+  \end{align*}
+  Po\v sto pri deljenju sa~5 mo\v zemo dobiti samo pet razli\v citih ostataka (0, 1, 2, 3, 4), u ovih pet skupova
+  su svrstani svi celi brojevi pa zaklju\v cujemo da je:
+  $$
+    [0]_{\equiv_5}, [1]_{\equiv_5}, [2]_{\equiv_5}, [3]_{\equiv_5}, [4]_{\equiv_5}
+  $$
+  spisak svih klastera relacije $\equiv_5$. Pi\v semo:
+  $$
+    \ZZ / \Boxed{\equiv_5} = \{[0]_{\equiv_5}, [1]_{\equiv_5}, [2]_{\equiv_5}, [3]_{\equiv_5}, [4]_{\equiv_5}\}.
+  $$
+  Uop\v steno, za $m \ge 2$ je
+  $$
+    \ZZ / \Boxed{\equiv_m} = \{[0]_{\equiv_m}, [1]_{\equiv_m}, [2]_{\equiv_m}, \ldots, [m-1]_{\equiv_m}\}
+  $$
+  jer pri deljenju sa $m$ mo\v zemo dobiti samo $m$ razli\v citih ostataka: 0, 1, 2, \ldots, $m-1$.
+\end{EX}
+
+\begin{EX}
+  U Primeru~\ref{ft07.ex.01-weight} smo na skupu $A = \{0,1\}^n$ skup svih 01-nizova du\v zine $n$, $n \ge 1$,
+  definisali relaciju $\sim$ ovako: $u \sim v$ ako i samo ako nizovi $u$ i $v$ imaju isti broj jedinica.
+  Neka je $n = 8$. Primetimo, prvo, da je $00000001 \sim 00000010 \sim 00000100 \sim \ldots \sim 10000000$,
+  potom $00000011 \sim 00000101 \sim \ldots \sim 11000000$, kao i da je $00000000$ jedini 01-niz $u \in A^8$
+  sa osobinom $u \sim 00000000$. Zato je:
+  \begin{align*}
+    [00000000]_\sim &= \{00000000\}\\
+    [00000001]_\sim &= \{ u \in A^8 : u \text{ ima ta\v cno jednu jedinicu} \},\\
+    [00000011]_\sim &= \{ u \in A^8 : u \text{ ima ta\v cno dve jedinice} \},\\
+                    &\vdots\\
+    [01111111]_\sim &= \{ u \in A^8 : u \text{ ima ta\v cno sedam jedinica} \},\\
+    [11111111]_\sim &= \{ 11111111 \}.
+  \end{align*}
+  Ovim su obuhva\'ceni svi 01-nizovi iz $A^8$, pa zaklju\v cujemo da je
+  $$
+    A^8 / \Boxed\sim = \{[00000000]_\sim, [00000001]_\sim, [00000011]_\sim, \ldots, [11111111]_\sim\}
+  $$
+  spisak svih klastera relacije~$\sim$.
+
+  Ovaj primer se mo\v ze uop\v stiti na proizvoljno $n \ge 1$. Lako vidimo da je:
+  \begin{align*}
+    [000\ldots00]_\sim &= \{000\ldots00\}\\
+    [000\ldots01]_\sim &= \{ u \in A^n : u \text{ ima ta\v cno jednu jedinicu} \},\\
+                    &\vdots\\
+    [011\ldots11]_\sim &= \{ u \in A^n : u \text{ ima ta\v cno $n-1$ jedinica} \},\\
+    [111\ldots11]_\sim &= \{ 111\ldots11 \}.
+  \end{align*}
+  Skup $A^n / \Boxed\sim$ ima $n + 1$ elemenata i to su ta\v cno ovih $n + 1$ klastera.
+\end{EX}
+
+\begin{EX}
+  U Primeru~\ref{ft07.ex.iskazne-fle} smo na skupu $\Phi$ svih iskaznih formula uo\v cili relaciju
+  ekvivalencije $\equiv$ ovako: $\phi \equiv \psi$ ako i samo ako $\vDash \phi \Leftrightarrow \psi$.
+  Sada se lako vidi da je \hbox{$[p \lor \lnot p]_\equiv$} skup svih tautologija, dok je
+  \hbox{$[p \land \lnot p]_\equiv$} skup svih kontradikcija (\emph{kontradikcija} je iskazna formula koja je neta\v cna
+  za sve valuacije).
+\end{EX}
+
+Videli smo u primerima da relacija ekvivalencije razbija skup na kome je definisana na klastere.
+Interesantno je da va\v zi i obrnuto: ukoliko su elementi skupa $A$ unapred podeljeni u klastere,
+uvek se mo\v ze na\'ci relacija ekvivalencije koja ba\v s tako klasifikuje elemente skupa~$A$.
+
+\begin{DEF}
+  Neka je $A$ skup i neka su $C_1$, $C_2$, \ldots, $C_k$ neki podskupovi skupa $A$.
+  Niz $C_1, C_2, \ldots, C_k$ je \emph{klasterizacija skupa $A$} (drugo ime: \emph{particija skupa $A$})
+  ako va\v zi slede\'ce:
+\end{DEF}
+
+\noindent
+\begin{minipage}{3in}
+  \begin{itemize}\itemsep -1.5pt
+  \item svi $C_1, C_2, \ldots, C_k$ su neprazni;
+  \item razli\v citi elementi niza $C_1, C_2, \ldots, C_k$ su disjunktni; i
+  \item $C_1 \cup C_2 \cup \ldots \cup C_k = A$.
+  \end{itemize}
+
+  \kern -4mm
+
+  Skupovi $C_1$, $C_2$, \ldots, $C_k$ se zovu \emph{klasteri} (drugo ime: \emph{blokovi particije}).
+
+  \medskip
+
+  \hspace*{1.5em}Dakle, klasteri su neprazni podskupovi skupa $A$ sa osobinom da razli\v citi klasteri nemaju zajedni\v ckih
+  elemenata, i da svaki element skupa $A$ pripada nekom klasteru. Odatle sledi da svaki element skupa $A$ pripada
+  ta\v cno jednom klasteru.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r5.pgf
+  \end{center}
+\end{minipage}
+
+\begin{THM}
+  Neka je $C_1, C_2, \ldots, C_k$ klasterizacija skupa $A$. Tada postoji relacija ekvivalencije $\rho$ na skupu $A$
+  takva da je $A / \Boxed\rho = \{C_1, C_2, \ldots, C_k\}$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Neka je $C_1, C_2, \ldots, C_k$ klasterizacija skupa $A$ i neka je $\rho$ binarna relacija na $A$ definisana ovako:
+  $$
+    a \mathrel\rho b \text{\ \ ako i samo ako $a$ i $b$ pripadaju istom klasteru.}
+  $$
+  Doka\v zimo da je $\rho$ relacija ekvivalencije na skupu $A$.
+
+    (Refleksivnost)
+    Neka je $a \in A$ proizvoljno. Tre\'ca osobina klasterizacije nam garantuje da se $a$ nalazi u nekom klasteru $C_i$, i zato je iskaz:
+	\begin{center}
+	  \enquote{$a$ i $a$ se nalaze u istom klasteru}
+	\end{center}
+	\v cudan, ali ta\v can. Dakle, $a \mathrel\rho a$.
+
+    (Simetri\v cnost)
+    Neka je $a \mathrel\rho b$. Tada $a$ i $b$ pripadaju istom klasteru, pa je iskaz:
+	\begin{center}
+	  \enquote{$b$ i $a$ nalaze u istom klasteru}
+	\end{center}
+	o\v cigledno ta\v can. Zato je $b \mathrel\rho a$.
+
+    (Tranzitivnost)
+    Neka je $a \mathrel\rho b$ i $b \mathrel\rho c$. Tada se $a$ i $b$ nalaze u istom klasteru, i $b$ i $c$ se nalaze u istom klasteru.
+    Recimo da je $a, b \in C_i$ i $b, c \in C_j$. Zato \v sto razli\v citi klasteri nemaju zajedni\v ckih elemenata, zaklju\v cujemo
+    da je $C_i = C_j$ jer $b \in C_i \cap C_j$. Dakle, $a$ i $c$ se tako\dj e nalaze u istom klasteru, pa je zato
+    $a \mathrel\rho c$.
+
+    Treba jo\v s pokazati da je $A / \Boxed\rho = \{C_1, C_2, \ldots, C_k\}$, ali to sledi direktno iz konstrukcije relacije~$\rho$
+	i prve osobine klasterizacije.
+\end{proof}
+
+\section{Pore\dj enje}
+
+Sortiranje podataka po nekom kriterijumu predstavlja jedan od najstarijih i najva\v znijih procesa u obradi podataka.
+Algoritam za sortiranje poredi parove podataka po nekom kriterijumu i onda odlu\v cuje koji podatak treba da se pojavi
+ranije u kona\v cnom poretku.
+Recimo, podatke o osobama mo\v zemo da uredimo po prezimenu, ili po starosti.
+U ovom odeljku \'cemo odgovoriti na pitanje kada neka apstraktna binarna relacija $\rho \subseteq A \times A$ predstavlja
+\enquote{razuman} kriterijum za pore\dj enje.
+
+Pogledajmo jedan jednostavan primer u programskom jeziku Java. Neka nam je data klasa \texttt{Student} koja opisuje podatke o studentima, recimo ovako:
+{\small
+\begin{verbatim}
+  class Student {
+    public String ime, prezime;
+    public int dan, mes, god; // datum rodjenja
+    public int idx; // broj indeksa
+
+    public Student(String i, String p, int d, int m, int g, int b) {
+      ime = i; prezime = p; idx = b;
+      dan = d; mes = m; god = g;
+    }
+
+    public void print() {
+      System.out.println(idx + " " + ime + " " + prezime + ", "
+                         + dan + "." + mes + "." + god);
+    }
+  }
+\end{verbatim}
+}
+Programski jezik Java ima klasu \verb`Arrays` u paketu \texttt{java.util}
+koja implementira metod \verb`sort`, ali programer mora da objasni sistemu
+po kom kriterijumu niz treba da bude sortiran. Drugim re\v cima, programer mora da opi\v se relaciju poretka
+koju \v zeli da primeni kako bi metod \verb`Arrays.sort` mogao da sortira elemente niza.
+
+Apstrakcija relacije poretka u Javi je realizovana kao parametrizovani interfejs \verb`Comparator`, gde
+parametar interfejsa predstavlja tip objekata koje \'cemo porediti. Ovaj interfejs sadr\v zi metod
+\texttt{compare}
+{\small
+\begin{verbatim}
+    int compare(T obj1, T obj2)
+\end{verbatim}
+}
+\noindent
+koji treba da vrati $-1$ ukoliko je \verb`obj1` strogo manje od \verb`obj2`,
+treba da vrati $0$ ukoliko su \verb`obj1` i \verb`obj2` jednaki u odnosu na posmatrano svojstvo,
+i treba da vrati $1$ ukoliko je \verb`obj1` strogo ve\'ce od \verb`obj2`.
+
+Pretpostavimo da smo u glavnom programu napravili niz \texttt{S} i u njega smestili podatke
+o nekoliko studenata:
+{\small
+\begin{verbatim}
+  import java.util.*;
+
+  class sortiranje {
+    public static void main(String[] args) {
+      Student[] S = {
+        new Student("Petar",  "Petrovic",    1,  1, 2001, 301456),
+        new Student("Jovana", "Jovanovic",   3,  2, 2002, 456701),
+        new Student("Milan",  "Milankovic",  5,  7, 2002, 203467),
+        new Student("Marija", "Marjanovic", 11, 12, 2001, 523801)
+      };
+\end{verbatim}
+}
+Ako \v zelimo da sortiramo studente po broju indeksa, prvo \'cemo kriterijum za sortiranje
+implementirati kao instancu klase \texttt{Comparator}, a onda \'cemo iz klase \texttt{Arrays}
+pozvati metod \texttt{sort} koji \'ce niz \texttt{S} sortirati po tom kriterijumu:
+{\small
+\begin{verbatim}
+      Comparator poIdx = new Comparator<Student>() {
+        @Override public int compare(Student a, Student b) {
+          if(a.idx < b.idx) return -1;
+          if(a.idx > b.idx) return  1;
+          return 0;
+        }
+      };
+
+      Arrays.sort(S, poIdx);
+      for(Student a : S) a.print();
+\end{verbatim}
+}
+Isti niz sada mo\v zemo presortirati po prezimenu, u rastu\'cem i u opadaju\'cem poretku:
+{\small
+\begin{verbatim}
+      Comparator poPrezimenu = new Comparator<Student>() {
+        @Override public int compare(Student a, Student b) {
+            return a.prezime.compareTo(b.prezime);
+        }
+      };
+
+      Arrays.sort(S, poPrezimenu);
+      for(Student a : S) a.print();
+    
+      Arrays.sort(S, poPrezimenu.reversed());
+      for(Student a : S) a.print();
+\end{verbatim}
+}
+Primetimo da svaka instanca klase \texttt{Comparator} ima metod \texttt{reversed()}
+koji omogu\'cuje sortiranje u obrnutom poretku od onog koji je definisan komparatorom.
+Kona\v cno, ako \v zelimo studente da sortiramo po datumu ro\dj enja, definisa\'cemo odgovaraju\'ci
+komparator i presortirati niz:
+{\small
+\begin{verbatim}
+      Comparator poDatRodj = new Comparator<Student>() {
+        @Override public int compare(Student a, Student b) {
+            if(a.god < b.god) return -1;
+            if(a.god > b.god) return 1;
+            if(a.mes < b.mes) return -1;
+            if(a.mes > b.mes) return 1;
+            if(a.dan < b.dan) return -1;
+            if(a.dan > b.dan) return 1;
+            return 0;
+        }
+      };
+    
+      Arrays.sort(S, poDatRodj);
+      for(Student a : S) a.print();
+\end{verbatim}
+}
+Iako programski jezik omogu\'cuje da metod \texttt{compare} klase \texttt{Comparator} bude proizvoljan
+Java metod, kriterijum za pore\dj enje mora da ispunjava neka o\v cekivanja da bismo dobili smislen rezultat.
+Do apstraktnog pojma relacije poretka (tj.\ \enquote{razumnog} kriterijuma za pore\dj enje)
+dolazimo analizom fundamentalnih svojstava dva prirodna poretka:
+poretka na brojevima ($\le$) i poretka na skupovima ($\subseteq$).
+
+Poredak $\le$ na brojevima ima slede\'ce osobine, gde su $x$, $y$, $z$ proizvoljni brojevi:
+\begin{itemize}\itemsep -1.5pt
+\item $x \le x$,
+\item $x \le y \land y \le x \Rightarrow x = y$, i
+\item $x \le y \land y \le z \Rightarrow x \le z$.
+\end{itemize}
+Interesantno je da i relacija $\subseteq$ na skupovima ima iste ove tri osobine, gde su $X$, $Y$, $Z$ sada neki skupovi:
+\begin{itemize}\itemsep -1.5pt
+\item $X \subseteq X$,
+\item $X \subseteq Y \land Y \subseteq X \Rightarrow X = Y$, i
+\item $X \subseteq Y \land Y \subseteq Z \Rightarrow X \subseteq Z$.
+\end{itemize}
+Ove tri osobine karakteri\v su poredak objekata, a njihovom
+apstrakcijom dobijamo pojam apstraktne relacije poretka.
+
+\begin{DEF}
+  \emph{Relacija poretka na skupu $A$} je svaka binarna relacija $\Boxed\rho \subseteq A \times A$
+  koja ima slede\'ce tri osobine:
+  \begin{itemize}\itemsep -1pt
+  \item za sve $a \in A$: $a \mathrel{\rho} a$, \hfill (\emph{refleksivnost})
+  \item za sve $a, b \in A$: $a \mathrel{\rho} b \land b \mathrel{\rho} a \Rightarrow a = b$, \hfill (\emph{antisimetri\v cnost})
+  \item za sve $a, b, c \in A$: $a \mathrel{\rho} b \land b \mathrel{\rho} c \Rightarrow a \mathrel{\rho} c$. \hfill (\emph{tranzitivnost})
+  \end{itemize}
+\end{DEF}
+
+Neka je $\le$ uobi\v cajeni poredak celih brojeva. Ova relacija poretka osim tri navedene ima jo\v s jednu
+interesantnu osobinu: \emph{svaka dva cela broja su uporediva}.
+Naime, za svaka dva broja $a, b \in \ZZ$ je $a \le b$ ili je $b \le a$.
+S druge strane, poredak $\subseteq$ na skupovima nema tu osobinu: postoje skupovi koji su \emph{neuporedivi}.
+Na primer $\{1, 2\} \not\subseteq \{2, 3\}$ i $\{2, 3\} \not\subseteq \{1, 2\}$.
+
+\begin{DEF}
+Relacija poretka na skupu $A$ je \emph{linearni (ili totalni) poredak} ako va\v zi slede\'ce
+\begin{itemize}
+  \item za sve $a, b \in A$: $a \mathrel\rho b \lor b \mathrel\rho a.$\hfill (linearnost)
+\end{itemize}
+\end{DEF}
+
+\begin{EX}\label{ft07.ex.deljivost}
+  Neka je $\mid$ relacija deljivosti na skupu $\NN$. Na primer, $3 \mid 12$ i $5 \nmid 12$. Tada se lako dokazuje da je
+  $\mid$ relacija poretka na $\NN$. Refleksivnost i tranzitivnost su o\v cigledni. Doka\v zimo antisimetri\v cnost.
+  Neka je $a \mid b$ i $b \mid a$ za neke $a, b \in \NN$. Iz $a \mid b$ sledi $a \le b$. Isto tako, iz $b \mid a$ sledi
+  $b \le a$. Dakle, $a \le b$ i $b \le a$, pa je $a = b$. Ovo nije linearni poredak jer postoje neuporedivi elementi,
+  recimo, $2 \nmid 3$ i $3 \nmid 2$.
+\end{EX}
+
+% \begin{EX}
+%   Neka je na skupu $\NN \times \NN$ definisana relacija $\sqsubseteq$ ovako:
+%   $$
+%     (a, b) \sqsubseteq (c, d) \text{\ \ ako i samo ako\ \ } a \le c \land b \le d.
+%   $$
+%   Tada se lako vidi da je $\sqsubseteq$ relacija poretka. Ovo nije linearni poredak jer postoje neuporedivi elementi,
+%   recimo, $(1, 2) \not\sqsubseteq (2, 1)$ i $(2, 1) \not\sqsubseteq (1, 2)$.
+% \end{EX}
+
+% Prethodni primer je specijalni slu\v caj slede\'ceg rezultata koji pokazuje kako mo\v ze da se konstrui\v se
+% relacija poretka na proizvodu.
+
+% \begin{THM}
+%   Neka je $\sqsubseteq_1$ relacija poretka na skupu $A_1$, a $\sqsubseteq_2$ relacija poretka na skupu $A_2$.
+%   Na skupu $A_1 \times A_2$ defini\v semo binarnu relaciju $\preccurlyeq$ ovako:
+%   $$
+%     (a_1, a_2) \preccurlyeq (b_1, b_2) \text{\ \ ako i samo ako je\ \ } a_1 \mathrel{\sqsubseteq_1} b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2.
+%   $$
+%   Tada je $\preccurlyeq$ relacija poretka na $A_1 \times A_2$.
+% \end{THM}
+% \begin{proof}[Dokaz]
+%   Doka\v zimo da je relacija $\preccurlyeq$ refleksivna, antisimetri\v cna i tranzitivna. Primetimo, prvo, da je
+%   $$
+%     (a_1, a_2) \preccurlyeq (a_1, a_2) \Leftrightarrow a_1 \mathrel{\sqsubseteq_1} a_1 \land a_2 \mathrel{\sqsubseteq_2} a_2.
+%   $$
+%   Kako je iskaz na desnoj strani ta\v can (zato \v sto su relacije $\sqsubseteq_1$ i $\sqsubseteq_2$ refleksivne)
+%   pokazali smo da je relacija $\preccurlyeq$ refleksivna. Da bismo pokazali da je relacija $\preccurlyeq$ antisimetri\v cna
+%   pretpostavimo da je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (a_1, a_2)$. Prema definiciji je:
+%   \begin{align*}
+%     (a_1, a_2) &\preccurlyeq (b_1, b_2) \land (b_1, b_2) \preccurlyeq (a_1, a_2)\\
+%                &\Leftrightarrow a_1 \mathrel{\sqsubseteq_1} b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2 \land b_1 \mathrel{\sqsubseteq_1} a_1 \land b_2 \mathrel{\sqsubseteq_2} a_2\\
+%                &\Leftrightarrow (a_1 \mathrel{\sqsubseteq_1} b_1 \land b_1 \mathrel{\sqsubseteq_1} a_1) \land (a_2 \mathrel{\sqsubseteq_2} b_2 \land b_2 \mathrel{\sqsubseteq_2} a_2)\\
+%                &\Leftrightarrow a_1 = b_1 \land a_2 = b_2\\
+%                &\Leftrightarrow (a_1, a_2) = (b_1, b_2),
+%   \end{align*}
+%   zato \v sto su relacije $\sqsubseteq_1$ i $\sqsubseteq_2$ antisimetri\v cne. Kona\v cno da bismo pokazali
+%   da je relacija $\preccurlyeq$ tranzitivna pretpostavimo da je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (c_1, c_2)$.
+%   Tada je:
+%   \begin{align*}
+%     (a_1, a_2) &\preccurlyeq (b_1, b_2) \land (b_1, b_2) \preccurlyeq (c_1, c_2)\\
+%                &\Leftrightarrow a_1 \mathrel{\sqsubseteq_1} b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2 \land b_1 \mathrel{\sqsubseteq_1} c_1 \land b_2 \mathrel{\sqsubseteq_2} c_2\\
+%                &\Leftrightarrow (a_1 \mathrel{\sqsubseteq_1} b_1 \land b_1 \mathrel{\sqsubseteq_1} c_1) \land (a_2 \mathrel{\sqsubseteq_2} b_2 \land b_2 \mathrel{\sqsubseteq_2} c_2)\\
+%                &\Leftrightarrow a_1 \mathrel{\sqsubseteq_1} c_1 \land a_2 \mathrel{\sqsubseteq_2} c_2\\
+%                &\Leftrightarrow (a_1, a_2) \preccurlyeq (c_1, c_2),
+%   \end{align*}
+%   zato \v sto su relacije $\sqsubseteq_1$ i $\sqsubseteq_2$ tranzitivne.
+% \end{proof}
+
+
+\emph{Dvokriterijumsko sortiranje} predstavlja sortiranje po dva kriterijuma. Na primer,
+spisak studenata nakon prijemnog ispita se \v cesto sortira
+prvo po broju osvojenih poena, dok se studenti sa istim brojem osvojenih poena unutar te grupe
+sortiraju po prezimenu. Slede\'ca teorema pokazuje da dvokriterijumsko sortiranje uvek daje linearni poredak.
+
+\begin{THM}\label{ft07.thm.lex-2}
+  Neka je $\sqsubseteq_1$ linearni poredak na skupu $A_1$, a $\sqsubseteq_2$ linearni poredak na skupu $A_2$.
+  Na skupu $A_1 \times A_2$ defini\v semo binarnu relaciju $\preccurlyeq$ ovako:
+  $$
+    (a_1, a_2) \preccurlyeq (b_1, b_2) \text{\ \ ako i samo ako je\ \ }
+    (a_1 \ne b_1 \land a_1 \mathrel{\sqsubseteq_1} b_1) \lor (a_1 = b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2).
+  $$
+  Tada je $\preccurlyeq$ linearni poredak na $A_1 \times A_2$.
+\end{THM}
+\begin{proof}[Dokaz]
+  Doka\v zimo, prvo, da je $\preccurlyeq$ relacija poretka na $A_1 \times A_2$. Refleksivnost se pokazuje lako:
+  $(a_1, a_2) \preccurlyeq (a_1, a_2)$ je ta\v cno zato \v sto je drugi disjunkt u iskazu sa desne strane ta\v can
+  ($a_1 = a_1 \land a_2 \mathrel{\sqsubseteq_2} a_2$).
+  
+  \medskip
+  
+  Doka\v zimo sada antisimetri\v cnot. Neka je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
+  Kao prvi korak dokaza\'cemo da je $a_1 = b_1$. Pretpostavimo da to nije ta\v cno. Tada je $a_1 \ne b_1$, pa na osnovu
+  definicije dobijamo
+  \begin{align*}
+    (a_1, a_2) \preccurlyeq (b_1, b_2) &\Rightarrow a_1 \ne b_1 \land a_1 \mathrel{\sqsubseteq_1} b_1 \Rightarrow a_1 \mathrel{\sqsubseteq_1} b_1\\
+    (b_1, b_2) \preccurlyeq (a_1, a_2) &\Rightarrow b_1 \ne a_1 \land b_1 \mathrel{\sqsubseteq_1} a_1 \Rightarrow b_1 \mathrel{\sqsubseteq_1} a_1,
+  \end{align*}
+  (zato \v sto je drugi disjunkt u iskazu sa desne strane neta\v can u oba slu\v caja). Zbog antisimetri\v cnosti relacije $\sqsubseteq_1$
+  zaklju\v cujemo da je $a_1 = b_1$, \v sto je u suprotnosti sa pretpostavkom $a_1 \ne b_1$.
+  
+  Dakle, mora biti $a_1 = b_1$. Sada se lako pokazuje da je $a_2 = b_2$:
+  \begin{align*}
+    (a_1, a_2) \preccurlyeq (b_1, b_2) &\Rightarrow a_1 = b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2 \Rightarrow a_2 \mathrel{\sqsubseteq_2} b_2\\
+    (b_1, b_2) \preccurlyeq (a_1, a_2) &\Rightarrow b_1 = a_1 \land b_2 \mathrel{\sqsubseteq_2} a_2 \Rightarrow b_2 \mathrel{\sqsubseteq_2} a_2,
+  \end{align*}
+  pa je $a_2 = b_2$. Dakle, $(a_1, b_1) = (a_2, b_2)$.
+  
+  \medskip
+  
+  Da bismo pokazali tranzitivnost pretpostavimo da je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (c_1, c_2)$.
+  Razmotri\'cemo \v cetiri slu\v caja.
+  
+  \medskip
+  
+  Slu\v caj 1: $a_1 = b_1$ i $b_1 = c_1$. Tada je $a_2 \mathrel{\sqsubseteq_2} b_2$ i $b_2 \mathrel{\sqsubseteq_2} c_2$.
+  Dakle, $a_1 = c_1$ i $a_2 \mathrel{\sqsubseteq_2} c_2$, pa je $(a_1, a_2) \preccurlyeq (c_1, c_2)$.
+  
+  \medskip
+
+  Slu\v caj 2: $a_1 = b_1$ i $b_1 \ne c_1$. Tada je $b_1 \mathrel{\sqsubseteq_1} c_1$.
+  Dakle, $a_1 \ne c_1$ i $a_1 \mathrel{\sqsubseteq_1} c_1$ (jer je $a_1 = b_1$), pa je $(a_1, a_2) \preccurlyeq (c_1, c_2)$.
+
+  \medskip
+
+  Slu\v caj 3: $a_1 \ne b_1$ i $b_1 = c_1$. Tada je $a_1 \mathrel{\sqsubseteq_1} b_1$.
+  Dakle, $a_1 \ne c_1$ i $a_1 \mathrel{\sqsubseteq_1} c_1$ (jer je $b_1 = c_1$), pa je $(a_1, a_2) \preccurlyeq (c_1, c_2)$.
+
+  \medskip
+
+  Slu\v caj 4: $a_1 \ne b_1$ i $b_1 \ne c_1$. Tada je $a_1 \mathrel{\sqsubseteq_1} b_1$ i $b_1 \mathrel{\sqsubseteq_1} c_1$.
+  Tada je $a_1 \mathrel{\sqsubseteq_1} c_1$. Lako se pokazuje da je $a_1 \ne c_1$
+  (jer u suprotnom iz $a_1 = c_1$ sledi $c_1 \mathrel{\sqsubseteq_1} a_1$, pa $a_1 \mathrel{\sqsubseteq_1} b_1$ dalje implicira $c_1 \mathrel{\sqsubseteq_1} b_1$;
+  to sa zaklju\v ckom $b_1 \mathrel{\sqsubseteq_1} c_1$ daje $b_1 = c_1$, \v sto je suprotno pretpostavci $b_1 \ne c_1$).
+  Dakle, $a_1 \ne c_1$ i $a_1 \mathrel{\sqsubseteq_1} c_1$, pa je $(a_1, a_2) \preccurlyeq (c_1, c_2)$.
+  
+  \medskip
+  
+  Kona\v cno, doka\v zimo da je $\preccurlyeq$ linearni poredak, odnosno, da su svaka dva elementa skupa $A_1 \times A_2$
+  uporediva. Neka su $(a_1, a_2), (b_1, b_2) \in A_1 \times A_2$ proizvoljni. Razmotri\'cemo dva slu\v caja.
+  
+  \medskip
+  
+  Slu\v caj 1: $a_1 = b_1$. Zato \v sto je $\sqsubseteq_2$ linearni poredak mora bili $a_2 \mathrel{\sqsubseteq_2} b_2$
+  ili $b_2 \mathrel{\sqsubseteq_2} a_2$, pa je, u zavisnosti od toga koja od ove dve relacije je ta\v cna,
+  $(a_1, a_2) \preccurlyeq (b_1, b_2)$ ili $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
+  
+  \medskip
+  
+  Slu\v caj 2: $a_1 \ne b_1$. Zato \v sto je $\sqsubseteq_1$ linearni poredak mora bili $a_1 \mathrel{\sqsubseteq_1} b_1$
+  ili $b_1 \mathrel{\sqsubseteq_1} a_1$, pa je, u zavisnosti od toga koja od ove dve relacije je ta\v cna,
+  $(a_1, a_2) \preccurlyeq (b_1, b_2)$ ili $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
+  
+  \medskip
+  
+  Ovim je tvr\dj enje pokazano.
+\end{proof}
+
+
+\section{Pore\dj enje re\v ci}
+
+Da se podsetimo, za kona\v can skup $A$ jo\v s ka\v zemo i da je \emph{alfabet}.
+Za njegove elemente tada ka\v zemo da su \emph{slova}.
+Ranije smo videli da je re\v c nad alfabetom $A$ proizvoljan kona\v can niz slova tog alfabeta,
+uklju\v cuju\'ci i praznu re\v c koju smo ozna\v cili sa~$\epsilon$.
+Skup svih re\v ci nad alfabetom $A$ je, dakle, skup svih kona\v cnih nizova elemenata skupa~$A$:
+$$
+  A^* = \{\epsilon\} \cup A^1 \cup A^2 \cup \ldots \cup A^n \cup \ldots.
+$$
+Re\v c $u$ je \emph{prefiks} re\v ci $v$ ako se re\v c $u$ nalazi na samom po\v cetku re\v ci $v$, iza \v cega u re\v ci
+$v$ mo\v ze, a ne mora da se nalazi jo\v s slova. Relacija \enquote{\ldots\ je prefiks od \ldots} je relacija poretka
+na $A^*$ koja ne mora biti linearni poredak. Na primer, za $A = \{a, b, c\}$ imamo slede\'ce:
+\begin{itemize}\itemsep -1.5pt
+\item
+  $ab$ je prefiks od $abc$, a nije prefiks od $aab$;
+\item
+  prazna re\v c je prefkis svake re\v ci;
+\item
+  za svaku re\v c $u$ je $u$ prefiks od $u$ (refleksivnost);
+\item
+  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $u$ onda je $u = v$ (antisimetri\v cnost);
+\item
+  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $w$ onda je $u$ prefiks od $w$ (tranzitivnost);
+\item
+  niti je $ab$ prefiks od $ba$, niti je $ba$ prefiks od $ab$ (zato ovo nije linearni poredak).
+\end{itemize}
+
+\emph{Leksikografski poredak} predstavlja na\v cin da se re\v ci nekog jezika urede \emph{linearno.}
+Zove se \emph{leksikografski} jer se ista koristi za ure\dj ivanje re\v ci u leksikonu.
+Recimo:
+\begin{quote}
+  Avala,
+  Besna kobila,
+  Cer,
+  Dukat,
+  Fruška gora,
+  Golija,
+  Homoljske planine,
+  Jelova gora,
+  Kopaonik,
+  Lepa gora,
+  Maljen,
+  Ozren,
+  Povlen,
+  Rtanj,
+  Stara planina,
+  Tara,
+  Vršačka brda,
+  Zlatibor
+\end{quote}
+Va\v zno je uo\v citi da leksikografski poredak re\v ci zavisi od poretka slova u alfabetu.
+
+Neka je $A$ alfabet i neka je $\sqsubseteq$ proizvoljan linearni poredak na $A$. Na skupu $A^*$
+defini\v semo linearni poredak $\preccurlyeq$ ovako. Neka su $u = a_1 a_2 \ldots a_m$ i $v = b_1 b_2 \ldots b_n$ proizvoljne
+re\v ci iz~$A^*$.
+\begin{itemize}
+\item
+    Ako je $u$ prefiks od $v$ onda je $u \preccurlyeq v$; ako je $v$ prefiks od $u$ onda je $v \preccurlyeq u$.
+\item
+    Ako nijedna od ove dve re\v ci nije prefiks one druge uo\v cimo najmanje $i$ takvo da je $a_i \ne b_i$,
+    (to zna\v ci da je $a_1 = b_1$, $a_2 = b_2$, \ldots, $a_{i-1} = b_{i-1}$), pa za $a_i \sqsubseteq b_i$ stavimo
+    $u \preccurlyeq v$, dok za $b_i \sqsubseteq a_i$ stavimo $v \preccurlyeq u$.
+\end{itemize}
+Tada je $\preccurlyeq$ linearni poredak na~$A^*$.
+Na primer, za $A = \{a, b, c, d\}$ imamo slede\'ce: $aaaaa \preccurlyeq b \preccurlyeq bcac \preccurlyeq bcd$.
+
+
+
+\section{Grafi\v cki prikaz relacija poretka}
+
+
+Relacije poretka kao skupovi ure\dj enih parova obi\v cno imaju mnogo elemenata pa grafi\v cko predstavljanje koje smo
+koristili kod relacija ekvivalencije nije pogodno. Istini za volju, nije bilo pogodno ni za relacije ekvivalencije --
+ve\'c mali primeri su bili predstavljeni \v sumama linija, pa smo smislili efikasniji na\v cin (koli\v cni\v cki skup)
+da predstavimo relaciju ekvivalencije.
+
+Relacije poretka se grafi\v cki predstavljaju koriste\'ci zgodnu dosetku koja se zove Haseov dijagram.
+\emph{Haseov dijagram} prikazuje relaciju poretka tako \v sto na dijagram unosi minimalnu
+koli\v cinu informacija, uz slede\'ce dogovore:
+\begin{itemize}
+  \item ako je element $a$ manji od elementa $b$, nacrta\'cemo $a$ negde ispod $b$ i spoji\'cemo ih linijom;
+        linija nema strelicu jer se podrazumeva da je orijentisana od elementa koji je ni\v ze na crte\v zu
+        ka elementu koji je nacrtan iznad njega;
+  \item ne crtamo petlje (znamo da je relacija refleksivna);
+  \item ne crtamo linije koje mo\v zemo da dobijemo kao posledicu nartanih linija i \v cinjenice da je relacija tranzitivna.
+\end{itemize}
+Ne\'cemo ovde ulaziti u formalnu raspravu o tome kako se ta\v cno defini\v se Haseov dijagram,
+ve\'c cemo na nekoliko primera pokazati kako se on konstrui\v se za datu relaciju poretka.
+
+\begin{EX}\label{ft07.ex.deljivost-1-10}
+  Relacija deljivosti $\mid$ je relacija poretka na skupu $\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$
+  (Primer~\ref{ft07.ex.deljivost}). Pokaza\'cemo sada kako se crta Haseov dijagram koji joj odgovara.
+\end{EX}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Crtanje kre\'cemo od nekog zgodnog elementa, \v sto je u ovom slu\v caju~1.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6a.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Slede\'ci na redu je element~2. Kako $1 \mid 2$, nacrta\'cemo~2 iznad~1 i spojiti ih linijom.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6b.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Broj 3 je deljiv sa 1, ali nije deljiv sa 2. Zato \'cemo broj 3 nacrtati iznad 1 i spojiti ga linijom sa 1, a ne\'cemo
+  ga spojiti linijom sa 2.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6c.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Broj 4 je deljiv brojem 2, ali nije deljiv brojem 3. Zato \'cemo broj 4 nacrtati iznad broja 2 i spojiti ga linijom sa 2, a ne\'cemo
+  ga spojiti linijom sa 3.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6d.pgf
+  \end{center}
+\end{minipage}
+
+\medskip
+
+Primetimo da je broj 4 deljiv i brojem 1. Me\dj utim, ne\'cemo broj 4 spojiti linijom sa brojem 1 da bismo smanjili broj linija na
+dijagramu. Zato se kod Haseovih dijagrama uvodi slede\'ci dogovor:
+\begin{quote}
+    element $x$ je manji od elementa $y$ ako je $x$ ispod $y$ i postoji
+    put koji spaja $x$ sa $y$ u kome linije idu stalno navi\v se;
+    ako takav put ne postoji, onda su $x$ i $y$ neuporedivi.
+\end{quote}
+To je slu\v caj sa brojevima 3 i 4 na poslednjem dijagramu: zato \v sto su 3 i 4 neuporedivi ne postoji put od 3 do 4 koji ide
+samo navi\v se.
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Od svih navedenih brojeva broj 5 je deljiv samo brojem 1. Zato \'cemo broj 5 nacrtati iznad broja 1 i spojiti ga linijom sa 1, a ne\'cemo
+  ga spojiti linijom ni sa jednim drugim elementom na slici.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6e.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Broj 6 je deljiv brojevima 2 i 3. Zato \'cemo broj 6 nacrtati iznad brojeva 2 i 3 i spojiti ga linijom i sa 2 i sa 3.
+  Broj 6 je deljiv i brojem 1, ali smo se dogovorili da ne crtamo linije ukoliko postoji put koji spaja uporedive elemente i kre\'ce
+  se samo navi\v se.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6f.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Od svih navedenih brojeva broj 7 je deljiv samo brojem 1. Zato \'cemo broj 7 nacrtati iznad broja 1 i spojiti ga linijom sa 1, a ne\'cemo
+  ga spojiti linijom ni sa jednim drugim elementom na slici.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6g.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Od svih navedenih brojeva broj 8 je deljiv samo brojevima 1, 2 i 4. Zato \'cemo broj 8 nacrtati iznad broja 4 i spojiti ga linijom
+  samo sa brojem 4. To je, prema dogovoru, dovoljno da se nazna\v ci da je 8 deljiv i sa 4, i sa 2, i sa 1.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6h.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Sli\v cno tome, broj 9 je deljiv brojevima 1 i 3, pa \'cemo broj 9 nacrtati iznad broja 3 i spojiti ga linijom
+  samo sa brojem 3.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6i.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  Kona\v cno, broj 10 je deljiv brojevima 2 i 5, pa \'cemo ga nacrtati iznad brojeva 2 i 5, i spojiti ga linijom
+  samo sa oba. Time je Haseov dijagram u ovom primeru kompletiran.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r6z.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}\label{ft07.ex.P123}
+    Pored je dat Haseov dijagram relacije poretka $\subseteq$ na skupu
+    $\calP(\{a, b, c\})$.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r7.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}
+    Pored je dat Haseov dijagram relacije poretka $\le$ na skupu
+    $\{1, 2, 3, 4, 5\}$. Svaki linearni poredak ima ovakav Haseov dijagram.
+    Odatle ime -- \emph{linearni poredak}.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r8.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+\emph{Najmanji element} relacije poretka na skupu $A$ je element skupa $A$ koji je uporediv sa svim elementima skupa $A$
+i manji od svih njih. Sli\v cno, \emph{najve\'ci element} relacije poretka na skupu $A$ je element skupa $A$
+koji je uporediv sa svim elementima skupa $A$ i ve\'ci od svih njih. Preciznije, neka je $\sqsubseteq$ relacija
+poretka na skupu $A$. Element $a \in A$ je \emph{najmanji} element ako
+$$
+  (\forall x \in A) \; a \sqsubseteq x,
+$$
+a element $b \in A$ je \emph{najve\'ci} element ako
+$$
+  (\forall x \in A) \; x \sqsubseteq b.
+$$
+
+\begin{EX}\label{ft07.ex.delj-2-12}
+  Uobi\v cajena relacija poretka $\le$ na skupu $\ZZ$ nema ni najmanji ni najve\'ci element.
+
+  Relacija poretka koja je prikazana u Primeru~\ref{ft07.ex.P123} ima i najmanji i najve\'ci element.
+
+  Relacija poretka koja je prikazana u Primeru~\ref{ft07.ex.deljivost-1-10} ima najmanji element, ali nema najve\'ci.
+\end{EX}
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  \hspace*{1.5em}Relacija poretka $|$ (deljivost) na skupu $\{2, 3, 4, 6, 12\}$ je prikazana pored. Ona ima najve\'ci element, ali
+  nema najmanji element.
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r10.pgf
+  \end{center}
+\end{minipage}
+
+\bigskip
+
+Pogledajmo jo\v s jednom relacije poretka iz Primera~\ref{ft07.ex.deljivost-1-10} i~\ref{ft07.ex.delj-2-12}:
+\begin{center}
+    \input ft07-r6z.pgf
+    \hspace*{2cm}
+    \input ft07-r10.pgf
+\end{center}
+Vidimo da prva relacija ima najmanji element, ali nema najve\'ci element, dok druga relacija ima najve\'ci element, ali nema
+najmanji element. Ako pogledamo element 10 u prvoj relaciji, vidimo da je on nekako \enquote{pri vrhu} i da nije najve\'ci element samo
+zato \v sto nije uporediv sa elementima kao \v sto su 6, 7, 8, 9. Za takav element relacije poretka ka\v zemo da je
+\emph{maksimalan element}. Sli\v cno, element 2 druge relacije poretka je nekako \enquote{pri dnu} i to nije najmanji element
+samo zato \v sto nije uporediv sa~3. Za takav element relacije poretka ka\v zemo da je \emph{minimalan element}.
+
+Preciznije, neka je $\sqsubseteq$ relacija poretka na skupu $A$. Element $a \in A$ je \emph{maksimalan element} ako
+$$
+  \lnot(\exists x \in A)(a \ne x \land a \sqsubseteq x),
+$$
+odnosno, ako iznad njega nema drugih elemenata. Sli\v cno, element $b \in A$ je \emph{minimalan element} ako
+$$
+  \lnot(\exists x \in A)(x \ne b \land x \sqsubseteq b),
+$$
+odnosno, ako ispod njega nema drugih elemenata. Relacija poretka mo\v ze, a ne mora imati maksimalne i minimalne elemente,
+minimalnih i maksimalnih elemenata mo\v ze biti vi\v se, a mo\v ze se desiti da je neki element istovremeno i maksimalan
+i minimalan element relacije pretka, kao \v sto pokazuje slede\'ci primer.
+
+\bigskip
+
+\noindent
+\begin{minipage}{3in}
+  \begin{EX}
+    Relacija poretka $|$ (deljivost) na skupu $\{2, 3, 4, 5, 6\}$ je prikazana pored. Minimalni elementi ove relacije
+    su 2, 3 i 5 jer ispod njih nema drugih elemenata. Maksimalni elementi ove relacije su 4, 6 i 5 jer iznad njih nema
+    drugih elemenata. Vidimo da je 5 istovremeno i minimalni i maksimalni element.
+  \end{EX}
+\end{minipage}
+\hfill
+\begin{minipage}{2.5in}
+  \begin{center}
+    \input ft07-r11.pgf
+  \end{center}
+\end{minipage}
+
+\begin{THM}
+  Neka je $\sqsubseteq$ relacija poretka na skupu $A$.
+  \begin{enumerate}
+  \item
+    Ako relacija poretka $\sqsubseteq$ ima najve\'ci element, onda je to ujedno i njen jedinstveni maksimalni element.
+  \item
+    Ako relacija poretka $\sqsubseteq$ ima najmanji element, onda je to ujedno i njen jedinstveni minimalni element.
+  \end{enumerate}
+\end{THM}
+
+Neka je $\sqsubseteq$ parcijalno ure\dj enje kona\v cnog skupa $A$. \emph{Topolo\v sko sortiranje} je proces
+kojim se elementi skupa $A$ pore\dj aju u niz
+$$
+  a_0, a_1, \ldots, a_{n-1}
+$$
+tako da va\v zi slede\'ce: ako je $x \sqsubseteq y$ onda se $x$ javlja u nizu pre $y$. Na primer,
+topolo\v skim sortiranjem parcijalno ure\dj enog skupa
+\begin{center}
+  \input ft07-r10.pgf
+\end{center}
+mo\v zemo dobiti svaki od slede\'cih nizova:
+$$
+  \begin{array}{l}
+  2, 3, 4, 6, 12\\
+  3, 2, 4, 6, 12\\
+  2, 3, 6, 4, 12\\
+  3, 2, 6, 4, 12\\
+  2, 4, 3, 6, 12
+  \end{array}
+$$
+\emph{jer rezultat topolo\v skog sortiranja nije jednozna\v can}!
+
+\begin{EX}
+  Sortiranje formiranjem uzastopnih minimuma (tzv.\ \emph{selection sort}) uz minimalne modifikacije
+  mo\v ze da re\v si problem topolo\v skog sortiranja parcijalno ure\dj enih skupova.
+  
+  Pretpostavi\'cemo da su elementi skupa $A$ navedeni u nizu \texttt{int[] A} u proizvoljnom redosledu i
+  da nam je dat metod \texttt{static boolean uporedi(int x, int y)} koji za dva elementa
+  skupa $A$ vra\'ca true ako i samo ako je $x \sqsubseteq y$.
+
+{\small
+\begin{verbatim}
+  static boolean uporedi(int x, int y) { ... }
+  
+  static void swap(int[] A, int i, int j) {
+    int tmp = A[i];
+    A[i] = A[j];
+    A[j] = tmp;
+  }
+
+  static int posMin(int[] A, int i) {
+    int n = A.length;
+    int m = i;
+    for(int j = i + 1; j < n; j++) {
+        if(uporedi(A[j], A[m])) { m = j; }
+    }
+    return m;
+  }
+
+  static void TopSort(int[] A) {
+    int n = A.length;
+    for(int i = 0; i < n; i++) {
+      int m = posMin(A, i);
+      swap(A, i, m);
+    }
+  }
+\end{verbatim}
+}
+\end{EX}
+
+\section{Zadaci}
+
+\ZAD{08.zad.1}{
+Dokazati slede\' ce tvrdnje:
+\begin{enumerate}[(a)]
+\item Refleksivnost i simetri\v cnost ne impliciraju tranzitivnost.
+\item Refleksivnost i tranzitivnost ne impliciraju simetri\v cnost.
+\item Simetri\v cnost i tranzitivnost ne impliciraju refleksivnost.
+\item Simetri\v cnost, antisimetri\v cnost i tranzitivnost ne impliciraju refleksivnost.
+\item Relacija koja je simetri\v cna i antisimetri\v cna je tranzitivna.
+\end{enumerate}
+}
+
+\clearpage
+
+\ZAD{08.zad.2}{
+Neka je $X=\{0,1,2,3,4,5\}$, i neka je $\rho$ relacija na $X$ definisana sa:
+\begin{center}
+$x\mathrel\rho y$ akko $x+y=5\vee x-y=0$.
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$, i
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna.
+\item Da li je $\rho$ relacija ekvivalencije, i da li je $\rho$ relacija poretka?
+\end{enumerate}
+}
+
+\ZAD{08.zad.3}{
+Neka je $X=\{6,10,11,30,35,49\}$, i neka je $\rho$ relacija na $X$ definisana sa:
+\begin{center}
+$x\mathrel\rho y$ akko $\NZD(x,y)\neq 1$.
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$, i
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna.
+\item Da li je $\rho$ relacija ekvivalencije, i da li je $\rho$ relacija poretka?
+\end{enumerate}
+}
+
+\ZAD{08.zad.4}{
+Neka je $X=\{0,1,2,3,4,5\}$, i neka je $\rho$ relacija na $X$ definisana sa:
+\begin{center}
+$x\mathrel\rho y$ akko $x-y\equiv_6 1\ \vee\  y-x\equiv_6 2\ \vee\  y=0$.
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$, i
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna.
+\item Da li je $\rho$ relacija ekvivalencije, i da li je $\rho$ relacija poretka?
+\end{enumerate}
+}
+
+\ZAD{08.zad.5}{
+Neka je $X=\{0,1,2,3,4\}$, i neka je $\rho$ relacija na $X$ definisana sa:
+\begin{center}
+$x\mathrel\rho y$ akko $|x-y|\equiv_5 1\text{ ili } |x-y|\equiv_5 2$.
+\end{center}
+\setlength{\multicolsep}{\topsep}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$, i
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna.
+\item Da li je $\rho$ relacija ekvivalencije, i da li je $\rho$ relacija poretka?
+\end{enumerate}
+}
+
+\ZAD{08.zad.6}{
+Odgovoriti na pitanja da li je relacija $\rho$ nad skupom prirodnih brojeva refleksivna, simetri\v cna, antisimetri\v cna i tranzitivna, ako je:
+\begin{enumerate}[(a)]
+\item $x\mathrel\rho y$ akko $3\mid x-y$;
+\item $x\mathrel\rho y$ akko $x=3^ky$ za neko $k\in\mathbb N$;
+\item $x\mathrel\rho y$ akko $x\neq y$;
+\item $x\mathrel\rho y$ akko $y\mid x$.
+\end{enumerate}
+}
+
+\ZAD{08.zad.7}{
+Odgovoriti na pitanja da li je relacija $\rho$ nad skupom pravih jedne ravni refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna, ako je:
+\begin{enumerate}[(a)]
+\item $x\mathrel\rho y$ akko $x\parallel y$;
+\item $x\mathrel\rho y$ akko $x\perp y$.
+\end{enumerate}
+}
+
+\ZAD{08.zad.8}{
+Neka je $A$ skup svih iskaznih formula. Neka je $\rho$ relacija na $A$ definisana sa
+\begin{center}
+$x\mathrel \rho y$ akko je $x\Rightarrow y$ tautologija.
+\end{center}
+Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna, odnosno tranzitivna.
+}
+
+\begin{NAP}\it
+Binarne relacije nad skupom $A$ su podskupovi skupa $A \times A$, pa se od njih mogu konstruisati
+nove relacije $\rho \cup \sigma$ i $\rho \cap \sigma$ kao unija, odnosno, presek odgovaraju\'cih skupova.
+Pored toga, sa $\rho\circ\sigma$ ozna\v cavamo relaciju tako\dj e nad skupom $A$ takvu da je
+$x\mathrel{\rho\circ\sigma} y$ akko postoji element $z$ takav da je $x\mathrel\rho z$ i $z\mathrel\sigma y$.
+\end{NAP}
+
+\ZAD{08.zad.10}{
+Ako su $\rho$ i $\sigma$ antisimetri\v cne relacije, odgovoriti na pitanje da li je $\rho\cap\sigma$,
+$\rho\cup\sigma$, odnosno $\rho\circ\sigma$ antisimetri\v cna?
+Odgovoriti na analogna pitanja za refleksivnost, simetri\v cnost i tranzitivnost.
+}
+
+\begin{NAP}\it
+Ako je $\rho$ binarna relacija nad skupom $A$, tada sa $\rho^{-1}$ ozna\v cavamo binarnu relaciju nad istim skupom takvu da je $x\mathrel \rho^{-1}y$ akko je $y\mathrel\rho x$.
+\end{NAP}
+
+\ZAD{08.zad.9}{
+Ako je $\rho$ antisimetri\v cna, da li je i $\rho^{-1}$ antisimetri\v cna? Odgovoriti na analogna pitanja za refleksivnost, simetri\v cnost i tranzitivnost.
+}
+
+\ZAD{08.zad.11}{
+Proveriti da li je $\rho$ relacija ekvivalencije na ravni $\mathbb R^2$ i opisati njene klase ekvivalencija, ako je:
+\begin{enumerate}[(a)]
+\item $(x_1,y_1)\mathrel \rho (x_2,y_2)$ akko $x_1=x_2$;
+\item $(x_1,y_1)\mathrel \rho (x_2,y_2)$ akko $x_1+y_1=x_2+y_2$;
+\item $(x_1,y_1)\mathrel \rho (x_2,y_2)$ akko $x_1^2+y_1^2=x_2^2+y_2^2$.
+\end{enumerate}
+}\label{prethodni-zadatak}
+
+\ZAD{08.zad.12}{
+Proveriti da li je $\rho$ relacija ekvivalencije, gde je:
+\begin{center}
+$(m,n)\mathrel\rho(p,q)$ akko $m+q=n+p$.
+\end{center}
+Odrediti klase ekvivalencije elemenata $(1,1)$, $(2,1)$, $(3,1)$ i $(1,3)$. Opisati sve njene klase ekvivalencije.
+}
+
+\ZAD{08.zad.13}{
+Koliko ima relacija ekvivalencije nad skupom:
+\begin{enumerate}[(a)]
+\item $\{a,b,c\}$;
+\item $\{a,b,c,d\}$.
+\end{enumerate}
+}
+
+\ZAD{09.zad.1}{
+Da li je relacija deljivosti parcijalno ure\dj enje na skupu prirodnih brojeva? Da li ona ima najmanji, i da li ima najve\' ci element? Odgovoriti na ista pitanja za relaciju deljivosti na slupu celih brojeva.
+}
+
+\ZAD{09.zad.2}{
+ Odgovoriti za\v sto $\rho$ nije parcijalno ure\dj enje na skupu $A$, ako je:
+\begin{enumerate}[(a)]
+\item $A=\mathcal P(\{1,2,3\})$; $B\mathrel\rho C$ akko $B\subsetneq C$;
+\item $A=\mathcal P(\{1,2,3\})$; $B\mathrel\rho C$ akko $|B|\leq |C|$;
+\item $A=\mathbb Z$;  $n\mathrel\rho m$ akko $n^2\leq m^2$;
+\item $A=\mathbb R\times \mathbb R$; $(x_1,y_1)\mathrel\rho(x_2,y_2)$ akko $x_1\leq x_2$;
+\item $A$ je grupa ljudi me\dj u kojima nikoja dvojica nemaju isti broj godina, i nikoja dvojica nisu iste visine. Za osobe $P$ i $Q$ iz skupa $A$ pi\v semo $P\mathrel\rho Q$ akko je
+\begin{center}
+$\mathrm{visina}(P)\leq\mathrm{visina}(Q)\vee\mathrm{godine}(P)\leq\mathrm{godine}(Q)$;
+\end{center}
+\item $A=\mathbb Z\times\mathbb Z$; $(n,m)\mathrel\rho(p,q)$ akko $n\leq p\vee m\leq q$.
+\end{enumerate}
+}
+
+\ZAD{09.zad.3}{
+Ako je $\rho$ relacija poretka na $A$, da li je $\sigma$ relacija poretka na $A\times A$, ako je $(x_1,y_1)\mathrel\sigma(x_2,y_2)$ akko $x_1\mathrel\rho x_2$ i $y_1\mathrel\rho y_2$?
+}
+
+\ZAD{09.zad.4}{
+Dokazati da je $\rho$ definisana sa $x\mathrel\rho y$ akko $x=2^ky$ za neko $k\in\mathbb N_0$ relacija poretka na $\mathbb N$.
+}
+
+\ZAD{09.zad.5}{
+Dokazati da je $\rho$ definisana sa $x\mathrel\rho y$ akko $x=2^ky$ za neko $k\in\mathbb Z$ relacija ekvivalencije na $\mathbb N$.
+}
+
+\begin{NAP}\it
+Ka\v zemo da je binarna relacija $\rho$ \emph{irefleksivna} ako ne postoji element $x$ takav da je $x\mathrel\rho x$.
+Relacija \emph{strogog poretka} je binarna relacija koja je irefleksivna, antisimetri\v cna i tranzitivna.
+\end{NAP}
+
+\ZAD{09.zad.6}{
+Neka je $\rho$ relacija strogog poretka na $A$. Dokazati da je $\sigma$ relacija poretka na $A$ ako je $x\mathrel\sigma y$ akko $x\mathrel\rho y\vee x=y$.
+}
+
+%\ZAD{09.zad.7}{
+%Totalno ure\dj enje $\rho$ je dobro ure\dj enje na $X$ ako svaki podskup od $X$ ima najmanji element.
+%\begin{enumerate}[(a)]
+%\item Dokazati da je ure\dj enje na svakom kona\v cnom skupu dobro ure\dj enje.
+%\item Prona\' ci primer beskona\v cnog dobro ure\dj enog skupa.
+%\item Pokazati da relacija $\leq$ nije dobro ure\dj enje na skupu $\mathbb Z$.
+%\end{enumerate}\footnote{Dokaz presko\v cen.}
+%}
+
+\ZAD{09.zad.8}{
+Nacrtati Hase dijagram za svaki od slede\' cih skupova i za relaciju deljivosti:
+\setlength{\multicolsep}{\topsep}
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $\{1,2,3,4,6,12\}$;
+\item $\{2,3,4,6,8,7\}$;
+\item $\{1,2,4,5,10,20\}$;
+\item $\{1,2,4,8,16,32\}$;
+\item $\{1,2,3,5,6,10,15,30\}$;
+\item $\{2,3,5,6,10,15,30\}$.
+\end{enumerate}
+\end{multicols}
+Za svaki od slu\v cajeva odrediti minimalne elemente, maksimalne elemente, najmanji element, najve\' ci element i lanac najve\' ce du\v zine.
+}
+
+\ZAD{09.zad.9}{
+Neka je $A=\{0,1,2\}\times \{2,5,8\}$. Proveriti da li je $\rho$ parcijalno ure\dj enje na $A$ ako je
+\begin{center}
+$(a,b)\mathrel\rho(c,d)$ akko $a+b\mid c+d$. 
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati Hase dijagram za poset $(A,\rho)$.
+\item Odrediti sve maksimalne i minimalne elemente? Da li postoje najmanji i najve\' ci element?
+\end{enumerate}
+}
+
+\ZAD{09.zad.10}{
+Neka je $\rho$ relacija na skupu prirodnih brojeva $\mathbb N$ definisana na slede\' ci na\v cin:
+\begin{center}
+$x\mathrel\rho y$ akko $x=y\vee \big(x\mid y\wedge(\exists p\in\mathcal P)(p\mid y\wedge p\mathrel{\not|}x)\big),$
+\end{center}
+gde je $\mathcal P$ skup prostih brojeva.
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$ sa brojevima 1, 2, 3, 4, 5, 6, 8, 10 i 12.
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna i tranzitivna.
+\item Proveriti da li je $\rho$ relacija ekvivalencije, i da li je relacija poretka.
+\item Ako je $\rho$ relacija poretka, nacrtati njen Hase dijagram sa brojevima 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 30 i 60, i proveriti da li je $\rho$ relacija totalnog poretka.
+\end{enumerate}
+}
+
+\ZAD{09.zad.11}{
+Neka je $\rho$ relacija na skupu prirodnih brojeva $\mathbb N$ definisana na slede\' ci na\v cin:
+\begin{center}
+$x\mathrel\rho y$ akko $x=y\vee (\exists k\in\mathbb N)(x\mid k\wedge y=kx)$.
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$ sa brojevima 1, 2, 3, 4, 6, 8, 9 i 12.
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna i tranzitivna.
+\item Proveriti da li je $\rho$ relacija ekvivalencije, i da li je relacija poretka.
+\item Ako je $\rho$ relacija poretka, nacrtati njen Hase dijagram sa brojevima 2, 3, 5, 6, 8, 9, 10, 12, 16, 18, 20, 25, 30, 36 i 72, i proveriti da li je $\rho$ relacija totalnog poretka.
+\end{enumerate}
+}
+
+\ZAD{09.zad.12}{
+Neka je $\rho$ relacija na skupu prirodnih brojeva $\mathbb N$ definisana na slede\' ci na\v cin:
+\begin{center}
+$x\mathrel\rho y$ akko $(\exists n\in\mathbb N)(y=n^2x)$.
+\end{center}
+\begin{enumerate}[(a)]
+\item Nacrtati graf relacije $\rho$ sa prvih deset prirodnih brojeva.
+\item Odgovoriti na pitanja da li je $\rho$ refleksivna, simetri\v cna, antisimetri\v cna i tranzitivna.
+\item Proveriti da li je $\rho$ relacija ekvivalencije, i da li je relacija poretka.
+\item Ako je $\rho$ relacija poretka, nacrtati njen Hase dijagram (sa prvih 20 prirodnih brojeva), i proveriti da li je $\rho$ relacija totalnog poretka.
+\end{enumerate}
+}
+

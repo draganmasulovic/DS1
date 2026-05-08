@@ -1,0 +1,44 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{41.4924}{-277.254}}
+
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{150.0}{505.0}}
+    \pgfpathlineto{\pgfpointxy{450.0}{505.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{150.0}{565.0}}
+    \pgfpathlineto{\pgfpointxy{450.0}{565.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{150.0}{625.0}}
+    \pgfpathlineto{\pgfpointxy{450.0}{625.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{150.0}{685.0}}
+    \pgfpathlineto{\pgfpointxy{450.0}{685.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{150.0}{745.0}}
+    \pgfpathlineto{\pgfpointxy{450.0}{745.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[at={\pgfpointxy{300.0}{475.0}}]{$madamimadam$}
+  \pgftext[at={\pgfpointxy{300.0}{535.0}}]{$adamimada$}
+  \pgftext[at={\pgfpointxy{300.0}{595.0}}]{$damimad$}
+  \pgftext[at={\pgfpointxy{300.0}{655.0}}]{$amima$}
+  \pgftext[at={\pgfpointxy{300.0}{715.0}}]{$mim$}
+  \pgftext[at={\pgfpointxy{300.0}{775.0}}]{$i$}
+  \pgftext[right,at={\pgfpointxy{138.0}{745.0}}]{$r_m:$}
+  \pgftext[right,at={\pgfpointxy{138.0}{685.0}}]{$r_a:$}
+  \pgftext[right,at={\pgfpointxy{138.0}{625.0}}]{$r_d:$}
+  \pgftext[right,at={\pgfpointxy{138.0}{565.0}}]{$r_a:$}
+  \pgftext[right,at={\pgfpointxy{138.0}{505.0}}]{$r_m:$}
+\end{pgfpicture}

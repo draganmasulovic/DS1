@@ -1,0 +1,59 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-421.103}{-396.858}}
+
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{525.0}{500.0}}
+    \pgfpathlineto{\pgfpointxy{725.0}{500.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{775.0}{500.0}}
+    \pgfpathlineto{\pgfpointxy{975.0}{500.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{978.758}{513.182}}
+    \pgfpatharcaxes{59.7558}{120.244}{\pgfpointxy{454.167}{0.0}}{\pgfpointxy{0.0}{454.167}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{952.5}{506.029}}
+    \pgfpatharcaxes{240.0}{270.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{975.0}{500.0}}
+    \pgfpatharcaxes{90.0}{120.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{702.5}{506.029}}
+    \pgfpatharcaxes{240.0}{270.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{725.0}{500.0}}
+    \pgfpatharcaxes{90.0}{120.0}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{962.675}{529.982}}
+    \pgfpatharcaxes{207.743}{239.756}{\pgfpointxy{42.1707}{0.0}}{\pgfpointxy{0.0}{42.1707}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{978.758}{513.182}}
+    \pgfpatharcaxes{59.7558}{91.7685}{\pgfpointxy{42.1707}{0.0}}{\pgfpointxy{0.0}{42.1707}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[at={\pgfpointxy{500.0}{500.0}}]{$A$}
+  \pgftext[at={\pgfpointxy{750.0}{500.0}}]{$B$}
+  \pgftext[at={\pgfpointxy{1000.0}{500.0}}]{$C$}
+  \pgftext[top,at={\pgfpointxy{625.0}{488.0}}]{$f$}
+  \pgftext[top,at={\pgfpointxy{875.0}{488.0}}]{$g$}
+  \pgftext[bottom,at={\pgfpointxy{750.0}{587.0}}]{$g \circ f$}
+\end{pgfpicture}

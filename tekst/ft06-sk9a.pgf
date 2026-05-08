@@ -1,0 +1,43 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-377.588}{-100.222}}
+
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{602.605}{439.474}}{\pgfpointxy{122.57}{0.0}}{\pgfpointxy{0.0}{122.57}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{736.447}{438.532}}{\pgfpointxy{122.57}{0.0}}{\pgfpointxy{0.0}{122.57}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{674.13}{322.122}}{\pgfpointxy{122.57}{0.0}}{\pgfpointxy{0.0}{122.57}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{559.962}{479.932}}
+    \pgfpathlineto{\pgfpointxy{548.623}{448.762}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{674.301}{498.823}}
+    \pgfpathlineto{\pgfpointxy{662.962}{467.653}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{666.741}{418.536}}
+    \pgfpathlineto{\pgfpointxy{655.402}{387.366}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{601.54}{377.92}}
+    \pgfpathlineto{\pgfpointxy{590.201}{346.75}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[bottom,right,at={\pgfpointxy{506.151}{515.106}}]{$A$}
+  \pgftext[bottom,left,at={\pgfpointxy{835.34}{510.945}}]{$B$}
+  \pgftext[top,at={\pgfpointxy{674.13}{187.552}}]{$C$}
+\end{pgfpicture}

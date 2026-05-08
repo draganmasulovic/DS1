@@ -1,0 +1,2077 @@
+%!TeX root=main-DS1.tex
+\chapter{Re\v senja odabranih zadataka}
+
+\RES{01.zad.1}
+\begin{multicols}{4}
+\begin{enumerate}[(a)]
+\item Ta\v cno.
+\item Neta\v cno.
+\item Ta\v cno.
+\item Neta\v cno.
+\item Ta\v cno
+\item Ta\v cno.
+\item Ta\v cno.
+\item Neta\v cno.
+\end{enumerate}
+\end{multicols}
+
+\RES{01.zad.2}
+\begin{enumerate}[(a)]
+\item \enquote{Mi\' ca se ne duri, i Joci je danas ro\dj endan.}
+\item \enquote{Mi\' ca se duri, ili je danas Joci ro\dj endan.}
+\item \enquote{Ako se Mi\' ca ne duri, onda je Joci danas ro\dj endan.}
+\item \enquote{Mi\' ca se duri ako i samo ako je Joci danas ro\dj endan.}
+\item \enquote{Ako je Joci danas ro\dj endan, onda Peca kupuje poklon i Mi\' ca se ne duri.}
+\item \enquote{Mi\' ca se duri, i ako je Joci danas ro\dj endan, onda Peca kupuje poklon.}
+\end{enumerate}
+
+\RES{01.zad.3}
+Neka su $p$, $q$ i $r$ slede\' ci iskazi:
+\begin{align*}
+p:&\text{ \v Si\v smi\v si su slepi.}\\
+q:&\text{ Bubamare jedu va\v si.}\\
+r:&\text{ Mravi imaju duga\v cke zube.} 
+\end{align*}
+Zapisati slede\' ce re\v cenice pomo\' cu iskaznih formula:
+\begin{enumerate}[(a)]
+\item $p\Rightarrow \neg q$;
+\item $p\Leftrightarrow \neg r$;
+\item $\neg r\wedge (p\Rightarrow \neg q)$;
+\item $(p\vee q)\wedge (\neg q\Rightarrow\neg r)$.
+\end{enumerate}
+
+\RES{01.zad.4}
+\begin{enumerate}[(a)]
+\item \enquote{Sini\v sa nije iz Novog Sada.}
+\item \enquote{Kamion nije bele boje.}
+\item \enquote{Kombi nije skrenuo desno.}
+\item \enquote{Bar jedan od njih dvojice nije plav.}
+\item \enquote{Neki studenti nisu znali odgovor na pitanje.} (\enquote{Bar jedan strudent nije znao odgovor na pitanje.})
+\item Primetimo da je postavljena re\v cenica implikacija. Implikacija $p\Rightarrow q$ je neta\v cna ako i samo ako je $p$ ta\v cno i $q$ neta\v cno. Prema tome, negacija zadatog iskaza je:
+
+\centering{\enquote{Nikola je visok i ne igra ko\v sarku}.}
+\end{enumerate}
+
+\RES{01.zad.5}
+\begin{enumerate}[(a)]
+\item Odgovorimo na zadato pitanje pomo\' cu tablice istinitosnih vrednosti.
+\[\begin{tabular}{c|c|c|c|c}
+$p$ & $q$ & $p\vee q$ & $p\wedge(p\vee q)$ & $p\wedge (p\vee q)\Leftrightarrow p$\\
+\hline\hline
+$\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\top$ & $\bot$ & $\top$ & $\top$ & $\top$\\
+$\bot$ & $\top$ & $\top$ & $\bot$ & $\top$\\
+$\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+\end{tabular}\]
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
+
+\item Ozna\v cimo zadatu iskaznu formulu sa $F$, i odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti.
+\[\begin{tabular}{c|c|c|c|c|c|c|c}
+$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p\vee\neg q$ & $p\wedge q$ & $\neg(p\wedge q)$ & $F$\\
+\hline\hline
+$\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$ \\
+$\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+$\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+$\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+\end{tabular}\]
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
+
+\item Doka\v zimo da je iskazna formula $F=(\neg q\Rightarrow\neg p)\Rightarrow(p\Rightarrow q)$ tautologija. Pretpostavimo suprotno, tj. da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(\neg q\Rightarrow\neg p)=\top$.\\
+3. Iz 1. sledi da je $v(p\Rightarrow q)=\bot$.\\
+4. Iz 3. sledi da je $v(p)=\top$.\\
+5. Iz 3. sledi da je $v(q)=\bot$.\\
+6. Na osnovu 4. i 5. sledi da je $v(\neg q\Rightarrow\neg p)=\top\Rightarrow \bot=\bot$, \v sto je u kontradikciji sa 2. Ovim je dokazano da je $F$ tautologija.
+
+\item Odgovorimo na zadato pitanje pomo\' cu tablice istinitosnih vrednosti. 
+\[\begin{tabular}{c|c|c|c|c}
+$p$ & $q$ & $p\Rightarrow q$ & $p\wedge (p\Rightarrow q)$ & $p\wedge(p\Rightarrow q)\Rightarrow q$\\
+\hline\hline
+$\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\top$ & $\top$ & $\bot$ & $\top$\\
+$\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$\\
+\end{tabular}\]
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
+\item Zadata formula nije tautologija po\v sto je njena istinitosna vrednost $\bot$ u bilo kojoj valuaciji u kojoj je $v(p)=\bot$.
+\item Ozna\v cimo zadatu formulu sa $F$, i neka je $L=p\wedge(q\vee r)$ i $D= (p\wedge q)\vee(p\wedge r)$.  Sastavimo tablicu istinitosnih vrednosti za zadatu iskaznu $F$.
+\[\begin{tabular}{c|c|c|c|c|c|c|c|c}
+$p$ & $q$ & $r$ & $q\vee r$ & $L$ & $p\wedge q$ & $p\wedge r$ & $ D$ & $F$\\
+\hline\hline
+$\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\top$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$\\
+$\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$\\
+$\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+\end{tabular}\]
+Ovim smo pokazali da je $F$ tautologija.
+\item Sastavljanjem tablice istinitosnih vrednosti lako se pokazuje da je zadata formula tautologija.
+\item Ozna\v cimo zadatu formulu sa $F$, i pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$. Ukoliko u nastavku dobijemo kontradikciju, time bismo pokazali da je $F$ tautologija. Sa druge strane, mogu\' ce je da na ovaj na\v cin dobijemo i valuaciju u kojoj $F$ ima istinitosnu vrednost $\bot$. Po\v sto je $v(F)=\bot$, tada je
+\begin{itemize}
+\item $v(p\Rightarrow q)=\top$ i $v(\neg p\vee q)=\bot$, ili
+\item $v(\neg p\vee q)=\top$ i $v(p\Rightarrow q)=\bot$.
+\end{itemize}
+Po\v sto postoje dva slu\v caja, da bismo dokazali da je $F$ tautologija, neophodno je u oba slu\v caja prona\' ci kontradikciju. Pretpostavimo najpre da je $v(p\Rightarrow q)=\top$ i $v(\neg p\vee q)=\bot$.
+
+1. $v(p\Rightarrow q)=\top$.\\
+2. $v(\neg p\vee q)=\bot$.\\
+3. Iz 2. sledi da je $\Rightarrow v(q)=\bot$.\\
+4. Iz 2. sledi da je $\Rightarrow v(\neg p)=\bot\Rightarrow v(p)=\top$.\\
+5. Iz 3. i 4. sledi da je $\Rightarrow v(p\Rightarrow q)=\bot$.
+
+Ovim smo dobili kontradikciju zbog (1) i (5).
+
+Pretpostavimo sada da je $v(\neg p\vee q)=\top$ i $v(p\Rightarrow q)=\bot$.
+
+1. $v(\neg p\vee q)=\top$.\\
+2. $v(p\Rightarrow q)=\bot$.\\
+3. Iz 2. sledi da je $\Rightarrow v(q)=\bot$.\\
+4. Iz 2. sledi da je $\Rightarrow v(p)=\top$.\\
+5. Iz 3. i 4. sledi da je $\Rightarrow v(\neg p\vee q)=\bot$.
+
+Dobili smo kontradikciju zbog (5) i (1). Po\v sto smo dobili kontradikciju u oba slu\v caja, sledi da je $v(F)=\top$ za svaku valuaciju $v$, \v cime je pokazano da je $F$ tautologija.
+
+\item Odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti. Ozna\v cimo zadatu iskaznu formulu sa $F$.
+\[\begin{tabular}{c|c|c|c|c|c|c|c|c}
+$p$ & $q$ & $r$ & $q\wedge r$ & $p\Rightarrow(q\wedge r)$ & $p\Rightarrow q$ & $p\Rightarrow r$ & $(p\Rightarrow q)\wedge(p\Rightarrow r)$ & $F$\\
+\hline\hline
+$\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$\\
+$\top$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$\\
+$\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
+$\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+$\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
+\end{tabular}\]
+Ovim je dokazano da je $F$ tautologija.
+
+\item %Ovaj zadatak re\v si\' cemo na dva na\v cina - bez sastavljanja tablice istinitosnih vrednosti, i sa tablicom. Re\v simo ga najpre bez tablice.
+%
+%{\it Prvo re\v senje.} 
+Neka je $F=(p\Rightarrow(q\Rightarrow r))\Leftrightarrow (p\wedge \neg q)\vee r$. Odgovorimo na pitanje bez sastavljanja tablice istinitosnih vrednosti. Pretpostavimo najpre da je $v(F)=\bot$. Tada postoje dve mogu\' cnosti:
+\begin{itemize}
+\item $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$, ili
+\item $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$.
+\end{itemize}
+Pretpostavimo najpre da je $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$.
+
+1. $v(p\Rightarrow(q\Rightarrow r))=\top$.\\
+2. $v((p\wedge \neg q)\vee r)=\bot$.\\
+3. Iz 2. sledi da je $\Rightarrow v(r)=\bot$.\\
+4. Iz 2. sledi da je $\Rightarrow v(p\wedge\neg q)=\bot$.\\
+5. Iz 4. sledi da je $\Rightarrow v(p)=\bot\text{ ili }v(q)=\top$.
+
+Me\dj utim, ako je $v(p)=\bot$, onda je $v(p\Rightarrow(q\Rightarrow r))=\top$, i na ovaj na\v cin smo dobili da zadata iskazna formula nije tautologija. Naime, za $v(p)=\bot$ i $v(r)=\bot$ je formula $F$ neta\v cna, tj. formula je neta\v cna u slede\' cim valuacijama:
+\begin{align*}
+v_1:\begin{array}{ccc}
+p & q & r \\
+\hline
+\bot & \top & \bot
+\end{array}&&
+v_2:\begin{array}{ccc}
+p & q & r \\
+\hline
+\bot & \bot & \bot
+\end{array}.
+\end{align*}
+
+{\it Napomena.} U prvom re\v senju zadatka smo nakon prvog koraka izveli zaklju\v cak da postoje dva podslu\v caja kada formula $F$ mo\v ze da bude neta\v cna. Da formula $F$ jeste tautologija, onda bi smo to dokazali tako \v sto bismo u oba podslu\v caja prona\v sli kontradikciju. Kada iskazna formula nije tautologija, onda se iz bar jednog od poslu\v cajeva mo\v ze izvesti valuacija u kojoj je $F$ neta\v cna - \v sto smo ovde i uradili.
+
+%{\it Drugo re\v senje.} Odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti. Ozna\v cimo zadatu iskaznu formulu sa $F$.
+%\[\begin{tabular}{c|c|c|c|c|c|c|c}
+%$p$ & $q$ & $r$ & $q\Rightarrow r$ & $p\Rightarrow(q\Rightarrow r)$ & $p\wedge\neg q$ & $(p\wedge\neg r)\vee r$ & $F$\\
+%\hline\hline
+%$\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ \\
+%$\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ \\
+%$\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ \\
+%$\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\bot$ \\
+%$\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ \\
+%\end{tabular}\]
+%Po\v sto iskazna formula $F$ nije ta\v cna u svim valuacijama, ona nije tautologija.
+
+\item  $\big((p\Rightarrow\neg q)\vee r\big)\Leftrightarrow\big((q\Rightarrow r)\vee\neg p\big)$
+
+Proverimo da li je iskazna formula tautologija diskusijom po slovu. Za $v(p)=\bot$, prime\' cujemo slede\' ce.
+\begin{align*}
+&v\big((p\Rightarrow\neg q)\vee r\big)=(\bot\Rightarrow \neg v(q))\vee v(r)=\top\vee v(r)=\top\\
+&v\big((q\Rightarrow r)\vee\neg p\big)=(v(q)\Rightarrow v(r))\vee\neg\bot=\top
+\end{align*}
+Dakle, u svim valuacijama u kojima je $v(p)=\top$ je $v(F)=\top$. Pretpostavimo dalje da je $v(p)=\top$. Tada va\v zi slede\' ce.
+\begin{align*}
+&v\big((p\Rightarrow\neg q)\vee r\big)=(\top\Rightarrow \neg v(q))\vee v(r)=\neg v(q)\vee v(r)\\
+&v\big((q\Rightarrow r)\vee\neg p\big)=(v(q)\Rightarrow v(r))\vee\neg\top=v(q)\Rightarrow v(r)= \neg v(q)\vee v(r)
+\end{align*}
+Prime\' cujemo da za $v(p)=\top$ va\v zi 
+\[v(F)=\neg v(q)\vee v(r)\Leftrightarrow \neg v(q)\vee v(r)=\top.\]
+Dakle, iskazna formula $F$ je tautologija.
+%
+%Ozna\v cimo zadatu formulu sa $F$. Neka je $L=(p\Rightarrow\neg q)\vee r$ i $D=(q\Rightarrow r)\vee\neg p$. Sastavimo tablicu istinitosnih vrednosti za zadatu formulu.
+%\[\begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+%$p$ & $q$ & $r$ & $\neg q$ & $p\Rightarrow \neg q$ & $L$ & $q\Rightarrow r$ & $\neg p$ & $D$ & $F$\\
+%\hline\hline
+%$\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ \\
+%$\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+%$\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ \\
+%$\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ \\
+%$\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ \\
+%$\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$
+%\end{tabular}\]
+%Ovim je dokazano da je $F$ tautologija.
+\end{enumerate}
+
+
+
+\RES{02.zad.1}
+Sastavljanje tablica istinosnih vrednosti ostavljamo \v citaocu za ve\v zbu, ali \' cemo negirati sve iskazne formule koje nisu tautologije%\footnote{Kontradikcija je iskazna formula koja je neta\v cna za svaku valuaciju slova koja se u toj iskaznoj formuli javljaju.}
+. Prilikom negiranja, korisne su nam slede\' ce ekvivalencije:
+\begin{align*}
+\neg(p\wedge q)&\equiv \neg p\vee\neg q\\
+\neg(p\vee q)&\equiv \neg p\wedge \neg q\\
+p\Rightarrow q &\equiv \neg p\vee q\\
+\neg(p\Rightarrow q)&\equiv p\wedge \neg q\\
+p\Leftrightarrow q&\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)\\
+\neg(p\Leftrightarrow q)&\equiv (p\wedge \neg q)\vee(q\wedge \neg p)
+\end{align*}
+\begin{enumerate}[(a)]
+
+\item Zadata iskazna formula jeste tautologija.
+% Negirajmo je.
+%\begin{align*}
+%&\neg\big((p\Rightarrow(\neg q\Rightarrow r))\Leftrightarrow((p\wedge\neg q)\Rightarrow r)\big)\\
+%&\equiv\big((p\Rightarrow(\neg q\Rightarrow r))\wedge\neg((p\wedge\neg q)\Rightarrow r)\big)\wedge
+%\big(\neg(p\Rightarrow(\neg q\Rightarrow r))\wedge((p\wedge\neg q)\Rightarrow r)\big)\\
+%&\equiv \big((p\Rightarrow(\neg q\Rightarrow r))\wedge p\wedge\neg q\wedge\neg r\big)\wedge
+%\big((p\wedge\neg(\neg q\Rightarrow r))\wedge((p\wedge\neg q)\Rightarrow r)\big)\\
+%&\equiv \big((p\Rightarrow(\neg q\Rightarrow r))\wedge p\wedge\neg q\wedge\neg r\big)\wedge
+%\big(p\wedge\neg q\wedge \neg r\wedge((p\wedge\neg q)\Rightarrow r)\big)
+%\end{align*}
+
+\item Zadata iskazna formula je tautologija.
+%, a njenim negiranjem dobija se
+%\[\big( p\wedge q\wedge r\wedge (r\Rightarrow (\neg p\vee \neg q)) \big)\vee\big( (p\Rightarrow(q\Rightarrow \neg r))\wedge r\wedge p\wedge q \big).\]
+
+\item Zadata iskazna formula nije tautologija, a njenim negiranjem dobija se
+\[  \big((\neg p\Rightarrow(q\Rightarrow r))\wedge \neg p\wedge q\wedge r \big)\vee\big( \neg p\wedge q\wedge \neg r\wedge   (p\vee\neg q\vee r) \big).\]
+
+\item Zadata iskazna formula je tautologija.
+%, i njenim negiranjem dobija se
+%\[\big( (\neg p\vee(q\Rightarrow  r))\wedge \neg r\wedge p\wedge  q    \big)\vee
+%\big(  p\wedge q\wedge \neg r\wedge (\neg r\Rightarrow \neg(p\wedge  q))   \big).\]
+
+\item Data iskazna formula nije tautologija. Negirajmo je. 
+\begin{align*}
+&\neg\big((\neg p\vee  q)\Rightarrow(\neg p\wedge \neg q\wedge r)\big) \\
+&\equiv \neg\big(\neg(\neg p\vee q)\vee \neg(\neg(\neg p\wedge\neg q\wedge r))\big)\\
+&\equiv (\neg p\vee q)\wedge \neg(\neg p\wedge\neg q\wedge r)\\
+&\equiv (\neg p\vee q)\wedge (p\vee q\vee\neg r)
+\end{align*}
+
+\item Zadata formule nije tautologija, a njenim negiranjem dobija se
+\[(\neg p\vee  \neg r)\wedge (p\vee \neg q\vee\neg r).\]
+
+\item Data iskazna formula je tautologija.
+%Negirajmo zadatu formulu.
+%\begin{align*}
+%&\neg\big((\neg p\vee(q\Rightarrow  r))\Leftrightarrow(\neg r\Rightarrow (p\Rightarrow\neg  q))\big)\\
+%&\equiv ((\neg p\vee(q\Rightarrow  r))\wedge \neg(\neg r\Rightarrow (p\Rightarrow\neg  q)))\vee((\neg r\Rightarrow (p\Rightarrow\neg  q))\wedge \neg(\neg p\vee(q\Rightarrow  r)))\\
+%&\equiv ((\neg p\vee(q\Rightarrow  r))\wedge(\neg r\wedge\neg(p\Rightarrow \neg q)))\vee ((\neg r\Rightarrow (p\Rightarrow\neg  q))\wedge (p\wedge\neg(q\Rightarrow r)))\\
+%&\equiv ((\neg p\vee(q\Rightarrow  r))\wedge \neg r\wedge p\wedge q)\vee
+%((\neg r\Rightarrow (p\Rightarrow\neg  q))\wedge p\wedge q\wedge\neg r)
+%\end{align*}
+
+\item Zadata iskazna formula nije tautologija, a njenim negiranjem dobija se
+\[ (p\vee  \neg q\vee \neg r)\wedge( p\vee  q\vee \neg r).\]
+
+\item Zadata iskazna formula jeste tautologija.
+%, i njenim negiranjem se dobija
+%\[  (\neg p\wedge  \neg q)\wedge (\neg p\wedge q\wedge r).  \]
+
+\end{enumerate}
+
+\RES{02.zad.2}
+\begin{enumerate}[(a)]
+\item Ozna\v cino iskaznu formulu sa $F$.
+
+1. Pretpostavimo da je $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v((p\Leftrightarrow \neg q)\wedge(\neg r\vee \neg s\Rightarrow q))=\top$.\\
+3. Iz 1. sledi da je $v(p\Rightarrow s)=\bot$.\\
+4. Iz 2. sledi da je $v(p\Leftrightarrow \neg q)=\top$.\\
+5. iz 2. sledi da je $v(\neg r\vee \neg s\Rightarrow q)=\top$.\\
+6. Iz 3. sledi da je $v(p)=\top$.\\
+7. Iz 3. sledi da je $v(s)=\bot$.\\
+8. Iz 4. i 6. sledi da je $v(\neg q)=\top$, tj. da je $v(q)=\bot$.\\
+9. Iz 6. i 7. sledi da je
+\[v(\neg r\vee \neg s\Rightarrow q)=v(\neg r)\vee \top\Rightarrow \bot=\top\Rightarrow \bot=\bot.\]
+Ovo je kontradikcija sa 3, pa je dokazano da iskazna formula $F$ ni u  jednoj valuaciji nije neta\v cna, tj. da je $F$ tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$.
+
+1. Pretpostavimo da je $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(s\wedge(\neg s\vee p))=\top$.\\
+3. Iz 1. sledi da je $v((q\vee r\Rightarrow p)\vee t)=\bot$.\\
+4. Iz 2. sledi da je $v(s)=\top$.\\
+5. Iz 2. sledi da je $v(\neg s\vee p)=\top$.\\
+6. Iz 3. sledi da je $v(q\vee r\Rightarrow p)=\bot$.\\
+7. Iz 3. sledi da je $v(t)=\bot$.\\
+8. Iz 4. i 5. sledi da je $v(p)=\top$.\\
+9. Iz 8. sledi da je $v(q\vee r\Rightarrow p)=\top$, a ovo je u kontradikciji sa 6, \v cime je dokazano da je iskazna formula $F$ tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$.
+
+1. Pretpostavimo da je $v(F)=\bot$.\\
+2. Iz 1. sledi $v(s\wedge p\wedge (s\vee \neg r\Rightarrow (\neg q\vee t)))=\top$.\\
+3. Iz 1. sledi da je $v(q\Rightarrow t)=\bot$.\\
+4. Iz 3. sledi da je $v(q)=\top$.\\
+5. Iz 3. sledi da je $v(t)=\bot$.\\
+6. Iz 2. sledi da je $v(s)=\top$.\\
+7. Iz 2. sledi da je $v(p)=\top$.\\
+8. Iz 2. sledi da je $v(s\vee \neg r\Rightarrow (\neg q\vee t))=\top$.\\
+9. Iz 6. sledi da je $v(s\vee \neg r)=\top$.\\
+10. Na osnovu 8. i 9. sledi da je $v(\neg q\vee t)=\top$.\\
+11. Na osnovu 4. i 5. sledi da je $v(\neg q\vee t)=\bot$, \v sto je u kontradikciji sa 10, \v cime je dokazano da je $F$ tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(p\wedge (q\Rightarrow \neg p))=\top$.\\
+3. Iz 1. sledi da je $v(\neg q\vee s\vee \neg t)=\bot$.\\
+4. Iz 3. sledi da je $v(\neg q)=\bot\Rightarrow v(q)=\top$.\\
+5. Iz 2. sledi da je $v(p)=\top$.\\
+6. Iz 2. sledi da je $v(q\Rightarrow\neg p)=\top$.\\
+7. Na osnovu 4. i 5. sledi da je $v(q\Rightarrow\neg p)=\bot$, \v sto je u kontradikciji sa 6.
+
+Dakle, $F$ je tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\top$\\
+2. Iz 1. sledi da je $v(s\wedge t\wedge(t\vee r\Rightarrow \neg p))=\top$.\\
+3. Iz 1. sledi da je $v(q\Rightarrow \neg p)=\bot$.\\
+4. Iz 2. sledi da je $v(s)=\top$.\\
+5. Iz 2. sledi da je $v(t\vee r\Rightarrow \neg p)=\top$.\\
+6. Na osnovu 4. i 5. sledi da je $v(p)=\bot$.\\
+7. Iz 6. sledi da je $v(q\Rightarrow \neg p)=\top$, \v sto je u kontradikciji sa 3.
+
+Dakle, $F$ je tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(q\Rightarrow\neg p)=\bot$.\\
+3. Iz 1. sledi da je $v(s\wedge t\wedge(t\vee r\Rightarrow \neg p))=\top$.\\
+4. Iz 2. sledi da je $v(\neg p)=\bot\Rightarrow v(p)=\top$.\\
+5. Iz 3. sledi da je $v(t)=\top$.\\
+6. Na osnovu 4. i 5. sledi da je $v(t\vee r\Rightarrow \neg p)=\bot$.\\
+7. Iz 3. sledi da je $v(t\vee r\Rightarrow \neg p)=\top$, \v sto je u kontradikciji sa 6.
+
+Dakle, $F$ je tautologija.
+
+\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(q\Rightarrow \neg t)=\bot$.\\
+3. Iz 1. sledi da je $v\big((t\Rightarrow s\vee \neg p)\wedge \neg s\wedge (p\wedge r)\big)=\top$.\\
+4. Iz 2. sledi da je $v(\neg t)=\bot\Rightarrow v(t)=\top$.\\
+5. Iz 3. sledi da je $v(p)=\top$.\\
+6. Iz 3. sledi da je $v(t\Rightarrow s\vee\neg p)=\top$.\\
+7. Na osnovu 4, 5. i 6. sledi da je $v(s)=\top$.\\
+8. Iz 7. sledi da je $v\big((t\Rightarrow s\vee \neg p)\wedge \neg s\wedge (p\wedge r)\big)=\bot$, \v sto je u kontradikciji sa 3.
+
+Ovim je dokazano da je $F$ tautologije.
+
+\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+
+1. $v(F)=\bot$.\\
+2. Iz 1. sledi da je $v(r\vee\neg q)=\bot$.\\
+3. Iz 1. sledi da je $v\big((p\vee\neg r\Rightarrow \neg(s\vee t))\wedge(q\Rightarrow s)\big)=\top$.\\
+4. Iz 2. sledi da je $v(r)=\bot$.\\
+5. Iz 2. sledi da je $v(q)=\top$.\\
+6. Iz 3. sledi da je $v(q\Rightarrow s)=\top$.\\
+7. Na osnovu 5. i 6. sledi da je $v(s)=\top$.\\
+8. Iz 4. sledi da je $v(p\vee\neg r)=\top$.\\
+9. Iz 7. sledi da je $v(\neg(s\vee t))=\bot$.\\
+10. Na osnovu 8. i 9. sledi da je $v(p\vee\neg r\Rightarrow \neg(s\vee t))=\bot$, \v sto je u kontradikciji sa 3.
+
+Ovim smo pokazali da je $F$ tautologija.
+\end{enumerate}
+
+
+
+
+\RES{01-01}
+$2102_{(3)} = 2 \cdot 3^3 + 1 \cdot 3^2 + 0 \cdot 3^1 + 2 \cdot 3^0 = 2 \cdot 27 + 1 \cdot 9 + 0 \cdot 3 + 2 \cdot 1 = 65$;
+$2102_{(4)} = 2 \cdot 4^3 + 1 \cdot 4^2 + 0 \cdot 4^1 + 2 \cdot 4^0 = 2 \cdot 64 + 1 \cdot 16 + 0 \cdot 4 + 2 \cdot 1 = 146$;
+$310_{(7)} = 3 \cdot 7^2 + 1 \cdot 7^1 + 0 \cdot 7^0 = 154$;
+$101101_{(2)} = 1 \cdot 2^5 + 1 \cdot 2^3 + 1 \cdot 2^2 + 1 \cdot 2^0 = 45$;
+$670_{(8)} = 6 \cdot 8^2 + 7 \cdot 8^1 = 440$.
+
+\RES{01-04}
+$12312 = 121220000_{(3)}$;
+$9999  = 14640_{(9)}$;
+$32768 = 2^{15} = 1000000000000000_{(2)}$.
+
+
+\RES{01-12}
+$0 = 0_{(2)}$; $1 = 1_{(2)}$; $2 = 10_{(2)}$; $4 = 100_{(2)}$;
+$8 = 1000_{(2)}$; $10 = 1010_{(2)}$; $128 = 10000000_{(2)}$; $255 = 11111111_{(2)}$; $1129 = 10001101001_{(2)}$.
+
+\RES{01-14}
+Broj zapisan u binarnom sistemu je paran ako mu je poslednja cifra~0; a deljiv je sa \v cetiri ako su mu
+poslednje dve cifre~00.
+
+\RES{01-17}
+$1_{(16)} = 1$;
+$10_{(16)} = 16$;
+$1A_{(16)} = 16 + 10 = 26$;
+$FF_{(16)} = 15 \cdot 16 + 15 = 255$;
+$10D_{(16)} = 16^2 + 13 = 269$;
+$FAD4_{(16)} = 15 \cdot 16^3 + 10 \cdot 16^2 + 13 \cdot 16 + 4 = 64212$.
+
+\RES{01-18}
+$65312 = FF20_{(16)}$;
+$4832 = 12E0_{(16)}$;
+$33261 = 81ED_{(16)}$;
+$415 = 19F_{(16)}$;
+$22 = 16_{(16)}$;
+$65535 = FFFF_{(16)}$.
+
+\RES{01-19}
+$1101001010111_{(2)} = 1|1010|0101|0111 = 1A57_{(16)}$;
+$1000100010001000_{(2)} = 1000|1000|1000|1000 = 8888_{(16)}$;
+$10010101110_{(2)} = 100|1010|1110 = 4AE_{(16)}$.
+
+\RES{01-20}
+$ADFFC1_{(16)} = 1010|1101|1111|1111|1100|0001_{(2)}$;
+$19A0C_{(16)} =$\newline $=1|1001|1010|0000|1100_{(2)}$;
+$101010_{(16)} = 1|0000|0001|0000|0001|0000_{(2)}$;\newline
+$FFFF_{(16)} = 1111|1111|1111|1111_{(2)}$.
+
+\RES{01-11}
+Uputstvo: vanzemaljci koriste sistem sa osnovom~6; videti sliku!
+
+\RES{01-22}
+\begin{tabular}[t]{c|c|c|c}
+  $x$ & $y$ & $z$ & $f(x, y, x)$ \\
+  \hline\hline
+  0 & 0 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 1 & 0 & 0\\
+  0 & 1 & 1 & 0\\
+  1 & 0 & 0 & 1\\
+  1 & 0 & 1 & 0\\
+  1 & 1 & 0 & 1\\
+  1 & 1 & 1 & 1
+\end{tabular}
+
+\RES{01-25}
+Tabela za Bulovu operaciju sa $n$ argumenata ima $2^n$ redova.
+
+\RES{01-28}
+$f(x, y) = x \land \lnot x$.
+
+\RES{01-98}
+
+(a) 
+\begin{tabular}[t]{c|c|c|c}
+  $x$ & $y$ & $x \lor y$ & $\lnot(\lnot x \land \lnot y)$ \\
+  \hline\hline
+  0 & 0 & 0 & 0\\
+  0 & 1 & 1 & 1\\
+  1 & 0 & 1 & 1\\
+  1 & 1 & 1 & 1
+\end{tabular}
+
+\medskip
+
+Po\v sto znamo da se svaka Bulova operacija mo\v ze predstaviti pomo\'cu $\lnot$, $\land$ i $\lor$,
+a upravo smo videli da se $\lor$ mo\v ze predstaviti pomo\'cu $\lnot$, $\land$, zaklju\v cujemo da se 
+svaka Bulova operacija mo\v ze predstaviti samo pomo\'cu $\lnot$ i $\land$.
+
+\medskip
+
+(b) Analogno sa (a).
+
+\medskip
+
+(c) Primetimo da je $x \uparrow x = \lnot(x \land x) = \lnot x$.
+Kako je $x \land y = \lnot(x \uparrow y) = (x \uparrow y) \uparrow (x \uparrow y)$, zaklju\v cujemo
+da se i $\lnot$ i $\land$ mogu predstaviti preko $\uparrow$. Imaju\'ci u vidu (a), zaklju\v cujemo
+da se svaka Bulova operacija mo\v ze predstaviti samo pomo\'cu $\uparrow$.
+
+Ovu operaciju in\v zenjeri zovu NAND. Potra\v zite na Internetu pojam \enquote{NAND flash memory}.
+
+\medskip
+
+(d) Analogno sa (c).
+
+
+\RES{03.zad.1}
+Podsetimo se, broj $n$ je paran kada postoji ceo broj $k$ takav da je $n=2k$.
+
+Pretpostavimo da je $n$ paran. Tada je $n=2k$ za neki ceo broj $k$. Odatle, $n^2=(2k)^2=4k^2=2\cdot(2k^2)$. Ovim smo dokazali da je broj $n^2$ paran. Prema tome, ako je $n$ paran broj, onda je i $n^2$ paran broj, \v sto je trebalo dokazati.
+
+\RES{03.zad.2}
+ Podsetimo se, za ceo broj $z$ ka\v zemo da je deljiv sa $p$ ako postoji ceo broj $z_1$ takav da je $z=p\cdot z_1$.
+
+Neka su $x$ i $y$ prirodni brojevi deljivi sa $p$. Onda postoje $x_1$ i $y_1$ takvi da je $x=p\cdot x_1$ i $y=p\cdot y_1$. Tada sledi
+\[mx+ny=m\cdot p\cdot x_1+n\cdot p\cdot y_1=p(mx_1+ny_1),\]
+\v cime smo dokazali da je $mx+ny$ deljiv sa $p$. Ovim je tvrdnja dokazana.
+
+\RES{03.zad.3}
+Neka je $n$ prirodan broj. Pretpostavimo da $n$ nije paran. Onda je $n$ neparan. Prema tome, $n=2k-1$ za neki prirodan broj $k$. Tada je $n^2=(2k-1)^2=4k^2-4k+1=2(2k^2-2k)+1$, odakle sledi da je $n^2$ neparan broj. Na ovaj na\v cim smo kontrapozicijom dokazali da, ako je $n^2$ paran broj, onda je i $n$ paran broj.
+
+\RES{03.zad.4}
+Doka\v zimo i ovu tvrdnju kontrapozicijom. Neka nije ispunjen uslov da je: $n\leq 10$ ili $m\leq 10$. Primetimo da je
+\[\neg(n\leq 10\vee m\leq 10)\text{ akko }n>10\wedge m> 10.\]
+Me\dj utim, $n>10\wedge m> 10$ povla\v ci da je $nm>10\cdot 10=100$. Ovim je dokaz zavr\v sen.
+
+Uradimo ovaj dokaz i na malo druga\v ciji na\v cin. Pretpostavljamo da je $nm\leq 100$. Pretpostavimo da nije ispunjeno: $n\leq 10$ ili $m\leq 10$. Tada je $n>10$ i $m>10$. Odatle dobijamo
+\[100\geq nm>10\cdot 10=100,\]
+tj. $100>100$, \v cime smo dobili kontradikciju. Ovim je dokaz zavr\v sen.
+
+\RES{03.zad.6}
+Neka je $p$ prost broj. Pretpostavimo suprotno, tj. da $\sqrt p$ nije iracionalan broj, odnosno da je racionalan. Ako je taj broj racionalan, onda ga mo\v zemo predstaviti u slede\' cem obliku
+\[\sqrt p=\frac kl,\]
+pri \v cemu su $k$ i $l$ uzajamno prosti. Kvadrirajmo gornju jednakost.
+\[p=\frac{k^2}{l^2}\]
+Nakon sre\dj ivanja dobijamo
+\[pl^2=k^2.\]
+U nastavku koristimo \v cinjenicu da za svaki prirodan broj $n$ va\v zi slede\' ce:
+\[p\mid n\text{ akko }p\mid n^2.\]
+Iz prethodne relacije zaklju\v cujemo $k^2$ deljiv sa $p$, a to implicira da je i $k$ deljiv sa $p$. Ako je $k$ deljiv sa $p$, onda je $k=pk_1$ za neko $k_1\in\mathbb N$. Tada dobijamo slede\' ce.
+\begin{align*}
+pl^2&=(pk_1)^2=p^2k_1^2\\
+l^2&=pk_1^2
+\end{align*}
+Iz gornje jednakosti zaklju\v cujemo da je $l^2$ deljiv sa $p$, iz \v cega sledi da je i $l$ deljiv sa $p$. Me\dj utim, ovim smo dobili kontradikciju, jer smo do\v sli do zaklju\v cka da su i $k$ i $l$ deljivi sa $p$, a $k$ i $l$ su uzajamno prosti. Kona\v cno, sledi da $\sqrt p$ ne mo\v ze da se zapi\v se u obliku $\frac kl$, gde su $k$ i $l$ prirodni brojevi, \v cime je dokazano da $\sqrt p$ nije racionalan broj.
+
+%\RES{03.zad.6}{
+%
+%}
+
+%\RES{03.zad.7}
+%Pretpostavimo suprotno, tj. da postoji kona\v cno mnogo prostih brojeva. Neka su $p_1, p_2, \dots, p_n$ svi prosti brojevi. Posmatrajmo broj $q=p_1p_2\cdots p_n+1$. Po\v sto je poznato da je svaki prirodan jednak proizvodu prostih brojeva, i po\v sto $q$ nije deljiv ni sa jednom od brojeva $p_1,p_2,\dots,p_n$, sledi da postoji vi\v se od $n$ prostih brojeva. Ovim je dobijena kontradikcija, \v cime je dokazano da postoji beskona\v cno mnogo prostih brojeva.
+
+\RES{03.zad.8}
+$(\Leftarrow)$ Neka je, bez umanjenja op\v stosti, $x$ paran broj. Onda je $x=2x_1$. Tada je $xy=2x_1y$, pa zaklju\v cujemo da je $xy$ paran broj.
+
+$(\Rightarrow)$ Doka\v zimo ovo kontrapozicijom. Pretpostavimo da su $x$ i $y$ neparni brojevi. Tada je $x=2x_1-1$ i $y=2y_1-1$. Odatle sledi $xy=(2x_1-1)(2y_1-1)=4x_1y_1-2x_1-2y_1-1=2(2x_1y_1-x_1-y_1)-1$. Odatle zaklju\v cujemo da je $xy$ neparan broj. Ovim smo dokazali i drugu implikaciju.
+
+\RES{03.zad.9}$(\Leftarrow)$ Neka je $x=2$. Tada je $12-14+4=2=4+6-8$. Tako\dj e, ako je $x=3$, tada je $27-21+4=10=9+9-8$. Ovim je dokazana prva implikacija, pa doka\v zimo sada i drugu.
+
+$(\Rightarrow)$ Neka je 
+\[3x^2-7x+4=x^2+3x-8.\]
+Tada je
+\[2x^2-10x+12=0,\]
+tj.
+\[x^2-5x+6=0.\]
+%Prona\dj imo re\v senje pomo\' cu Vijetovih formula. Po\v sto je $-2-3=-5$ i $(-2)\cdot (-3)=6$, dobijamo
+%\[x^2-5x+6=(x-2)(x-3).\]
+%Prema tome, ako je $x^2-5x+6=(x-2)(x-3)=0$, onda je $x=2$ ili $x=3$, \v sto je trebalo dokazati.
+%
+Re\v simo gornju kvadratnu jedna\v cinu.
+\begin{align*}
+x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{5\pm\sqrt{25-24}}2=\frac{5\pm 1}2
+\end{align*}
+Dakle, $x^2-5x+6=0$ va\v zi samo ako je $x=2$ ili $x=3$. Ovim je dokazana i druga implikacija.
+
+ $x_1=2$ i $x_2=3$ su re\v senja posmatrane kvadratne jedna\v cine.
+
+\RES{03.zad.10}
+Doka\v zimo najpre implikaciju $(\Leftarrow)$.
+
+Neka je $x=-1$. Tada dobijamo
+\[(-1)^4-15\cdot(-1)^2+10\cdot(-1)+24=1-15-10+24=0.\]
+Ovim je dokazano da je $-1$ re\v senje zadate jedna\v cine \v cetvrtog stepena. Analogno se pokazuje da su i $2$, $3$ i $-4$ re\v senja te jedna\v cine.
+
+$(\Rightarrow)$ Primetimo da je
+\[(x+1)(x-2)(x-3)(x+4)=x^4-15x^2+10x+24,\]
+i neka je $x^4-15x^2+10x+24=0$. Odatle sledi da je bar jedan od \v cinilaca $x+1$, $x-2$, $x-3$ i $x+4$ jednak $0$, odnosno $x$ ima vrednost $-1$, $2$, $3$ ili $-4$. Ovim je tvrdnja zadatka dokazana.
+%
+%Pretpostavimo suprotno, tj. da implikaciija ne va\v zi. Tada je  $a^4-15a^2+10a+24=0$ za neko $a\not\in\{-1,2,3,-4\}$. Odatle sledi da zadata jedna\v cina \v cetvrtog stepena ima pet re\v senja, a to je kontradikcija, jer je poznato da takva jedna\v cina ima najvi\v se \v cetiri re\v senja.
+
+\RES{03.zad.11}
+Za $n=17$, vrednost $f(n)=17^2$, \v sto je slo\v zen broj.
+
+\RES{03.zad.12}
+Neka je $n$ neparan broj. Tada je $n=2k+1$ za neko $k\geq 0$. Sledi
+\[n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1,\]
+\v cime je pokazano da je $n^2$ neparan.
+
+Doka\v zimo i suprotnu implikaciju kontrapozicijom. Neka $n$ nije neparan broj. Tada je $n=2k$ za neki prirodan broj $k$. Onda je $n^2=(2k)^2=2\cdot 2k^2$, tj. $n^2$ je paran broj. Ovim je tvrdnja zadatka dokazana.
+
+\RES{03.zad.13}
+Neka su $x_1$ i $x_2$ re\v senja zadate kvadratne jedna\v cine. Prema Vijetovim formulama va\v zi slede\' ce.
+\begin{align*}
+x_1x_2&=b\\
+x_1+x_2&=-a
+\end{align*}
+Po\v sto su $x_1$ i $x_2$ uzastopni brojevi, onda je, bez umanjenja op\v stosti $x_2=x_1+1$.
+\begin{align*}
+x_1(x_1+1)&=b\\
+2x_1+1&=-a
+\end{align*}
+Odavde vidimo da je $a$ neparan broj, i vidimo i da je $b$ paran jer je proizvod dva uzastopna broja.
+
+\RES{03.zad.14}
+Neka su $x_1$ i $x_2$ re\v senja zadate kvadratne jedna\v cine. Po\v sto su $x_1$ i $x_2$ parni brojevi, onda je $x_1=2k$ i $x_2=2l$ za neke $k,l\in\mathbb N$. Tada je
+\begin{align*}
+4kl=x_1x_2&=b\\
+a(k+l)=x_1+x_2&=-a,
+\end{align*}
+odakle sledi da su $a$ i $b$ parni brojevi.
+
+\RES{03.zad.15}
+Po\v sto je zbir dva broja iste parnosti paran broj, sledi da je $n^2+3n$ paran broj. Dalje, zbir dva parna broja je paran broj, pa je $n^2+3n+2$ paran broj.
+
+\RES{03.zad.16}
+U ovom re\v senju koristi\' cemo \v cinjenicu da je $\sqrt 2$ iracionalan broj. Pretpostavimo suprotno, tj. da je $\frac{\sqrt 2}3+4$ racionalan broj. Tada je
+\[\frac{\sqrt 2}3+4=\frac pq\]
+za neke $p\in\mathbb Z$ i $q\in\mathbb N$. Tada dobijamo slede\' ce.
+\begin{align*}
+\frac{\sqrt 2}3+4&=\frac pq\\
+\frac{\sqrt 2}3&=\frac pq-4=\frac{p-4q}q\\
+\sqrt 2&=\frac{3(p-4q)}q
+\end{align*}
+Odavde sledi da $\sqrt 2\in\mathbb Q$, \v sto je kontradikcija. (Poznato je da je $\sqrt p$ iracionalan broj za svaki prost broj $p$.)
+
+\RES{03.zad.17}
+Navedeno tvr\dj enje nije ta\v cno. Na primer, $3\mid 2+1$ iako $3\mathrel{\not|} 2$ i $3\mathrel{\not|} 1$.
+
+\RES{03.zad.18}
+Po\v sto je
+\[n^2-4=(n-2)(n+2),\]
+i po\v sto $n-2$ i $n+2$ deljivi sa $4$, sledi da $16\mid n^2-4$.
+
+\RES{03.zad.19}
+Po\v sto su $m$ i $n$ stepeni broja $3$, onda je $m=3^k$ i $n=3^l$ za neke $k,l\in\mathbb N$. Bez umanjenja op\v stosti, neka je $k\leq l$. Tada je
+\[ m+n=3^k+3^l=3^k(1+3^{l-k}), \]
+a po\v sto $1+3^{l-k}$ nije deljivo sa $3$, onda $m+n$ nije stepen broja $3$.
+
+\RES{03.zad.20}
+Pretpostavimo suprotno, tj. da je $pq+pr+qr=pk$ za neko $k\in\mathbb N$. Tada je
+\[ qr=pk-pr-pr=p(k-p-r), \]
+tj. $p\mid qr$. Ovo je u kontradikciji sa pretpostavkom da su $p$, $q$ i $r$ razli\v citi prosti brojevi.
+
+\RES{03.zad.21}
+Neka je $n$ kvadrat prirodnog broja, tj. $n=k^2$ za neko $k\in\mathbb N$. Primetimo da je $(k+1)^2>k^2+1=n+1$ najmanji kvadrat prirodnog broja ve\' ci od $n$. Dakle, $n+1$ nije kvadrat prirodnog broja.
+
+\RES{03.zad.22}
+Neka je $n$ prirodan broj koji je kvadrat racionalnog broja, tj. $n=k^2$ za neko $k\in\mathbb Q$. Pretpostavimo suprotno, tj. da $k$ nije prirodan broj. Tada je $k=\frac pq$ za uzajamno proste brojeve $p$ i $q$, $q>1$. Dalje, sledi
+\[n=k^2=\frac{p^2}{q^2},\]
+i po\v sto $p^2$ i $q^2$ uzajmno prosti i $q^2>1$, sledi da $n$ nije prirodan broj. Ovo je u kontradikciji sa polaznom pretpostavkom, pa je tvrdnja zadatka dokazana.
+
+\RES{03.zad.23}
+Ozna\v cimo sa $\alpha$, $\beta$ i $\gamma$ uglove trougla naspram njegovih stranica $a$, $b$ i $c$, redom. Potrebno je dokazati da, ako je $a<b$ implicira $\alpha<\beta$. Doka\v zimo ovo kontrapozicijom.  Neka je $\alpha\geq\beta$. Onda je $\alpha=\beta$ ili $\alpha>\beta$. Ako je $\alpha=\beta$, onda sledi $a=b$ jer naspram podudarnih usglova le\v ze podudarne stranice. Ako je $\alpha>\beta$, onda je $a>b$ jer naspram ve\' ceg ugla trougla le\v zi ve\' ca stranica. Dakle, $\alpha\geq\beta$ povla\v ci $a\geq b$. Na ovaj na\v cin smo kontrapozicijom dokazali da naspram ve\' ce stranice u trouglu le\v zi ve\' ci ugao.
+
+\RES{03.zad.24}
+Pretpostavimo suprotno, tj. da $\pi^m$ jeste algebarski broj za neki prirodan broj $m$. Onda postoji polinom $p(x)=b_nx^n+b_{n-1}x^{n-1}+...+b_1x+b_0$ takav da je
+\[p(\pi^m)=b_n(\pi^m)^n+b_{n-1}(\pi^m)^{n-1}+...+b_1\pi^m+b_0=0.\]
+Neka je $q(x)=b_n x^{mn}+b_{n-1}x^{m(n-1)}+...+b_1x^m+b_0$. Onda je $q(\pi)=0$, \v sto je kontradikcija jer $\pi$ nije algebarski broj.
+
+\RES{03.zad.25}
+Neka je $k$ najve\' ci prirodan broj takav da je $2^k\leq n$. Doka\v zimo da je $2^k$ parniji od svakog prirodnog broja $x$, $x\leq n$. Pretpostavimo suprotno, tj. da postoji $y\leq n$ od kojeg $2^k$ nije parniji. Tada je, na osnovu izbora broja $k$, $y=2^lz$ za $l\leq k$ i neparno $z$. Me\dj utim, po\v sto je $2^{l+1}<2^lz\leq n$, sledi da $k$ nije najve\' ci broj sa osobinom da $2^k\leq n$, \v cime smo dobili kontradikciju. Ovim je tvrdnja zadatka dokazana.
+
+\RES{03.zad.26}
+\v Sahovska tabla ima 32 bela polja i 32 crna polja. Bez umanjenja op\v stosti, \v sahovska tabla bez dva polja u naspramnim uglovima ima 30 belih polja i 32 crna. Po\v sto svaka plo\v cica pokriva ta\v cno po jedno crno i belo polje, sledi da je nemogu\' ce pokriti \v sahovsku tablu bez dva naspramna ugla plo\v cicama kao \v sto je navedeno u postavci zadatka.
+
+
+\RES{04.zad.1}
+{\it Baza indukcije.} Neka je $n=1$. Tada dobijamo $2^1>1$, \v sto je ta\v cno.
+
+{\it Induktivna hipoteza.} Pretpostavimo da tvrdnja va\v zi za $n=k$ za neki prirodan broj $k$, tj. da je
+\[2^k>k.\]
+
+{\it Induktivni korak.} Koriste\' ci induktivnu hipotezu dobijamo
+\[2^{k+1}=2\cdot 2^k=2^k+2^k>k+1,\]
+\v cime smo tvrdnju dokazali.
+
+\RES{04.zad.2}
+{\it Baza indukcije.} Za $n=5$ dobijamo $2^5=32>25=5^2$.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je $2^k>k^2$ za neko $k\geq 5$.
+
+{\it Induktivni korak.} Pre nego \v sto doka\v zemo da tvrdnja zadatka va\v zi za $n=k+1$, doka\v zimo matemati\v ckom indukcijom da za svako $n\geq 5$ va\v zi $n^2>2n+1$. Najpre prime\' cujemo da je $5^2=25>11=2\cdot 5+1$. Dalje, pretpostavimo da za $l\geq 5$ va\v zi $l^2>2l+1$. Tada sledi $(l+1)^2=l^2+2(l+1)+1>2l+1+2l+3>2(l+1)+1$, \v cime je dokazano da je $n^2>2n+1$ za svako $n\geq 5$.
+
+Koriste\' ci indukcijsku hipotezu i malopre pokazanu nejednakost dobijamo
+\[ 2^{k+1}=2\cdot 2^k>2\cdot k^2=k^2+k^2>k^2+2k+1=(k+1)^2. \]
+Ovim je tvrdnja zadatka dokazana.
+
+\RES{04.zad.3}
+Potrebno je dokazati da za svako $n\in\mathbb N$ va\v zi slede\' ca jednakost.
+\[1+3+\cdots+(2n-1)=n^2\]
+
+{\it Baza indukcije.} Za $n=1$ dobijamo $1=1^2$, \v sto je ta\v cno.
+
+{\it Induktivna hipoteza.} Pretpostavimo da va\v zi 
+\[1+3+\cdots+(2k-1)=k^2\]
+za $k\in\mathbb N$.
+
+{\it Induktivni korak.} Koriste\' ci indukcijsku hipotezu, doka\v zimo da zadata jednakost va\v zi i za $n=k+1$.
+\[1+3+\cdots+(2k-1)+(2k+1)=k^2+2k+1=(k+1)^2\]
+Ovim je tvrdnja dokazana.
+
+\clearpage
+
+\RES{04.zad.4}{
+\begin{enumerate}[(a)]
+\item {\it Baza indukcije.} Za $n=1$ dobijamo da je $5^n-1=4$, \v sto jeste deljivo sa $4$.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je $5^k-1$ deljivo sa $4$ za neko $k\in\mathbb N$, tj. da je $5^k-1=4l$ za neko $l\in\mathbb Z$.
+
+{\it Induktivni korak.} Doka\v zimo da je i $5^{k+1}-1$ deljivo sa $4$. Dobijamo
+\[5^{k+1}-1=5\cdot 5^{k}-1=4\cdot 5^k+5^k-1=4\cdot 5^k+4l=4(5^k+l),\]
+pri \v cemu smo indukcijsku hipotezu primenili kod tre\' ce jednakosti. Ovim je tvrdnja dokazana.
+\item {\it Baza indukcije.} Za $n=1$ dobijamo da je $2^3+3^3=8+27=35$ \v sto je deljivo sa $7$.
+
+{\it Induktivna hipoteza.}  Pretpostavimo da je $2^{k+2}+3^{2k+1}$ deljivo sa $7$ za neko $k\in\mathbb N$, tj. da je $2^{k+2}+3^{2k+1}=7l$ za neko $l\in\mathbb Z$.
+
+{\it Induktivni korak.} Doka\v zimo sada da tvrdnja va\v zi i za $n=k+1$. Dobijamo
+\begin{align*}
+2^{k+3}+3^{2k+3}&=2^{k+3}+3^{2k+3}=2\cdot 2^{k+2}+9\cdot 3^{2k+1}\\
+&=2(2^{k+2}+3^{2k+1})+7\cdot 3^{2k+1}=7(2l+3^{2k+1})
+\end{align*}
+pri \v cemu smo indukcijsku hipotezu primenili kod pretposlednje jednakosti. Ovim je tvrdnja dokazana.
+\end{enumerate}
+}
+
+\RES{04.zad.5}
+\begin{enumerate}[(a)]
+\item {\it Baza indukcije.} Po\v sto su Fibona\v cijevi brojevi defisani kao zbir dva prethodna Fibona\v cijeva broja, potrebno je da u bazi indukcije poka\v zemo da tvrdnja zadatka va\v zi za prva dva Fibona\v cijeva broja. Zaista, $f_1<\frac 74$ i $f_2<\big(\frac 74\big)^2$.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je $f_{k-1}<\big(\frac 74\big)^{k-1}$ $f_k<\big(\frac 74\big)^k$ za neko $k\geq 2$.
+
+ {\it Induktivni korak.} Poka\v zimo sada da tvrdnja va\v zi i za $n=k+1$. Koriste\' ci definiciju Fibona\v cijevih brojeva i indukcijsku hipotezu dobijamo slede\' ce.
+\begin{align*}
+f_{k+1}&=f_k+f_{k-1}<\Big(\frac 74\Big)^k+\Big(\frac 74\Big)^{k-1}=\Big(\frac 74\Big)^{k-1}\Big(\frac 74 +1\Big)=\Big(\frac 74\Big)^{k-1}\cdot \frac {11}4\\
+&=\Big(\frac 74\Big)^{k-1}\cdot \frac{44}{16}<\Big(\frac 74\Big)^{k-1}\cdot \Big(\frac 74\Big)^2=\Big(\frac 74\Big)^{k+1}
+\end{align*}
+Ovim je tvrdnja zadatka dokazana.
+\item {\it Baza indukcije.} Sli\v cno kao i u delu zadatka pod (a), za bazu indukcije je neophodno proveriti da tvrdnja za $n=1$ i $n=2$. Zaista,
+\begin{align*}
+\frac{(1+\sqrt 5)-(1-\sqrt 5)}{2\sqrt 5}&=\frac{2\sqrt 5}{2\sqrt 5}=1\text{ i}\\
+\frac{(1+\sqrt 5)^2-(1-\sqrt 5)^2}{4\sqrt 5}&= \frac{4\sqrt 5}{4\sqrt 5}=1.
+\end{align*} 
+Ovim je baza indukcije pokazana.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je
+\begin{align*}
+f_{k-1}&=\frac{(1+\sqrt 5)^{k-1}-(1-\sqrt 5)^{k-1}}{2^{k-1}\sqrt 5}\text{ i}\\
+f_k&=\frac{(1+\sqrt 5)^k-(1-\sqrt 5)^k}{2^k\sqrt 5}
+\end{align*}
+za neko $k\geq 2$.
+
+{\it Induktivni korak.} Koriste\' ci definiciju Fibona\v cijevih brojeva i indukcijsku hipotezu dobijamo:
+\begin{align*}
+f_{k+1}&=f_{k-1}+f_{k}\\
+&=\frac{(1+\sqrt 5)^{k-1}-(1-\sqrt 5)^{k-1}}{2^{k-1}\sqrt 5}+\frac{(1+\sqrt 5)^k-(1-\sqrt 5)^k}{2^k\sqrt 5}\\
+&=\frac{4(1+\sqrt 5)^{k-1}-4(1-\sqrt 5)^{k-1}+2(1+\sqrt 5)^k-2(1-\sqrt 5)^k}{2^{k+1}\sqrt 5}\\
+&=\frac{(1+\sqrt 5)^{k-1}(6+2\sqrt 5)-(1-\sqrt 5)^{k-1}(6-2\sqrt 5)}{2^{k+1}\sqrt 5}=\\
+&=\frac{(1+\sqrt 5)^{k+1}-(1-\sqrt 5)^{k+1}}{2^{k+1}\sqrt 5},
+\end{align*}
+pri \v cemu je pri poslednjoj jednakosti prime\' ceno da je 
+\[6\pm 2\sqrt 5=(1\pm \sqrt 5)^2.\]
+Ovim je tvrdnja zadatka pokazana.
+\end{enumerate}
+
+\clearpage
+
+\RES{04.zad.6}
+\begin{enumerate}[(a)]
+\item {\it Baza indukcije.} Za $n=1$ dobijamo $1=\frac 22$, \v cime je baza indukcije dokazana.
+
+{\it Induktivna hipoteza.} Preptostavimo da tvrdnja va\v zi za $n=k$, tj. da je
+\[1+2+...+n=\frac {k(k+1)}2.\]
+
+{\it Induktivni korak.} Doka\v zimo da tvrdnja va\v zi za $n=k+1$. Sada, u slu\v caju kada je $n=k+1$, koriste\' ci indukcijsku hipotezu dobijamo
+\begin{align*}
+1+2+\cdots+k+(k+1)&=\frac{k(k+1)}2+k+1=(k+1)\Big(\frac{k}2+1\Big)\\
+&=(k+1)\cdot\frac{k+2}2=\frac{(k+1)(k+2)}2.
+\end{align*}
+Ovim je tvrdnja dokazana.
+\item[(c)] {\it Baza indukcije.} Za $n=1$ dobijamo $1^3=\Big(\frac 22\Big)^2$, \v cime je baza indukcije dokazana.
+
+{\it Induktivna hipoteza.} Pretpostavimo da tvrdnja va\v zi za $n=k$, tj. da je
+\[1^3+2^3+...+k^3=\Big(\frac{k(k+1)}2\Big)^2\]
+
+{\it Induktivni korak.} Sada, koriste\' ci indukcijsku hipotezu, dokazujemo da tvrdnja va\v zi i za $n=k+1$.
+\begin{align*}
+1^3+2^3+...+k^3+(k+1)^3&=\Big(\frac{k(k+1)}2\Big)^2+(k+1)^3=(k+1)^2\Big(\frac{k^2}4+k+1\Big)\\
+&=(k+1)^2\cdot\frac{(k^2+4k+4)}4=\frac{(k+1)^2(k+2)^2}4\\
+&=\Big(\frac{(k+1)(k+2)}2\Big)^2
+\end{align*}
+Ovim je tvrdnja dokazana.
+\end{enumerate}
+
+\RES{04.zad.7} {\it Baza indukcije.} Za $n=1$ dobijamo $1=\frac{1-x}{1-x}$, \v cime je baza indukcije dokazana.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je \[1+x+x^2+...+x^k=\frac{1-x^{k+1}}{1-x}\] za neko $k\geq 1$.
+
+{\it Induktivni korak.} Poka\v zimo da tra\v zena jednakost va\v zi za $n=k+1$. Koriste\' ci indukcijsku hipotezu, dobijamo slede\' ce.
+\begin{align*}
+1+x+x^2+...+x^k+x^{k+1}&=\frac{1-x^{k+1}}{1-x}+x^{k+1}=\frac{1-x^{k+1}+x^{k+1}-x^{k+2}}{1-x}\\
+&=\frac{1-x^{x+2}}{1-x}
+\end{align*}
+Ovim je tvrdnja zadatka dokazana.
+
+\RES{04.zad.8}
+\begin{enumerate}[(a)]
+\item[(b)] {\it Baza indukcije.} Za $n=1$ dobijamo $\displaystyle\frac 1{1\cdot 3}=\frac 1{2+1}$, \v cime je dokazana baza indukcije.
+
+{\it Induktivna hipoteza.} Pretpostavimo da tvrdnja va\v zi za $n=k$, gde $k\in\mathbb N$, tj. da je
+\[\frac1{1\cdot 3}+\frac 1{3\cdot 5}+\frac 1{5\cdot 7}+...+\frac 1{(2k-1)(2k+1)}=\frac k{2k+1}.\]
+\end{enumerate}
+
+{\it Induktivni korak.} Koriste\' ci indukcijsku hipotezu dobijamo slede\' ce.
+\begin{align*}
+&\frac1{1\cdot 3}+\frac 1{3\cdot 5}+\frac 1{5\cdot 7}+...+\frac 1{(2k-1)(2k+1)}+\frac 1{(2k+1)(2k+3)}\\
+&=\frac k{2k+1}+\frac 1{(2k+1)(2k+3)}=\frac{k(2k+3)+1}{(2k+1)(2k+3)}=\frac{2k^2+3k+1}{(2k+1)(2k+3)}\\
+&=\frac{2k^2+k+2k+1}{(2k+1)(2k+3)}=\frac{k(2k+1)+2k+1}{(2k+1)(2k+3)}=\frac{(k+1)(2k+1)}{(2k+1)(2k+3)}\\
+&=\frac{k+1}{2k+3}
+\end{align*}
+Ovim je tvrdnja dokazana.
+
+%\RES{04.zad.9} {\it Baza indukcije.} Za $n=2$ dobija se $(1+x)^2=1+2x+x^2>1+2x$, \v sto jeste ta\v cno jer je $x$ pozitivan broj.
+%
+%{\it Induktivna hipoteza.} Pretpostavimo da je $(1+x)^k>1+kx$ za neko $k\in\mathbb N$.
+%
+%{\it Induktivni korak.} Poka\v zimo sada tvrdnju zadatka za $n=k+1$. 
+%\begin{align*}
+%(1+x)^{k+1}&=(1+x)^k(1+x)> (1+kx)(1+x)\\
+%&=1+(k+1)x+kx^2> 1+(k+1)x
+%\end{align*}
+%Ovim je tvrdnja zadatka pokazana za svaki prirodan broj $n$.
+
+\RES{04.zad.10}
+{\it Baza indukcije.} Po\v sto je najmanji mogu\' ci broj temena nekog mnogougla $3$, dovoljno je primetiti da je zbir unutra\v snjih uglova svakog trougla jednak $180^\circ$. Ovo zaista jeste ta\v cno, kao \v sto je navedeno i u tekstu zadatka.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je zbir unutranjih uglova svakog konveksnog $k$-tougla jednak $(k-2)\cdot 180^\circ$ za neko $k\geq 3$.
+
+{\it Induktivni korak.} Neka je $A_1A_2\cdots A_{k+1}$ $k+1$-tougao. Kao \v sto je re\v ceno u tekstu zadatka, poznato je da dijagonala konveksnog mnogougla deli mnogougao na dva konveksna mnogougla; tada je zbir unutra\v snjih uglova konveksnog mnogougla jednak sumi zbirova unutra\v snjih uglova ta dva manja mnogougla. Posmatrajmo dijagonalo $A_1A_k$ posmatranog mnogougla. Ona ga deli na trougao $\triangle A_1A_kA_{k+1}$ i $k$-tougao $A_1A_2\cdots A_k$. Na osnovu svega re\v cenog, i na osnovu indukcijske hipoteze, zbir uglova $k+1$-tougla je $180^\circ+(k-2)\cdot 180^\circ=(k-1)\cdot 180^\circ$, \v cime je dokazana tvrdnja zadatka.
+
+\RES{04.zad.11}
+Poka\v zimo da tvrdnja zadatka va\v zi za svako $n$ koje je stepen broja $2$, tj. da va\v zi za svaku tablu dimenzija $2^k$ za svako $k\in\mathbb N$.
+
+{\it Baza indukcije.} Neka je $k=1$, tj. $n=2$. Tada je posmatrana tabla dimenzija $2\times 2$, a iz nje kad se ise\v ce jedno polje, ostatak o\v cigledno mo\v ze da se pokrije jednom datom plo\v cicom oblika $L$.
+
+{\it Induktivna hipoteza.} Pretpostavimo da svaka tabla dimenzije $2^k$ sa jednim ise\v cenim poljem mo\v ze da se poplo\v ca plo\v cicama oblika $L$.
+
+{\it Induktivni korak.} Posmatrajmo tablu dimenzije $2^{k+1}\times 2^{k+1}$ iz koje je ise\v ceno jedno polje. Podelimo tu tablu na \v cetiri manje table dimenzije $2^k\times 2^k$. Tada je ono jedno ise\v ceno polje u jednoj od te \v cetiri manje table. Dalje, mo\v zemo postaviti plo\v cicu oblika $L$ u sredi\v ste velike table tako da ona pokrije po jedno polje od preostale tri manje table. Na ovaj na\v cin su dobijene \v cetiri table dimenzija $2^k\times 2^k$ iz kojih je izvu\v ceno po jedno polje. Na osnovu indukcijske hipoteze, svako od njih mo\v ze da se poplo\v ca figurama oblika $L$. Na ovaj na\v cin, polazna figura mo\v ze da se poplo\v ca datim plo\v cicama oblika $L$.
+
+\RES{04.zad.12}{
+\begin{enumerate}[(a)]
+\item {\it Baza indukcije.} Za $n=1$, tvrdnja zadatka o\v cigledno va\v zi.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je \[\neg(p_1\wedge p_2\wedge ...\wedge p_k)\equiv \neg p_1\vee\neg p_2\vee ...\vee\neg p_k\] za neko $k\geq 1$.
+
+{\it Induktivni korak.} Poka\v zimo da tvrdnja zadatka va\v zi i za $n=k+1$. Koriste\' ci De Morganov zakon i indukcijsku hipotezu, dobijamo slede\' ce.
+\begin{align*}
+\neg(p_1\wedge p_2\wedge \cdots\wedge p_k\wedge p_{k+1})&\equiv \neg\big((p_1\wedge p_2\wedge\cdots\wedge p_k)\wedge p_{k+1}\big)\\
+&\equiv \neg (p_1\wedge p_2\wedge \cdots\wedge p_k)\vee \neg p_{k+1}\\
+&\equiv \neg p_1\vee\neg p_2\vee \cdots\vee\neg p_n
+\end{align*}
+\item {\it Baza indukcije.} Za $n=1$, iskazne formule su o\v igledno ekvivalentne.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je $p_1\Rightarrow(p_2\Rightarrow \cdots\Rightarrow(p_k\Rightarrow q)\cdots)\equiv p_1\wedge p_2\wedge \cdots\wedge p_k\Rightarrow q$ za neko $k\geq 1$.
+
+{\it Induktivni korak.} Poka\v zimo da tra\v zena ekvivalencija va\v zi i za $n=k+1$, odnosno potrebno je pokazati ekvivalenciju
+\[p_1\Rightarrow(p_2\Rightarrow \cdots\Rightarrow(p_k\Rightarrow (p_{k+1}\Rightarrow q))\cdots)\equiv p_1\wedge p_2\wedge \cdots\wedge p_k\wedge p_{k+1}\Rightarrow q.\]
+Na osnovu indukcijske hipoteze, gornja ekvivalencija va\v zi akko va\v zi ekvivalencija
+\[p_1\Rightarrow(p_2\wedge p_3\wedge \cdots \wedge p_k\wedge p_{k+1}\Rightarrow q)\equiv p_1\wedge p_2\wedge\cdots\wedge p_k\wedge p_{k+1}\Rightarrow q.\]
+Dalje, koriste\' ci tautologiju $\big(a\Rightarrow (b\Rightarrow c)\big)\Leftrightarrow \big(a\wedge b\Rightarrow c)$, kona\v cno zaklju\v cujemo da gornja ekvivalencija va\v zi, pa prema tome, va\v zi i zadata ekvivalencija. (Primetimo da je upravo primenjena tautologija predstavlja i ekvivalenciju koju dokazujemo u ovom zadatku za $n=2$.)
+\end{enumerate}
+
+\RES{04.zad.13}
+{\it Baza indukcije.} Razmotrimo slu\v caj kada je $n=1$. Jedna prava deli ravan na dva dela. Sa druge strane,
+\[\frac{1^2+1+2}2=2,\]
+\v cime je baza indukcije dokazana.
+
+{\it Induktivna hipoteza.} Pretpostavimo da bilo kojih $k$ pravih od kojih se svake dve seku i od kojih se nikoje tri ne seku u istoj ta\v cki dele ravan na $\frac{k^2+k+2}2$ delova.
+
+{\it Induktivni korak.} Neka su $p_1,p_2,\dots,p_k,p_{k+1}$ $k+1$ prava od kojih se svake dve seku i nikoje tri se ne seku u istoj ta\v cki. Na osnovu indukcijske hipoteze, prave $p_1,p_2,\dots,p_k$ dele ravan na $\frac{k^2+k+2}2$ delova. Primetimo da prava $p_{k+1}$ ima sa ostalim pravama ta\v cno $k$ prese\v cnih ta\v caka, \v sto zna\v ci da ostale prave dele pravu $p_{k+1}$ na $k+1$ deo. Dakle, ako posmatramo oblasti na koje prave  $p_1,p_2,\dots,p_k$ dele ravan, prava $p_{k+1}$ prolazi kroz ta\v cno $k+1$ oblast, i svaku od tih oblasti ona deli na dva dela. Prema tome, broj delova na koje prave $p_1,p_2,\dots,p_k,p_{k+1}$ dele ravan je za $k+1$ ve\' ci od broja delova na koje prave $p_1,p_2,\dots,p_k$ dele ravan. Na ovaj na\v cin, koriste\' ci indukcijsku hipotezu, dobijamo da je broj delova na koje $k+1$ posmatrana prava deli ravan jednak
+\[\frac{k^2+k+2}2+k+1=\frac{k^2+k+4}2=\frac{(k+1)^2+(k+1)+2}2.\]
+
+\RES{04.zad.14} Doka\v zimo da je 
+\[1+\frac 12+\frac 14+\cdots+\frac 1{2^n}=2-\frac 1{2^n}\]
+za svaki prirodni broj $n$.
+
+{\it Baza indukcije.} Za $n=1$ zadata jednakost postaje $1+\frac 12=2-\frac 12$, \v sto jeste ta\v cno, pa je baza indukcije pokazana.
+
+{\it Induktivna hipoteza.} Pretpostavimo da je za neko $k\in\mathbb N$
+\[1+\frac 12+\frac 14+\cdots+\frac 1{2^k}=2-\frac 1{2^k}.\]
+
+{\it Induktivni korak.} Poka\v zimo jednakost za $n=k+1$. Koriste\' ci indukcijsku hipotezu, dobijamo
+\[ 1+\frac 12+\frac 14+\cdots+\frac 1{2^k}+\frac 1{2^{k+1}}=2-\frac 1{2^k}+\frac 1{2^{k+1}}=2-1\frac 1{2^{k+1}}. \]
+Ovim smo dokazali da za svako $n\in\mathbb N$ va\v zi jednakost
+\[1+\frac 12+\frac 14+\cdots+\frac 1{2^n}=2-\frac 1{2^n}.\]
+Ovim je nejednakost
+\[1+\frac 12+\frac 14+\cdots+\frac 1{2^n}<2\]
+dokazana.
+
+%\RES{04.zad.15}
+%{\it Baza indukcije.} Za $n=1$, zadata jednakost o\v cigledno va\v zi.
+%
+%{\it Induktivna hipoteza.} Pretpostavimo da za $k\geq 1$ va\v zi
+%\[(\cos\theta+i\sin\theta)^k=\cos(k\theta)+i\sin(k\theta).\]
+%
+%{\it Induktivni korak.} Poka\v zimo da zadata jednakost va\v zi i za $n=k+1$. Koriste\' ci indukcijsku hipotezu i adicione formule, dobijamo slede\' ce.
+%\begin{align*}
+%(\cos\theta+i\sin\theta)^{k+1}&=(\cos\theta+i\sin\theta)^k(\cos\theta+i\sin\theta)\\
+%&=(\cos(k\theta)+i\sin(k\theta))(\cos\theta+i\sin\theta)\\
+%&=\cos(k\theta)\cos\theta-\sin(k\theta)\sin\theta+i(\sin(k\theta)\cos\theta+\cos(k\theta)\sin\theta)\\
+%&=\cos((k+1)\theta)+i\sin((k+1)\theta)
+%\end{align*}
+%Ovim je De Moavrova teorema dokazana.\footnote{NAPOMENA: Svi slede\' ci zadaci su iz totalne indukcije. Da li totalnu indukciju da ostavimo ili da je ipak izostavimo?}
+
+
+
+%   NIJE OVO POSTENO DATI, TREBA TU JOS DA SE PROIZVOD DVA SINUSA PRETVARA U ZBIR...
+%\RES{04.zad.16}
+%{\it Baza indukcije.} Za $n=1$, jednakost o\v cigledno va\v zi.
+%
+%{\it Induktivna hipoteza.} Pretpostavimo da je 
+%\[\sin\theta+\sin(3\theta)+\cdots+\sin((2k-1)\theta)=\frac{\sin^2(k\theta)}{\sin\theta}\]
+%za neko $k\in\mathbb N$.
+%
+%{\it Induktivni korak.} Poka\v zimo da zadata jednakost va\v zi i za $n=k+1$. Koriste\' ci indukcijsku hipotezu, dobijamo
+%\begin{align*}
+%&\sin\theta+\sin(3\theta)+\cdots+\sin((2k-1)\theta)+\sin((2k+1)\theta)\\
+%&= \frac{\sin^2(k\theta)}{\sin\theta}+\sin((2k+1)\theta)\\
+%&=\frac{\sin^2(k\theta)+\sin\theta\sin((2k+1)\theta)}{\sin\theta}
+%\end{align*}
+%
+%{
+%Dokazati da je:
+%\[\sin\theta+\sin(3\theta)+\cdots+\sin((2n-1)\theta)=\frac{\sin^2(n\theta)}{\sin\theta}\]
+%za svako $n\in\mathbb N$ i za svako $\theta$ za koje je $\sin\theta\neq 0$.
+%
+%}
+
+%\RES{04.zad.17}{
+%Dokazati da se svaki prirodan broj $n\geq 2$ mo\v ze zapisati kao proizvod prostih brojeva.
+%}
+%
+%\RES{04.zad.18}{
+%Dokazati da prostih brojeva ima beskona\v cno mnogo.
+%}
+
+\RES{04.zad.19}{
+Neka Jocina po\v starina iznosi $n$ centi. Doka\v zimo tvrdnju zadatka totalnom indukcijom po $n$.
+
+{\it Baza indukcije.} Ako Joca treba da plati 8, 9, ili 10 centi, on to mo\v ze da u\v cini markicama od po $3$ i $5$ centi po\v sto je
+\begin{align*}
+8&=5+3,\\
+9&=3+3+3\text{ i}\\
+10&=5+5.
+\end{align*}
+Ovde je bilo neophodno da baza indukcije obuhvati proveru tvrdnje zadatka i za brojeve 9 i 10, za \v sta \' ce se videti razlog u induktivnom koraku.
+
+{\it Induktivna hipoteza.} Neka je $k\geq 8$ prirodan broj, i pretpostavimo da Joca mo\v ze da plati  po\v starinu u iznosu od $l$ centi, za svako $l$ takvo da je $8\leq l\leq k$.
+
+{\it Induktivni korak.} Poka\v zimo da Joca mo\v ze da plati po\v starinu ako je $n=k+1$. Za $k+1\leq 10$, tvrdnja je ta\v cna na osnovu baze indukcije, pa pretpostavimo dalje da je $k+1>10$, odnosno $k\geq 10$. Tada je $(k+1)-3\geq 8$ i $(k+1)-3=k-2\leq  k$. Prema induktivnoj hipotezi, Joca mo\v ze da plati $k-2$ centi za po\v starinu. Sledi da on mo\v ze da plati i $k+1=(k-2)+3$ centi za po\v starinu tako \v sto \' ce dati jednu dodatnu markicu od $3$ centa.
+
+Sada mo\v zemo i da vidimo za\v sto smo u bazi indukcije proveravali tvrdnju zadatka za tri vrednosti broja $n$, a ne samo za najmanju mogu\' cu vrednost broja $n$. Naime, ne bismo mogli dokazati da Joca mo\v ze da plati po\v starinu od 9 ili 10 centi koriste\' ci \v cinjenicu da on mo\v ze da plati po\v starinu od 8 centi. Zato su i ove dve vrednosti morale da se provere u bazi indukcije.
+}
+
+\RES{04.zad.20}{
+Dokaz sli\v can kao re\v senje zadatka \ref{Joca-sa-postarinom}.
+}
+
+\RES{04.zad.21}{
+Ivica sla\v ze slagalicu. Slagalica se sla\v ze tako \v sto se spajaju dva komada slagalice tako da oni sa\v cine blok, dodavanjem komada slagalice ve\' cem bloku, ili spajanjem dva bloka. Ako Ivicina slagalica ima 500 blokova, dokazati da \' ce je Ivica slo\v ziti u 499 koraka. 
+
+Doka\v zimo totalnom indukcijom da se slaganje bloka slagalice od $n$ deli\' ca sla\v ze u $n-1$ koraku.
+
+{\it Baza indukcije.} Ako blok slagalice ima samo jedan deli\' c, tada se on sla\v ze u $n-1=0$ koraka jer, u ovom slu\v caju, nema deli\' ca koji bi se trebali spajati.
+
+{\it Indukciona hipoteza.} Neka je $k$ prirodan broj, i pretpostavimo da se blok slagalice sa $l$ deli\' ca, gde je $l\leq k$, sla\v ze u $l-1$ koraku.
+
+{\it Indukcioni korak.} Posmatrajmo blok slagalice koji ima $k+1$ deli\' c. Potrebno je dokazati da je za njegovo slaganje Ivici potrebno $k$ koraka. Pretpostavimo da je Ivica slagao ovu slagalicu, i da je on u svom poslednjem koraku spajao dva manja bloka od $m$ deli\' ca i $k+1-m$ deli\' ca. Po\v sto je $m\leq k$ i $k+1-m\leq k$, na osnovu indukcione hipoteze sledi da se ta dva bloka slagalice sla\v zu u $m-1$ i $k-m$ koraka. Prema tome, Ivici je za slaganje dela slagalice od $k+1$ deli\' ca bilo potrebno $(m-1)+(k-m)+1=k$ koraka.
+
+Ovim je dokazano da Ivica da blok slagalice od $n$ deli\' ca sla\v ze u $n-1$ koraku. Prema tome, ako Ivicina cela slagalica ima 500 deli\' ca, on bi nju slo\v zio u 499 koraka.
+}
+
+\RES{05.zad.1}
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $\{-2,-1,0,1,2,3\}$;
+\item $\{-4,-2,0,2,8,16\}$;
+\item $\{ -\frac{\sqrt 3}2,\frac 12,0,\frac{\sqrt 3}2,1 \}$;
+\item $\{ 3,6,9,12,\dots \}$;
+\item $\{ 1,4,9,16,25,\dots \}$;
+\item $\{ -2,\frac 13 \}$; 
+\item $\{ \frac 13 \}$;
+\item $\{ -2,-1,0 \}$;
+\item $\emptyset$;
+\item $\{ \frac 12,1,\frac 32,\frac 52,\dots \}$;
+\item $\{ 2,6,12,20,30,\dots \}$;
+\item $\{ 1,2,3,5,7,11,\dots \}$.
+\end{enumerate}
+\end{multicols}
+
+\RES{05.zad.2}
+\begin{enumerate}[(a)]
+\item $\{ x\in\mathbb N :  x\leq 5 \}$;
+\item $\{ x\in\mathbb N :  3\mid x\wedge x\leq 30 \}$;
+\item $\{ 2n-1 :  n\in\mathbb N \}$;
+\item $\{ n\in\mathbb N\setminus\{1\} : (\forall k\in\mathbb N)(k\mid n\Rightarrow k\in\{1,n\}) \}$;
+\item $\{ x\in\mathbb N :  x\leq 18\wedge \NZD(n,18)\neq 1 \}$;
+\item $\{ 2x^2 :  x\in\mathbb N \}$;
+\item $\{ x^2+y^2 :  x\in\mathbb N\wedge y\in\mathbb N \}$.
+\end{enumerate}
+
+\RES{05.zad.3}
+\begin{enumerate}[(a)]
+\item Ta\v cno, $2$ je element zadatog skupa.
+\item Neta\v cno, $\{2\}$ nije element zadatog skupa.
+\item Neta\v cno, $2$ nije skup, pa nije podskup posmatranog skupa.
+\item Ta\v cno. $2$ je jedini element skupa $\{2\}$, i on je element zadatog skupa. 
+\item Ta\v cno, $\emptyset$ je podskup svakog skupa.
+\item Ta\v cno, $\emptyset$ je element posmatranog skupa. 
+\item Neta\v cno, nula nije skup.
+\item Ta\v cno.
+\end{enumerate}
+
+\RES{05.zad.4}
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $x\not\in A$ i $x\subseteq A$;
+\item $x\in A$ i $x\not\subseteq A$;
+\item $x\not\in A$ i $x\subseteq A$;
+\item $x\in A$ i $x\subseteq A$;
+\item $x\not\in A$ i $x\not\subseteq A$;
+\item $x\not\in A$ i $x\not\subseteq A$.
+\end{enumerate}
+\end{multicols}
+
+\clearpage
+
+\RES{05.zad.5}
+Primetimo da je $A=\{2,4,6,8,10\}$.
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $A \cup B=\{ 2,3,4,5,6,8,10 \}$;
+\item $A \cap D=  \emptyset$;
+\item $\overline{B \cup C}=\{ 1,2 \}$;
+\item $A \cap (B \cup D)=\{ 4,6,8,10 \}$;
+\item $B \cap(\overline A \cup\overline D)=\{3, 4, 5, 6\}$; % ovaj je razlicit u odnosu na vezbe.
+\item $(\overline{C \cap D}) \cup B=\{ 1, 2, 3, 4, 5, 6, 8, 10\}$;
+\item $\overline B\cap\overline C$=\{ 1,2 \};
+\item $A \setminus (B \cap \overline C)=\{ 2, 8, 10 \}$;
+\item $(A \setminus B)\cup (D \setminus C)=\{ 1, 2, 3, 5, 8, 10 \}$;
+\item $\overline {D \setminus C}=\{ 2, 4, 6, 7, 8, 9, 10 \}$;
+\item $(\overline A \cup \overline B) \setminus (\overline{A \cup B})=\{ 2, 3, 5, 8, 10 \}$;
+\item $( \overline C \setminus A)\cup (A \setminus\overline C)=\{1, 3, 5, 8, 10 \}$. % i ovaj je razlicit u odnosu na vezbe
+\end{enumerate}
+\end{multicols}
+
+\RES{05.zad.6}
+\begin{enumerate}[(a)]
+\item Neka je $x$ proizvoljan element. Tada dobijamo slede\' ce.
+\begin{align*}
+x\in\overline{A\cup B} &\text{ akko } x\not\in A\cup B\text{ akko }\neg(x\in A\vee x\in B)\\
+&\text{ akko }x\not\in A\wedge x\not\in B\text{ akko } x\in\overline A\cap\overline B
+\end{align*}
+Ovim je zadata skupovna jednakost dokazana.
+\item Ova jednakost dokazuje se sli\v cno kao prethodna.
+\item Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
+\begin{align*}
+x\in A\setminus(A\cap B)&\text{ akko } x\in A\wedge x\not\in A\cap B\text{ akko } x\in A\wedge\neg(x\in A\wedge x\not\in B)\\
+&\text{ akko }x\in A\wedge \neg(x\not\in A\vee x\in B)\\
+&\text{ akko }(x\in A\wedge x\not\in A)\vee(x\in A\vee x\not\in B)\\
+&\text{ akko }\bot \vee(x\in A\vee x\not\in B)\text{ akko }(x\in A\vee x\not\in B)\\
+&\text{ akko }x\in A\setminus B
+\end{align*}
+Ovim smo zadatu skupovnu jednakost pokazali.
+\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce.
+\begin{align*}
+x\in A \cap (B \setminus C)&\text{ akko }x\in A\wedge x\in B\setminus C\text{ akko } x\in A\wedge (x\in B \wedge x\not\in C)\\
+&\text{ akko }(x\in A\wedge x\in B )\wedge x\not\in C\text{ akko }x\in (A\cap B)\setminus C
+\end{align*}
+Ovim je jednakost dokazana.
+\item Neka je element $x$ proizvoljan. Tada dobijamo slede\' ce.
+\begin{align*}
+x\in A \cup (B \cap C)&\text{ akko } x\in A\vee(x\in B\wedge x\in C)\\
+&\text{ akko }(x\in A\vee x\in B)\wedge (x\in A\vee x\in C)\\
+&\text{ akko }x\in (A\cup B)\cap(A\cup C)
+\end{align*}
+Ovim je zadata jednakost pokazana.
+\item Neka je $x$ proizvoljan. Tada va\v zi slede\' ce.
+\begin{align*}
+x\in (A \cup B) \setminus C&\text{ akko }(x\in A\vee x\in B)\wedge x\not \in C\\
+&\text{ akko }(x\in A\wedge x\not\in C)\vee(x\in B\wedge x\not\in C)\\
+&\text{ akko }x\in (A \setminus C) \cup (B \setminus C)
+\end{align*}
+Ovim je jednakost dokazana.
+\item Neka je $x$ proizvoljan element. Onda dobijamo slede\' ce.
+\begin{align*}
+x\in  (A \cup B) \setminus (\overline A \cap C)&\text{ akko } (x\in A\vee x\in B)\wedge\neg (x\not\in A\wedge x\in C)\\
+&\text{ akko } (x\in A\vee x\in B)\wedge (x\in A\vee x\not\in C)\\
+&\text{ akko } x\in A\vee (x\in B\wedge x\not\in C)\\
+&\text{ akko } x\in A\cup(V\setminus C)
+\end{align*}
+Ovim je zadata jednakost dokazana.
+\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce.
+\begin{align*}
+x\in A \setminus (B \cup C)&\text{ akko }x\in A\wedge\neg (x\in B\vee x\in C)\\
+&\text{ akko }x\in A\wedge (x\not\in B\wedge x\not\in C)\\
+&\text{ akko }(x\in A\wedge x\not\in B)\wedge x\not\in C\\
+&\text{ akko }x\in(A \setminus B) \setminus C
+\end{align*}
+Ovim je tvrdnja zadatka dokazana.
+\end{enumerate}
+
+\RES{05.zad.7}
+Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
+\begin{align*}
+&x\in (A\cap B)\triangle(A\cap C)\\
+&\text{ akko }\big[ x\in A\wedge x\in B \wedge \neg (x\in A\wedge x\in C) \big]\vee \big[ x\in A\wedge x\in C\wedge \neg (x\in A\wedge x\in B)   \big] \\
+&\text{ akko }\big[ x\in B\wedge x\in A \wedge (x\not\in A\vee x\not\in C) \big]\vee \big[ x\in C\wedge x\in A\wedge (x\not\in A\vee x\not\in B)   \big] \\
+&\text{ akko }\big[ x\in B\wedge \big((x\in A \wedge x\not\in A)\vee (x\in A \wedge x \not\in C)\big) \big]\\
+&\ \ \ \ \ \ \ \ \ \ \ \ \vee \big[ x\in C\wedge \big((x\in A\wedge x\not\in A)\vee (x\in A \wedge  x\not\in B)\big)   \big] \\
+&\text{ akko }\big[ x\in B\wedge x\in A \wedge x \not\in C \big]\vee \big[ x\in C\wedge x\in A \wedge  x\not\in B   \big] \\
+&\text{ akko }x\in A\wedge \big[ (x\in B\wedge x\not\in C)\vee (x\in C\wedge x\not\in B)    \big]\\
+&\text{ akko }x\in A\cap(B\triangle C)
+\end{align*}
+Ovim je prva tvrdnja zadatka pokazana.
+
+Poka\v zimo sada da druga jednakost ne va\v zi. Primetimo da za $A=\{a\}$ i $B=C=\emptyset$ va\v zi da
+\begin{align*}
+&a\in A\cup (B\triangle C),\text{ ali da}\\
+&a\not\in (A\cup B)\triangle(A\cup C).
+\end{align*}
+Dakle, nije ta\v cno da jednakost $A\cup (B\triangle C)=(A\cup B)\triangle(A\cup C)$ va\v zi za sve skupove $A$, $B$ i $C$.
+
+\RES{06.zad.2}{
+Ozna\v cimo sa $U$ skup svih anketiranih u\v cenika, i neka su $N$, $K$ i $P$ skupovi svih u\v cenika koji igraju igre na Nintendu, kompjuteru i PlayStationu, redom. Prema postavke zadatka je
+\begin{align*}
+\lvert U\rvert&=1000, & \lvert N\rvert&=275\text{ i}\\
+\lvert K\rvert&=455, & \lvert P\rvert&=405.
+\end{align*}
+Dalje, po\v sto $256$ u\v cenika ne igra igre ni na jednoj od tri navedene platforme, sledi da je
+\[ \lvert K\cup N\cup P\rvert = 735.  \]
+Tako\dj e, postavkom zadatka dato je i
+\begin{align*}
+\lvert K\cap N\rvert&=145,\\
+\lvert K\cap P\rvert&=195\text{ i}\\
+\lvert N\cap P\rvert &=110.
+\end{align*}
+Na osnovu Principa uklju\v cenja-isklju\v cenja sledi
+\begin{align*}
+ 735&=\lvert K\cup N\cup P\rvert\\
+ &=\lvert K\rvert+\lvert N\rvert+\lvert P\rvert-\lvert K\cap N\rvert -\lvert K\cap P\rvert-\lvert N\cap P\rvert+\lvert K\cap N\cap P\rvert\\
+ &=685+\lvert K\cap N\cap P\rvert,
+\end{align*}
+\v sto povla\v ci
+\[ \lvert K\cap N\cap P\rvert=50. \]
+Ovim smo odgovorili na pitanje (a). Sada je i na ostala pitanja lak\v se dati odgovore, i njih ostavljamo \v citaocu za ve\v zbu.
+}
+
+\RES{06.zad.1}{
+Ovaj zadatak ostavljamo \v citaocu za ve\v zbu, a re\v sava se na sli\v can na\v cin kao i zadatak \ref{prvi-iz-uklj-isklj}.
+}
+
+\RES{06.zad.3}{
+Ozna\v cimo sa $G$, $N$ i $U$ skupove svih \v clanova Gradske biblioteke, Narodne biblioteke i Univerzitetske biblioteke, redom. Na osnovu postavke zadatka imamo slede\' ce.
+\begin{align*}
+\lvert G\rvert&=4200	&\lvert G\cap N \rvert&=700\\
+\lvert N\rvert&=4500	&\lvert G\cap U \rvert&=1100\\
+U&\subseteq G\cup N      & \lvert N\cap U \rvert&=2800
+\end{align*}
+
+Odredimo najpre broj gra\dj ana koji su \v clanovi bar jedne biblioteke. Po\v sto je $U\subseteq G\cup N$, tada je $G\cup N=G\cup N\cup U$, pa na osnovu principa uklju\v cenja-isklju\v cenja sledi
+\[ \lvert G\cup N\cup U\rvert=\lvert G\cup N\rvert=\lvert G\rvert+\lvert N\rvert -\lvert G\cap\ N\rvert=8000 \]
+
+Kako bismo odgovorili na pitanje (b), uvedimo slede\' ce oznake.
+\begin{align*}
+x&=\lvert N\setminus (G\cup U)\rvert\\
+y&=\lvert G\cap N\cap U\rvert
+\end{align*}
+Iz postavke zadatka sledi $\lvert G\setminus(N\cup U)\rvert=2x$. Izrazimo sada $x$ na dva razli\v cita na\v cina.
+\begin{align*}
+x&=\lvert N\setminus (G\cup U)\rvert=\lvert N\rvert-\lvert N\cap U\rvert-\rvert N\cap G\rvert+\lvert G\cap N\cap U\rvert=1000+y\\
+2x&=\lvert G\setminus(N\cup U)\rvert=\lvert G\rvert-\lvert G\cap N\rvert-\rvert G\cap U\rvert+\lvert G\cap N\cap U\rvert=2400+y
+\end{align*}
+Ovim dobijamo sistem linearnih jedna\v cina
+\begin{align*}
+x-y&=1000\\
+2x-y&=2400
+\end{align*}
+Re\v savanjem gornjeg sistema jedna\v cina dobijamo $x=1400$ i $y=400$. Dakle, postoji 400 gra\dj ana koji su \v clanovi sve tri biblioteke.
+}
+
+% \RES{06.zad.4}{
+% Proveriti koji od slede\' cih skupova \v cine particije skupa $\{2,3,7,9,10\}$:
+% \begin{enumerate}[(a)]
+% \item Ne, jer je $3$ element dva podskupa;
+% \item Da;
+% \item Ne, jer $4$ nije element skupa $A$;
+% \item Da;
+% \item Ne, jer $2$, $3$, $7$, $9$ i $10$ nisu skupovi;
+% \item Da;
+% \item Ne, jer $9$ nije sadr\v zan ni u jednom podskupu;
+% \item Ne, jer postoji prazan blok.
+% \end{enumerate}
+% }
+
+% \RES{06.zad.5}{
+% Proveriti koji od slede\' cih skupova \v cine particije skupa $\mathbb Z$:
+% \begin{enumerate}[(a)]
+% \item  Skupovi $\{1,2\}$ i $\{2,3\}$ sadr\v zani su u familiji podskupova, pa po\v sto oni nisu disjunktni, familija skupova $\{\{n,n+1\} :  n\in\mathbb Z\}$ ne \v cini particiju od $\mathbb Z$.
+% \item Zadata familija nije particija skupa $\mathbb Z$ jer $0$ nije sadr\v zana ni u jednom njegovom skupu.
+% \item Ozna\v cimo familiju $\{\{-n,n\} :  n\in\mathbb N\}$ sa $\mathcal A$. Poka\v zimo da $\mathcal A$ jeste particija skupa $\mathbb Z$. Naime, svaki ceo broj $\mathbb Z$ sadr\v zan je u skupu $\{-\lvert z\rvert,\lvert z\rvert\}$. Pored toga, primetimo da su skupovi $\{-n,n\}$ i $\{-m,m\}$ disjunktni ako su $n$ i $m$ razli\v citi. Prema tome, svaka dva razli\v cita skupa iz $\mathcal A$ jesu disjuntna, a po\v sto je i unija svih skupova iz $\mathcal A$ jednaka $\mathbb Z$, ta familija i jeste particija skupa $\mathbb Z$.
+% \item Zadata familija nije particija skupa $z$ zato \v sto nisu svi skupovi disjunktni. Na primer, $\{2,4,8\}$ i $\{4,16,64\}$ su dva razli\v cita skupa posmatrane famije koja nisu disjunktna.
+% \item Primetimo da je $\{2n :  n\in\mathbb Z\}$ skup svih parnih celih brojeva i da je $\{2n+1 :  n\in\mathbb Z\}$ skup svih neparnih celih brojeva. Po\v sto je svaki ceo broj ili paran ili neparan, sledi da je  $\{\{2n :  n\in\mathbb Z\},\{2n+1 :  n\in\mathbb Z\}\}$ particija skupa celih brojeva.
+% \item Neka je $\mathcal A=\{\{n,-2n,-2n-1\} :  n\in\mathbb N_0\}$. Doka\v zimo da je $\mathcal A$ particija skupa $\mathbb Z$.
+
+% Najpre poka\v zimo da je svaki ceo broj sadr\v zan u bar jednom skupu familije $\mathcal A$. Ako je $z>0$, tada je $z\in\{z,-2z,-2z-1\}$. Za $z\leq 0$ posmatramo dva slu\v caja: kada je $z$ paran, odnosno neparan broj. Ako je $z$ paran broj, tada $z\in \{ -\frac z2, z,z-1 \}$, a po\v sto $-\frac z2\in\mathbb N_0$, onda $\{ -\frac z2, z,z-1 \}\in\mathcal A$. Ako je $z$ neparan, tada $z\in\{-\frac {z+1}2,z+1,z\}$, i po\v sto $-\frac{z+1}2\in\mathbb N_0$, sledi $\{-\frac {z+1}2,z+1,z\}\in\mathcal A$. Ovim je pokazano da je unija svih skupova iz $\mathcal A$ jednaka $\mathcal Z$.
+
+% Poka\v zimo jo\v s da su svaka dva razli\v cita skupa familije $\mathcal A$ disjunktna. Primetimo da su skupovi $P=\{n,-2n,-2n-1\}$ i $Q=\{m,-2m,-2m-1\}$ za $n\neq m$ razli\v citi; $P$ i $Q$ sadr\v ze ta\v cno po jedan pozitivan element, i to su $n$ i $m$, redom, a $n$ i $m$ su razli\v citi. Dodatno, ako je $n<m$, tada je i $-2n>-2n-1>-2m>-2m-1$, \v cime je pokazano da skupovi $A$ i $B$ sadr\v ze sve razli\v cite nepozitivne elemente. Ovim je pokazano da su $A$ i $B$ disjunktni. Ovim je pokazano da je $\mathcal A$ particija skupa $\mathbb Z$. 
+% \end{enumerate}
+% }
+
+\RES{06.zad.6}
+\begin{enumerate}[(a)]
+\item $\{(3,b)\}$;
+\item $\{(3,b) \}$;
+\item $\emptyset$;
+\item $\{(1,a),(1,b),(2,a),(2,b),(3,a),(3,b),(3,c),(4,b),(4,c) \}$.
+\end{enumerate}
+
+%\RES{06.zad.7}
+%Grafi\v cki predstaviti skupove iz prethodnog zadatka ako su skupovi $A$, $B$, $X$ i $Y$ intervali realnih brojeva $[1,4]$, $[3,5]$, $[1,5]$ i $[2,7]$, redom.\footnote{Ovo da nacrtam, da li u Tikzu ili druga\v cije...}
+
+% \RES{06.zad.8}
+% \begin{enumerate}[(a)]
+% \item Primetimo da su elementi skupova s obe strane jednakosti ure\dj eni parovi. Prema tome, dovoljno je pokazati da svaki ure\dj eni par pripada skupu $A\times(X\cap Y)$ ako i samo ako pripada skupu $(A\times X)\cap(A\times Y)$. Zato, pretpostavimo da su skupovi $x$ i $y$ nezavisni. Tada va\v zi slede\' ce.
+% \begin{align*}
+% (x,y)\in A\times(X\cap Y)&\text{ akko }x\in A\wedge y\in X\cap Y\\
+% &\text{ akko }x\in A\wedge y\in X\wedge y\in Y\\
+% &\text{ akko }(x\in A\wedge y\in X)\wedge (x\in A\wedge y\in Y)\\
+% &\text{ akko }(x,y)\in A\times X\wedge (x,y)\in A\times  Y\\
+% &\text{ akko }(x,y)\in (A\times X)\times( A\times  Y)
+% \end{align*}
+% Ovim je zadata jednakost dokazana.
+% \item Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce.
+% \begin{align*}
+% (x,y)\in A\times(X\cup Y)&\text{ akko }x\in A\wedge (y\in X\vee y\in Y)\\
+% &\text{ akko }(x\in A\wedge y\in X)\vee (x\in A\wedge y\in Y)\\
+% &\text{ akko }(x,y)\in A\times X\vee (x,y)\in A\times Y\\
+% &\text{ akko }(x,y)\in (A\times X)\cup(A\times Y)
+% \end{align*}
+% Ovim je zadata jednakost dokazana.
+% \end{enumerate}
+
+\RES{06.zad.9}
+\begin{enumerate}[(a)]
+\item Poka\v zimo da data skupovna jednakost va\v zi. Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce.
+\begin{align*}
+(x,y)\in (A\times X)\cap(B\times Y)&\text{ akko }(x\in A\wedge y\in X)\wedge (x\in B\wedge y\in Y)\\
+&\text{ akko }(x\in A\wedge x\in B)\wedge (y\in X\wedge y\in Y)\\&
+\text{ akko }(x,y)\in (A\cap B)\times(X\cap Y)
+\end{align*}
+Ovim je jednakost $(A\times X)\cap(B\times Y)=(A\cap B)\times(X\cap Y)$ dokazana.
+\item Neka je $A=\{a\}$, $B=\{b\}$, $X=\{x\}$ i $Y=\{y\}$. Tada
+\begin{align*}
+&(a,y)\in(A\cup B)\times(X\cup Y),\text{ a}\\
+&(a,y)\not\in (A\times X)\cup(B\times Y).
+\end{align*}
+Prema tome, ne va\v zi data jednakost.
+
+Poka\v zimo da va\v zi $(A\times X)\cup(B\times Y)\subseteq (A\cup B)\times(X\cup Y)$. Neka su $x$ i $y$ proizvoljni. Tada va\v zi slede\' ce.
+\begin{align*}
+&(x,y)\in (A\times X)\cup(B\times Y)\text{ akko }(x\in A\wedge y\in X)\vee(x\in B\wedge y\in Y)\\
+&\text{ akko }(x\in A\vee x\in B)\wedge (x\in A\vee y\in Y)\wedge (y\in X\vee x\in B)\wedge (y\in X\vee y\in Y)\\
+&\text{ sledi }(x\in A\vee x\in B)\wedge  (y\in X\vee y\in Y)\\
+&\text{ akko }(x,y)\in (A\cup B)\times (X\cup Y)
+\end{align*}
+Ovim je inkluzija pokazana.
+\end{enumerate}
+
+
+\RES{06.zad.10}
+\begin{enumerate}[(a)]
+\item Elementi skupa $P=\big((A\setminus B)\times X\big)\times M$ ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in\setminus A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
+% Elementi skupova $\big((A\setminus B)\times X\big)\times M$ i $\big((A\times X)\setminus(B\times X)\big)\times M$ su ure\dj eni parovi $(u,z)$.
+Prema tome, da bismo dokazali datu skupovnu jednakost, potrebno je dokazati da element $((x,y),z)$ pripada $L$ akko $((x,y),z)$ pripada skupu $D$. 
+
+Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' ce.
+\begin{align*}
+&((x,y),z)\in \big((A\times X)\setminus(B\times X)\big)\times M\\
+&\text{ akko } (x,y)\in (A\times X)\setminus(B\times X)\wedge z\in M \\
+&\text{ akko }(x\in A\wedge y\in X\wedge\neg(x\in B\wedge y\in X))\wedge z\in M\\
+&\text{ akko }x\in A\wedge y\in X\wedge(x\not\in B\vee y\not\in X)\wedge z\in M\\
+&\text{ akko }x\in A\wedge \big((y\in X\wedge x\not\in B)\vee(y\in X\wedge y\not\in X)\big)\wedge z\in M\\
+&\text{ akko }x\in A\wedge y\in X\wedge x\not\in B\wedge z\in M\\
+&\text{ akko }(x\in A\wedge x\not\in B)\wedge y\in X\wedge z\in M\\
+&\text{ akko }((x,y),z)\in (A\setminus B)\times X\times M
+\end{align*}
+Ovim je zadata skupovna jednakost dokazana.
+\item Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce.
+\begin{align*}
+&(x,y)\in (A\times X)\setminus\big((A\times Y)\cup(B\times X)\big)\\
+&\text{ akko }x\in A\wedge y\in X\wedge\neg ((x\in A\wedge y\in Y)\vee (x\in B\vee y\in X))\\
+&\text{ akko }x\in A\wedge y\in X\wedge \neg (x\in A\wedge y\in Y)\wedge \neg(x\in B\wedge y\in X)\\
+&\text{ akko }x\in A\wedge (x\not\in A\vee y\not\in Y)\wedge y\in X\wedge (x\not\in B\vee y\not\in X)\\
+&\text{ akko }\big[(x\in A\wedge x\not\in A)\vee (x\in A\wedge y\not\in Y)\big]\\
+&\ \ \ \ \ \ \ \ \ \ \ \wedge \big[ (y\in X\wedge x\not\in B)\vee(y\in X\wedge y\not\in X)  \big]\\
+&\text{ akko }x\in A\wedge y\not\in Y\wedge y\in X\wedge x\not\in B\\
+&\text{ akko }x\in A\setminus B\wedge y\in X\setminus Y\\
+&\text{ akko }(x,y)\in (A\setminus B)\times(X\setminus Y)
+\end{align*}
+Ovim je zadata jednakost dokazana.
+\end{enumerate}
+
+\RES{07.zad.1}{
+Naravno, za svaku navedenih re\v cenica mogu\' ce je na vi\v se na\v cina konstruisati odgovaraju\' cu predikatsku formulu. Ovde \' cemo za neke od zadatih re\v cenica navesti i vi\v se od jedne predikatske formule.
+\begin{enumerate}[(a)]
+\item $(\exists n\in\mathbb Z)(2\mid n)$;
+
+$(\exists n)(n\in\mathbb Z\wedge 2\mid n)$;
+\item $(\forall n\in\mathbb N)(n\mid n)$;
+
+$(\forall n)(n\in\mathbb N\Rightarrow n\mid n)$;
+\item $(\exists n\in\mathbb Z)(3\mid n)$;
+\item $(\forall n\in\mathbb N)(-1\mid n)$;
+\item $(\exists n\in\mathbb N)(\forall m\in\mathbb N)(n\neq m^2)$;
+\item $\neg (\exists n\in\mathbb N)(\forall m\in\mathbb N)(n\geq m)$;
+
+$(\forall n\in\mathbb N)(\exists m\in\mathbb N)(n<m)$.
+\end{enumerate}
+}
+
+\RES{07.zad.2}{
+\begin{enumerate}[(a)]
+\item \enquote{Svaki racionalni broj je kvadrat nekog racionalnog broja.}
+
+Ovaj iskaz nije ta\v can. Na primer, $2$ nije kvadrat racionalnog broja.
+\item \enquote{Za svaki prirodan broj $x$ postoji ceo broj $y$ takav da je $x>y$ i $x\mid y$.}
+
+Drugim re\v cima, \enquote{svaki prirodan broj  je delitelj nekog celog broja koji je manji od njega}.
+
+Ovaj iskaz jeste ta\v can. Na primer, za svaki broj $n$ mogu\' ce je odabrati ceo broj $-2n$; broj $-2n$ jeste manji od $n$ i deljiv je brojem $n$, \v cime smo potvrdili da je data re\v cenica ta\v cna.
+\item \enquote{Svaki ceo broj je delitelj nekog celog broja koji je manji od njega.}
+
+Ovaj iskaz nije ta\v can jer za $x=0$ ne postoji ceo broj $y$ manji od $0$ takav da $0\mid y$. Nijedan ceo broj nije deljiv nulom.
+\item \enquote{Za svaki racionalni broj $x$ postoji racionalni broj $y$ takav da je proizvod $x\cdot y=\sqrt 2$.}
+
+Ovaj iskaz nije ta\v can jer za $x=0$ sledi $x\cdot y=0$, pa je $x\cdot y\neq \sqrt 2$.
+\item \enquote{Za svaki pozitivan racionalni broj $x$ postoji racionalni broj $y$ takav da je proizvod $x\cdot y=\sqrt 2$.}
+
+Ovaj iskaz nije ta\v can jer je proizvod bilo koja dva racionalna broja racionalan broj. Primetimo da smo na isti na\v cin mogli i u zadatku (d) da obrazlo\v zimo za\v sto zadati iskaz nije ta\v can.
+\item \enquote{Za svaki racionalni broj $x$ postoji racionalni broj $y$ takav da je $x+y=\sqrt 2$.}
+
+Ovaj iskaz nije ta\v can jer je zbir bilo koja dva racionalna broja racionalni broj.
+\end{enumerate}
+}
+
+\RES{07.zad.3}{
+Ovde \' cemo re\v siti samo neke od zadataka, dok ostale ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}[(a)]
+\item \enquote{Za svaki prirodan broj $x$ postoji prirodan broj $y$ takav da je $y<x$}.
+
+Drugim re\v sima, \enquote{za svaki prirodan broj postoji prirodan broj manji od njega.}
+
+Ovaj iskaz nije ta\v can, ne postoji prirodan broj manji od 1.
+\item \enquote{Za svaki prirodan broj $x$ postoji prirodan broj $y$ takav da je $y<x+1$.}
+
+Ovaj iskaz je ta\v can. Za svaki prirodan broj $x$ mogu\' ce je odabrati prirodan broj $y=x$, i u tom slu\v caju va\v zi $y<x+1$.
+\item \enquote{Postoje realni brojevi $x$ i $y$ takvi da je $y< x<y^2$.}
+
+Ovaj iskaz je ta\v can. Na primer, va\v zi $2<3<2^2$.
+\item $(\forall x\in\mathbb Q)(\exists y\in \mathbb Q)(x\cdot y\in\mathbb Z)$;
+\item $(\forall x\in\mathbb Q^+)(\exists y\in \mathbb Z)(x\cdot y\in\mathbb Z)$;
+\item $(\forall x\in \mathbb R)(\exists y\in\mathbb R)(0<x\cdot y\wedge x\cdot y<2)$;
+\item[(g)] \enquote{Za svaka dva racionalna broja $x$ i $y$ postoji racionalni broj $z$ takav da je $x\leq z\leq y$ ili $y\leq z\leq x$.}
+
+Ovaj iskaz je ta\v can jer je mogu\' ce odabrati da je racionalni broj $\displaystyle z=\frac{x+y}2$, i u tom slu\v caju je ispunjen bar jedan od uslova $x\leq z\leq y$ i $y\leq z\leq x$.
+\item[(j)] \enquote{Postoji ceo broj $x$ takav da za svaki ceo broj $y$ va\v zi $y+x\cdot y=0$.}
+
+Ako transformi\v semo gornji izraz, dobijamo $y+x\cdot y=y(1+x)$. Sada lako prime\' cujemo da je $x=-1$ ispunjen uslov $y+x\cdot y=0$ za svaki ceo broj $y$.
+\end{enumerate}
+}
+
+\RES{07.zad.4}{
+Ovde \' cemo postupno re\v siti zadake (a) i (g), dok ostale ostavljamo za ve\v zbu.
+\begin{enumerate}[(a)]
+\item 
+\begin{align*}
+&\neg(\forall x)\big[  R(x)\Rightarrow(\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
+&\equiv (\exists x)\neg\big[  R(x)\Rightarrow(\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
+&\equiv (\exists x)\big[  R(x)\wedge\neg (\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
+&\equiv (\exists x)\big[  R(x)\wedge (\forall y)\neg\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
+&\equiv (\exists x)\big[  R(x)\wedge (\forall y)\big[ \neg\big((\forall z)S(z)\big)\wedge  P(y)      \big]     \big]\\
+&\equiv (\exists x)\big[ R(x)\wedge (\forall y)\big[ \big((\exists z)\neg S(z)\big)\wedge P(y) \big]   \big]
+\end{align*}
+\item[(g)]
+\begin{align*}
+&\neg(\forall x)\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
+&\equiv(\exists x)\neg\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
+&\equiv(\exists x)\big[(\exists y)S(x,y)\Rightarrow\neg(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
+&\equiv(\exists x)\big[(\exists y)S(x,y)\Rightarrow(\exists y)\big[\neg R(y)\wedge \neg S(x,y)\big] \big]\\
+\end{align*}
+
+\end{enumerate}
+}
+
+\RES{10.zad.1}{
+{\it Prvi na\v cin.} Neka je
+\begin{align*}
+F_1&=(\forall x)(P(x)\Rightarrow \neg Q(x)),& F_2&=(\exists x)R(x),\\
+F_3&=(\forall x)(R(x)\Rightarrow P(x)),& F_4&=(\exists x)(R(x)\wedge\neg Q(x)).
+\end{align*}
+Konstrui\v simo model za predikatsku formulu $F=F_1\wedge F_2\wedge F_2\wedge F_4$. Bi\' ce neophodno odrediti domen $D$ i zna\v cenja predikata $P$, $Q$ i $R$ za koje \' ce sve formule $F_1$, $F_2$, $F_3$ i $F_4$ biti ta\v cne. U ovom slu\v caju, predikati $P$, $Q$ i $R$ bi\' ce unarne relacije na skupu $D$.
+
+Neka $D$ sadr\v zi element $a$, a kako bi $F_2$ bila ta\v cna, uzmimo da va\v zi $R(a)$. Dalje, kako bi $F_3$ bila ta\v cna, neophodno je da va\v zi i $R(a)$. Sli\v cno, da bi i $F_1$ bila ta\v cna formula, ne sme da va\v zi $Q(a)$. U ovom slu\v caju je i $F_4$ ta\v cna. Na ovaj na\v cin konstruisan je model \v ciji je domen $D=\{a\}$ i \v ciji predikati $P$, $Q$ i $R$ imaju slede\' ca zna\v cenja.
+\begin{align*}
+P(x)&\leadsto x\in\{a\}\\
+Q(x)&\leadsto x\in\emptyset\text{, tj. }Q\text{ je prazna relacija}\\
+R(x)&\leadsto x\in\{a\}
+\end{align*}
+
+\noindent {\it Drugi na\v cin.} Mogu\' ce je prona\' ci i model formule $\mathcal F=F_1\wedge F_2\wedge F_2\wedge F_4$ i na skupu prirodnih brojeva takav da predikati $P$, $Q$ i $R$ predstavljaju poznate unarne relacije na skupu prirodnih brojeva. Kao \v sto smo ranije primetili, bar jedan element treba da ima svojstvo $R$, svaki element koji ima svojstvo $R$ mora imati svojstvo $P$, a i svaki element koji ima svojstvo $P$ ne sme imati svojstvo $Q$. Ovo se posti\v ze za slede\' ca zna\v cenja predikata na skupu $\mathbb N$.
+\begin{align*}
+P(x)&\leadsto 2\mid x\\
+Q(x)&\leadsto 2\mathrel{\not|} x\\
+R(x)&\leadsto 4\mid x
+\end{align*}
+}
+
+\RES{10.zad.2}{
+{\it Prvi na\v cin.} Da bismo dokazali da predikatska formula nije valjana, potrebno je prona\' ci prezentaciju za koju ona nije ta\v cna. Ekvivalentno, potrebno je prona\' ci model njene negacije. Negiranjem date formule dobijamo
+\[(\forall x)(A(x)\Rightarrow B(x))\wedge(\exists x)A(x)\wedge(\exists x)\neg B(x).\]
+Uvedimo slede\' ce oznake.
+\begin{align*}
+F_1=(\forall x)(A(x)\Rightarrow B(x)) && F_2=(\exists x)A(x) && F_3=(\exists x)\neg B(x)
+\end{align*}
+
+Dalje, neka je $D$ domen, i neka $a\in D$. Da bi $F_2$ bila ta\v cna, neophodno je da va\v zi $A(a)$. Dalje, da bi $F_1$ bila ta\v cna, neophodno je da va\v zi i $B(a)$. Sada, da bi i $F_3$ bila ta\v cna, neophodno je da domen $D$ sadr\v zi i elememt $b$ takav da nije $B(b)$. Na ovaj na\v cin, konstruisan je kontramodel polazne formule, \v ciji je domen $D=\{a,b\}$ \v ciji su predikati $A$ i $B$ imaju slede\' ca zna\v cenja.
+\begin{align*}
+A(x)&\leadsto x\in\{a\}\\
+B(x)&\leadsto x\in\{a\}
+\end{align*}
+Ovim je dokazano da zadata formula nije valjana.
+
+\noindent {\it Drugi na\v cin.} Jedan kontramodel zadate formule je sa domenom $\mathbb N$ i u kome predikati $A$ i $B$ imaju slede\' ca zna\v cenja.
+\begin{align*}
+A(x)&\leadsto 6\mid x\\
+B(x)&\leadsto 2\mid x
+\end{align*}
+Ovim smo pokazali da zadataka formula nije valjana.
+}
+
+\RES{10.zad.3}{
+\begin{enumerate}[(a)]
+\item Zadata predikatska formula ekvivalentna je sa
+\[F=(\exists x)\big(  P(x)\wedge (\exists y)\big(P(y)\wedge    Q(x)\wedge Q(y) \wedge  (\exists z) \neg P(z)  \big)\big).\]
+Neka je $a$ element domena $D$. Najpre uo\v cavamo da za bar jedan element $x$ mora da va\v zi $P(x)$ da bi predikatska formula bila ta\v cna. Neka va\v zi $P(a)$. Sli\v cno, da bi $F$ bila ta\v cna, neophodno da je da bar jedan element domena ima svojstvo $Q$. Neka je $b$ element domena takav da va\v zi $Q(b)$. Tako\dj e, neophodno je i da postoji element $c$ takav da va\v zi $P(c)$. Dalje, ukoliko ne bi va\v zilo i $P(b)$ i $Q(a)$, formula $F$ ne bi bila ta\v cna. Zato, neka va\v zi $P(b)$ i $Q(a)$. Na ovaj na\v cim smo konstruisali jedan model formule $F$, \v ciji je domen $D=\{a,b,c\}$ i u kome predikati $P$ i $Q$ imaju slede\' ca zna\v cenja.
+\begin{align*}
+P(x)&\leadsto x\in\{a,b\}\\
+Q(x)&\leadsto x\in\{a,b\}
+\end{align*}
+\item Da bismo pokazali da formula nije valjana, najpre je negirajmo, \v cime dobijamo
+\[(\forall x)\big(  P(x)\Rightarrow(\forall y)\big(P(y)\Rightarrow   ( Q(x)\Rightarrow\neg Q(y) ) \vee (\forall z) P(z)  \big)\big).\]
+Primetimo da, kako bi zadata predikatska formula bila ta\v cna, dovoljno je da $P$ ne va\v zi ni za jedan element domena. Prema tome, jedan model predikatske formule ima domen $D=\{a\}$ i slede\' ca zna\v cenja predikata $P$ i $Q$.
+\begin{align*}
+P(x)&\leadsto x\in\emptyset\\
+Q(x)&\leadsto x\in\{a\}
+\end{align*}
+Ovim je pokazano da zadata formula nije valjana.
+\end{enumerate}
+}
+
+
+\RES{10.zad.4}{
+\begin{enumerate}[(a)]
+\item Ako odaberemo skup $\mathbb Z$ za domen predikata, i predikatu $R(x,y)$ dodelimo zna\v cenje \enquote{$x\leq y$}, time smo konstruisali model date predikatske formule.
+\item Neka je domen skup interpretacije $\mathbb N$, a predikatima $R$ i $T$ dodelimo slede\' ca zna\v cenja.
+\begin{align*}
+R(x,y,z)&\leadsto x\leq 2y\leq 3z\\
+T(x,y,z)&\leadsto x=y=z=0
+\end{align*}
+Ovim smo konstruisali model za datu formulu.
+\item Jedan model date predikatske formule je sa domenom $\mathbb Q$ i u kome predikat $R(x,y)$ ima zna\v cenje \enquote{$x<y$}.
+\end{enumerate}
+}
+
+\RES{10.zad.5}{Re\v simo zadatke (c) i (d), pri \v cemu ostale ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}[(a)]
+\item[(c)] Negiranjem date formule dobijamo
+\[ (\exists x)(\forall y)(\forall z)\big( P(x)\wedge\big( \neg P(y)\vee \neg P(z)\vee  Q(y,z )      \big)   \big). \]
+Jedan model ove formule mo\v zemo konstruisati tako \v sto odaberemo za domen skup $\mathbb N$, za predikat $P(x)$ odaberemo zna\v cenje $x=1$, i za predikat $Q(x,y)$ odaberemo zna\v cenje $(x,y)\in\mathbb N\times\mathbb N$.
+\item[(d)] Negiranjem date predikatske formule dobijamo
+\[  (\forall x)(\forall y)\big(\big(S(x,y)\vee R(x,y)\big)\wedge (\forall z)\big(S(x,z)\wedge S(z,y)\wedge R(x,y)\Rightarrow T(x,y)\big)\big).  \]
+Neka domen interpretacije predstavlja skup $\mathbb N$. Dalje, neka predikati $S$, $R$ i $T$ imaju slede\' ca zna\v cenja.
+\begin{align*}
+R(x,y)&\leadsto x\leq y\\
+S(x,y)&\leadsto y\leq x\\
+T(x,y)&\leadsto x=y
+\end{align*}
+Ovim je konstrisan model date predikatske formule.
+\end{enumerate}
+}
+
+\RES{10.zad.6}{Re\v si\' cemo zadatak (b). Ostale ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}[(b),wide, labelindent=0pt]
+\item[(d)] Neka je
+\begin{align*}
+F_1&=\{(\forall x)(P(x)\wedge Q(x)\Rightarrow S(x)),\\
+F_2&=(\forall x)(T(x)\Rightarrow S(x)),\\
+F_3&=(\exists x)(P(x)\wedge\neg Q(x)),\\
+F_4&=(\exists x)(Q(x)\wedge\neg P(x)\text{ i}\\
+F_5&=(\exists x)(S(x)\wedge\neg T(x))\}.
+\end{align*}
+Konstrui\v simo postepeno model za formulu $F=F_1\wedge F_2\wedge F_3\wedge F_4\wedge F_5$. Neka je $D$ domen, i neka $a\in D$. Da bi $F_3$ i $F_4$ bile ta\v cne, neka va\v zi $P(a)$, i neka za neko $b\in D$ va\v zi $Q(b)$. Dalje, kako bi i $F_5$ bila ta\v cna, neka za neko $c\in D$ va\v zi $S(c)$. Na ovaj na\v cin konstruisali smo model za dati skup formula \v ciji je domen $D=\{a,b,c\}$, i u kome predikati imaju slede\' ca zna\v cenja.
+\begin{align*}
+P(x)&\leadsto x\in\{a\}\\
+Q(x)&\leadsto x\in\{b\}\\
+S(x)&\leadsto x\in\{c\}\\
+T(x)&\leadsto x\in\emptyset
+\end{align*}
+Drugim re\v cima, $a$ je jedini element domena za koji va\v zi $P$, $b$ je jedini element za koji va\v zi $Q$, $c$ je jedini element za koji va\v zi $S$. Tako\dj e, $T$ ne va\v zi ni za jedan element domena. Zbog toga, i jer ni za jedan element domena ne va\v zi i $P$ i $Q$, formule $F_1$ i $F_2$ su tako\dj e ta\v cne.
+\end{enumerate}
+}
+
+
+
+\RES{08.zad.1}{
+\begin{enumerate}[(a)]
+\item Da bismo pokazali da refleksivnost i simetri\v cnost ne impliciraju tranzitivnost, konstruisa\' cemo relaciju koja je refleksivna i simetri\v cna, ali nije i tranzitivna. Posmatrajmo nad skupom $\{a,b,c\}$ relaciju $\rho=\{(a,a),(a,b),(b,a),\allowbreak (b,b),\allowbreak(b,c),\allowbreak(c,b),\allowbreak(c,c)\}$. Relacija $\rho$ je i refleksivna i simetri\v cna, ali nije i tranzitivna jer je $a\mathrel\rho b$ i $b\mathrel\rho c$, a nije $a\mathrel\rho c$. 
+
+Umesto gorenavedenog primera, mogli smo i konstruisati relaciju $\sigma$ nad skupom $\mathbb N$ takvu da je $x\mathrel\sigma y$ akko
+$\lvert x-y\rvert\leq 1$. Lako se vidi da je $\sigma$ simetri\v cna i tranzitivna relacija, a po\v sto je $1\mathrel\sigma 2$ i $2\mathrel\sigma 3$, a nije $1\mathrel\sigma 3$, relacija $\sigma$ nije i tranzitivna.
+\item Relacija $\leq$ na skupu $\mathbb N$ je refleksivna i tranzitivna relacija, a nije simetri\v cna.
+\item Prazna relacija je istovremeno i tranzitivna, i simetri\v cna, ali nije refleksivna. 
+\item Prazna relacija je simetri\v cna, antisimetri\v cna i tranzitivna, ali nije refleksivna.
+\item Neka je $\rho$ relacija na skupu $A$ koja je simetri\v cna i antisimetri\v cna. Neka su $x,y,z\in A$ proizvoljni elementi, i neka va\v zi $x\mathrel\rho y$ i $y\mathrel\rho z$. Po\v sto je relacija $\rho$ simetri\v cna, sledi $y\mathrel\rho x$ jer je $x\mathrel\rho y$. Dalje, po\v sto je $\rho$ antisimetri\v cna, onda $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$. Napokon, po\v sto je $x=y$ i $y\mathrel\rho z$, sledi $x\mathrel\rho z$. Kako su $x$, $y$ i $z$ proizvoljni elementi, sledi da pokazana implikacija va\v zi za bilo koja tri, ne obavezno razli\v cita, elementa $x$, $y$ i $z$ skupa $A$. Ovim je dokazano da je relacija $\rho$ tranzitivna. 
+\end{enumerate}
+}
+
+\RES{08.zad.2}{
+\begin{enumerate}[(a)]
+\item Prika\v zimo graf relacije $\rho$.
+\begin{center}
+\input samir8-2.pgf
+\end{center}
+\item {\it Refleksivnost.} Graf relacije $\rho$ nad svakim elementom ima petlju, \v sto nam govori da za svaki element $x$ va\v zi $x\mathrel\rho x$ na osnovu \v cega zaklju\v cujemo da je $\rho$ refleksivna relacija.
+
+{\it Simetri\v cnost.} Relacija $\rho$ je simetri\v cna, \v sto vidimo po tome \v sto njen graf nema nijednu \enquote{jednosmernu strelicu}, odnosno sve strelice su \enquote{dvosmerne}.
+Drugim re\v cima, sa grafa se lako uo\v cava da ne postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$, a da nije $y\mathrel\rho x$.
+
+{\it Antisimetri\v cnost.} Relacija $\rho$ nije antisimetri\v cna, \v sto zaklju\v cujemo po tome \v sto njen graf sadr\v zi dvosmerne strelice, odnosno postoje elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Na primer, takvu su elementi 1 i 4.
+
+{\it Tranzitivnost.} Relacija $\rho$ jeste i tranzitivna. Posmatraju\' ci njen graf, to mo\v zemo zaklju\v citi na slede\' ci na\v cin. Ne postoje tri razli\v cita elementa $x$, $y$ i $z$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho z$. Pored toga, postoje razli\v citi elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$, \v sto iz grafa zapa\v zamo po dvosmernim strelicama, ali i u tom slu\v caju va\v zi $x\mathrel\rho x$. Drugim re\v cima, gde god imamo dvosmernu strelicu izme\dj u elemenata $x$ i $y$, postoje i petlje nad elementima $x$ i $y$.
+\item Relacija $\rho$ je relacija ekvivalencije jer je refleksivna, simetri\v cna i tranzitivna. Ona me\dj utim nije i relacija poretka jer nije antisimetri\v cna. 
+\end{enumerate}
+}
+
+\RES{08.zad.3} Ovaj zadatak ostavljamo \v citaocu za ve\v zbu.
+
+\RES{08.zad.4}{
+\begin{enumerate}[(a)]
+\item Prika\v zimo graf relacije $\rho$.
+\begin{center}
+\input samir8-4.pgf
+\end{center}
+\item {\it Refleksivnost.} Zadata relacija nije refleksivna, \v sto sa grafa mo\v zemo zaklju\v citi po tome \v sto nema nad svakim elementom petlje. Na primer, nema petlje nad elementom $1$.
+
+{\it Simetri\v cnost.} Prime\' cujemo na grafu relacije $\rho$ da on ima jednosmerne strelice, kao na primer izme\dj u 1 i 0, na osnovu \v cega zaklju\v cujemo da $\rho$ nije simetri\v cna relacija.
+
+{\it Antisimetri\v cnost.} Na osnovu toga \v sto graf relacije $\rho$ ima dvosmernu strelicu izme\dj u elemenata 0 i 5 zaklju\v cujemo da relacija $\rho$ nije antisimetri\v cna.
+
+{\it Tranzitivna.} Na grafu relacije $\rho$ lako uo\v cavamo da va\v zi $0\mathrel\rho 5$ i $5\mathrel\rho 4$, ali ne va\v zi $0\mathrel\rho 4$. Na osnovu ovoga sledi da $\rho$ nije tranzitivna relacija.
+
+Osim toga, mogli smo primetiti i da postoji dvosmerna strelica izme\dj u elemenata 0 i 5, ali ne postoji petlja nad 5. Ovo tako\dj e povla\v ci da relacija $\rho$ nije tranzitivna relacija.
+\item Dovoljno je primetiti da relacija $\rho$ nije refleksivna da bismo zaklju\v cili da $\rho$ nije ni relacija ekvivalencije ni relacija poretka.
+\end{enumerate}
+}
+
+\RES{08.zad.5} Ovaj zadatak ostavljamo \v citaocu za ve\v zbu.
+
+\RES{08.zad.6}{
+\begin{enumerate}[(a)]
+\item Po\v sto $3\mid 0$ i $x-x=0$, sledi da je $x\mathrel\rho x$ za svako $x\in\mathbb N$, \v cime je pokazano da je $\rho$ refleksivna relacija.
+
+Dalje, ako je $x\mathrel\rho$ za $x,y\in\mathbb N$, tada $3\mid x-y$. Naravno, odatle sledi da je i $y-x$ deljivo sa $3$, \v sto povla\v ci i da je $y\mathrel\rho x$. Ovim je pokazano da je $\rho$ simetri\v cna relacija.
+
+Relacija $\rho$ nije antisimetri\v cna po\v sto postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Naime, $3$ i $6$ \v cine jedan par takvih brojeva, \v cime smo prona\v sli kontraprimer za antisimetri\v cnost.
+
+Kona\v cno, poka\v zimo da je $\rho$ i tranzitivna. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$ za proizvoljne $x,y,z\in\mathbb N$. Tada
+\begin{align*}
+x-y&=3k\text{ za neko }k\in\mathbb Z\text{ i}\\
+y-z&=3l\text{ za neko }l\in\mathbb Z.
+\end{align*} 
+Sabiranjem ove dve jednakosti dobijamo
+\[x-z=(x-y)+(y-z)=3k+3l=3(k+l),\]
+\v sto povla\v ci $x\mathrel\rho z$. Ovim je dokazano da je $\rho$ tranzitivna relacija.
+\item Relacija $\rho$ nije refleksivna. Naime, ako je $x\mathrel\rho x$, tada sledi $x=3^kx$ za neko $k\in\mathbb N$. Sledi da je $3^k=1$, \v sto ne va\v zi ni za jedan prirodan broj $k$.
+
+Relacija $\rho$ nije ni simetri\v cna. Naime, kako je $3=3^1\cdot 1$, sledi da je $3\mathrel\rho 1$. Sa druge strane, nije $1\mathrel\rho 3$ jer nije $3^k=\frac 13$ ni za jedan prirodan broj $k$. 
+
+Da bismo pokazali da je relacija antisimetri\v cna, pretpostavimo da za neke $x,y\in\mathbb N$ va\v zi $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno da je $x=3^ky$ za neko $k\in\mathbb N$ i $y=3^lx$ za neko $l\in\mathbb N$. Tada je $x=3^k(3^lx)=3^{k+l}x$, \v sto povla\v ci da je $k+l=0$, a to je nemogu\' ce po\v sto su $k$ i $l$ prirodni brojevi. Po\v sto smo pokazali da je nemogu\' ce da va\v zi $x\mathrel\rho y$ i $y\mathrel\rho x$ ni za koje prirodne brojeve $x$ i $y$, ovim je pokazano da je relacija $\rho$ antisimetri\v cna.
+
+Jo\v s jedan na\v cin da poka\v zemo da je relacija $\rho$ antisimetri\v cna bio bi slede\' ci. Primetimo da $x\mathrel\rho y$ implicira da je $x>y$. Prema tome, za ma koje prirodne brojeve $x$ i $y$, $x\mathrel\rho y$ i $y\mathrel\rho x$ implicira $x>y$ i $y>x$, \v sto je nemogu\' ce, \v cime je dokazano da je $\rho $ antisimetri\v cna.
+
+Primetimo i  da u gornjem dokazu antisimetri\v cnosti mi iz pretpostavke da je $x\mathrel\rho y$ i $y\mathrel\rho x$ nismo na kraju dobili $x=y$. Ovo ne predstavlja problem, jer mi smo demonstrirali da $x\mathrel\rho y$ i $y\mathrel\rho x$ nije ta\v cno, a samim tim je implikacija $x\mathrel\rho y\wedge y\mathrel\rho x\Rightarrow x=y$ ta\v cna za sve $x,y\in\mathbb N$.
+
+Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$. Tada je $x=3^ky$ i $y=3^lz$ za neke $k,l\in\mathbb N$. Odavde dobijamo $x=3^k(3^lz)=3^{k+l}z$, odakle sledi da je $x\mathrel\rho z$. Ovim je pokazano da je $\rho$ tranzitivna relacija. 
+
+\item Lako se uo\v cava da relacija $\rho$ nije refleksivna, da nije antisimetri\v cna, kao i da jeste simetri\v cna. Dalje, ona nije ni tranzitivna. Naime, va\v zi $1\mathrel\rho 2$ i $2\mathrel\rho 1$, a nije $1\mathrel\rho 1$.
+
+\item Relacija $\rho$ jeste refleksivna zato \v sto svaki broj jeste deljiv samim sobom. Po\v sto $1\mid 2$ i $2\mathrel{\not|} 1$, ova relacija nije i simetri\v cna.
+
+Da bismo pokazali da je $\rho$ antisimetri\v cna, primetimo da $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x\leq y$ i $y\leq x$, \v sto dalje implicira $x=y$. Ovim je antisimetri\v cnost dokazana.
+
+Poka\v zimo dalje da je relacija deljivosti tranzitivna. Prisetimo se definicije: $y$ je deljivo sa $x$, \v sto zapisujemo sa $x\mid y$, ako i samo ako postoji ceo broj $k$ takav da je $y=kx$. Pretpostavimo sada je da $x\mathrel\rho y$ i $y\mathrel\rho z$, odnosno $y\mid x$ i $z\mid y$. Tada je $x=ky$ i $y=lz$ za neke $k,l\in\mathbb Z$. Sledi da je $x=k(ly)=(kl)z$, \v sto povla\v ci da $z\mid x$, odnosno $x\mathrel\rho z$. Ovim je dokazano da je relacija $\rho$ tranzitivna.
+\end{enumerate}
+}
+
+\RES{08.zad.7}{
+\begin{enumerate}[(a)]
+\item Svaka prava je paralelna sa samom sobom, pa relacija $\rho$ jeste refleksivna. Tako\dj e je i simetri\v cna i tranzitivna. Kako je mogu\' ce odabrati dve razli\v cite prave koje su me\dj usobno paralelne, $\rho$ nije antisimetri\v cna.
+\item Nijedna prava nije normalna na samu sebe, odakle sledi da relacija $\rho$ nije refleksivna. Dalje, relacija $\rho$ jeste simetri\v cna, ali nije antisimetri\v cna. Kona\v cno, ako za neke prave $x$, $y$ i $z$ va\v zi $x\perp y$ i $y\perp z$, to ne povla\v ci da su i prave $x$ i $z$ me\dj usobno normalne. Dovoljno je odabrati me\dj usobno normalne prave $x$ i $y$ i pravu $z$ tako da se ona poklapa sa pravom $x$, i u tom slu\v caju prave nije $x\perp z$ iako je $x\perp y$ i $y\perp z$.
+\end{enumerate}
+}
+
+\RES{08.zad.8}{
+Po\v sto je $p\Rightarrow p$ tautologija, relacija $\rho$ je refleksivna.
+
+Dalje, da bismo pokazali da $\rho$ nije simetri\v cna relacija, posmatrajmo iskaze $p$ i $p\wedge q$. Iskaz $p\Rightarrow p\wedge q$ jeste tautolija, ali $p\wedge q\Rightarrow p$ nije, odnosno va\v zi $p\mathrel\rho p\wedge q$, dok $p\wedge q\mathrel\rho p$ ne va\v zi. Dakle, $\rho$ nije simetri\v cna relacija.
+
+Poznato nam je da postoje razli\v citi iskazi koji su ekvivalentni, kao na primer $\neg(p\wedge q)$ i $\neg p\vee\neg q$.  Tada va\v zi $\neg(p\wedge q)\mathrel\rho \neg p\vee\neg q$ i $\neg p\vee\neg q\mathrel\rho\neg(p\wedge q)$. Dakle, $\rho$ nije antisimetri\v cna.
+
+Konav\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke iskazne formule $x$, $y$ i $z$. Prisetimo se da je, za iskazne formule $u$ i $v$ iskazna formula $u\Rightarrow v$ tautologija ako i samo ako je $v(v)=\top$ za svaku valuaciju $v$ za koju je $v(u)=\top$. Neka je $v$ proizvoljna valuacija, i neka je $v(x)=\top$. Tada je i $v(y)=\top$, a ovo dalje povla\v ci da je i $v(z)=\top$. Ovim smo pokazali da je $x\Rightarrow z$ tautologija. Dakle, $\rho$ je tranzitivna relacija.
+}
+
+\RES{08.zad.10}{
+Za $\rho\cap\sigma$ je odgovor potvrdan za sve \v cetiri navedene osobine, \v sto se lako proverava po definiciji.
+
+Odgovorimo sada na pitanja za $\rho\cup\sigma$. Lako se uo\v cava da je unija dve refleksivne, odnosno simetri\v cne relacije, tako\dj e refleksivna, odnosno simetri\v cna, relacija. Unija dve antisimetri\v cne relacije ne mora biti antisimetri\v cna. Naime, unija relacija $\leq$ i $\geq$ nad skupom $\mathbb N$ je puna relacija, koja nije antisimetri\v cna. Poka\v zimo jo\v s da ni unija dve tranzitivne relacije ne mora biti tranzitivna. Unija relacija $<$ i $>$ nad skupom prirodnih brojeva \v cini relaciju $\neq$, a relacija $\neq$ nije tranzitivna.
+%
+%Kona\v cno, lako se pokazuje da je kompozicija dve refleksivne relacije je refleksivna. Kompozicija dve simetri\v cne relacije ne mora biti simetri\v cna. Naime, posmatrajmo relacije $\rho=\{(a,b),(b,a)\}$ i $\sigma=\{(b,c),(c,a)\}$ nad skupom $\{a,b,c\}$. Tada je $a\mathrel{\rho\circ\sigma}c$, pri \v cemu nije i $c\mathrel{\rho\circ\sigma}a$. Tako\dj e, ni kompozicija dve antisimetr\v cne relacije ne mora biti antisimetri\v cna. Primetimo da je kompozicija relacija $\leq\circ\geq$ nad $\mathbb N$ puna relacija, koja nije antisimetri\v cna. Da bismo demonstrirali da ni kompozicija tranzitivnih relacija ne mora biti tranzitivna, posmatrajmo relacije $\rho=\{(a,a),(b,c)\}$ i $\sigma=\{(a,b),(c,c)\}$ nad skupom $\{a,b,c\}$. Lako se prime\' cuje da relacija $\rho\circ\sigma=\{(a,b),(b,c)\}$ nije tranzitivna.
+}
+
+\RES{08.zad.9}{
+Odgovor je potvrdan za sve \v cetiri osobine. Dokaz ostavljamo \v citaocu za ve\v zbu.
+}
+
+\RES{08.zad.11}{
+\begin{enumerate}[(a)]
+\item Lako se uo\v cava da je relacija $\rho$ je refleksivna. Tako\dj e, relacija je $\rho$ je simetr\v cna jer
+\[ (x_1,y_1)\mathrel\rho (x_2,y_2)\text{ akko }x_1=x_2\text{ akko }(x_2,y_2)\mathrel\rho (x_1,x_2). \]
+Dalje, $\rho$ je i tranzitivna relacija jer $(x_1,y_1)\mathrel\rho (x_2,y_2)$ i $(x_2,y_2)\mathrel\rho(x_3,y_3)$ povla\v ci $x_1=x_2=x_3$, \v sto povla\v ci da je $(x_1,y_1)\mathrel\rho(x_3,y_3)$.
+
+Tako\dj e smo mogli i direktnije pokazati da je $\rho$ relacija ekvivalencije ako bismo uo\v cili da je ta\v cka u ravni u relaciji $\rho$ sa drugom ako i samo ako one obe le\v ze na istoj pravoj paralelnoj sa $y$-osom. Ovo pru\v za odgovor i na pitanje koje su klase ekvivalencije relacije $\rho$, to svaka klasa ekvivalencije je prava paralelna sa $y$-osom.
+\item Mogli bismo po definiciji dokazati da je relacija $\rho$ refleksivna, simetri\v cna i tranzitivna, ali ovo ostavljamo \v citaocu za ve\v zbu. Umesto toga, mi \' cemo pokazati da su dve ta\v cke ravni u relaciji ako i samo ako le\v ze na istoj pravoj \v ciji je koeficijent pravca $k=-1$. Neka $(x_1,y_1),(x_2,y_2)\in\mathbb R^2$ dve razli\v cite ta\v cke. Tada
+\begin{align*}
+(x_1,y_1)\mathrel\rho(x_2,y_2)&\text{ akko }x_1+y_1=x_2+y_2\\
+&\text{ akko }y_2-y_1=x_1-x_2=-(x_2-x_1)\\
+&\text{ akko }k=\frac{y_2-y_1}{x_2-x_1}=-1.
+\end{align*}
+Ovim je pokazano da je koeficijent pravca prave koja sadr\v zi razli\v cite ta\v cke $(x_1,y_1)$ i $(x_2,y_2)$ jednak $-1$.
+
+Pru\v zi\' cemo za ovo i elementarniji dokaz. Neka je $y=kx+n$ jedna\v cina prave odre\dj ene dvema razli\v citim ta\v ckama $(x_1,y_1)$ i $(x_2,y_2)$. Tada je
+\begin{align*}
+y_1&=kx_1+n\\
+y_2&=kx_2+n.
+\end{align*}
+Oduzimanjem ove dve jedna\v cine dobijamo
+\[ y_1-y_2=k(x_1-x_2).\]
+Sada uo\v cavamo da je
+\[(x_1,y_1)\mathrel\rho(x_2,y_2)\text{ akko } x_1+x_2=y_1+y_1\text{ akko }k=-1.\]
+
+Odavde direktno sledi da je $\rho$ relacija ekvivalencije, i da su njene klase ekvivalencije sve prave ravni $\mathbb R^2$ \v ciji je koeficijent pravca $-1$.
+\item Poznato je da je $\sqrt{x^2+y^2}$ jednako rastojanju ta\v cke $(x,y)\in\mathbb R^2$ od koordinatnog po\v cetka. Odatle vidimo da je ta\v cka $A$ u relaciji $\rho$ sa ta\v ckom $B$ akko su one jednako udaljene od koordinatnog po\v cetka. Sada je lako uo\v citi da je $\rho$ refleksivna, simetri\v cna i tranzitivna relacija. Kona\v cno, svaka njena klasa ekvivalencije je ili kru\v znica sa centrom u koordinatnom po\v cetku $O$, ili skup $\{O\}$ koji sadr\v zi samo koordinatni po\v cetak.
+\end{enumerate}
+}
+
+\RES{08.zad.12}{
+Sli\v cno kao u zadatku \ref{prethodni-zadatak} (b), mo\v ze se pokazati da su dve ta\v cke u relaciji $\rho$ akko le\v ze na istoj pravoj \v ciji je koeficijent pravca $k=1$. Odatle se lako uo\v cava da je $\rho$ refleksivna, simetri\v cna i tranzitivna relacija, mada ovo mo\v ze i direktno da se proveri po definiciji. Tako\dj e, po\v sto su dve ta\v cke u relaciji akko le\v ze na istoj pravoj \v ciji je koeficijent pravca jednak $1$, svaka klasa ekvivalencije je jedna takva prava.
+}
+
+\clearpage
+
+\RES{08.zad.13}{
+\begin{enumerate}[(a),wide,labelindent=0pt]
+\item Da bismo prebrojali koliko ima relacija ekvivalencije na skupu $\{a,b,c\}$, dovoljno je prebrojati koliko ovaj skup ima particija. Postoji samo jedna particija sa samo jednom klasom. Dalje, sa dve klase postoje tri particije, a sa tri klase posmatrani skup ima jednu particiju. Dakle, re\v senje je $1+3+1=5$.
+\item Sli\v cno kao i malopre, skup $\{a,b,c,d\}$ ima ta\v cno jednu particu sa samo jednom klasom, \v cetiri particije sa dve klase kardinalnosti 1 i 3, tri particije sa dve klase kardinalnosti $2$,  \v sest particija sa tri klase i jedna particija sa \v cetiri klase. Dakle, re\v senje je $1+4+3+6+1=15$.
+\end{enumerate}
+}
+
+\RES{09.zad.1}{
+Relacija deljivosti je refleksivna, antisimetri\v cna i tranzitivna na skupu prirodnih brojeva. Najmanji element je $1$ zato \v sto $1$ svaki prirodan broj, ali najve\' ci element ne postoji zato \v sto svaki prirodan broj deli neki prirodan broj ve\' ci od sebe.
+
+Relacija deljivosti na skupu celih brojeva je refleksivna i tranzitivna, ali nije antisimetri\v cna. Naime, $n\mid-n$ i $-n\mid n$ za svaki ceo broj $n$.
+}
+
+\RES{09.zad.2}{
+\begin{enumerate}[(a)]
+\item Relacija $\rho$ nije refleksivna jer nijedan skup nije strogi podskup sebe samog.
+\item Relacija $\rho$ nije antisimetri\v cna relacija, a kao kontraprimer mogu\' ce je odabrati bilo koja dva razli\v cita podskupa skupa $A$ iste kardinalnosti.
+\item Relacija $\rho$ nije antisimetri\v cna. Kao kontraprimer mogu\' ce je odabrati bilo koja dva razli\v cita cela broja jednaka po apsulutnoj vrednosti, kao npr. $2$ i $-2$.
+\item Relacija $\rho$ nije antisimetri\v cna, a kao primer mogu\' ce je izabrati bilo koja dva ure\dj ena para $(x,y_1$ i $(x,y_2)$, gde je $y_1\neq y_2$.
+\item Odgovor zavisi od izbora skupa $A$. Relacija $\rho$ je refleksivna, ali ne mora biti antisimetri\v cna - ukoliko postoje dve osobe od kojih je jedna vi\v za a druga starija. Sa druge srane, ako je svaki put osoba vi\v sa od dve osobe istovremeno i starija, onda je relacija tranzitivna. Tako\dj e, po\  sto ne postoje dve osobe iste visine, niti iste starosti, a i ne postoje dve osobe od kojih je jedna starija a druga vi\v sa, relacija $\rho$ je i antisimetri\v cna.
+\item Relacija $\rho$ nije antisimetri\v cna. Naime, $(1,2)$ i $(2,1)$ su dva razli\v cita elementa takva da je $(1,2)\mathrel\rho(2,1)$ i $(2,1)\mathrel\rho(1,2)$.
+\end{enumerate}
+}
+
+\RES{09.zad.3}{
+Odgovor je potvrdan. Neka $(x,y)\in A\times A$. Po\v sto je $\rho$ refleksivna relacija, va\v zi $x\mathrel\rho x$ i $y\mathrel\rho y$, a po definiciji relacije $\sigma$ sledi $(x,y)\mathrel\sigma(x,y)$.
+
+Poka\v zimo da je $\sigma$ antisimetri\v cna relacija. Neka je $(x_1,y_1)\mathrel\sigma(x_2,y_2)$ i $(x_2,y_2)\mathrel\sigma(x_1,y_1)$ za neke elemente $(x_1,y_1),(x_2,y_2)\in A\times A$. Tada je $x_1\mathrel\rho x_2$ i $x_2\mathrel\rho x_1$, \v sto povla\v ci $x_1=x_2$. Analogno zaklju\v cujemo i da je $y_1=y_2$, pa sledi $(x_1,y_1)=(x_2,y_2)$.
+
+Preostaje jo\v s samo da se poka\v ze tranzitivnost. Neka su $(x_1,y_1),(x_2,y_2),(x_3,y_3)\in A\times A$ takvi da je $(x_1,y_1)\mathrel\sigma(x_2,y_2)$ i $(x_2,y_2)\mathrel\sigma(x_3,y_3)$. Tada je $x_1\mathrel\rho x_2$ i $x_2\mathrel\rho x_3$, pa na osnovu distributivnosti relacije $\rho$ sledi $x_1\mathrel\rho x_3$. Analogno se pokazuje da je i $y_1\mathrel\rho y_3$, a odatle, po definiciji relacije $\sigma$ sledi $(x_1,y_1)\mathrel\sigma(x_2,y_2)$.
+}
+
+\RES{09.zad.4}{
+Relacija $\rho$ je refleksivna jer za svaki prirodan broj $x$ va\v zi $x=2^0x$.
+
+Poka\v zimo da je $\rho$ antisimetri\v cna relacija. Neka su $x$ i $y$ prirodni brojevi takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Tada je $x=2^ky$ i $y=2^lx$ za neke $k,l\in\mathbb N_0$. Dalje, odatle izvodimo $x=2^ky=2^k2^lx=2^{k+l}x$, odakle sledi $k+l=0$, odnosno $k=l=0$. Ovim smo pokazali da je $x=y$.
+
+Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka su $x$, $y$ i $z$ prirodni brojevi takvi da je $x\mathrel\rho y$ i $y\mathrel\rho z$. Tada je $x=2^ky$ i $y=2^lz$, \v sto implicira $x=2^{k+l}z$, \v cime smo pokazali da je $x\mathrel\rho z$.
+}
+
+\RES{09.zad.5}{
+Refleksivnost i tranzitivnost pokazuju se sli\v cno kao i u prethodnom zadatku. Poka\v zimo da je relacija $\rho$ je simetri\v cna. Neka je $x\mathrel\rho y$ za neke $x,y\in\mathbb N$. Tada je $x=2^ky$, odnosno $y=2^{-k}x$, \v sto povla\v ci $y\mathrel\rho x$. Ovim smo pokazali da je $\rho$ relacija ekvivalencije.
+}
+
+\RES{09.zad.6}{
+Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+}
+
+\RES{09.zad.8}{
+Re\v simo zadatke (b), (c) i (f). Ostale ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}
+\item[(b)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+
+\begin{center}
+\input samir9-7-b.pgf
+\end{center}
+Minimalni elementi su 2, 3 i 7, maksimalni elementi su 7, 6 i 8. Ne postoji ni najve\' ci ni najmanji element.
+\item[(c)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+\begin{center}
+\input samir9-7-c.pgf
+\end{center}
+
+Jedini minimalni element je 1, koji je ujedno i najmanji element, i 20 je jedini maksimalni element, koji je tako\dj e i najve\' ci element. 
+\item[(f)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+\begin{center}
+\input samir9-7-f.pgf
+\end{center}
+
+Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Jedini maksimalni element je 30, koji je i najve\' ci element.
+\end{enumerate}
+}
+
+
+\RES{09.zad.9}{
+\begin{center}
+\input samir9-8.pgf
+\end{center}
+
+Svi minimalni elementi su $(0,5)$, $(0,2)$, $(1,3)$ i $(2,5)$, svi maksimalni elementi su $(2,8)$, $(0,8)$, $(1,5)$ i $(1,8)$. Zadati ure\dj eni skup nema ni najve\' ci ni najmanji element.
+}
+
+\RES{09.zad.10}{
+\begin{enumerate}[(a)]
+\item Prika\v zimo najpre tra\v zeni graf relacije.
+\begin{center}
+\input samir9-9-a.pgf
+\end{center}
+\item {\it Refleksivnost.} Na osnovu definicije relacije $\rho$, $x=x$ o\v cigledno povla\v ci $x\mathrel\rho x$.
+
+{\it Simetri\v cnost.} Relacija $\rho$ nije simetri\v cna jer postoje elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i da nije $y\mathrel\rho x$. Na primer, va\v zi $1\mathrel\rho 2$ a nije $2\mathrel\rho 1$.
+
+{\it Antisimetri\v cnost.} Poka\v zimo da je relacije $\rho$ antisimetri\v cna. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$, i neka je $x\neq y$. Tada va\v zi $x\mid y$ i $y\mid x$, \v sto dalje povla\v ci $x\mid y$, \v cime smo dobili kontradikciju. Sledi da $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$.
+
+{\it Tranzitivnost.} Doka\v zimo da je $\rho$ tranzitivna relacija.Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke prirodne brojeve $x$, $y$ i $z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$, pa pretpostavimo dalje da je $x\neq y$ i $y\neq z$. Tada $x\mid y$ i $y\mid z$, odakle sledi $x\mid z$. Dalje, po\v sto je $x\mathrel y$, postoji prost broj $p$ takav da $p\mid y$ i $p\mathrel{\not|}x$. Po\v sto $p\mid y$ i $y\mid z$, sledi da $p\mid z$. Prema tome, postoji prost broj kojim je deljiv broj $z$, a kojim nije deljiv broj $x$. Ovim smo pokazali da je $x\mathrel\rho z$, \v cime je dokazanod a je relacija $\rho$ tranzitivna.
+\item Po\v sto je $\rho$ refleksivna, antisimetri\v cna i tranzitivna, ona je i relacija poretka, ali po\v sto nije simetri\v cna, ona nije relacija ekvivalencije.
+\item Prika\v zimo kona\v cno tra\v zeni Hase dijagram relacije $\rho$.
+\begin{center}
+\input samir9-9-d.pgf
+\end{center}
+
+Po\v sto relacija poretka $\rho$ ima elemenata koji nisu uporedivi, poput 2 i 3, sledi da ona nije i relacija totalnog poretka.
+\end{enumerate}
+
+
+\RES{09.zad.11}{
+\begin{enumerate}[(a)]
+\item Prika\v zimo najpre tra\v zeni graf relacije.
+\begin{center}
+\input samir9-10-a.pgf
+\end{center}
+\item {\it Refleksivnost.} Zbog uslova \enquote{$x=x$} u definiciji relacije $\rho$, ova relacija je refleksivna.
+
+{\it Simetri\v cnost.} Relacija $\rho$ nije simetri\v cna. Naime, dovoljno je primetiti da va\v zi $1\mathrel\rho 3$ i da nije $3\mathrel\rho 1$.
+
+{\it Antisimetri\v cnost.} Poka\v zimo da je $\rho$ antisimetri\v cna relacija. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$ za neke prirodne brojeve $x$ i $y$. Primetimo da $x\mathrel\rho y$ povla\v ci $x\leq y$. Prema tome, va\v zi $x\leq y$ i $y\leq x$, \v cime smo pokazali da je $x=y$.
+
+{\it Tranzitivnost.} Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$. Zato u nastavku pretpostavljamo da je $x\neq y$ i $y\neq z$. Po\v sto je $x\mathrel\rho y$, sledi $x\mid y$ i postoji prirodan broj $k$ takav da je $x\mid k$ i $y=kx$. Sli\v cno, $y\mid z$ i postoji prirodan broj $l$ takav da je $y\mid l$ i $z=ly$. Kona\v cno, primetimo da je $z=(kl)x$, kao i to da $x\mid kl$. Sledi $x\mathrel\rho z$, \v cime smo dokazali da je relacija $\rho$ tranzitivna.
+\item Relacija $\rho$ je relacija poretka jer je refleksivna, simetri\v cna i antisimetri\v cna, ali nije i relacija ekvivalencije jer nije simetri\v cna.
+\item Prika\v zimo kona\v cno tra\v zeni Hase dijagram relacije $\rho$.
+\begin{center}
+\input samir9-10-d.pgf
+\end{center}
+
+Relacija $\rho$ nije relacija totalnog poretka.
+\end{enumerate}
+}
+
+\RES{09.zad.12}{
+Relacije $\rho$ je relacija poretka koja nije i relacija ekvivalencije. Crtanje grafa i Hase dijagrama relacije $\rho$ ostavljamo \v citaocu za ve\v zbu, kao i dokaze da je ona refleksivna, antisimetri\v cna i tranzitivna, i da nije simetri\v cna. 
+}
+
+
+\RES{11.zad.1}{Napisa\' cemo re\v senja za neke od funkcija. Ostale ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}[(a)]
+\item 
+Prika\v zimo najpre funkciju $f$ putem dijagrama. Zatim \' cemo odrediti njen skup slika, i prikaza\' cemo $f$ kao podskup skupa $A\times A$.
+\begin{center}
+\input samir11-1-a.pgf
+\end{center}
+\begin{align*}
+f[A]&=\{4,5,6,7,8,9\}\\
+f&=\{(1,4),(2,4),(3,4),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9)\}
+\end{align*}
+
+Funkcija $f$ nije injekcija jer se na element $4$ kodomena slika vi\v se od jednog elementa domena, odnosno $f(1)=f(2)=4$. Funkcija $f$ nije ni sirjekcija jer postoji bar jedan element kodome u kojeg se nijedan element domena ne slika, odnosno nijedan element se ne slika ni u $1$, ni u $2$, ni u $3$.
+\item[(d)] Prika\v zimo najpre funkciju $f$ putem dijagrama. Zatim \' cemo odrediti njen skup slika, i prikaza\' cemo $f$ kao podskup skupa $A\times A$.
+\begin{center}
+\input samir11-1-d.pgf
+\end{center}
+\begin{align*}
+f[A]&=\{1,2,3,4,5,6,7\}\\
+f&=\{(1,3),(2,2),(3,1),(4,2),(5,3),(6,4),(7,5),(8,6),(9,7)\}
+\end{align*}
+Funkcija $f$ nije injekcija jer je $f(2)=2=f(4)$, a ni sirjekcija jer se nijedan element domena ne slika na $8$.
+\item[(f)] Prika\v zimo najpre funkciju $f$ putem dijagrama. Zatim \' cemo odrediti njen skup slika, i prikaza\' cemo $f$ kao podskup skupa $A\times A$.
+\begin{center}
+\input samir11-1-f.pgf
+\end{center}
+\begin{align*}
+f[A]&=A\\
+f(x)&=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9)\}
+\end{align*}
+Ova funkcija je i injekcija i sirjekcija. Injekcija je jer se ni koja dva razli\v cta elementa domena ne slikaju u isti element kodomena, a sirekcija je jer ne postoji element kodome u kojeg se ne slika nijedan element domena.
+\end{enumerate}
+}
+
+\RES{11.zad.2}{
+\begin{enumerate}[(a)]
+\item O\v cigledno funkcija $g(x)=x^2$ ima skup slika $[0,+\infty)$, a odatle sledi da je $f[\mathbb R]=[2,+\infty)$. Najpre, \v cigledno $f$ nije sirjektivna jer se u elemente kodomena manje od 2 ne slika nijedan element domena. Pored toga, $f$ nije ni injektivna jer je $f(1)=f(-1)$.
+
+Do ovih zaklju\v caka smo mogli do\' ci i poznaju\' ci \v cinjenicu da je grafik kvadratne funkcije parabola. Naime, po\v sto je njen grafik mogu\' ce prese\' ci pravom paralelnom sa $x$-osom koja bi ga presekla u vi\v se od jedne ta\v cke, funkcija nije injektivna. Tako\dj e, po\v sto postoji prava paralelna sa $x$-osom koja grafik funkcije $f$ ne bi presekla ni u jednoj ta\v cki, $f$ nije sirjektivna.
+\item Videli smo malopre da je skup slika funkcije $g(x)=x^2+2=[2,+\infty)$, a kako funkcija $h(x)=x^2$ slika interval $[2,+\infty)$ na interval $[4,+\infty)$, sledi da je $f[\mathbb R]=[4,+\infty)$. Ova funkcija nije sirjektivna jer se nijedan element domena ne slika ni u jednu vrednost manju od $4$, a nije ni injektivna jer je $f(-1)=f(1)$.
+\item[(d)] Poznato nam je da se funkcija $g(x)=x^2+1$ slika $\mathbb R$ na $[1,+\infty)$. Dalje, funkcija $h(x)=\frac 1x$ slika $[1,+\infty)$ na $(0,1]$, a kako je $f(x)=(h\circ g)(x)=h(g(x))$, sledi da je $f[\mathbb R]=(0,1]$. Po\v sto skup slika funkcije $f$ nije ceo skup $\mathbb R$, $f$ nije sirjektivna, a nije ni injektivna jer je $f(2)=f(-2)$, odnosno postoje dve razli\v cite vrednosti iz domena koje imaju jednake slike u kodomenu.
+\item[(e)] Funkcija $f$ jednaka je kompoziciji $g\circ h\circ k$, gde su $k(x)=\frac 34x -\frac\pi6$, $h(x)=\sin x$ i $g(x)=3x$. Tada je 
+\begin{align*}
+f[\mathbb R]&=(g\circ h\circ k)[\mathbb R]=g\big[h[k[\mathbb R]]\big]\\
+&=g\big[h[\mathbb R]\big]=g\big[[-1,1]\big]=[-3,3].
+\end{align*}
+Funkcija $f$ o\v cigledno nije sirjektivna jer joj skup slika nije jednak celom kodomenu, a nije ni injektivna jer je periodi\v cna. Npr. $f(\frac 43\pi)=f(0)=-\frac 32$.
+\end{enumerate}
+}
+
+\RES{11.zad.3}{
+\begin{enumerate}[(a)]
+\item $f^{-1}[D]=[-3,-2]\cup[2,3]$.
+\item $f^{-1}[D]=\emptyset$.
+\item $f^{-1}[D]=[-3,3]$.
+\item $f^{-1}[D]=\mathbb R$.
+\item Po\v sto je $\sin(x)$ periodi\v cna funkcija, kao inverznu sliku dobijamo 
+\begin{align*}
+f^{-1}\big[[-1,1]\big]&=\cdots\cup[-\frac \pi6-\pi,\frac \pi6-\pi]\cup [-\frac \pi6,\frac \pi6]\\
+&\cup [-\frac \pi6+\pi,\frac \pi6+\pi]\cup [-\frac \pi6+2\pi,\frac \pi6+2\pi]\cup\cdots,
+\end{align*}
+odnosno
+\[ f^{-1}\big[[-1,1]\big]=\bigcup_{k\in\mathbb Z}[-\frac \pi6+k\pi,\frac \pi6+k\pi].\]
+\item $f^{-1}[D]=\{1,2,3\}$.
+\item $f^{-1}[D]=\{(x,y)\in\mathbb R^2 :  x^2+y^2\leq 1\}$, odnosno jedini\v cni krug sa centrom u koordinatnom po\v cetku.
+\item $f^{-1}[D]=[2,+\infty)$.
+\item $f^{-1}[D]=\emptyset$.
+\item $f^{-1}[D]=A$.
+\end{enumerate}
+}
+
+\RES{11.zad.4}{
+Re\v si\' cemo samo zadatak (c), ostale ostavljamo za ve\v zbu.
+\begin{align*}
+(f\circ g)(2)=f(g(2))=f\Big(\frac{5\cdot 2}{2^2-2}\Big)=f(5)=5^2-5=20
+\end{align*}
+}
+
+\RES{11.zad.5}{
+\begin{enumerate}[(a)]
+\item Odredimo najpre funkcije $f$, $g$ i $g\circ f$.
+\begin{center}
+\input samir11-5-a.pgf
+\end{center}
+%\begin{align*}
+%&f: -5\mapsto 0,\ -4\mapsto 1,\ -1\mapsto 2,\ 4\mapsto 3,\ 11\mapsto 4 \\
+%&g: 0\mapsto 2,\ 1\mapsto 1,\ 2\mapsto 0,\ 3\mapsto 1,\ 4\mapsto 2\\
+%&g\circ f:  -5\mapsto 2,\ -4\mapsto 1,\ -1\mapsto 0,\ 4\mapsto 1,\ 11\mapsto 2
+%\end{align*}
+
+Skupovi slika su $f[A]=\{0,1,2,3,4\}$, $g[B]=\{0,1,2,3\}$ i $(g\circ f)[A]=\{0,1,2\}$.
+
+Funkcija $f$ je injektivna jer ne postoje dva razli\v cita elementa njenog domena $A$ koji se slikaju na isti element kodomena $B$. Ona nije i sirjektivna jer se nijedan element domena ne slika na $5$. Dalje, funkcija $g$ nije ni injektivna jer je $g(1)=g(3)$, a nije ni sirjektivna jer ne postoji element kodomena $B$ koji se slika na $4$. Funkcija $g\circ f$ nije injekcija jer je $(g\circ f)(-4)=(g\circ f)(4)$, a nije ni sirjekcija jer se nijedan element njenog domena ne slika na $3$.
+\item[(d)] Odredimo funkcije $f$, $g$ i $g\circ f$.
+\item Odredimo najpre funkcije $f$, $g$ i $g\circ f$.
+\begin{center}
+\input samir11-5-d-1.pgf
+\end{center}
+%\begin{align*}
+%&f: -2\mapsto 3,\ -1\mapsto 2,\ 0\mapsto 3,\ 1\mapsto 4,\ 2\mapsto 5 \\
+%&g: 1\mapsto 0,\ 2\mapsto 1,\ 3\mapsto 3,\ 4\mapsto 6,\ 5\mapsto 10 \\
+%&g\circ f: -2\mapsto 3,\ -1\mapsto 1,\ 0\mapsto 3,\ 1\mapsto 6,\ 2\mapsto 10
+%\end{align*}
+Skupovi slika su $f[A]=\{2,3,4,5\}$, $g[B]=C$ i $(g\circ f)[A]=\{1,3,6,9\}$.
+
+Funkcija $f$ nije ni injektivna jer je $f(-2)=f(2)$, a ni sirjektivna jer $f$ ne slika nijedan element na $1$. Dalje, $g$ je i injekcija i sirjekcija, pa je i bijekcija. Preslikavanje $g\circ f$ nije injektivno jer je $(g\circ f)(-2)=(g\circ f)(2)$, a nije ni sirjektivno jer se ne postoji element domena $A$ koji funkcija $g\circ f$ slika na $0$.
+
+Kona\v cno, po\v sto je $g$ bijekcija, odredimo njenu inverznu funkciju.
+\item Odredimo najpre funkcije $f$, $g$ i $g\circ f$.
+\begin{center}
+\input samir11-5-d-2.pgf
+\end{center}
+%\[g^{-1}:0\mapsto 1,\ 1\mapsto 2,\ 3\mapsto 3,\ 6\mapsto 4,\ 10\mapsto 5  \]
+\end{enumerate}
+}
+
+
+\RES{11.zad.6}{
+Zadatak (a) ostavljamo \v citaocu za ve\v zbu.
+\begin{enumerate}[wide, labelindent=0pt]
+\item[(b)] Kako bismo odredili $(g\circ f)(x)=g(f(x))$, neophodno je odrediti najpre za koje realne vrednosti $x$ va\v zi $f(x)\geq 0$, a za koje $x$ va\v zi $f(x)<0$. Uzmimo najpre da je $x\geq 1$. Tada je
+\begin{align*}
+&f(x)=x-2\geq 0\text{ akko }x\geq 2,\text{ odnosno}\\
+&f(x)=x-2<0\text{ akko }x\in[1,2).
+\end{align*}
+Sli\v cno, za $x<1$ dobijamo da je
+\begin{align*}
+&f(x)=x^3\geq 0\text{ akko }x\in[0,1),\text{ odnosno}\\
+&f(x)=x^3<0\text{ akko je }x<0.
+\end{align*}
+Sada mo\v zemo da zapi\v semo funkciju $g\circ f$.
+\[  (g\circ f)(x)=\begin{cases}
+\lvert x^3+1 \rvert&\text{ako }x<0\\
+\displaystyle\frac{x^3+4}3&\text{ako }x\in [0,1)\\
+\lvert x-1\rvert&\text{ako }x<[1,2)\\
+\displaystyle\frac{x+2}3&\text{ako }x\geq 2
+\end{cases}
+\]
+\end{enumerate}
+}
+
+
+\RES{12.zad.1}{
+\begin{enumerate}[(a)]
+\item Funkcija $f$ jeste bijekcija. Ona je injektivna jer iz $f(n)=f(m)$, odnosno $n-6=m-6$ sledi $n=m$. Tako\dj e, za svaki ceo broj $m$, va\v zi $f(m+6)=m$, \v cime je pokazano da je $f$ i sirjektivna. Njena inverzna funkcija je
+\[ f^{-1}(m)=m+6. \]
+\item Funkcija $f$ je injetivna jer iz $f(n)=f(m)$, odnosno $3n-5=3m-6$ sledi $n=m$.
+
+Da bismo pokazali da $f$ nije sirjektivna, poka\v zimo da $f$ nijedan ceo broj ne slika na $0$. Neka je $f(n)=0$, odnosno $3n-5=0$. Tada je $3n=5$, tj. $n=\frac 53$, \v sto nije ceo broj. Dakle, ne postoji ceo broj $n$ koji se slika na $0$, \v sime je pokazanod a $f$ nije sirjekcija.
+
+Predstavi\' cemo sada i druga\v ciji na\v cin kako smo mogli zaklju\v citi da $f$ nije sirjektivna. Lako se uo\v cava da $3n-5$ nije deljivo sa $3$ ni za jedan ceo broj $n$, odakle zaklju\v cujemo da skup slika od $f$ ne sadr\v zi nijedan broj deljiv sa $3$.
+\item[(c)] Zadata funkcija nije ni injekcija ni sirjekcija. Isto va\v zi i za funkcije iz (e) i (f).
+\item[(d)] Funkcija $f$ je injekcija jer za sve $n,m\in\mathbb Z$ takve da je $n<m$ va\v zi $f(n)<f(m)$, odakle zaklju\v cujemo da ne va\v zi $f(n)=f(m)$ ni za koji par razli\v citih celih brojeva $n$ i $m$.
+
+Funkcija $f$ nije sirjekcija, jer se npr. nijedan ceo broj ne slika na $2$.
+\item[(g)] Primetimo da $f$ slika parne brojeve na neparne, a neparne na parne. Poka\v zimo da je $f$ injekcija. Pretpostavimo da je $f(n)=f(m)$. Tada su $f(n)$ i $f(m)$ iste parnosti, pa su i $n$ i $m$ iste parnosti. Dakle, ili je $n-1=m-1$ ili je $n+1=m+1$, pa sledi da je $n=m$. Ovim je pokazano da je $f$ injektivna.
+
+Poka\v zimo da je $f$ sirjekcija. Neka $m\in\mathbb Z$. Ako je $m$ parno, onda je $m$ slika neparnog broja $m+1$, a ako je $m$ neparno, tada je $m$ slika parnog broja $m-1$. Ovim smo ujedno i konstruisali inverznu funkciju od $f$
+\[f^{-1}(m)=\begin{cases}
+m+1&m\text{ je paran}\\
+m-1&m\text{ je neparan.}
+\end{cases}\]
+\item[(h)] Primetimo da je $f(n)\geq 0$ za $n\in\mathbb N_0$, i da je $f(n)<0$ za $n<0$. Koriste\' ci ovo, mo\v ze se lako pokazati da je $f(n)=f(m)$ povla\v ci $n=m$, \v sto implicira da je $f$ injekcija. Me\dj utim, $f$ nije i sirjekcija jer se nijedan ceo broj ne slika na $-1$.
+\item[(i)] Primetimo da je funkcija $g:2\mathbb Z+1\rightarrow Z$ definisana sa $g(n)=\frac{n+1}2$ bijekcija, gde $2\mathbb Z+1$ ozna\v cava skup neparnih celih brojeva. Ovo ostavljamo \v citaocu za ve\v zbu.
+
+Odatle sledi da je $f$ sirjekcija, jer za svaki ceo broj postoji neparan broj koji su na njega slika. Me\dj utim, $f$ nije i injekcija, jer i za $f(0)$ postoji neparan broj $n$ koji se na njega slika, odakle sledi $f(0)=f(n)$.
+\item[(j)] Ostavljamo \v citaocu za ve\v zbu da poka\v ze da je $g:2\mathbb Z\rightarrow 2\mathbb Z+1$, gde $2\mathbb Z$ i $\mathbb Z+1$ ozna\v cavaju skupove parnih celih brojeva i neparnih celih brojeva, redom, definisana sa $g(n)=n-1$ bijekcija iz skupa parnih celih brojeva u skup neparnih celih brojeva. Tako\dj e je i funkcija $h:2\mathbb Z+1\rightarrow2\mathbb Z$ definisana sa $h(n)=n+3$ bijekcija iz skupa neparnih celih brojeva u skup parnih celih brojeva, \v sto tako\dj eostavljamo \v citaocu za ve\v zbu.
+
+Koriste\' ci sve ovo, nije te\v sko pokazati da je $f$ injekcija i sirjekcija, odakle sledi da je $f$ bijekcija. Kona\v cno, njena inverzna funkcija je
+\[f^{-1}(m)=\begin{cases}
+m-3&m\text{ je paran}\\
+m+1&m\text{ je neparan.}
+\end{cases}\]
+\end{enumerate}
+}
+
+
+\RES{12.zad.2}{Zadatke (d), (e), (f), (g) u (j) ostavljamo za ve\v zbu.
+\begin{enumerate}[(a)]
+\item Funkcija $f$ nije ni injektivna ni sirjektivna, jer je $f(1)=f(-1)$, i za svako $x\in\mathbb R$ va\v zi $f(x)\geq 4$.
+\item Funkciju $f(x)$ mogu\' ce je izraziti i kao 
+\[\frac x{x-1}=\frac{x-1+1}{x-1}=\frac{x-1}{x-1}+\frac 1{x-1}=1+\frac 1{x-1}.\]
+Po\v sto je $\frac 1{x-1}\neq 0$ za svako $x$, onda je i $f(x)\neq 1$ za svako $x$, pa $f$ nije sirjekcija.
+
+Poka\v zimo da je funkcija $f$ injektivna. Neka je $f(x_1)=f(x_2)$. Tada sledi
+\begin{align*}
+1+\frac 1{x_1-1}&=1+\frac 1{x_2-1}\text{, \v sto povla\v ci}\\
+\frac 1{x_1-1}&=\frac 1{x_2-1}\text{, odakle sledi}\\
+x_1-1&=x_2-1\text{ odnosno }x_1=x_2.
+\end{align*}
+Ovim je pokazano da je funkcija $f$ injekcija.
+\item Funkcija $f$ je strogo rastu\' ca na celom skupu $\mathbb R$, pa je i injektivna. Dalje, po\v sto je $f(x)>0$ za svako $x$, ni za jedan negativan element ne postoji element domena koji se na njega slika, pa $f$ nije sirjekcija.
+\item[(h)] Poka\v zimo da je $f$ bijekcija. Najpre doka\v zimo injektivnost. Neka je $f(x_1,y_1)=f(x_2,y_2)$. Tada sledi
+\begin{align*}
+x_1+y_1&=x_2+y_2\text{ i}\\
+x_1-y_1&=x_2-y_2.
+\end{align*}
+Sabiranjem ove dve jednakosti dobijamo $x_1=x_2$, a odatle sledi i $y_1=y_2$. Ovim smo dokazali da je $(x_1,y_1)=(x_2,y_2)$.
+
+Poka\v zimo da je $f$ i sirjekcija. Neka $(u,v)\in\mathbb R^2$. Odredimo ure\dj eni par $(x,y)$ takav da je $f(x,y)=(u,v)$. Neka je $f(x,y)=(u,v)$. Tada je
+\begin{align*}
+x+y&=u\text{ i}\\
+x-y&=v.
+\end{align*}
+Sabiraju\' ci ove dve jednakosti, dobijamo $2x=u+v$, odnosno
+\[x=\frac{u+v}2.\]
+ Dalje, mo\v zemo izraziti i $y$ kao
+ \[y=\frac{u-v}2.\]
+Dakle, na ovaj na\v cin smo odredili ure\dj eni par
+\[(x,y)=\Big(\frac{u+v}2,\frac{u-v}2\Big)\]
+takav da je $f(x,y)=(u,v)$. Ovim smo dokazali da je $f$ sirjekcija.
+\item[(i)] Funkcija $f$ nije sirjektivna jer je $x^2+y^2\geq 0$. Prema tome, nijedan element domene se ne slika ni na jedan element kodomena kome je druga koordinata negativna. Npr., nijedan element se ne slika na $(0,-1)$.
+
+Da bismo pokazali da $f$ nije ni injekcija, primetimo da je $f(x,y)=f(y,x)$ za sve $x,y\in\mathbb R$. Prema tome, kao kontraprimer mogu\' ce je odabrati i ure\dj ene parove $(1,0)$ i $(0,1)$, odnosno po\v sto je $f(1,0)=f(0,1)$, $f$ nije injekcija.
+\end{enumerate}
+}
+
+\RES{12.zad.3}{Bijektivnost narednih funkcija dokazuje se sli\v cno kao i u prethodna dva zadatka, pa taj deo ostavljamo \v citaocu za ve\v zbu. Zato \' cemo ovde samo odrediti njihove inverzne funkcije za neke od zadatih funkcija, pri \v cemu ostale ostavljamo za ve\v zbu.
+\begin{enumerate}[(a)] 
+\item Odredimo $x\in\mathbb R$ takvo da je $f(x)=y$. Tada je
+\[\frac{5x+3}2=y,\]
+odakle sledi
+\[ x=\frac{2y-3}5 .\]
+Dakle,
+\[ f^{-1}(y)=\frac{2y-3}5. \]
+\item Odredimo $x\in\mathbb R\setminus\{-1\}$ takvo da je $f(x)=y$, gde $y\in\mathbb R\setminus\{-3\}$. Neka je $f(x)=y$. Tada je
+\[ y=\frac{3x}{x+1}=\frac{3x+3-3}{x+1}=3-\frac 3{x+1}\]
+\v sto povla\v ci
+\[x=\frac 3{3-y}-1,\]
+odnosno
+\[f^{-1}(y)=\frac 3{3-y}-1.\]
+\item[(g)] Neka je $f(x,y)=(u,v)$ za neki ure\dj eni par $(u,v)\in\mathbb R^2$. Tada dobijamo slede\' ci sistem linearnih jedna\v cina.
+\begin{align*}
+2x-y&=u\\
+x-2y&=v
+\end{align*}
+Re\v savanjem ovog sistema dobijamo
+\[f^{-1}(u,v)=(x,y)=\Big( \frac{2u-v}3,\frac{u-2v}3 \Big).\]
+\end{enumerate}
+}
+

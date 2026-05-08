@@ -1,0 +1,1070 @@
+%!TeX root=main-DS1.tex
+\chapter{Kako radi hardver?}
+
+Kako hardver mo\v ze da sabira i za\v sto je binarni sistem pravo re\v senje za razvoj hardvera?
+
+U ovoj glavi \'cemo se prvo podsetiti pri\v ce o brojevnim sistemima,
+nakon \v cega \'cemo posebnu pa\v znju posvetiti binarnom i heksadecimalnom sistemu.
+Elektronske komponente, grubo govore\'ci, rade po principu ima struje-nema struje, pa je zato
+binarni sistem upravo savr\v sen za projektovanje hardvera ra\v cunara.
+S druge strane, ve\'c i relativno mali brojevi zapisani u binarnom sistemu mogu da imaju veoma duge
+zapise, pa se heksadecimalni sistem prirodno nametnuo kao blizak srodnik binarnog sistema koji
+omogu\'cuje kompaktan zapis broja. Na kraju \'cemo uvesti pojam Bulove funkcije kao pojednostavljenog
+matemati\v ckog modela elektronske komponente, i pokaza\'cemo kako se polaze\'ci od osnovnih logi\v ckih
+operacija mo\v ze napraviti ure\dj aj koji sabira binarno zapisane brojeve.
+Da bismo pratili tradiciju, u ovoj glavi umesto sa $\bot$ i $\top$
+logi\v cke vrednosti ozna\v cavamo sa $0$, odnosno, $1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifBIOINF
+\section{Unarni sistem}
+
+Najstariji sistem za zapisivanje brojeva je \emph{unarni sistem} gde je broj predstavljen reckama.
+Na primer, ovo je zapis broja~7:
+$$
+  |\;|\;|\;|\;|\;|\;|
+$$
+Unarni sistem je idealan za sabiranje i oduzimanje: sabiranje se svodi na nadovezivanje nizova recki,
+dok se oduzimanje svodi na uklanjanje nizova recki.
+
+\paragraph{Primer.} $(a)$ Gnud (sto\v car-amater iz mla\dj eg kamenog doba)
+je prvo imao $|\;|\;|\;|\;|$ ovaca, a onda je dobio jo\v s $|\;|$ od svog ro\dj aka koji je odlu\v cio da
+napusti biznis sa ovcama i pre\dj e na gajenje tikvica. Koliko sada Gnud ima ovaca?
+
+\medskip
+
+\textit{Re\v senje.} Gnud sada ima $|\;|\;|\;|\;|\;|\;|$ ovaca.
+
+\medskip
+
+$(b)$ Nakon par dana morao je majci svoje \v zene da da $|\;|\;|$ ovaca. Koliko sada Gnud ima ovaca?
+
+\medskip
+
+\textit{Re\v senje.} Gnud sada ima $|\;|\;|\;|\!\not|\!\not|\!\not|$, odnosno, $|\;|\;|\;|$ ovaca.
+
+\medskip
+
+Unarni sistem je odli\v can i za celobrojno deljenje.
+
+\paragraph{Primer.} Gnud, Dlub i Telb su na\v sli $|\;|\;|\;|\;|\;|\;|\;|\;|\;|\;|$ prepeli\v cijih jaja.
+Kako \'ce ih podeliti ravnopravno?
+
+\medskip
+
+\textit{Re\v senje.} Se\v s\'ce u krug i svako \'ce, redom, sa gomile uzimati po jedno jaje. Na kraju podele situacija
+\'ce izgledati ovako:
+\begin{center}
+    \begin{tabular}{ll}
+        Gnud: & $|\;|\;|$\\
+        Dlub: & $|\;|\;|$\\
+        Telb: & $|\;|\;|$
+    \end{tabular}
+\end{center}
+i na gomili je ostalo jo\v s $|\;|$ jaja. Njih \'ce pokloniti Hrngu jer se povredio u poslednjem lovu.
+
+\medskip
+
+Primetimo da za ra\v cunanje u unarnom sistemu \emph{nema potrebe da razumemo nijednu algebarsku osobinu brojeva!}
+Ceo ra\v cun se svodi na preure\dj ivanje nizova crtica!
+
+\paragraph{Pitanje.} Za\v sto je dugo u istoriji homo sapiensa broj 12 bio va\v zniji od broja 10?
+Kako bi se do sredine pro\v slog veka na engleskom reklo \enquote{Za ovaj kola\v c vam treba dvanaest jaja}?
+(Odgovor se \emph{ne} zavr\v sava sa \enquote{\ldots\ twelve eggs}; da li ste \v culi za na\v su re\v c \enquote{tuce}?).
+
+\medskip
+
+I ra\v cuni su izdavani u unarnom sistemu. Sve do srednjeg veka (a na na\v sim prostorima sve do XIX veka)
+u upotrebi je bila dosetka koja se zove \emph{rabo\v s}. Rabo\v s je drvena plo\v cica na koju se ure\v ze neki broj
+(recimo, koliko vre\'ca bra\v sna treba pokupiti iz mlina). Onda se rabo\v s prelomi, pa jednu polovinu zadr\v zi jedna
+ugovorna strana, a drugu polovinu druga.
+
+\paragraph{Primer.} Hrasti\v sa je odneo na mlin $|\;|\;|\;|\;|\;|\;|\;|\;|\;|\;|\;|$ vre\'ca \v zita.
+Mlinar je zaprimio \v zito i napravio rabo\v s:
+
+\begin{center}
+    \input ft02-rabos.pgf
+\end{center}
+
+Kada Hrasti\v sa bude dolazio da pokupi bra\v sno, mlinar \'ce mu za svake $|\;|\;|$ predate vre\'ce \v zita dati $|\;|$ vre\'ce bra\v sna.
+Koliko vre\'ca bra\v sna \'ce pokupiti Hrasti\v sa?
+
+\medskip
+
+Jedini problem sa ovim zapisom je u tome \v sto nije pogodan za zapisivanje velikih brojeva. Ulaskom u bronzano doba
+javljaju se veliki gradovi (Vavilon, Uruk, \ldots) koji imaju na desetine hiljada stanovnika. Ti gradovi-dr\v zave
+sada imaju profesionalnu vojsku koja broji na hiljade vojnika, pa unarni sistem ne mo\v ze da odgovori potrebama
+organizacije dr\v zave. Zato se ljudi dovijaju na razne na\v cine da pojednostave \emph{zapis} velikih brojeva, \v sto
+neumitno dovodi do komplikacija u \emph{ra\v cunskim procedurama}.
+
+\section{Rimski brojevi}
+
+Rimljani su oko hiljadu godina upravljali ozbiljnom dr\v zavom i veoma efikasnom vojskom, \v sto ne bi bilo mogu\'ce
+bez razumnog sistema zapisivanja brojeva. Rimljani su svoj sistem zasnovali na idejama koje su preuzeli od Etruraca negde oko 800.\ p.n.e,
+a Etrurski sistem zapisa brojeva je bio zasnovan na unarnom sistemu. Tako rimski brojevi I, V i X predstavljaju \enquote{recku} (kao na rabo\v su),
+\enquote{mali sve\v zanj} i \enquote{veliki sve\v zanj}:
+\begin{center}
+    \input ft02-rimskibr.pgf
+\end{center}
+Sli\v cno starim Grcima, i stari Rimljani su velike brojeve ozna\v cavali slovima:
+\begin{center}
+    \begin{tabular}{llll}
+        L - 50 & C - 100 & D - 500 & M - 1000
+    \end{tabular}
+\end{center}
+Ono \v sto je interesantno kod rimskih brojeva, a \v sto je obi\v caj koji su Rimljani preuzeli od Etruraca, je da \emph{pozicija oznake menja
+njenu vrednost}. Tako, manji broj treba \emph{oduzeti} od ve\'ceg ako se oznaka za manji broj nalazi levo od oznake za ve\'ci broj:
+\begin{center}
+    \begin{tabular}{l}
+        XI $\to$ na X dodaj I $\to$ 11\\
+        IX $\to$ oduzmi I od X $\to$ 9.
+    \end{tabular}
+\end{center}
+Vidimo, dakle, da se jo\v s kod Etruraca, 800 godina pre nove ere, pojavila ideja da radi efikasnog zapisivanja brojeva treba
+dozvoliti mogu\'cnost da pozicija \enquote{cifre} uti\v ce na njenu vrednost.
+
+Kako je rimski sistem zapisivanja brojeva slo\v zeniji od unarnog, i operacije sa ovako predstavljenim brojevima su
+slo\v zenije. Pokaza\'cemo sada kako su Rimljani sabirali.
+
+\paragraph{Primer.} Kroja\v c Septimus koji je dobio posao da sa\v sije tunike za gradsku gardu je kupio DXCVI lakata platna,
+a kasnije je dokupio jo\v s CLIX lakata istog platna, jer mu se u\v cinilo da prvi put nije kupio dovoljno. Koliko je ukupno lakata
+platna kupio Septimus?
+
+\medskip
+
+\textit{Re\v senje.} Rimljani su za sabiranje koristili pomo\'c u obliku kamene plo\v ce sa uklesanim \v zlebovima (ili tkanine sa ucrtanim linijama)
+koja je naj\v ce\v s\'ce izgledala ovako:
+\begin{center}
+    \input ft02-rimsab1b.pgf
+\end{center}
+\v Zlebovi su odgovarali vrednostima I, X, C i M, dok je prostor izme\dj u \v zlebova odgovarao vrednostima V, L i D.
+Na\v s zadatak je sa saberemo brojeve DXCVI i CLIX. Prvo \'cemo ih \enquote{raspakovati} tako da XC zamenimo sa LXXXX i da IX zamenimo sa VIIII, pa \'cemo
+to predstaviti kamen\v ci\'cima na plo\v ci:
+\begin{center}
+    \input ft02-rimsab2b.pgf
+\end{center}
+Sa sabiranjem kre\'cemo od dole. Primetimo na imamo pet kamen\v ci\'ca u \v zlebu~I. Njih \'cemo ukloniti i dodati jedan kamen\v ci\'c u prostor
+izme\dj u \v zlebova I i X koji odgovara vrednosti V:
+\begin{center}
+    \input ft02-rimsab3b.pgf
+\end{center}
+Dalje, u me\dj uprostoru koji odgovara vrednosti V imamo tri kamen\v ci\'ca. Dva \'cemo ukloniti i dodati jedan kamen\v ci\'c u \v zleb X:
+\begin{center}
+    \input ft02-rimsab4b.pgf
+\end{center}
+Dalje, pet kamen\v ci\'ca u \v zlebu X zamenjujemo jednim u prostoru izme\dj u X i C:
+\begin{center}
+    \input ft02-rimsab5b.pgf
+\end{center}
+Kao i ranije, dva kamen\v ci\'ca koji odgovaraju vrednosti L \'cemo ukloniti i dodati jedan kamen\v ci\'c u \v zleb C.
+Tako smo dobili zbir DCCLV:
+\begin{center}
+    \input ft02-rimsab6b.pgf
+\end{center}
+
+\bigskip
+
+Vidimo da je ve\'c rimski sistem zapisivanja brojeva imao dve klju\v cne osobine:
+\begin{itemize}
+    \item bio je organizovan oko broja 10 i njegovih umno\v zaka, i
+    \item imao je osobinu da pozicija cifre uti\v ce na njenu ulogu.
+\end{itemize}
+Ta ideja je konkretizovana i dovedena do svog maksimuma tek nekih 1000 godina kasnije, u \emph{arapsko-indijskom} pozicionom
+sistemu za zapisivanje brojeva.
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pozicioni brojevni sistemi}
+
+U na\v soj kulturi se za zapisivanje brojeva koristi pozicioni decimalni brojevni sistem.
+To zna\v ci da za \emph{osnovu} ra\v cunanja uzimamo broj 10, a kao cifre koristimo
+brojeve 0, 1, 2, 3, 4, 5, 6, 7, 8 i~9. Niz cifara
+12573 shvatamo kao broj
+$$
+    1 \cdot 10^4 + 2 \cdot 10^3 + 5 \cdot 10^2 +
+    7 \cdot 10^1 + 3 \cdot 10^0.
+$$
+Decimalni sistem nije ni bolji ni lo\v siji od nekog drugog
+pozicionog brojnog sistema. Koristimo ga iz istorijskih razloga,
+a u upotrebu je u\v sao veoma davno, najverovatnije zbog deset
+prstiju na rukama. (Postoje zabele\v ske i o brojevnim sistemima sa
+osnovom 20; mora da su se sjajno zabavljali kada su ra\v cunali na
+prste.)
+
+Uop\v steno, ako radimo sa brojevnim sitemom sa osnovom $b$, onda
+se kao \enquote{cifre} koriste brojevi 0, 1, \ldots, $b-1$,
+a nizom \enquote{cifara} $a_k a_{k-1} a_{k-2} \ldots a_1 a_0$ sistema
+sa osnovom $b$ predstavljan je slede\'ci broj:
+$$
+    a_k \cdot b^k + a_{k-1} \cdot b^{k-1} + \ldots + a_1 \cdot b^1
+    + a_0 \cdot b^0.
+$$
+Na primer, sistem sa osnovom 7 koristi 0, 1, 2, 3, 4, 5 i 6 kao cifre
+i ovo je jedan validan zapis broja u tom sistemu: $56101_{(7)}$.
+Oznaka $(7)$ u indeksu ozna\v cava da je to zapis broja u
+osnovi 7, i da ga ne treba me\v sati sa brojem \emph{pedeset \v sest hiljada
+sto jedan} u osnovi deset.
+
+Prvi elektronski ra\v cunar, ENIAC, (koji je proradio na Univerzitetu
+Ilinois, SAD, u julu 1946.) je tako\dj e koristio decimalni sistem.
+Za pam\'cenje jedne cifre bilo mu je potrebno 10 elektronskih cevi, od kojih
+je samo jedna radila u\break
+
+\kern -2.5mm
+
+\noindent\hbox to \textwidth{%
+\begin{minipage}{3.2in}
+  jednom trenutku. Na primer, da bi zapamtio
+  \v cetvorocifreni broj 2940 morao je da anga\v zuje 40 elektronskih cevi
+  kako je to pokazano pored.
+  ENIAC je i po drugim osnovama bio veoma lo\v se projektovana ma\v sina, a ostao je
+  zapam\'cen samo zato \v sto je bio prva elektronska ra\v cunska ma\v sina
+  koja je proradila.
+\end{minipage}\hfill
+\begin{minipage}{1.7in}
+\begin{center}
+    \def\x{$\bullet$}%
+    \def\o{$\circ$}%
+    \begin{tabular}{cc@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+        &0&1&2&3&4&5&6&7&8&9\\\hline
+      2 &\o&\o&\x&\o&\o&\o&\o&\o&\o&\o\\
+      4 &\o&\o&\o&\o&\x&\o&\o&\o&\o&\o\\
+      9 &\o&\o&\o&\o&\o&\o&\o&\o&\o&\x\\
+      0 &\x&\o&\o&\o&\o&\o&\o&\o&\o&\o%
+    \end{tabular}
+\end{center}
+\end{minipage}
+}
+
+\smallskip
+
+Broj, naravno, ne zavisi od toga u kom sistemu je zapisan. Na primer,
+$$
+  10, \quad 1010_{(2)}, \quad 13_{(7)}
+$$
+su samo razli\v citi zapisi jednog istog
+broja -- broja prstiju na obe ruke prose\v cnog homo sapiensa. Zato
+\v sto je zapisivanje brojeva stvar konvencije, sasvim je prirodno da
+je mogu\'ce prelaziti sa jednog zapisa na drugi. Sada \'cemo na nekoliko
+primera pokazati kako se zapis broja u nekoj osnovi $b$ konvertuje u
+zapis sa osnovom 10, i kako se konvertuje zapis broja iz sistema sa osnovom 10
+u sistem sa proizvoljnom osnovom.
+
+Pogledajmo prvo kako broj u nekoj osnovi da konvertujemo u sistem sa
+osnovom 10. Svaka cifra ima svoju te\v zinu, koja je zapravo neki
+stepen osnove. Recimo, za broj $23014_{(6)}$ imamo:
+$$
+    \begin{array}[b]{ccccc@{}l}
+        \mbox{\scriptsize$6^4$} &
+        \mbox{\scriptsize$6^3$} &
+        \mbox{\scriptsize$6^2$} &
+        \mbox{\scriptsize$6^1$} &
+        \mbox{\scriptsize$6^0$} & \\
+        2 & 3 & 0 & 1 & 4&_{(6)}
+    \end{array}
+    \begin{array}[t]{@{}cl}
+            =& 2 \cdot 6^4 + 3 \cdot 6^3 + 0 \cdot 6^2 +
+               1 \cdot 6^1 + 4 \cdot 6^0\\
+            =& 2592 + 648 + 0 + 6 + 4 \\
+            =& 3250.
+    \end{array}
+$$
+
+Konverzija iz decimalnog sistema u sistem sa osnovom $b$ (koji je, naravno, zapisan u osnovi~10) tako\dj e je
+jednostavna: broj delimo sa $b$ sve dok se to mo\v ze i bele\v zimo ostatke,
+koje posle pro\v citamo od kraja ka po\v cetku.
+
+\medskip
+
+\noindent
+\hbox to \textwidth{%
+  \begin{minipage}{3in}\parindent 1.6em
+    Na primer, \v sema pored
+    pokazuje kako mo\v ze da se odredi zapis broja 9012 u sistemu sa osnovom 7.
+    Vidimo da je $9012 = 35163_{(7)}$.
+  \end{minipage}
+  \hfill
+  \begin{minipage}{1.75in}
+  \begin{center}
+    \begin{tabular}{r|l}
+        koli\v cnik & ostatak \\ \hline
+              9012  &   \\
+              1287  & 3 \\
+               183  & 6 \\
+                26  & 1 \\
+                 3  & 5 \\
+                 0  & 3 \ \unitlength 1cm
+                 \begin{picture}(0,0)
+                     \put(0,0){\vector(0,1){2.3}}
+                 \end{picture}
+    \end{tabular}\\
+    \
+  \end{center}
+  \end{minipage}
+}
+
+\medskip
+
+\emph{Binarni sistem} je pozicioni sistem sa osnovom 2, a kao cifre se
+koriste samo 0 i 1. Tako, niz cifara $101101_{(2)}$ u binarnom sistemu
+predstavlja slede\'ci broj u sistemi sa osnovom~10:
+$$
+    \begin{array}{lcl}
+        101101_{(2)}
+            &=& 1 \cdot 2^5 + 0 \cdot 2^4 + 1 \cdot 2^3 +
+                1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0\\
+            &=& 32 + 8 + 4 + 1\\
+            &=& 45.
+    \end{array}
+$$
+
+Zato \v sto se termin \emph{binarna cifra} veoma \v cesto javlja u pri\v ci
+o ra\v cunarima, in\v zenjeri su smislili sada ve\'c standardnu skra\'cenicu kojom
+zovu binarne cifre: \emph{bit}. Skra\'cenica je nastala od engleskog
+\emph{\underline{bi}nary digi\underline{t}}. Ina\v ce, \emph{bit}
+je re\v c knji\v zevnog engleskog jezika i zna\v ci \emph{deli\'c,
+par\v cence.}
+
+\emph{Heksadecimalni sistem} je sistem sa osnovom 16. Kao cifre
+u ovom sistemu se, prema tome, koriste brojevi
+$0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $10$, $11$,
+$12$, $13$, $14$ i $15$.
+Postojanje \enquote{dvocifrenih cifara} stvara mali tehni\v cki problem, jer se,
+na primer, iz zapisa $911_{(16)}$ ne vidi da li se radi o dvocifrenom
+broju $9\;11_{(16)}$ ili o trocifrenom broju $9\;1\;1_{(16)}$.
+Zato je uvedena konvencija da se cifre 10, 11, 12, 13, 14 i 15 ozna\v ce
+slovima $A$, $B$, $C$, $D$, $E$ i $F$, redom. Tako, kao cifre
+heksadecimalnog sistema koristimo
+$0$, $1$, $2$, $3$, $4$, $5$, $6$, $7$, $8$, $9$, $A$,
+$B$, $C$, $D$, $E$ i $F$.
+
+Binarni i heksadecimalni sistemi su veoma bliski, i postoji
+lep na\v cin da se brojevi konvertuju iz jednog u drugi direktno.
+Cifre binarnog broja podelimo u grupe od po 4, po\v cev\v si zdesna,
+i onda svaku grupu pro\v citamo kao heksadecimalnu cifru. Evo
+primera.
+{\def\x#1{\multicolumn{1}{c}{#1}}%
+$$
+    11010111011111 \mapsto
+    11|0101|1101|1111 \mapsto
+    \begin{array}[t]{c@{|}c@{|}c@{|}c}
+        11&0101&1101&1111\\
+         \x 3&   \x 5&   \x D&   \x F
+    \end{array} \mapsto
+    35DF
+$$
+}%
+
+Direktna konverzija iz heksadecimalnog u binarni sistem se tako\dj e mo\v ze
+oba\-vi\-ti brzo i efikasno: svaku cifru heksadecimalnog broja zapi\v semo
+pomo\'cu \v cetiri binarne cifre i pro\v citamo kao jedan binarni broj.
+Primer:
+$$
+    2CAD3 \mapsto
+    \begin{array}[b]{ccccc}
+        2 &    C &    A &    D &    3\\
+     0010 & 1100 & 1010 & 1101 & 0011
+    \end{array} \mapsto
+     10 1100 1010 1101 0011,
+$$
+jer se \v cesto vode\'ce nule ne pi\v su.
+
+\section{Bulove operacije}
+
+Digitalno elektronsko kolo ima neke ulaze i neke izlaze i njegov zadatak je
+da ulazne veli\v cine (strujne signale) konvertuje u veli\v cine na izlazu
+(ponovo strujne signale). Veoma upro\v s\'cena slika digitalnog elektronskog kola
+radi samo sa dva nivoa strujnih signala, ima struje--nema struje,
+koje mo\v zemo opisati brojevima 0 (nema struje) i 1 (ima struje).
+Rad digitalnog elektronskog kola se tada mo\v ze koncizno zapisati u obliku
+tabele.
+
+\hbox to \textwidth{%
+\begin{minipage}{3.25in}\parindent 1.6em
+    Na primer, u tabeli pored opisan je rad nekog di\-gi\-tal\-nog elektronskog
+    kola sa tri ulaza i jednim izlazom. Za svaku mogu\'cu varijaciju ulaznih
+    veli\v cina navedena je odgovaraju\'ca vrednost izlaza.
+    Na primer, $f(1, 0, 1) = 1$, dok je $f(0, 1, 0) = 0$.
+    Funkcionalnu zavisnost koja se mo\v ze predstaviti na ovaj na\v cin
+    zovemo \emph{Bulova operacija}. Bulove operacije su dobile ime po britanskom
+    matemati\v caru D\v zord\v zu Bulu (George Boole) i pokazale su
+    se kao veoma korisne pri razvoju i analizi hardvera ra\v cunara.
+\end{minipage}\hfill
+\begin{minipage}{1.5in}
+    $
+        \begin{array}{ccc|c}
+            x & y & z & f(x, y, z) \\
+            \hline
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 1 \\
+            0 & 1 & 0 & 0 \\
+            0 & 1 & 1 & 0 \\
+            1 & 0 & 0 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 1
+        \end{array}
+    $
+\end{minipage}}%
+
+\medskip
+
+Posebno su interesantne slede\'ce tri Bulove operacije, koje zovemo
+\emph{osnovne Bulove operacije}, ili \emph{logi\v cke operacije},
+a koje su definisane sa:
+
+$$
+    \begin{array}{ccc}
+        \begin{array}[t]{cc|c}
+            x & y & x \land y \\
+            \hline
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            1 & 1 & 1
+        \end{array} &
+        \begin{array}[t]{cc|c}
+            x & y & x \lor y \\
+            \hline
+            0 & 0 & 0 \\
+            0 & 1 & 1 \\
+            1 & 0 & 1 \\
+            1 & 1 & 1
+        \end{array} &
+        \begin{array}[t]{c|c}
+            x & \lnot x \\
+            \hline
+            0 & 1 \\
+            1 & 0
+        \end{array}
+    \end{array}
+$$
+Prva se zove \emph{konjunkcija} -- logi\v cko \enquote{i}, druga se zove
+\emph{disjunkcija} -- logi\v cko \enquote{ili}, a tre\'ca \emph{negacija}
+-- logi\v cko \enquote{ne}.
+Od Bulovih operacija mo\v zemo praviti nove operacije i sa njima mo\v zemo
+ra\v cunati na uobi\v cajeni na\v cin.
+
+Osnovne Bulove opracije $\land$, $\lor$ i $\lnot$ imaju jedno veoma va\v zno
+svojstvo: svaka druga Bulova operacija se mo\v ze predstaviti pomo\'cu ove
+tri specijalne Bulove operacije.
+Po\v cnimo jednim primerom.
+Pokaza\'cemo kako se operacija koja je data u tabeli desno
+mo\v ze predstaviti pomo\'cu tri osnovne Bulove operacije.
+Recept se sastoji iz tri koraka.
+
+\clearpage
+
+\noindent
+\textbf{Recept.}
+
+\hbox to \textwidth{%
+\begin{minipage}{3in}\parindent 1.6em
+    1. Posmatramo samo one redove za koje je vrednost operacije
+    jednaka 1 (redovi ozna\v ceni strelicom).
+
+    2. Za svaki takav red napravimo po jedan Bulov izraz, ovako:
+    ako je vrednost promenljive 0 uzmemo njenu negaciju, a ako je
+    vrednost promenljive 1 uzmemo promenljivu bez izmena. Onda uzmemo
+    konjunkciju tako pripremljenih promenljivih ili njihovih negacija.
+\end{minipage}\hfill
+\begin{minipage}{1.7in}
+    $
+        \begin{array}{ccc|cc}
+            x & y & z & f(x, y, z) \\
+            \cline{1-4}
+            0 & 0 & 0 & 0 &\\
+            0 & 0 & 1 & 1 &\leftarrow\\
+            0 & 1 & 0 & 0 &\\
+            0 & 1 & 1 & 0 &\\
+            1 & 0 & 0 & 1 &\leftarrow\\
+            1 & 0 & 1 & 1 &\leftarrow\\
+            1 & 1 & 0 & 0 &\\
+            1 & 1 & 1 & 1 &\leftarrow
+        \end{array}
+    $
+\end{minipage}}%
+
+\medskip
+
+U navedenom primeru imamo \v cetiri reda u kojima se na kraju javlja
+jedinica. Odgovaraju\'ce konjunkcije su prikazane u tabeli ispod:
+$$
+    \begin{array}{ccc|c}
+        x & y & z & \mbox{konjunkcija} \\[1mm]
+        \hline
+        0 & 0 & 1 & \lnot x \land \lnot y \land z \\[1mm]
+        1 & 0 & 0 & x \land \lnot y \land \lnot z \\[1mm]
+        1 & 0 & 1 & x \land \lnot y \land z \\[1mm]
+        1 & 1 & 1 & x \land y \land z
+    \end{array}
+$$
+
+3. Reprezentacija Bulove operacije date tabelom se tada dobija kada se uzme
+disjunkcija svih ovih konjunkcija. Dakle,
+$$
+    f(x, y, z) = (\lnot x \land \lnot y \land z) \lor
+                 (x \land \lnot y \land \lnot z) \lor
+                 (x \land \lnot y \land z) \lor
+                 (x \land y \land z).
+$$
+
+Ne\'cemo dati dokaz da je opisani recept dobar, ve\'c \'cemo se uveriti
+na par primera. Pogledajmo, prvo, jedan red iz tabele kome je vrednost
+operacije 0. Recimo, na osnovu tre\'ceg reda je $f(0,1,0) = 0$. Drugim
+re\v cima, kada je $x = 0$, $y = 1$ i $z = 0$, onda je $f = 0$. Kada
+uvrstimo ove vrednosti u izraz na desnoj strani, dobijamo da su svi
+disjunkti (tj.\ \enquote{sabirci}) jednaki 0:
+$$
+    \begin{array}{lclcl}
+        \lnot x \land \lnot y \land z
+            &=& \lnot 0 \land \lnot 1 \land 0
+            &=& 0 \\[1mm]
+        x \land \lnot y \land \lnot z
+            &=& 0 \land \lnot 1 \land \lnot 0
+            &=& 0 \\[1mm]
+        x \land \lnot y \land z
+            &=&
+            0 \land \lnot 1 \land 0
+            &=& 0 \\[1mm]
+        x \land y \land z
+            &=&
+            0 \land 1 \land 0
+            &=& 0
+    \end{array}
+$$
+pa je vrednost izraza $0 \lor 0 \lor 0 \lor 0 = 0$. Ako sada uvrstimo
+vrednosti promenljivih iz petog reda, $x = 1$, $y = 0$, $z = 0$,
+dobijamo da je ta\v cno jedan disjunkt jednak 1, dok su ostali jednaki 0:
+$$
+    \begin{array}{lclcl}
+        \lnot x \land \lnot y \land z
+            &=& \lnot 1 \land \lnot 0 \land 0
+            &=& 0 \\[1mm]
+        x \land \lnot y \land \lnot z
+            &=& 1 \land \lnot 0 \land \lnot 0
+            &=& 1 \\[1mm]
+        x \land \lnot y \land z
+            &=&
+            1 \land \lnot 0 \land 0
+            &=& 0 \\[1mm]
+        x \land y \land z
+            &=&
+            1 \land 0 \land 0
+            &=& 0
+    \end{array}
+$$
+pa je u ovom slu\v caju vrednost izraza $0 \lor 1 \lor 0 \lor 0 = 1$.
+Primetimo: \emph{ta\v cno onaj disjunkt koji je nastao od petog reda je
+jednak 1, a svi ostali su jednaki 0!}
+
+Da zaklju\v cimo: \emph{svaki disjunkt mo\v ze da \enquote{prepozna} red od koga
+je nastao i tada da vrati vrednot 1. U svim ostalim slu\v cajevima
+daje vrednost 0.} Ako umesto $x$, $y$, $z$ zamenimo vrednosti iz nekog
+reda kome je na kraju 0, nijedan disjunkt ga ne prepozna, svi daju
+vrednost 0, pa je i vrednost celog izraza 0. Me\dj utim, ako uvrstimo
+vrednosti promenljivih iz nekog reda kome je na kraju 1, njegov disjunkt
+ga prepozna i d\=a vrednost 1, ostali daju vrednost 0, pa je vrednost celog
+izraza $= 0 \lor \ldots \lor 0 \lor 1 \lor 0 \lor \ldots \lor 0 = 1$.
+Tako dobijamo da je $f$ predstavljena u obliku
+$$
+    f = D_1 \lor D_2 \lor \ldots \lor D_k,
+$$
+a svaki $D_i$ radi ovako: \enquote{ako je stigao red tabele od koga sam
+nastao, vra\'cam 1, ina\v ce vra\'cam 0}.
+
+\section{Logi\v cke operacije -- osnova hardvera}
+
+Prvi elektronski ra\v cunari su imali posebne ure\dj aje za svaku operaciju
+koju su umeli da izvr\v se, i zbog toga su umeli da izvr\v se samo one
+operacije za koje su imali odgovaraju\'ce ure\dj aje. Na primer, ENIAC je
+imao ure\dj aj za numeri\v cku integraciju (\v stagod to bilo) pa je
+pribli\v zne vrednosti integrala ra\v cunao tako \v sto bi uposlio
+taj ure\dj aj. Me\dj utim, ako je za re\v savanje nekog problema bilo neophodno
+i numeri\v cko diferenciranje morao mu se dodati novi ure\dj aj.
+
+Britanski matemati\v car Alan Tjuring (Alan Turing) je o\v stro
+kritikovao takav pristup gra\dj enju ra\v cunara (da se za svaki posao
+koga treba odraditi pravi novi ure\dj aj koji radi samo taj posao).
+On je smatrao da ra\v cunar treba da bude univerzalna ma\v sina koja
+ima samo minimum neophodnih ure\dj aja koji bi vr\v sili kontrolu toka
+programa i, eventualno, najosnovnije aritmeti\v cke operacije, a da
+se za sve ostale poslove pi\v su posebni programi koji \'ce biti pohranjeni
+u memoriji ra\v cunara (onako kako se to danas radi).
+On je bio zagovornik koncepcije koja je danas u osnovi ra\v cunarske
+tehnologije: \emph{ra\v cunar ne treba da bude zbirka specijalizovanih
+ure\dj aja, ve\'c univerzalna ma\v sina \v cije \'ce mogu\'cnosti zavisiti
+isklju\v civo od sposobnosti programera}.
+
+Grubo govore\'ci, svi, \v cak i najmoderniji ra\v cunari koje danas
+koristimo, su sa\-gra\-\dj e\-ni od samo tri vrste elektronskih kola
+(\emph{logi\v ckih kapija}): \enquote{ne}, \enquote{i} i \enquote{ili}. Milioni ovih
+kola organizovanih na pravi na\v cin osnov su ra\v cunara kao univerzalne
+ma\v sine. Ideju \'cemo demonstrirati na primeru hardvera za sabiranje dva
+binarna broja.
+
+Aritmeti\v cke operacije sa brojevima u binarnom sistemu se izvode na
+isti na\v cin kao odgovaraju\'ce operacije u decimalnom sistemu.
+Binarne brojeve sabiramo \enquote{pe\v ske} isto kao i decimalne: potpi\v semo
+jedan broj ispod drugog, sabiramo cifru po cifru i vodimo ra\v cuna o
+prenosu. Treba povesti ra\v cuna samo o tome da je u binarnom sistemu
+$1 + 1 = 10$ ($1 + 1$ = \enquote{pi\v sem 0, pamtim 1}). Primer:
+
+\begin{center}
+    \begin{tabular}{cc@{}c@{}c@{}c@{}c@{}cl}
+        &  &\small 1&\small 1&\small 1&  &  &\small $\leftarrow$ prenos \\
+        &  &        &       1&       0& 1& 0& \\
+      + &  &       1&       1&       1& 1& 1& \\
+      \hline
+        & 1&       0&       1&       0& 0& 1&
+    \end{tabular}
+\end{center}
+
+Pretpostavimo sada da su nam data dva binarna broja sa istim brojem cifara
+(ukoliko polazni brojevi nemaju isti broj cifara, onom sa manje cifara
+mo\v zemo dopisati nule na po\v cetak). Prilikom sabiranja \enquote{pe\v ske}
+osnovni korak se sastoji u tome da saberemo dva bita i prenos iz prethodnog
+koraka. Kao rezultat dobijamo jedan bit rezultata i jedan bit prenosa.
+Evo slikovitog prikaza ove pri\v ce:
+{\def\ss#1{\mbox{\small$#1$}}%
+$$
+    \begin{array}{rccc|c|ccc}
+        & & &\multicolumn{3}{c}{\mbox{$i$-ti korak}}& & \\
+        & & &\multicolumn{1}{c}{ }&\multicolumn{1}{c}{\downarrow}& & &
+            \\ \cline{5-5}
+    \mbox{\small prenos $\rightarrow$}
+        &c_{n-1}&\ldots&\ss{c_{i+1}}&\ss{c_i}&\ss{c_{i-1}}&\ldots&\ss{c_0}\\
+        &x_{n-1}&\ldots&x_{i+1}&x_i&x_{i-1}&\ldots&x_0\\
+      + &y_{n-1}&\ldots&y_{i+1}&y_i&y_{i-1}&\ldots&y_0\\
+      \hline
+        &z_{n-1}&\ldots&z_{i+1}&z_i&z_{i-1}&\ldots&z_0
+            \\ \cline{5-5}
+    \end{array}
+$$
+Tablica sabiranja u osnovi 2 sa prenosom izgleda ovako:
+$$
+    \begin{array}{ccc|cc} \hline
+          &   &   & \mbox{zbir}       & \mbox{novi prenos} \\
+        x & y & c & s(x, y, c) & r(x, y, c) \\
+        \hline
+        0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 1 & 1 & 0\\
+        0 & 1 & 0 & 1 & 0\\
+        0 & 1 & 1 & 0 & 1\\
+        1 & 0 & 0 & 1 & 0\\
+        1 & 0 & 1 & 0 & 1\\
+        1 & 1 & 0 & 0 & 1\\
+        1 & 1 & 1 & 1 & 1
+    \end{array}
+$$}%
+Prema pri\v ci o predstavljanju Bulovih operacija osnovnim Bulovim
+operacijama, dobijamo da se Bulove operacije $s(x, y, c)$ i
+$r(x, y, c)$ koje su date gornjom tabelom mogu predstaviti ovako:
+$$
+    \begin{array}{l}
+        s(x, y, c) = (\lnot x \land \lnot y \land c) \lor
+            (\lnot x \land y \land \lnot c) \lor
+            (x \land \lnot y \land \lnot c) \lor
+            (x \land y \land c) \\
+        r(x, y, c) = (\lnot x \land y \land c) \lor
+            (x \land \lnot y \land c) \lor
+            (x \land y \land \lnot c) \lor
+            (x \land y \land c).
+    \end{array}
+$$
+
+\begin{figure}
+  \centering
+  \input ft02-polusab.pgf
+  \caption{Polusabira\v c}
+  \label{01-polusab}
+\end{figure}
+
+Elektronsko kolo kojim se ove dve Bulove operacije realizuju odjednom
+se zove \emph{polusabira\v c} i predstavljeno je na Slici~\ref{01-polusab}. Ulaz u
+polusabira\v c su tri bita ($x$, $y$ i $c$), a izlaz \v cine dva bita
+(zbir $s$ i novi prenos $r$). Napomenimo da je
+na Slici~\ref{01-polusab} prikazana veoma naivna verzija polusabira\v ca. Stvarni
+polusabira\v ci u stvari izgledaju druga\v cije, zato \v sto se pre
+implementacije u harvderu vr\v se razne optimizacije kako bi se
+u\v stedelo na komponentama. No, osnovna ideja je ista.
+
+\begin{sidewaysfigure}
+  \centering
+  \input ft02-sab.pgf
+  \caption{Sabira\v c}
+  \label{01-sab}
+\end{sidewaysfigure}
+
+Hardver kojim se realizuje sabiranje binarnih brojeva iste du\v zine
+se zove \emph{sabira\v c} i sastoji se od nekoliko polusabira\v ca.
+Sabira\v c 4-bitnih binarnih brojeva je prikazan na Slici~\ref{01-sab}. Ulaz
+u sabira\v c predstavljaju binarni brojevi $\overline{x_3 x_2 x_1 x_0}$ i\break
+$\overline{y_3 y_2 y_1 y_0}$, dok se na izlazu dobija rezultat
+$\overline{z_3 z_2 z_1 z_0}$, i informacija o tome da li je rezultat
+du\v zi od \v cetiri bita (linija \emph{overflow}). Overflow nije ni\v sta
+drugo do prenos poslednjeg sabiranja. Polusabira\v ci $PS_0$, $PS_1$,
+$PS_2$ i $PS_3$ su identi\v cni. Ozna\v ceni su brojevima samo zato da
+bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
+
+\section{Zadaci}
+
+\ZAD{01-01}{%
+    Slede\'ce brojeve, koji su dati u raznim osnovama, konvertovati u decimalni
+    sistem: $2102_{(3)}$, $2102_{(4)}$, $310_{(7)}$,
+    $101101_{(2)}$, $670_{(8)}$.
+}
+\ZAD{01-04}{%
+    Izvr\v siti nazna\v cene konverzije:
+
+    \begin{tabular}{l}
+        $12312 = \fbox{\strut\hspace*{2in}}$ $_{(3)}$\\[4mm]
+        $9999  = \fbox{\strut\hspace*{2in}}$ $_{(9)}$\\[4mm]
+        $32768  = \fbox{\strut\hspace*{2in}}$ $_{(2)}$
+    \end{tabular}
+}
+\ZAD{01-05}{%
+    Izvr\v siti nazna\v cene konverzije:
+
+    \begin{tabular}{l}
+        $1209_{(11)} = \fbox{\strut\hspace*{2in}}$ $_{(8)}$\\[4mm]
+        $32334_{(5)}  = \fbox{\strut\hspace*{2in}}$ $_{(6)}$
+    \end{tabular}
+}
+
+\ZAD{01-12}{%
+    Zapisati slede\'ce decimalne brojeve u binarnom sistemu:
+    0, 1, 2, 4, 8, 10, 128, 255, 1129.
+}
+
+\ZAD{01-13}{%
+    Zapisati slede\'ce binarne brojeve u decimalnom sistemu:
+    110110, 1010, 0, 1, 101010, 10101.
+}
+
+\ZAD{01-14}{%
+    Za broj zapisan u decimalnom sistemu znamo da je paran ako i samo
+    ako se zavr\v sava cifrom 0, 2, 4, 6, ili 8. Da li postoji
+    sli\v cno pravilo koje se odnosi na brojeve zapisane u
+    binarnom sistemu? A da li postoji pravilo koje nam poma\v ze da
+    brzo utvrdimo da li je broj zapisan u binarnom sistemu deljiv sa~4?
+}
+
+\ZAD{01-15}{%
+    Koliko je bitova potrebno da bi se zapisao broj 254?
+    A broj 1129?
+}
+
+\ZAD{01-17}{%
+    Konvertovati u decimalni sistem slede\'ce heksadecimalne brojeve:
+    $1$, $10$, $1A$, $FF$, $10D$, $FAD4$.
+}
+
+\ZAD{01-18}{%
+    Konvertovati u heksadecimalni sistem slede\'ce decimalne brojeve:
+    65312, 4832, 33261, 415, 22, 65535.
+}
+
+
+\ZAD{01-19}{%
+    Konvertovati slede\'ce binarne brojeve u heksadecimalni sistem:\newline
+    1101001010111, 1000100010001000, 10010101110
+}
+
+\ZAD{01-20}{%
+    Konvertovati slede\'ce heksadecimalne brojeve u binarni sistem:
+    $ADFFC1$, $19A0C$, $101010$, $FFFF$
+}
+
+
+\ifBIOINF
+    \ZAD{01-06a}{%
+        Odrediti sve brojeve $b \ge 3$ takve da je broj $121_{(b)}$
+        kvadrat nekog broja.
+    }
+    \SZAD{01-06c}{%
+        Da li postoji broj $b \ge 8$ takav da je broj $374_{(b)}$
+        kvadrat nekog broja?
+    }
+
+    \SZAD{01-06b}{%
+        Odrediti sve brojeve $b \in \{3, 4, \ldots, 20\}$ takve da je
+        broj $2101_{(b)}$ kvadrat nekog broja.
+    }
+    
+    \ZAD{01-07}{%
+        Na\'ci sve prirodne brojeve $n$ sa slede\'com osobinom: kada se broj $n$
+        zapi\v se u osnovi 13 dobije se trocifreni broj $\overline{p0q}_{(13)}$,
+        a kada se zapi\v se u osnovi 15 dobije se trocifreni broj $\overline{q0p}_{(15)}$.
+    }
+    
+    \ZAD{01-08b}{%
+        Na\'ci sve prirodne brojeve $n$ sa slede\'com osobinom: kada se broj $n$
+        zapi\v se u osnovi 3 dobije se trocifreni broj $\overline{abc}_{(3)}$,
+        a kada se zapi\v se u osnovi 4 dobije se trocifreni broj
+        $\overline{cba}_{(4)}$.
+    }
+    \ZAD{01-08}{%
+        Na\'ci sve prirodne brojeve $n$ sa slede\'com osobinom: kada se broj $n$
+        zapi\v se u osnovi 5 dobije se trocifreni broj $\overline{abc}_{(5)}$,
+        a kada se broj $2n$ zapi\v se u osnovi 5 dobije se trocifreni broj
+        $\overline{cba}_{(5)}$.
+    }
+    \ZAD{01-08c}{%
+        Na\'ci sve prirodne brojeve \v ciji zapis u osnovi 3 ima oblik
+        $\overline{x0y0z}_{(3)}$, a u osnovi 7 oblik $\overline{yzx}_{(7)}$.
+    }
+    \ZAD{01-10}{%
+        Odrediti najmanji prirodan broj $b \ge 10$ takav da je broj
+        $792_{(b)}$ deljiv brojem $297_{(b)}$.
+    }
+    
+    \SZAD{01-tezak1}{%
+      Odrediti sve prirodne brojeve $b \ge 3$ takve da se broj 2022 zapisuje u osnovi $b$
+      samo pomo\'cu cifara~0 i~2. O\v cigledno je $b = 10$ jedan takav broj.
+      Ima li ih jo\v s?
+    }
+    
+    \SZAD{01-tezak2}{%
+      Odrediti sve prirodne brojeve $b \ge 3$ takve da zapis broja 2022 u osnovi $b$
+      predstavlja permutaciju cifara $0, 1, \ldots, b-1$.
+      Na primer, $b = 5$ je jedan takav broj jer je $2022 = 31042_{(5)}$.
+      Ima li ih jo\v s?
+    }
+\fi
+\SZAD{01-11}{%
+    Sven Svenson, kapetan intergalakti\v ckog broda, je tokom svoje
+    poslednje posete planeti X\=u\c c upoznao glavnog inspektora kanala,
+    generala Nepa koji ga je pozvao na ve\v ceru. Tom prilikom je Svenson
+    sreo gospo\dj u Nepo i njihova tri sina: Lu, Ku i Bu. Nakon
+    ozbiljne diskusije tokom koje su se obojica slo\v zili da se
+    moderna civilizacija na planeti X\=u\c c razvijala na potpuno
+    isti na\v cin kao i moderna civilizacija na Zemlji, kapetan Svenson je
+    svojim novim prijateljima pokazao fotografiju svoje male plavokose
+    k\'ceri Stine i rekao da ima 3 godine. Svi su se slatko nasmejali kada
+    su Nepo, njegova supruga i njihovi sinovi po\v celi da se zabavljaju
+    pokazuju\'ci svojim troprstim rukama da Stina ima tri godine.
+
+    \begin{center}
+        \includegraphics[scale=0.2]{Alien1.jpg}
+    \end{center}
+    
+    Tokom ve\v cere im se pridru\v zio i ministar saobra\'caja planete
+    X\=u\c c, dr Baluk, kako bi se upoznao sa kapetanom Svensonom. Kad je
+    dr Baluk upitao generala Nepa koliko su stara njegova deca, ovaj je,
+    u duhu pravog matemati\v cara-amatera, odgovorio: \enquote{Otkrio sam neke
+    vrlo interesantne \v ci\-nje\-ni\-ce o starosti na\v se dece. Proizvod broja
+    godina koje imaju Lu, Ku i Bu je 3520. Zbir ta tri broja je 14 puta
+    ve\'ci od broja godina koje ima \'cerka kapetana Svensona. Razume se,
+    ne pravim razliku izme\dj u du\v zine godine na Zemlji i na
+    X\=u\c cu. Tako\dj e, starost dece izra\v zavam celim brojevima, da bi
+    se ra\v cunanje pojednostavilo.}
+
+    Nakon kra\'ceg ra\v cunanja, ministar je odvratio \enquote{Na \v zalost, jo\v s
+    uvek nemam dovoljno podataka da bih mogao izra\v cunati odgovor na moje
+    pitanje}.
+
+    \enquote{Izvinite, molim vas}, rekao je Nepo na to. \enquote{Zaboravio sam da
+    na\-po\-me\-nem da moj najstariji sin ima onoliko godina koliko dva mla\dj a
+    imaju zajedno.}
+
+    \enquote{E, sada je sve jasno!} odgovori ministar, \enquote{\v Stavi\v se,
+    veoma jednostavno!}
+
+    Koliko godina imaju Lu, Ku i Bu?
+}
+
+\ifBIOINF
+    \SZAD{01-21}{%
+        \emph{Oktalni sistem} je sistem sa osnovom 8.
+        \begin{itemize}
+        \item
+            Koje cifre se koriste u oktalnom sistemu?
+        \item
+            Opisati kako se neki broj brzo konvertuje iz binarnog u oktalni
+            sistem i iz oktalnog u binarni sistem. Koliko bita treba da ima
+            jedna grupa? (Napomena: $8 = 2^3$.)
+        \end{itemize}
+    }
+    
+    \SZAD{01-16}{%
+        Konvertovati broj $72364723642703243423045_{(8)}$ iz osnove 8 u
+        osnovu~16.
+    
+        Konvertovati broj $f36d2a2c652bf45095ff_{(16)}$ iz osnove 16 u osnovu~8.
+    }
+
+    \SZAD{01-16b}{%
+        Svaku od heksadecimalnih cifara zapisati pomo\'cu ta\v cno \v cetiri
+        bita (uz dopisivanje nula na po\v cetku ako je to neophodno).
+        Na osnovu toga do\-ka\-za\-ti da je postupak konverzije heksadecimalno
+        zapisanih brojeva u binarni zapis koga smo opisali dobar:
+        \begin{itemize}
+        \item
+            Uzeti proizvoljan binarni broj $b_{k-1} b_{k-2} \ldots b_1 b_0$
+            i pretpostaviti da je $k$ deljivo sa \v cetiri (ako nije, uvek se
+            na po\v cetak mo\v ze dopisati nekoliko nula kako bi se dobio
+            binarni broj kome je broj cifara deljiv sa 4).
+        \item
+            Podeliti cifre ovog broja na grupe od po 4 bita i formirati
+            odgovaraju\'ci heksadecimalni broj $c_{m-1} \ldots c_1 c_0$,
+            gde je $m = k/4$. Zaklju\v citi da su $c_i$ elementi skupa
+            $\{0, 1, \ldots, 15\}$. Koristiti prvi deo, kao i to
+            da je $16 = 2^4$.
+        \end{itemize}
+    }
+\fi
+
+\ZAD{01-22}{%
+    Neka je $f(x, y, z) = (x \land y) \lor (x \land \lnot z)$. Izra\v cunati
+    vrednost operacije $f$ za sve mogu\'cnosti argumenata $x$, $y$ i $z$.
+    (Napraviti tabelu; koliko razli\v citih redova, osim zaglavlja, treba
+    da ima ova tabela?)
+}
+
+\ZAD{01-23}{%
+    Za Bulovu operaciju $f(x, y, z) = (x \land y \land z) \lor
+    \lnot(x \lor y \lor z)$ napraviti odgovaraju\'cu tabelu.
+}
+
+\ZAD{01-24}{%
+    Za Bulovu operaciju $f(x, y, z, u) = ((x \lor y) \land \lnot z)
+    \lor (\lnot(x \land y) \lor u)$ napraviti odgovaraju\'cu tabelu.
+    (Za Bulovu operaciju sa \v cetiri argumenta tabela treba da ima zaglavlje i
+    16 redova.)
+}
+
+    \ZAD{01-25}{%
+        Koliko redova ima tabela za Bulovu
+        operaciju sa $n$ argumenata?
+    }
+
+    \ZAD{01-27}{%
+        Odaberite proizvoljnu Bulovu operaciju sa 4 promenljive koja
+        u koloni ispod $f$ ima ta\v cno 5 jedinica i predstavite je
+        pomo\'cu osnovnih Bulovih operacija.
+    }
+
+    \ZAD{01-28}{%
+        Uzmite Bulovu operaciju sa dve promenljive kojoj su u koloni ispod
+        $f$ sve nule i predstavite je pomo\'cu osnovnih Bulovih operacija.
+        (Napomena: ovo je jedini slu\v caj u kome recept ne radi!
+        Budite lukavi!)
+    }
+
+\ZAD{01-29}{%
+        Na ulazu u kontrolni ure\dj aj $C$ nalaze se tri prekida\v ca $x$, $y$ i $z$,
+        a na izlazu sijalica $S$. Kontrola $C$ pali sijalicu ako su uklju\v cena
+        bar dva prekida\v ca (dakle, ili neka dva ili sva tri).
+
+        \begin{center}
+            \unitlength 0.2pt
+            \input ft02-c.pgf
+        \end{center}
+
+        $(a)$ Predstaviti pona\v sanje kontrolnog ure\dj aja $C$ tabelom (1 = struja
+        proti\v ce; 0 = struja ne proti\v ce);
+
+        $(b)$ Dobijenu Bulovu operaciju predstaviti odgovaraju\'cim izrazom.
+
+        $(c)$ Skicirati \v semu ure\dj aja.
+}
+
+
+\SZAD{01-98}{%
+    $(a)$
+        Dokazati da je $x \lor y = \lnot(\lnot x \land \lnot y)$.
+        (Direktnom proverom! Ima samo \v cetiri mogu\'cnosti za vrednosti
+        promenljivih.) Da li se svaka Bulova operacija zadata
+        tabelom mo\v ze predstaviti samo pomo\'cu $\land$ i $\lnot$?
+
+    $(b)$
+        Dokazati da je $x \land y = \lnot(\lnot x \lor \lnot y)$.
+        Da li se svaka Bulova operacija zadata
+        tabelom mo\v ze predstaviti samo pomo\'cu $\lor$ i $\lnot$?
+
+    $(c)$
+        Posmatrajmo Bulovu operaciju $\uparrow$ koja je definisana sa
+        $x \uparrow y = \lnot(x \land y)$.
+        \begin{itemize}
+        \item
+            Dokazati da se $\lnot$ i $\land$ mogu dobiti samo od $\uparrow$.
+            (Pogledajte \v sta je $x \uparrow x$ i primetite da je
+            $x \land y = \lnot(x \uparrow y)$.)
+        \item
+            Da li se svaka Bulova operacija zadata
+            tabelom mo\v ze predstaviti samo pomo\'cu $\uparrow$?
+        \end{itemize}
+
+    $(d)$
+        Posmatrajmo Bulovu operaciju $\downarrow$ koja je definisana sa
+        $x \downarrow y = \lnot(x \lor y)$.
+        \begin{itemize}
+        \item
+            Dokazati da se $\lnot$ i $\lor$ mogu dobiti samo od
+            $\downarrow$.
+        \item
+            Da li se svaka Bulova operacija zadata
+            tabelom mo\v ze predstaviti samo pomo\'cu $\downarrow$?
+        \end{itemize}
+%
+%    $(e)$
+%        Da li se svaka Bulova operacija zadata
+%        tabelom mo\v ze predstaviti samo pomo\'cu $\land$ i $\lor$?
+%        (Uputstvo: Pogledajte izraze $0 \land 0$ i $0 \lor 0$. Ako je
+%        $f(x, y, \ldots, z)$ izraz sastavljen samo od promenljivih
+%        $x, y, \ldots, z$ i operacija $\land$ i $\lor$, koliko je
+%        vrednost izraza $f(0, 0, \ldots, 0)$? Da li se $g(x, y) =
+%        x \Leftrightarrow y$ mo\v ze predstaviti nekim izrazom
+%        ovakvog oblika?)
+%
+%    $(f)$
+%        Na\'ci sve binarne Bulove funkcije $f$ takve da se
+%        svaka Bulova operacija zadata tabelom mo\v ze predstaviti samo
+%        pomo\'cu $f$. (Uputstvo: Neka je $f$ takva operacija. Doka\v zite
+%        prvo da mora biti $f(0,0) = 1$ i $f(1, 1) = 0$, tj.\ da tabela za
+%        $f$ mora izgledati ovako:
+%        $$
+%            \begin{array}{cc|c}
+%                x & y & f \\ \hline
+%                0 & 0 & 1 \\
+%                0 & 1 & \mbox{(ne\v sto)} \\
+%                1 & 0 & \mbox{(ne\v sto)} \\
+%                1 & 1 & 0
+%            \end{array}
+%        $$
+%        koriste\'ci se idejom iz prethodnog zadatka. Potom razmotrite
+%        sve \v cetiri mo\-gu\-\'cno\-sti za $f(0,1)$ i $f(1,0)$.)
+}
+
+\ifBIOINF\else
+    \noindent
+    \hbox to \textwidth{%
+    \begin{minipage}{3.75in}
+    \SZAD{01-99}{%
+        Napraviti polusabira\v c polaze\'ci samo od kola za ope\-racije
+        $\land$, $\lor$ i $\oplus$, gde je poslednja operacija data pored.
+        (Uputstvo: $s(x, y, c)$ se realizuje veoma lako, dok je
+        $r(x, y, c) = (x \land y) \lor ((x \oplus y) \land c)$.)
+    }
+    \end{minipage}\hfill
+    \begin{minipage}{1in}
+        $
+            \begin{array}{cc|c}
+                x & y & x \oplus y \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 0.
+            \end{array}
+        $
+    \end{minipage}
+    }
+    
+    \SZAD{01-99b}{%
+        Napraviti polusabira\v c polaze\'ci samo od kola za ope\-raciju
+        $\uparrow$ iz Zadatka~\ref{01-98}~$(c)$. (Uputstvo: Uo\v citi da je
+        $\lnot x = 1 \uparrow x$, $x \land y = 1 \uparrow (x \uparrow y)$,
+        i $x \lor y = ((1 \uparrow x) \uparrow (1 \uparrow y))$.)
+    }
+\fi

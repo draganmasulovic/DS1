@@ -1,0 +1,2309 @@
+%!TeX root=main-DS1.tex
+\chapter{Iskazni ra\v cun}
+
+% \v Zelja da se formuli\v se pouzdana procedura zaklju\v civanja koja vodi ka objektivnim i pouzdanim stavovima
+% vodila je jo\v s stare Grke (pre svega stoike i Aristotela) da po\v cnu da razmi\v sljaju o tome kako da formalizuju
+% procese mi\v sljenja i zaklju\v civanja. Ista ideja je bila na umu i Lajbnicu kada je pri\v cao o
+% \enquote{univerzalnom jeziku} i \enquote{univerzalnoj proceduri} odlu\v civanja istinitosti, kao i D\v zor\v zu Bulu
+% kada je pisao svoju \emph{Matemati\v cku analizu logike} u kojoj je postavio osnove iskaznog ra\v cuna.
+
+\emph{Iskaz} je re\v cenica \v ciju istinitost mo\v zemo \emph{nepobitno} i \emph{jednozna\v cno} da utvrdimo.
+Tipi\v cni primeri iskaza su matemati\v cke tvrdnje kao \v sto su
+\begin{center}
+  \begin{tabular}{l}
+    \textit{\enquote{Postoje prirodni brojevi $k$, $l$ i $m$ takvi da je $k^2 + l^2 = m^2$}} (ta\v can iskaz), i\\
+    \textit{\enquote{Simetrale strana trougla se seku na opisanoj kru\v znici}} (neta\v can iskaz).
+  \end{tabular}
+\end{center}
+Izjave iz svakodnevnog \v zivota \emph{naj\v ce\v s\'ce nisu iskazi} jer mogu biti podlo\v zni ukusu, shvatanjima i interpretacijama.
+Za potrebe ovog kursa iskazi ne govore o svakodnevnim situacijama, ve\'c o apstraktnim fenomenima tipi\v cnim za matematiku i ra\v cunarstvo.
+
+\smallskip
+
+\noindent
+\begin{minipage}{3.5in}
+  \hspace*{1.5em}Nama \'ce posebno biti interesantni iskazi koje govore o stanju memorije tokom izvr\v savanja programa.
+  Na primer, pretpostavimo da jedan mali program ima dve celobrojne promenljive, \verb`x` i \verb`y`, i jednu logi\v cku promenljivu \verb`p`,
+  i pretpostavimo da je tokom izvr\v savanja programa u jednom trenutku stanje u memoriji ra\v cunara opisano u tabeli pored.
+  Tada su slede\'ce tvrdnje iskazi:
+  $$
+    \mathtt{x} \le 6, \quad \mathtt{y} < 0, \quad \mathtt{p}
+  $$
+\end{minipage}\hfill
+\begin{minipage}{1.5in}
+  \begin{center}
+  \begin{tabular}{|lr|}
+    \multicolumn{2}{c}{\textsc{Memorija}}\\
+    \hline
+    \multicolumn{2}{|c|}{ }\\
+    \cline{2-2}
+    \verb`x`: & \multicolumn{1}{|r|}{7}\\
+    \cline{2-2}
+    \verb`y`: & \multicolumn{1}{|r|}{9}\\
+    \cline{2-2}
+    \verb`p`: & \multicolumn{1}{|r|}{\texttt{true}}\\
+    \cline{2-2}
+    \multicolumn{2}{|c|}{ }\\
+    \hline
+  \end{tabular}
+  \end{center}
+\end{minipage}\newline
+
+\noindent
+jer mo\v zemo nepobitno i jednozna\v cno da utvrdimo da su prva dva iskaza neta\v cni, dok je tre\'ci iskaz ta\v can.
+U ovom kontekstu iskaz mo\v ze da bude neki logi\v cki izraz ili logi\v cka promenljiva.
+
+\section{Iskazne formule}
+
+U programiranju je \v cesto potrebno ispitati da li va\v ze dva uslova istovremeno pre nego \v sto se pre\dj e na
+ra\v cunanje vrednosti nekog izraza. Naravno, postoji na\v cin da se od dva ili vi\v se
+jednostavnih uslova napravi jedan slo\v zeni uslov: jednostavni uslovi
+se pove\v zu logi\v ckim veznicima \emph{konjunkcije} $\land$,
+\emph{disjunkcije} $\lor$, \emph{negacije} $\lnot$, \emph{implikacije} $\Rightarrow$ i \emph{ekvivalencije} $\Leftrightarrow$, recimo
+ovako:
+$$
+  (x > 0 \;\;\land\;\; y < 0) \;\;\Rightarrow\;\; xy < 0.
+$$
+U savremenim programskim jezicima se uglavnom javljaju samo prva tri veznika, naj\v ce\v s\'ce u slede\'cem obliku:
+\emph{konjunkcija} \verb"&&", \emph{disjunkcija} \verb"||" i \emph{negacija} \verb"!".
+Evo nekoliko primera:
+
+\begin{center}
+    \begin{tabular}{@{}cc@{}}
+    \hline
+    Matematika & Programiranje \\
+    \hline
+    $z = 7$ & \verb"z == 7" \\
+    $x < 5 \land y \ge 0$ & \verb"x < 5 && y >= 0" \\
+    $\lnot(x = y \lor z > 0)$ & \verb"!(x == y || z > 0)" \\
+    $\lnot\mathit{ok} \;\;\land\;\; \mathit{pos} \ge 0$ & \verb"!ok && pos >= 0" \\
+    $(x < 2 \lor y \ne 4) \land (x > 3 \lor y > 3)$ &
+    {\verb"(x < 2 || y != 4) && (x > 3 || y > 3)"}
+    \end{tabular}
+\end{center}
+
+Kada analiziramo logi\v cka svojstva ovakvih slo\v zenih uslova obi\v cno se
+prosti uslovi zamene slovima da bi se izrazi kojima manipuli\v semo pojednostavili.
+Na primer, slo\v zeni uslov:
+$$
+  ( \, \underbrace{x < 2}_p \,\lor\, \underbrace{y \ne 4}_q \, ) \,\land\, (\, \underbrace{x > 3}_s \,\lor\, \underbrace{y > 3}_t \, )
+$$
+tako postaje \emph{iskazna formula}:
+$$
+  (p \lor q) \land (s \lor t).
+$$
+Slova $p$, $q$, $s$ i $t$ koja u\v cestvuju u gra\dj enju ove iskazne formule se zovu \emph{iskazna slova}.
+Ona predstavljaju najjednostavnije iskaze \v cijim povezivanjem je nastao polazni slo\v zeni iskaz.
+
+\begin{quote}
+  \emph{Apstrahovanje} je proces u kome se neki aspekti fenomena zanemare kako bi se na\v sa pa\v znja fokusirala samo na one
+  aspekte koji su klju\v cni za razmatranje. Za takva razmatranja onda ka\v zemo da su \emph{apstraktna}.
+\end{quote}
+
+U ovom delu kursa \'cemo razmatratrati uzajamne interakcije logi\v ckih pojmova bez ula\v zenja u
+prirodu tih logi\v ckih pojmova. Tako dolazimo do slede\'ce \emph{apstraktne} definicije iskazne formule.
+
+
+\ifBIOINF
+      Neka je $p_1, \ldots, p_n$ kona\v can niz simbola koje zovemo \emph{iskazna slova}.
+      \emph{Iskazna formula sa slovima $p_1, \ldots, p_n$}
+      je kona\v can niz simbola koji se formira sli\v cno algebarskim izrazima:
+	  jednostavnije izraze povezujemo u slo\v zenije \emph{binarnim veznicima}
+	  $\land$, $\lor$, $\Rightarrow$, $\Leftrightarrow$, ili ih napadamo unarnim veznikom $\lnot$.
+	  Pri tome koristimo zagrade da bismo naglasili redosled izvo\dj enja operacija.
+\else
+    \begin{DEF}
+      Neka je $p_1, \ldots, p_n$ kona\v can niz simbola koje zovemo \emph{iskazna slova}.
+      \emph{Iskazna formula sa slovima $p_1, \ldots, p_n$}
+      je kona\v can niz simbola koji je formiran prema slede\'cim pravilima:
+      \begin{enumerate}\itemsep -1mm
+      \item
+        simboli $\top$, $\bot$ i
+        \emph{iskazna slova} $p_1$, $p_2$, \ldots, $p_n$ su iskazne formule;
+      \item
+        ako su $\phi$ i $\psi$ iskazne formule, onda su to i slede\'ci nizovi simbola:
+        $$
+          \lnot \phi, \quad (\phi \land \psi), \quad (\phi \lor \psi), \quad (\phi \Rightarrow \psi), \quad (\phi \Leftrightarrow \psi);
+        $$
+      \item
+        svaka iskazna formula se dobija kona\v cnom primenom pravila (1) i (2).
+      \end{enumerate}
+      Zahtevom (3) se obezbe\dj uje da je iskazna formula kona\v can niz simbola.
+    \end{DEF}
+\fi
+
+\begin{EX}
+  Evo nekoliko iskaznih formula:
+  \begin{itemize}
+    \item $p_{19}$ je iskazna formula sa slovima $p_1$, \ldots, $p_{20}$ (primetimo da nismo u obavezi da upotrebimo sva iskazna slova u formuli);
+    \item $(x \lor y)$ je iskazna formula sa slovima $x$, $y$;
+    \item $((p \land \lnot p) \Rightarrow \bot)$ je iskazna formula sa slovom $p$;
+    \item $(\lnot \lnot(u \lor v) \land (w \Rightarrow (v \Leftrightarrow u)))$ sa slovima $u$, $v$,$w$.
+  \end{itemize}
+\end{EX}
+
+\begin{CONVENTION}
+  Vidimo da iskazne formule mogu da budu prili\v cno komplikovani nizovi simbola.
+  Zato se prilikom zapisivanja formula usvajaju slede\'ce konvencije:
+  \begin{itemize}
+  \item
+    po\v sto se slova jasno vide u iskaznoj formuli ne\'cemo vi\v se govoriti \enquote{iskazna formula sa slovima \ldots},
+    ve\'c samo \enquote{iskazna formula};
+  \item
+    nikada ne pi\v semo spolja\v snje zagrade kod formula; i
+  \item
+    veznici $\land$ i $\lor$ imaju vi\v si prioritet nego veznici~$\Rightarrow$ i~$\Leftrightarrow$.
+  \end{itemize}
+\end{CONVENTION}
+
+\begin{EX}
+  Uz ove konvencije formule iz prethodnog primera dobijaju slede\'ci (\v citkiji) oblik:
+  $$
+    \begin{array}{c@{\quad\text{ pi\v semo ovako: }\quad}c}
+      (x \lor y) & x \lor y\\
+      ((p \land \lnot p) \Rightarrow \bot) & p \land \lnot p \Rightarrow \bot \\
+      (\lnot \lnot(u \lor v) \land (w \Rightarrow (v \Leftrightarrow u)))
+      & \lnot \lnot(u \lor v) \land (w \Rightarrow (v \Leftrightarrow u))
+    \end{array}
+  $$
+\end{EX}
+
+Vrednosti logi\v ckih izraza u programiranju su obi\v cno ozna\v cene sa \verb`true` (ta\v cno) i \verb`false` (neta\v cno), dok ih
+u matematici ozna\v cavamo sa $\top$ (ta\v cno) i $\bot$ (neta\v cno) i zovemo \emph{istinitosne vrednosti}.
+Ako su poznate istinitosne vrednosti iskaznih slova koja u\v cestvuju u gra\dj enju iskazne formule
+onda je lako odrediti istinitosnu vrednost cele formule
+koriste\'ci \v cinjenicu da su logi\v cki veznici ujedno i logi\v cke operacije koje su definisane slede\'cim tablicama:
+$$
+  \begin{array}{ccccc}
+    \begin{array}{|c|c|}
+    \hline
+        & \lnot \\
+    \hline
+    \bot & \top \\
+    \top & \bot \\
+    \hline
+    \end{array}
+  &
+    \begin{array}{|c|cc|}
+    \hline
+    \land & \bot & \top \\
+    \hline
+    \bot & \bot & \bot \\
+    \top & \bot & \top \\
+    \hline
+    \end{array}
+  &
+    \begin{array}{|c|cc|}
+    \hline
+    \lor  & \bot & \top \\
+    \hline
+    \bot & \bot & \top \\
+    \top & \top & \top \\
+    \hline
+    \end{array}
+  &
+    \begin{array}{|c|cc|}
+    \hline
+    \Rightarrow  & \bot & \top \\
+    \hline
+    \bot & \top & \top \\
+    \top & \bot & \top \\
+    \hline
+    \end{array}
+  &
+    \begin{array}{|c|cc|}
+    \hline
+    \Leftrightarrow  & \bot & \top \\
+    \hline
+    \bot & \top & \bot \\
+    \top & \bot & \top \\
+    \hline
+    \end{array}
+  \end{array}
+$$
+
+\medskip
+
+\noindent
+\begin{minipage}{3.5in}
+  \begin{EX}
+    Odrediti istinitosnu vrednost iskazne formule $((\lnot p \lor q) \land r) \Rightarrow (q \land r)$
+    ako je istinitosna vrednost slova koja se javljaju u formuli data tabelom pored.
+  \end{EX}
+\end{minipage}\hfill
+\begin{minipage}{1.5in}
+  $$
+    \begin{array}{ccc}
+    p & q & r \\
+    \hline
+    \bot & \top & \bot
+    \end{array}
+  $$
+\end{minipage}\par
+
+\bigskip
+
+\noindent
+\begin{minipage}[t]{2in}
+  \begin{proof}[Re\v senje]
+    Ako u formuli slova zamenimo njihovim istinitosnim vrednostima i izvr\v simo nazna\v cene
+    logi\v cke operacije dobijamo ra\v cun prikazan pored.
+  \end{proof}
+\end{minipage}\hfill
+\begin{minipage}[t]{3.5in}
+  \begin{center}
+  \begin{tabular}[t]{l}
+  $ ((\lnot \bot \lor \top) \land \bot) \Rightarrow (\top \land \bot)$\\
+  $\;\;=\;\; ((\top \lor \top) \land \bot) \Rightarrow (\top \land \bot) $\\
+  $\;\;=\;\; (\top  \land \bot) \Rightarrow (\top \land \bot) $\\
+  $\;\;=\;\; \bot \Rightarrow (\top \land \bot) $\\
+  $\;\;=\;\; \bot \Rightarrow \bot $\\
+  $\;\;=\;\; \top$
+  \end{tabular}
+  \end{center}
+\end{minipage}\par
+
+\begin{DEF}
+  Tabela koja svakom iskaznom slovu neke formule dodeljuje jednu od vrednosti
+  $\top$ ili $\bot$ se zove \emph{valuacija}.
+\end{DEF}
+
+Istinitosna vrednost formule za datu valuaciju
+se onda ra\v cuna pravolinijski, koriste\'ci tabelice koje defini\v su logi\v cke operacije.
+U prethodnom primeru data nam je valuacija
+  $$
+    v : \begin{array}{ccc}
+    p & q & r \\
+    \hline
+    \bot & \top & \bot
+    \end{array}
+  $$
+\v Cinjenicu da u valuaciji $v$ slovo $p$ ima istinitosnu vrednost $\bot$ pi\v semo ovako:
+$$
+  v(p) = \bot,
+$$
+a \v cinjenicu da u valuaciji $v$ formula $\phi = ((\lnot p \lor q) \land r) \Rightarrow (q \land r)$
+ima istinitosnu vrednost $\top$ pi\v semo ovako:
+$$
+  v(\phi) = \top.
+$$
+
+\section{Tautologije}
+
+Iskazna formula mo\v ze u nekoj valuaciji da bude ta\v cna, a u nekoj neta\v cna. Me\dj utim,
+postoje iskazne formule koje su uvek ta\v cne nezavisno od valuacije.
+Na primer, takva je formula $\top$, ali i formule $p \lor \lnot p$ i $p \Rightarrow (q \Rightarrow p)$.
+Takve formule se zovu tautologije.
+
+\begin{DEF}
+  Iskazna formula je \emph{tautologija} ako je ta\v cna za svaku valuaciju slova koja se u njoj javljaju.
+  Izjavu \enquote{\textit{$\phi$ je tautologija}} skra\'ceno zapisujemo ovako:
+  $$
+    \vDash \phi
+  $$
+\end{DEF}
+
+\begin{EX}
+  Formula $\psi = ((\lnot p \lor q) \land r) \Rightarrow (q \land r)$ nije tautologija zato \v sto
+  u slede\'coj valuaciji
+  $
+    v : \begin{array}{ccc}
+    p & q & r \\
+    \hline
+    \bot & \bot & \top
+    \end{array}
+  $
+  za istinitosnu vrednost formule dobijamo:
+  \begin{align*}
+    v(\psi) &= ((\lnot \bot \lor \bot) \land \top) \Rightarrow (\bot \land \top) = ((\top \lor \bot) \land \top) \Rightarrow (\bot \land \top) \\
+    &= (\top \land \top) \Rightarrow (\bot \land \top) = \top \Rightarrow (\bot \land \top) = \top \Rightarrow \bot = \bot
+  \end{align*}
+  Dakle, ako postoji \emph{bar jedna} valuacija za koju formula nije ta\v cna, ta formula \emph{nije} tautologija.
+\end{EX}
+
+\begin{EX}
+  Dokazati da je formula $\phi = (p \Rightarrow q) \Leftrightarrow (\lnot q \Rightarrow \lnot p)$ tautologija.
+\end{EX}
+\begin{proof}[Re\v senje.]
+  Ako formula ima svega nekoliko slova, najbr\v zi na\v cin da se proveri da li je ona tautologija je
+  da izra\v cunamo njenu vrednost za sve mogu\'ce valuacije, \v sto je ura\dj eno u Tabeli~\ref{ft03.tab.primer-taut-0}.
+  Ovakav na\v cin provere da li je formula tautologija ima smisla za formule u kojima se javlja relativno malo slova (do \v cetiri)
+  zato \v sto za formulu sa $n$ slova ovakva tabela, pored zaglavlja, ima jo\v s $2^n$ redova.
+  Na primer, za formulu koja ima 10 iskaznih slova ovakva tabela ima zaglavlje i jo\v s 1024 reda!
+\end{proof}
+
+\begin{table}[!h]
+    $$
+      \begin{array}{|cccc|c|c||c|}
+      \hline
+      p & q & p \Rightarrow q & \lnot q \Rightarrow \lnot p & \phi \\
+      \hline
+      \bot & \bot & \top & \top & \top \\
+      \bot & \top & \top & \top & \top \\
+      \top & \bot & \bot & \bot & \top \\
+      \top & \top & \top & \top & \top \\
+      \hline
+      \end{array}
+    $$
+    \caption{Dokaz da je formula $\phi = (p \Rightarrow q) \Leftrightarrow (\lnot q \Rightarrow \lnot p)$ tautologija}
+    \label{ft03.tab.primer-taut-0}
+\end{table}
+
+Nekada se de\v sava da nije lako na\'ci direktan dokaz nekog stava. Tada se \v cesto pribegava lukavstvu
+koje se zove \emph{svo\dj enje na kontradikciju} (lat.~\emph{reductio ad absurdum}) i zasniva se na tautologiji
+$$
+  \vDash p \Leftrightarrow (\lnot p \Rightarrow \bot)
+$$
+koja ka\v ze da je logi\v cki svejedno da li \'cemo dokazivati iskaz $p$ ili \'cemo dokazati da
+pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
+
+
+\begin{EX}
+  Dokazati da je formula $\phi = (x \Rightarrow y) \land (z \Rightarrow w) \Rightarrow (x \lor z \Rightarrow y \lor w)$
+  tautologija.
+\end{EX}
+\begin{proof}[Re\v senje]
+%  Jedan na\v cin da to poka\v zemo je da proverimo sve mogu\'ce valuacije sa \v cetiri slova, \v sto je ura\dj eno
+%  u Tabeli~\ref{ft03.tab.primer-taut}.
+%  Ovakav na\v cin provere da li je formula tautologija ima smisla za formule u kojima se javlja relativno malo slova (tri-\v cetiri)
+%  zato \v sto za formulu sa $n$ slova ovakva tabela ima $2^n$ redova. (Na primer, za formulu koja ima 10 slova ovakva tabela ima
+%  1024 reda!)
+%  \begin{table}[!h]
+%    $$
+%      \begin{array}{|cccc|c|c||c|}
+%      \hline
+%      p & q & r & s & (p \Rightarrow q) \land (r \Rightarrow s) & p \lor r \Rightarrow q \lor s & \phi \\
+%      \hline
+%      \bot & \bot & \bot & \bot & \top & \top & \top \\
+%      \bot & \bot & \bot & \top & \top & \top & \top \\
+%      \bot & \bot & \top & \bot & \bot & \bot & \top \\
+%      \bot & \bot & \top & \top & \top & \top & \top \\
+%      \bot & \top & \bot & \bot & \top & \top & \top \\
+%      \bot & \top & \bot & \top & \top & \top & \top \\
+%      \bot & \top & \top & \bot & \bot & \top & \top \\
+%      \bot & \top & \top & \top & \top & \top & \top \\
+%      \top & \bot & \bot & \bot & \bot & \bot & \top \\
+%      \top & \bot & \bot & \top & \bot & \top & \top \\
+%      \top & \bot & \top & \bot & \bot & \bot & \top \\
+%      \top & \bot & \top & \top & \bot & \top & \top \\
+%      \top & \top & \bot & \bot & \top & \top & \top \\
+%      \top & \top & \bot & \top & \top & \top & \top \\
+%      \top & \top & \top & \bot & \bot & \top & \top \\
+%      \top & \top & \top & \top & \top & \top & \top \\
+%      \hline
+%      \end{array}
+%    $$
+%    \caption{Dokaz da je formula $\phi = (p \Rightarrow q) \land (r \Rightarrow s) \Rightarrow (p \lor r \Rightarrow q \lor s)$
+%    tautologija}
+%    \label{ft03.tab.primer-taut}
+%  \end{table}
+%  
+  Jedan na\v cin da to poka\v zemo je da proverimo sve mogu\'ce valuacije sa \v cetiri slova, kojih ima~16.
+  Umesto toga, pokaza\'cemo drugi na\v cin da se proveri da li je formula tautologija.
+
+  Da bismo dokazali da je formula $\phi$ tautologija treba da doka\v zemo da je ona ta\v cna za svaku mogu\'cu valuaciju.
+  Dakle, treba da doka\v zemo iskaz:
+  $$
+    p = \text{\enquote{Za svaku valuaciju formula $\phi$ je ta\v cna.}}
+  $$
+  Primeni\'cemo strategiju dokazivanja svo\dj enjem na kontradikciju, prema kojoj je iskaz $p$ logi\v cki
+  ekvivalentan iskazu $\lnot p \Rightarrow \bot$. Drugim re\v cima, pretpostavi\'cemo:
+  $$
+    \lnot p = \text{\enquote{Nije za svaku valuaciju formula $\phi$ ta\v cna}}
+  $$
+  pa \'cemo polaze\'ci od toga poku\v sati da dedukujemo neta\v can iskaz.
+  
+  Pretpostavimo da je $\lnot p$ ta\v cno, odnosno da nije za svaku valuaciju formula $\phi$ ta\v cna.
+  To zna\v ci da postoji neka valuacija u kojoj je $\phi$ neta\v cna. Po\v sto je formula $\phi$
+  oblika $\ldots \Rightarrow \ldots$, valuacija mora biti takva da je vrednost formule levo od znaka implikacije~$\top$,
+  dok je vrednost formule desno od znaka implikacije~$\bot$. Dakle,
+  $$
+    v : \begin{array}{c@{\qquad}c}
+      (x \Rightarrow y) \land (z \Rightarrow w) & x \lor z \Rightarrow y \lor w \\
+      \hline
+      \top & \bot
+    \end{array}
+  $$
+  Konjunkcija dve formule je ta\v cna samo kada su obe formule ta\v cne, pa zaklju\v cujemo da je
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c}
+      x \Rightarrow y & z \Rightarrow w & x \lor z \Rightarrow y \lor w \\
+      \hline
+      \top & \top & \bot
+    \end{array}
+  $$
+  S druge strane, implikacija je neta\v cna samo kada je formula levo od znaka implikacije ta\v cna, a formula desno od
+  znaka implikacije neta\v cna, pa dobijamo:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+      x \Rightarrow y & z \Rightarrow w & x \lor z & y \lor w \\
+      \hline
+      \top & \top & \top & \bot
+    \end{array}
+  $$
+  Disjunkcija je neta\v cna samo kada su oba disjunkta neta\v cni:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      x \Rightarrow y & z \Rightarrow w & x \lor z & y & w \\
+      \hline
+      \top & \top & \top & \bot & \bot
+    \end{array}
+  $$
+  Kako $v(x \Rightarrow y) = \top$, a $v(y) = \bot$, zaklju\v cujemo da mora biti $v(x) = \bot$:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      x & z \Rightarrow w & x \lor z & y & w\\
+      \hline
+      \bot & \top & \top & \bot & \bot
+    \end{array}
+  $$
+  Analogno, zbog $v(z \Rightarrow w) = \top$ i $v(w) = \bot$ mora biti $v(z) = \bot$:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      x & z & x \lor z & y & w\\
+      \hline
+      \bot & \bot & \top & \bot & \bot
+    \end{array}
+  $$
+  Tako smo dobili da je $\top = v(x \lor z) = v(x) \lor v(z) = \bot \lor \bot = \bot$, \v sto je neta\v can iskaz.
+  Dakle, pretpostavka da postoji valuacija u kojoj polazna formula nije tautologija vodi u kontradikciju,
+  \v sto zna\v ci da je ta pretpostavka neodr\v ziva. Time je dokazano da je $\phi$ tautologija.
+\end{proof}
+
+\begin{EX}
+  Dokazati da je slede\'ca formula tautologija za svako $n \ge 1$:
+  $$
+    p_1 \Rightarrow (p_2 \Rightarrow (p_3 \Rightarrow ( \ldots \Rightarrow (p_n \Rightarrow p_1) \ldots )))
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  Pretpostavimo i ovaj put da formula nije tautologija. Onda postoji valuacija u kojoj je formula neta\v cna.
+  Kako formula ima oblik $p_1 \Rightarrow ( \ldots )$, svaka valuacija u kojoj je ona bude neta\v cna izgleda ovako:
+  $$
+    v: \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      p_1 & p_2 \Rightarrow (p_3 \Rightarrow ( \ldots \Rightarrow (p_n \Rightarrow p_1) \ldots ))\\
+      \hline
+      \top & \bot 
+    \end{array}
+  $$
+  Na isti na\v cin dalje zaklju\v cujemo da mora biti:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      p_1 & p_2 & p_3 \Rightarrow ( \ldots \Rightarrow (p_n \Rightarrow p_1) \ldots )\\
+      \hline
+      \top & \top & \bot 
+    \end{array}
+  $$
+  i tako dalje. Na kraju dobijamo da mora biti:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      p_1 & p_2 & p_3 & \ldots & p_n \Rightarrow p_1\\
+      \hline
+      \top & \top & \top & \ldots & \bot 
+    \end{array}
+  $$
+  i na kraju:
+  $$
+    v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
+      p_1 & p_2 & p_3 & \ldots & p_n & p_1\\
+      \hline
+      \top & \top & \top & \ldots & \top & \bot 
+    \end{array}
+  $$
+  Tako smo dobili da je $\top = v(p_1) = \bot$, \v sto je neta\v can iskaz.
+  Pretpostavka da postoji valuacija u kojoj polazna formula nije tautologija vodi u kontradikciju,
+  \v sto zna\v ci da je ta pretpostavka neodr\v ziva. Time je dokazano da je $\phi$ tautologija.
+\end{proof}
+
+\begin{EX}
+  Dokazati da je slede\'ca formula tautologija za sve $n \ge 2$:
+  $$
+    p \land (q_1 \lor \ldots \lor q_n) \Leftrightarrow (p \land q_1) \lor \ldots \lor (p \land q_n).
+  $$
+\end{EX}
+\begin{proof}[Re\v senje]
+  U ovom primeru \'cemo pokazati jo\v s jednu tehniku dokazivanja da je formula tautologija koja se zasniva na diskusiji
+  po vrednosti iskaznog slova. Da bismo dokazali da je formula tautologija treba da doka\v zemo da je ta\v cna za sve valuacije.
+  U proizvoljnoj valuaciji $v$ promenljiva $p$ mo\v ze imati vrednost ili $\top$ ili $\bot$.
+  
+  Slu\v caj 1$^\circ$: $v(p) = \top$. Formula tada postaje:
+  $$
+    \top \land (q_1 \lor \ldots \lor q_n) \Leftrightarrow (\top \land q_1) \lor \ldots \lor (\top \land q_n),
+  $$
+  odnosno,
+  $$
+    q_1 \lor \ldots \lor q_n \Leftrightarrow q_1 \lor \ldots \lor q_n,
+  $$
+  (zato \v sto je $v(\top \land u) = v(u)$), \v sto je o\v cito ta\v cno.
+
+  Slu\v caj 2$^\circ$: $v(p) = \bot$. Formula tada postaje:
+  $$
+    \bot \land (q_1 \lor \ldots \lor q_n) \Leftrightarrow (\bot \land q_1) \lor \ldots \lor (\bot \land q_n),
+  $$
+  odnosno,
+  $$
+    \bot \Leftrightarrow \bot \lor \ldots \lor \bot,
+  $$
+  (zato \v sto je $v(\bot \land u) = \bot$), \v sto je o\v cito ta\v cno.
+\end{proof}
+
+Anti\v cki, a kasnije i srednjevekovni mislioci, imali su sna\v znu potrebu da formalizuju
+\enquote{zakone pravilnog mi\v sljenja}. Tako su, kao va\v zni zakoni mi\v sljenja,
+uo\v ceni slede\'ci \enquote{principi} koje sada navodimo u modernoj interpretaciji sa odgovaraju\'cim imenima
+koja su skovana u srednjem veku. Prve dve formule koje navodimo predstavljaju dva od tri \enquote{klasi\v cna zakona mi\v sljenja}:
+
+\medskip
+
+\begin{tabular}{ll}
+  $\vDash p \lor \lnot p$         & Zakon isklju\v cenja tre\'ceg (\textit{Tertium non datur})\\
+  $\vDash \lnot(p \land \lnot p)$ & Princip kontradikcije (\textit{Principium contradictionis})\\
+\end{tabular}
+
+\medskip
+
+\noindent
+(tre\'ci \enquote{klasi\v cni zakon mi\v sljenja} glasi \enquote{sve je jednako sebi} i danas ga zapisujemo ovako: $x = x$.)
+Evo i nekoliko \enquote{klasi\v cnih zakona zaklju\v civanja}:
+
+\medskip
+
+\begin{tabular}{ll}
+  $\vDash p \land (p \Rightarrow q) \Rightarrow q$  & (\textit{Modus ponens})\\
+  $\vDash (p \Rightarrow q) \land \lnot q \Rightarrow \lnot p$  & (\textit{Modus tollens})\\
+  $\vDash (p \Rightarrow q) \Leftrightarrow (\lnot q \Rightarrow \lnot p)$  & Kontrapozicija\\
+  $\vDash (p \Rightarrow q) \Leftrightarrow (p \land \lnot q \Rightarrow \bot)$  & Svo\dj enje na kontradikciju\\
+                                                                                 & (\textit{Reductio ad absurdum})\\
+  $\vDash (p \lor q) \land \lnot q \Rightarrow p$  & Disjunktivni silogizam\\
+  $\vDash (p \Rightarrow q) \land (q \Rightarrow r) \Rightarrow (p \Rightarrow r)$  & Hipoteti\v cki silogizam\\
+  $\vDash (p \Rightarrow q) \land (r \Rightarrow s) \Rightarrow (p \lor r) \Rightarrow (q \lor s)$  & Konstruktivna dilema\\
+  $\vDash \bot \Rightarrow q$ & Iz la\v zi --- bilo \v sta\\
+                                         & (\textit{Ex falso qoudlibet})
+\end{tabular}
+
+\medskip
+
+Dugo vremena nije bilo jasno kako razdvojiti formule koje predstavljaju \enquote{zakone mi\v sljenja} od formula koje
+to nisu. Predlog re\v senja ove dileme predstavlja okosnicu knjige \textit{Matemati\v cka analiza logike}
+britanskog matemati\v cara D\v zord\v za Bula iz~1847.\ godine gde se predla\v ze da
+\enquote{zakone mi\v sljenja} opisuju one i samo one formule koje su ta\v cne u svakoj valuaciji
+(dakle, tautologije).
+
+U svojoj detaljnoj analizi algebarskih svojstava iskaznog ra\v cuna D\v zord\v z Bul koristi i neke druge tautologije
+koje ne li\v ce toliko na \enquote{zakone mi\v sljenja} koliko na \enquote{algebarska pravila} (odatle i poti\v ce ime
+\enquote{iskazni \emph{ra\v cun}}), Tabela~\ref{ft03.tab.tautologije}.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{ll}
+    $\vDash \lnot \lnot p \Leftrightarrow p$ & Involutivnost negacije\\
+    $\vDash p \lor \lnot p \Leftrightarrow \top$ & Zakon isklju\v cenja tre\'ceg\\
+    $\vDash p \land \lnot p \Leftrightarrow \bot$ & Princip kontradikcije\\
+    \hline
+    $\vDash p \land \top \Leftrightarrow p$ & Neutralni element za $\land$\\
+    $\vDash p \lor \bot \Leftrightarrow p$ & \hphantom{Neutralni element}\llap{\dots} za $\lor$\\
+    \hline
+    $\vDash p \land \bot \Leftrightarrow \bot$ & Apsorptivni element za $\land$\\
+    $\vDash p \lor \top \Leftrightarrow \top$ & \hphantom{Apsorptivni element}\llap{\dots} za $\lor$\\
+    \hline
+    $\vDash p \land p \Leftrightarrow p$ & Idempotentnost konjunkcije\\
+    $\vDash p \lor p \Leftrightarrow p$ & \hphantom{Idempotentnost}\llap{\dots} disjunkcije\\
+    \hline
+    $\vDash p \land q \Leftrightarrow q \land p$ & Komutativnost konjunkcije\\
+    $\vDash p \lor q \Leftrightarrow q \lor p$ & \hphantom{Komutativnost}\llap{\dots} disjunkcije\\
+    $\vDash (p \Leftrightarrow q) \Leftrightarrow (q \Leftrightarrow p)$ & \hphantom{Komutativnost}\llap{\dots} ekvivalencije\\
+    \hline
+    $\vDash (p \land q) \land r \Leftrightarrow p \land (q \land r)$ & Asocijativnost konjunkcije\\
+    $\vDash (p \lor q) \lor r \Leftrightarrow p \lor (q \lor r)$ & \hphantom{Asocijativnost}\llap{\dots} disjunkcije\\
+    \hline
+    $\vDash p \land (q \lor r) \Leftrightarrow (p \land q) \lor (p \land r)$ & Distributivnost $\land$ prema $\lor$\\
+    $\vDash p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$ & \hphantom{Distributivnost}\llap{\dots} $\lor$ prema $\land$\\
+    $\vDash (p \Rightarrow (q \Rightarrow r)) \Leftrightarrow ((p \Rightarrow q) \Rightarrow (p \Rightarrow r))$ & \hphantom{Distributivnost}\llap{\dots} $\Rightarrow$ prema sebi\\
+    \hline
+    $\vDash \lnot(p \lor q) \Leftrightarrow \lnot p \land \lnot q$ & De Morganovi zakoni \\
+    $\vDash \lnot(p \land q) \Leftrightarrow \lnot p \lor \lnot q$ & \hphantom{De Morganovi zakoni}\llap{\dots}\\
+    \hline
+    $\vDash (p \Rightarrow q) \Leftrightarrow \lnot p \lor q$ & Zakon materijalne implikacije\\
+    $\vDash (p \Leftrightarrow q) \Leftrightarrow (p \Rightarrow q) \land (q \Rightarrow p)$ & \hphantom{Zakon materijalne}\llap{\dots} ekvivalencije\\
+\end{tabular}
+\caption{\enquote{Algebarska pravila} iskaznog ra\v cuna}
+\label{ft03.tab.tautologije}
+\end{table}
+
+
+\begin{CONVENTION}\label{ft03.convention.assoc}
+  Asocijativnost konjunkcije i disjunkcije nam omogu\'cuju da jo\v s malo pojednostavimo pisanje formula. Tako \'cemo:
+  umesto $p \land (q \land r)$ pisati kra\'ce $p \land q \land r$, i
+  umesto $p \lor (q \lor r)$ pisati kra\'ce $p \lor q \lor r$.
+\end{CONVENTION}
+
+
+
+\section{Tautologije kao transformaciona pravila}
+
+U ovom odeljku \v zelimo da poka\v zemo kako se navedene tautologije koriste kao \enquote{transformaciona pravila}.
+Ideja je da napravimo alat koji \'ce nam omogu\'citi da transformi\v semo formule u nove formule koje mo\v zda
+imaju jednostavniji ili \enquote{lep\v si} oblik, ali tako da se pri transformacijama logi\v cka vredost formule ne menja.
+
+Da se podsetimo: iskazna formula je \emph{niz simbola (string)} formiran prema odgovaraju\'cim pravilima. Zbog toga
+formule $\lnot(p \land q)$ i $\lnot p \lor \lnot q$ nisu jednake zato \v sto prva ima 6~simbola, a druga~5.
+S druge strane, zbog tautologije
+$$
+  \vDash \lnot(p \land q) \Leftrightarrow (\lnot p \lor \lnot q)
+$$
+ove dve formule su \enquote{logi\v cki jednake} u smislu da je prva ta\v cna ako i samo ako je druga
+ta\v cna. \v Cinjenicu da su dve formule \enquote{logi\v cki jednake} zato ozna\v cavamo novim simbolom:
+$$
+  \lnot(p \land q) \equiv (\lnot p \lor \lnot q)
+$$
+koga formalno defini\v semo ovako.
+
+\begin{DEF}
+  Iskazne formule $\phi$ i $\psi$ su \emph{ekvivalentne}, i pi\v semo $\phi \equiv \psi$, ako je
+  $\vDash \phi \Leftrightarrow \psi$.
+\end{DEF}
+
+Simbol $\equiv$ ne treba me\v sati sa logi\v ckim veznikom $\Leftrightarrow$. Logi\v cki veznik
+$\Leftrightarrow$ je deo jezika iskaznog ra\v cuna i koristi se kao simbol prilikom formiranja iskaznih formula.
+Simbol $\equiv$ pripada \emph{metajeziku}, dakle, jeziku koga koristimo da pri\v camo o iskaznim formulama. Zapis
+$\phi \equiv \psi$ \emph{nije logi\v cka formula}, ve\'c samo kra\'ci na\v cin da se ka\v ze
+\enquote{formule $\phi$ i $\psi$ su ekvivalentne}. S druge strane zapis $\phi \Leftrightarrow \psi$
+je iskazna formula.
+
+% Slede\'ca teorema pokazuje da ekvivalentne formule imaju istu logi\v cku vrednost u svim valuacijama.
+% 
+% \begin{THM}\label{ft03.thm.taut1}
+%   Neka su $\phi$ i $\psi$ iskazne formule. Tada $\phi \equiv \psi$ ako i samo ako za svaku valuaciju
+%   $v$ iskaznih slova koja se javljaju u obe formule va\v zi $v(\phi) = v(\psi)$. 
+% \end{THM}
+% \begin{proof}[Dokaz]
+%   $(\Rightarrow)$
+%   Prema definiciji, $\phi \equiv \psi$ zna\v ci da je
+%   $\phi \Leftrightarrow \psi$ tautologija, pa za svaku valuaciju $v$ va\v zi $v(\phi \Leftrightarrow \psi) = \top$.
+%   Prema tabelici koja defini\v se $\Leftrightarrow$ kao logi\v cku operaciju vidimo da je
+%   $v(\phi \Leftrightarrow \psi) = \top$ ta\v cno u onim situacijama u kojima je $v(\phi) = v(\psi)$.
+%   Dakle, za svaku valuaciju $v$ je $v(\phi) = v(\psi)$.
+% 
+%   $(\Leftarrow)$
+%   Pretpostavimo, sada, da za svaku valuaciju $v$ va\v zi $v(\phi) = v(\psi)$. Tada
+%   prema tabelici koja defini\v se $\Leftrightarrow$ kao logi\v cku operaciju vidimo da
+%   za svaku valuaciju $v$ va\v zi i da je $v(\phi \Leftrightarrow \psi) = \top$. To, po definiciji,
+%   zna\v ci da je $\phi \Leftrightarrow \psi$ tautologija, odnosno, da je $\phi \equiv \psi$.
+% \end{proof}
+% 
+% Sada \v zelimo da opi\v semo kako se formule transformi\v su jedna u drugu. Prvo \'cemo
+% uvesti jednu pogodnu oznaku i onda \'cemo dokazati da se primenom \enquote{ekvivalentnih transformacija}
+% od formule dobija njoj ekvivalentna formula.
+% 
+% Neka su $\alpha$ i $\phi$ iskazne formule i neka je $p$ neko iskazno slovo koje se javlja u iskaznoj formuli $\phi$.
+% Ozna\v cimo sa
+% $$
+%     \phi[\alpha / p]
+% $$
+% formulu u kojoj je svako pojavljivanje slova $p$ zamenjenom formulom $\alpha$.
+% (Oznaku $\phi[\alpha / p]$ \v citamo: \enquote{formula $\phi$ u kojoj $\alpha$ menja $p$}.)
+% 
+% \begin{EX}
+%   Neka je $\phi = (p \Rightarrow (q \Rightarrow p))$ i $\alpha = (p \land \lnot q)$. Tada je
+%   $$
+%     \phi[\alpha / p] = ((p \land \lnot q) \Rightarrow (q \Rightarrow (p \land \lnot q))).
+%   $$
+%   Tako\dj e,
+%   $$
+%     \phi[\phi / q] = (p \Rightarrow ((p \Rightarrow (q \Rightarrow p)) \Rightarrow p)).
+%   $$
+% \end{EX}
+% 
+% \begin{THM}\label{ft03.thm.ekviv-smena}
+%   $(a)$
+%   Neka su $\alpha$ i $\beta$ iskazne formule takve da je $\vDash \alpha \Leftrightarrow \beta$, neka je $\phi$
+%   iskazna formula i neka je $p$ neko iskazno slovo koje se javlja u iskaznoj formuli $\phi$.
+%   Tada je $\vDash \phi[\alpha/p] \Leftrightarrow \phi[\beta/p]$.
+% 
+%   $(b)$
+%   Neka su $\phi$ i $\psi$ iskazne formule takve da je $\phi \equiv \psi$,
+%   neka je $p$ neko iskazno slovo koje se javlja i u formuli $\phi$ i u formuli $\psi$, i neka je
+%   $\alpha$ proizvoljna iskazna formula.
+%   Tada je $\phi[\alpha/p] \equiv \psi[\alpha/p]$.
+% \end{THM}
+% \begin{proof}[Dokaz]
+%   $(a)$
+%   Prema Teoremi~\ref{ft03.thm.taut1} dovoljno je pokazati da za svaku valuaciju $v$ va\v zi
+%   $$
+%     v(\phi[\alpha/p]) = v(\phi[\beta/p]).
+%   $$
+%   No, ovo je jasno: tamo gde je u formuli $\phi$ stajalo slovo $p$ sada stoji formula $\alpha$ na levoj
+%   strani, odnosno, formula $\beta$ na desnoj strani. Po\v sto je $\alpha \Leftrightarrow \beta$ tautologija,
+%   prema Teoremi~\ref{ft03.thm.taut1} znamo da je $v(\alpha) = v(\beta)$ za svaku valuaciju $v$.
+%   Kako ostala slova u formuli $\phi$ nismo menjali, mora biti $v(\phi[\alpha/p]) = v(\phi[\beta/p])$.
+% 
+%   $(b)$ Sli\v cno kao $(a)$.
+% \end{proof}
+
+\begin{EX}
+  Dokazati da je $p \land q \Rightarrow r \;\;\equiv\;\; p \Rightarrow (q \Rightarrow r)$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Krenu\'cemo od formule sa desne strane i primeniti niz ekvivalentnih transformacija da bismo dobili formulu sa leve strane:
+  \begin{align*}
+    p \Rightarrow (q \Rightarrow r)
+    &\;\;\equiv\;\; \lnot p \lor (q \Rightarrow r) && \text{Zakon materijalne implikacije}\\
+    &\;\;\equiv\;\; \lnot p \lor (\lnot q \lor r)  && \text{Zakon materijalne implikacije}\\
+    &\;\;\equiv\;\; (\lnot p \lor \lnot q) \lor r  && \text{Asocijativnost disjunkcije}\\
+    &\;\;\equiv\;\; \lnot(p \land q) \lor r        && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; (p \land q) \Rightarrow r      && \text{Zakon materijalne implikacije }\qedhere
+  \end{align*}
+\end{proof}
+
+\medskip
+
+\v Cesto je potrebno na\'ci negaciju neke formule (primere iz programerske prakse \'cemo videti kasnije).
+\emph{Negirati formulu $\phi$} zna\v ci krenuti od formule $\lnot \phi$ i primeniti niz ekvivalentnih
+transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo iskazna slova.
+
+\begin{EX}\label{ft03.ex.neg-implic}
+  Negirati formulu $p \Rightarrow q$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  \begin{align*}
+    \lnot(p \Rightarrow q)
+    &\;\;\equiv\;\; \lnot(\lnot p \lor q)       && \text{Zakon materijalne implikacije}\\
+    &\;\;\equiv\;\; \lnot\lnot p \land \lnot q  && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; p \land \lnot q             && \text{Involutivnost negacije }\qedhere
+  \end{align*}
+\end{proof}
+
+\clearpage
+
+\begin{EX}\label{ft03.ex.neg-ekviv}
+  Negirati formulu $p \Leftrightarrow q$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  \begin{align*}
+    \lnot(p \Leftrightarrow q)
+    &\;\;\equiv\;\; \lnot((p \Rightarrow q) \land (q \Rightarrow p))    && \text{Zakon materijalne ekvivalencije}\\
+    &\;\;\equiv\;\; \lnot(p \Rightarrow q) \lor \lnot(q \Rightarrow p)  && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; (p \land \lnot q) \lor (q \land \lnot p)            && \text{Primer~\ref{ft03.ex.neg-implic}}\qedhere
+  \end{align*}
+\end{proof}
+
+\begin{EX}
+  Negirati formulu $p \lor q \Leftrightarrow p \lor r$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  \begin{align*}
+    \lnot&(p \lor q \Leftrightarrow p \lor r) \;\;\equiv\;\;\\
+    &\;\;\equiv\;\; ((p \lor q) \land \lnot (p \lor r)) \lor ((p \lor r) \land \lnot(p \lor q)) && \text{Primer~\ref{ft03.ex.neg-ekviv}}\\
+    &\;\;\equiv\;\; ((p \lor q) \land \lnot p \land \lnot r)) \lor ((p \lor r) \land \lnot p \land \lnot q)) && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; (p \land \lnot p \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
+    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (p \land \lnot p \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{Distributivnost}\\
+    &\;\;\equiv\;\; (\bot \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
+    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (\bot \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{Princip kontradikcije}\\
+    &\;\;\equiv\;\; \bot \lor (q \land \lnot p \land \lnot r) \lor \bot \lor (r \land \lnot p \land \lnot q) && \text{Apsorptivni element}\\
+    &\;\;\equiv\;\; (q \land \lnot p \land \lnot r) \lor (r \land \lnot p \land \lnot q) && \text{Neutralni element}\qedhere
+  \end{align*}
+\end{proof}
+
+\ifBIOINF
+\else
+
+    \bigskip
+    
+    Ekvivalentne transformacije se koriste jo\v s i da se formule dovedu do posebnih \enquote{pravilnih oblika}
+    koje zovemo \emph{normalne forme}. Kada se formula dovede u normalnu formu neke njene odlike postaju
+    jasno uo\v cljive, \v sto \'cemo pokazati na primerima.
+    
+    \begin{DEF}
+      Iskazna formula $\phi$ je u \emph{konjunktivnoj normalnoj formi} ako je
+      $$
+        \phi = (\alpha_1 \lor \alpha_2 \lor \ldots \lor \alpha_l) \land
+               (\beta_1  \lor \beta_2  \lor \ldots \lor \beta_m)  \land \ldots \land
+               (\theta_1 \lor \theta_2 \lor \ldots \lor \theta_n)
+      $$
+      gde je svaka od formula $\alpha_i$, $\beta_j$, $\gamma_k$ iskazno slovo ili negirano iskazno slovo.
+      Iskazna formula $\phi$ je u \emph{disjunktivnoj normalnoj formi} ako je
+      $$
+        \phi = (\alpha_1 \land \alpha_2 \land \ldots \land \alpha_l) \lor
+               (\beta_1  \land \beta_2  \land \ldots \land \beta_m)  \lor \ldots \lor
+               (\theta_1 \land \theta_2 \land \ldots \land \theta_n)
+      $$
+      gde je svaka od formula $\alpha_i$, $\beta_j$, $\gamma_k$ iskazno slovo ili negirano iskazno slovo.
+    \end{DEF}
+    
+    Slede\'ca teorema (koju ne\'cemo dokazati) garantuje da se svaka iskazna formula mo\v ze ekvivalentnim
+    transformacijama dovesti i u konjunktivnu normalnu formu i u disjunktivnu normalnu formu.
+    
+    \begin{THM}
+      Za svaku formulu $\phi$ postoji formula $\psi_\land$ u konjunktivnoj normalnoj formi
+      takva da je $\phi \equiv \psi_\land$, i postoji formula $\psi_\lor$
+      u disjunktivnoj normalnoj formi takva da je $\phi \equiv \psi_\lor$.
+    \end{THM}
+    
+    \begin{EX}
+      Odrediti konjunktivnu i disjunktivnu normalnu formu formule $p \Leftrightarrow q$.
+    \end{EX}
+    \begin{proof}[Re\v senje]
+      Konjunktivnu normalnu formu dobijamo slede\'cim nizom ekvivalentnih transformacija:
+      \begin{align*}
+        p \Leftrightarrow q
+        &\;\;\equiv\;\; (p \Rightarrow q) \land (q \Rightarrow p)         && \text{Zakon materijalne ekvivalencije}\\
+        &\;\;\equiv\;\; (\lnot p \lor q) \land (\lnot q \lor p)           && \text{Zakon materijalne implikacije}\\
+      \end{align*}
+      Disjunktivnu normalnu formu dobijamo ako prethodni niz transformacija nastavimo ovako:
+      \begin{align*}
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (\lnot p \land p) \lor (q \land \lnot q) \lor (q \land p)   && \text{Distributivnost}\\
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor \bot \lor \bot \lor (q \land p)   && \text{Zakon kontradikcije}\\
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (q \land p)   && \text{Neutralni element}\qedhere
+      \end{align*}
+    \end{proof}
+    
+    \begin{NAP}
+      \textit{Primetimo da se iz konjunktivne normalne forme disjunktivna normalna forma dobija pravolinijski,
+      primenom distributivnosti (i \enquote{\v ci\v s\'cenjem sme\'ca} koje
+      pri tom nastaje). Obrnuto, iz disjunktivne normalne forme se lako dobija konjunktivna primenom distributivnosti
+      (i \enquote{\v ci\v s\'cenjem sme\'ca}).}
+    \end{NAP}
+    
+    \enlargethispage{\baselineskip}
+    \begin{EX}
+      Pokazati da je $\vDash \lnot(p \Rightarrow q) \lor \lnot p \lor q$ tautologija svo\dj enjem formule na konjunktivnu normalnu formu.
+    \end{EX}
+    \begin{proof}[Re\v senje]
+      \begin{align*}
+        \lnot(p \Rightarrow q) \lor \lnot p \lor q
+        &\;\;\equiv\;\; \lnot(\lnot p \lor q) \lor \lnot p \lor q          && \text{Zakon mat.\ implikacije}\\
+        &\;\;\equiv\;\; (\lnot\lnot p \land \lnot q) \lor \lnot p \lor q   && \text{De Morganov zakon}\\
+        &\;\;\equiv\;\; (p \land \lnot q) \lor \lnot p \lor q              && \text{Involutivnost negacije}\\
+        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor \lnot p \lor q) && \text{Distributivnost}\\
+        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor q \lor \lnot p) && \text{Komutativnost}\\
+        &\;\;\equiv\;\; (\top \lor q) \land (\top \lor \lnot p) && \text{Zakon isklju\v cenja tre\'ceg}\\
+        &\;\;\equiv\;\; \top \land \top && \text{Neutralni element}\\
+        &\;\;\equiv\;\; \top && \text{Neutralni element}\qedhere
+      \end{align*}
+    \end{proof}
+    
+    Prethodni primeri sugeri\v su proceduru za svo\dj enje bilo koje formule na konjunktivnu ili disjunktivnu normalnu formu:
+    \begin{enumerate}\itemsep -1pt
+    \item eliminisati simbole $\Leftrightarrow$ koriste\'ci Zakon materijalne ekvivalencije;
+    \item eliminisati simbole $\Rightarrow$ koriste\'ci Zakon materijalne implikacije;
+    \item \enquote{gurnuti} sve simbole $\lnot$ neposredno do iskaznih slova koriste\'ci De Morganove zakone;
+    \item eliminisati $\lnot \lnot$ koriste\'ci Involutivnost negacije;
+    \item svesti formulu na \v zeljenu normalnu formu koriste\'ci Distributivnost;
+    \item (pri tome \enquote{\v cistimo sme\'ce} koriste\'ci Zakon isklju\v cenja tre\'ceg, Apsorptivni i Neutralni element).
+    \end{enumerate}
+\fi
+
+
+\section{Tautologije kao \enquote{zakoni mi\v sljenja}?}
+
+Formalno rezonovanje se ne mo\v ze primeniti na svakodnevne situacije pre svega zato \v sto
+samo dve logi\v cke vrednosti, \emph{ta\v cno} i \emph{neta\v cno}, \v cesto nisu dovoljne da
+obuhvate \v citav spektar zna\v cenja koja ljudi pripisuju situacijama u kojima se nalaze. Na primer,
+ako poku\v samo da tautologiju
+$$
+  \vDash \lnot\lnot\phi \Leftrightarrow \phi
+$$
+primenimo na re\v cenicu
+\begin{center}
+  \enquote{Nije mi neprijatno}
+\end{center}
+sledilo bi da izjava \enquote{Nije mi neprijatno} ima isto zna\v cenje kao izjava \enquote{Prijatno mi je},
+\v sto naj\v ce\v s\'ce nije tako. Ako \v zelim da ka\v zem da mi je prijatno, re\'ci \'cu direktno:
+\enquote{Prijatno mi je}. Me\dj utim, ako ka\v zem: \enquote{Nije mi neprijatno}, to ne mora da zna\v ci da se ose\'cam prijatno.
+
+Krajem XIX veka, Luis Kerol, autor \v cuvene knjige \textit{Alisa u zemlji \v cuda},
+je bio jedan od najglasnijih pobornika ideje da se strategije formalnog rezonovanja
+\emph{ne mogu primenjivati na svakodnevne situacije}. Takvo njegovo vi\dj enje formalne logike je bilo
+u o\v stroj suprotnosti sa op\v ste prihva\'cenim stavom da je Bulova
+\emph{Matemati\v cka analiza logike} siguran prvi korak ka ostvarenju Lajbnicovog sna o
+\enquote{univerzalnom jeziku nauke}. Da bi ilustrovao svoj stav Luis Kerol
+je pravio glavolomke kojima je dovodio \v citaoce u razne apsurdne situacije i zahtevao od njih da
+primene pravila formalnog rezonovanja. Sada \'cemo navesti tri takva primera.
+
+\paragraph{Primer: Problem sa terijerima i kometama.}
+Iz slede\'ce tri premise izvesti odgovaraju\'ci zaklju\v cak:
+\begin{enumerate}
+\item
+  Nijedan terijer ne luta me\dj u zvezdama.
+\item
+  Ni\v sta \v sto ne luta me\dj u zvezdama nije kometa.
+\item
+  Samo terijeri imaju kovrd\v zav rep.
+\end{enumerate}
+
+\noindent
+\textit{Re\v senje.}
+Uvedimo slede\'ce oznake:
+$$
+  \begin{array}{r@{\;=\;}l@{\qquad}r@{\;=\;}l}
+    T & \text{terijer}, & L & \text{luta me\dj u zvezdama},\\
+    K & \text{kometa},  & R & \text{ima kovrd\v zav rep}.
+  \end{array}
+$$
+Prethodne tri izjave mo\v zemo formalno da zapi\v semo ovako:
+\begin{enumerate}
+\item
+  $T \Rightarrow \lnot L$ (ako je terijer onda ne luta me\dj u zvezdama);
+\item
+  $\lnot L \Rightarrow \lnot K$ (ako ne luta me\dj u zvezdama onda nije kometa); i
+\item
+  $R \Rightarrow T$ (ako ima kovrd\v zav rep onda je to terijer).
+\end{enumerate}
+Sada se lako uo\v cava niz implikacija:
+$$
+  R \underset{(3)}\Rightarrow T \underset{(1)}\Rightarrow \lnot L \underset{(2)}\Rightarrow \lnot K.
+$$
+Dakle, $R \Rightarrow \lnot K$. Imaju\'ci u vidu da je
+$
+  R \Rightarrow \lnot K \equiv K \Rightarrow \lnot R
+$
+zaklju\v cujemo, tako\dj e, da je $K \Rightarrow \lnot R$, odnosno, da
+\emph{komete nemaju kovrd\v zav rep.}
+
+\paragraph{Primer: Problem sa magarcima i bivolima.}
+Iz slede\'cih premisa izvesti odgovaraju\'ci zaklju\v cak:
+\begin{enumerate}
+\item%1
+  \v Zivotinje koje se ne ritaju nije lako uznemiriti.
+\item%2
+  Magarci nemaju rogove.
+\item%3
+  Bivo uvek mo\v ze nekoga da baci preko ograde.
+\item%4
+  Nijednu \v zivotinju koja se rita nije lako progutati.
+\item%5
+  \v Zivotinje bez rogova ne mogu nikoga da bace preko ograde.
+\item%6
+  Sve \v zivotinje je lako uznemiriti, osim bivola.
+\end{enumerate}
+
+\noindent
+\textit{Re\v senje.}
+Uvedimo slede\'ce oznake:
+$$
+  \begin{array}{r@{\;=\;}l@{\qquad}r@{\;=\;}l}
+  M & \text{magarac},    & U & \text{lako se uznemiri},\\
+  B & \text{bivo},       & O & \text{mo\v ze nekoga da baci preko ograde},\\
+  R & \text{rita se},    & P & \text{lako ga je progutati},\\
+  G & \text{ima rogove}.
+  \end{array}
+$$
+Tada prethodne izjave mo\v zemo formalno da zapi\v semo ovako:
+\begin{enumerate}
+\item%1
+  $\lnot R \Rightarrow \lnot U$
+  (ako se ne rita onda ga nije lako uznemiriti);
+\item%2
+  $M \Rightarrow \lnot G$
+  (ako je magarac onda nema rogove);
+\item%3
+  $B \Rightarrow O$
+  (ako je bivo onda mo\v ze nekoga da baci preko ograde);
+\item%4
+  $R \Rightarrow \lnot P$
+  (ako se rita onda ga nije lako progutati);
+\item%5
+  $\lnot G \Rightarrow \lnot O$
+  (ako nema rogove onda ne mo\v ze nikoga da baci preko ograde);
+\item%6
+  $\lnot B \Rightarrow U$
+  (ako nije bivo onda se lako uznemiri).
+\end{enumerate}
+Iz (2), (5) i kontrapozicije stava (3) koja glasi $\lnot O \Rightarrow \lnot B$, tim redom, zaklju\v cujemo
+$$
+  M \Rightarrow \lnot B,
+$$
+odnosno, da \emph{magarac nije bivo}, a onda iz tog zaklju\v cka, (6), kontrapozicije stava (1) i stava (4), tim redom,
+zaklju\v cujemo
+$$
+  M \Rightarrow \lnot P,
+$$
+odnosno, da \emph{magarca nije lako progutati}.
+
+\paragraph{Primer: Problem sa svinjama i balonima.}
+Iz slede\'cih premisa izvesti odgovaraju\'ci zaklju\v cak:
+\begin{enumerate}
+\item%1
+  Svi koji niti hodaju po u\v zetu niti jedu jeftine kifle su stari.
+\item%2
+  Svinjama koje vole da se kin\dj ure se iskazuje po\v stovanje.
+\item%3
+  Mudar pilot balona\footnote{ovde se misli na balone sa toplim vazduhom kojima mo\v ze da se putuje kao u knjizi \v Zila Verna
+  \enquote{Put oko sveta za osamdeset dana}} uvek nosi ki\v sobran.
+\item%4
+  Niko ko je luckast i jede jeftine kifle ne treba da jede na javnom mestu.
+\item%5
+  Mlada stvorenja koja vole da pilotiraju balonom vole da se kin\dj ure.
+\item%6
+  Debela stvorenja koja su luckasta mogu da jedu na javnom mestu, ali samo ako ne hodaju po u\v zetu.
+\item%7
+  Nijedno mudro stvorenje ne hoda po u\v zetu, ako voli da se kin\dj uri.
+\item%8
+  Svinja koja nosi ki\v sobran je luckasta.
+\item%9
+  Svi koji ne hodaju po u\v zetu i kojima se iskazuje po\v stovanje su debeli.
+\end{enumerate}
+
+\noindent
+\textit{Re\v senje.}
+Uvedimo slede\'ce oznake:
+\newcommand\NJ{\mathit{Nj}}%
+$$
+  \begin{array}{r@{\;=\;}l@{\qquad}r@{\;=\;}l}
+  D   & \text{debeo},              & V    & \text{voli da se kin\dj uri},\\
+  \NJ & \text{svinja},             & T    & \text{mo\v ze da jede na javnom mestu},\\
+  S   & \text{star},               & P    & \text{iskazuje mu se po\v stovanje},\\
+  M   & \text{mudar},              & F    & \text{jede jeftine kifle},\\
+  L   & \text{luckast},            & B    & \text{pilotira balonom},\\
+  K   & \text{nosi ki\v sobran},   & U    & \text{hoda po u\v zetu}.\\
+  \end{array}
+$$
+Tada prethodne izjave mo\v zemo formalno da zapi\v semo ovako:
+\begin{enumerate}
+\item%1
+  $\lnot U \land \lnot F \Rightarrow S$
+  (ako ne hoda po u\v zetu i ne jede jeftine kifle onda je star);
+\item%2
+  $\NJ \land V \Rightarrow P$
+  (ako je svinja i voli da se kin\dj uri onda mu se iskazuje po\v stovanje);
+\item%3
+  $M \land B \Rightarrow K$
+  (ako je mudar i pilotira balonom onda nosi ki\v sobran);
+\item%4
+  $L \land F \Rightarrow \lnot T$
+  (ako je luckast i jede jeftine kifle onda ne treba da jede na javnom mestu);
+\item%5
+  $\lnot S \land B \Rightarrow V$
+  (ako je mlad ($=$ nije star) i pilotira balonom onda voli da se kin\dj uri);
+\item%6
+  $D \land L \land \lnot U \Rightarrow T$
+  (ako je debeo i luckast, i jo\v s ako ne hoda po u\v zetu, onda mo\v ze da jede na javnom mestu);
+\item%7
+  $M \land V \Rightarrow \lnot U$
+  (ako je mudar i voli da se kin\dj uri onda ne hoda po u\v zetu);
+\item%8
+  $\NJ \land K \Rightarrow L$
+  (ako je svinja i nosi ki\v sobran onda je luckast);
+\item%9
+  $\lnot U \land P \Rightarrow D$
+  (ako ne hoda po u\v zetu i iskazuje mu se po\v stovanje onda je debeo).
+\end{enumerate}
+Za razliku od prethodna dva primera gde smo imali jednostavne nizove implikacija, ovde je proces zaklju\v civanja slo\v zeniji
+zato \v sto sa leve strane svake implikacije imamo konjunkciju uslova.
+
+Interesantno je da je za ovu vrstu iskaza Luis Kerol razvio posebnu deduktivnu proceduru koju je detaljno opisao u
+svojoj knjizi \enquote{Simboli\v cka logika}.\footnote{Lewis Carroll, \textit{Symbolic Logic}, MACMILLAN AND CO., Limited,
+New York: The MacMillan Company, 1897}
+Ova procedura je ponovo otkrivena 1960-ih godina i danas predstavlja osnovu sistema za automatsko rezonovanje
+koji se zove \emph{rezolucija}.
+
+Metod koga Luis Kerol predla\v ze veoma li\v ci na re\v savanje sistema linearnih jedna\v cina Gausovim metodom eliminacije.
+Uo\v cimo prvo da je
+$$
+  \phi \Rightarrow \psi \quad\equiv\quad \phi \land \lnot \psi \Rightarrow \bot,
+$$
+\v sto se lako pokazuje. Ovo veoma li\v ci na slede\'cu algebarsku transformaciju:
+$$
+  p = q \quad\text{ako i samo ako}\quad p + (-q) = 0.
+$$
+Prvi korak u re\v savanju problema se sastoji u tome da, koriste\'ci navedeno pravilo,
+implikacije (1)--(9) zapi\v semo u obliku \enquote{homogenog sistema jedna\v cina}:
+\begin{enumerate}
+\item%1
+  $\lnot U \land \lnot F \land \lnot S \Rightarrow \bot$
+\item%2
+  $\NJ \land V \land \lnot P \Rightarrow \bot$
+\item%3
+  $M \land B \land \lnot K \Rightarrow \bot$
+\item%4
+  $L \land F \land T \Rightarrow \bot$
+\item%5
+  $\lnot S \land B \land \lnot V \Rightarrow \bot$
+\item%6
+  $D \land L \land \lnot U \land \lnot T \Rightarrow \bot$
+\item%7
+  $M \land V \land U \Rightarrow \bot$
+\item%8
+  $\NJ \land K \land \lnot L \Rightarrow \bot$
+\item%9
+  $\lnot U \land P \land \lnot D \Rightarrow \bot$.
+\end{enumerate}
+Ovaj \enquote{homogeni sistem jedna\v cina} se mo\v ze \enquote{re\v siti} metodom \enquote{eliminacije slova}. Naime, lako se vidi da:
+$$
+  \text{iz\quad} a \land c \Rightarrow \bot \text{\quad i\quad} b \land \lnot c \Rightarrow \bot \text{\quad sledi\quad}
+  a \land b \Rightarrow \bot,
+$$
+(slovo $c$ je eliminisano), \v sto direktno odgovara ovom algebarskom tvr\dj enju:
+$$
+  \text{iz\quad} a + c = 0 \text{\quad i\quad} b + (- c) = 0 \text{\quad sledi\quad}
+  a + b = 0.
+$$
+Metodom eliminacije slova dobijamo slede\'ci niz zaklju\v caka, koriste\'ci vi\v se puta da je $\phi \land \phi \equiv \phi$:
+\begin{enumerate}\setcounter{enumi}{9}
+\item%10
+  $\lnot U \land \lnot S \land L \land T \Rightarrow \bot$
+  (eliminacijom slova $F$ iz (1) i (4))
+\item%11
+  $\lnot U \land \lnot S \land L \land D \Rightarrow \bot$
+  (eliminacijom slova $T$ iz (10) i (6))
+\item%12
+  $\lnot U \land \lnot S \land D \land \NJ \land K \Rightarrow \bot$
+  (eliminacijom slova $L$ iz (11) i (8))
+\item%13
+  $\lnot U \land \lnot S \land \NJ \land K \land P \Rightarrow \bot$
+  (eliminacijom slova $D$ iz (12) i (9))
+\item%14
+  $\lnot S \land \NJ \land K \land P \land M \land V \Rightarrow \bot$
+  (eliminacijom slova $U$ iz (13) i (7))
+\item%15
+  $\lnot S \land \NJ \land P \land M \land V \land B \Rightarrow \bot$
+  (eliminacijom slova $K$ iz (14) i (3))
+\item%16
+  $\lnot S \land \NJ \land M \land V \land B \Rightarrow \bot$
+  (eliminacijom slova $P$ iz (15) i (2))
+\item%17
+  $\lnot S \land \NJ \land M \land B \Rightarrow \bot$
+  (eliminacijom slova $V$ iz (16) i (5))
+\end{enumerate}
+Ukoliko zaklju\v cak (17) zapi\v semo u ekvivalentnom obliku
+$$
+  \lnot S \land \NJ \land B \Rightarrow \lnot M
+$$
+i ukoliko, kao i ranije, $\lnot S$ zamenimo sa \enquote{mlad},
+kao zaklju\v cak dobijamo da \emph{mlade svinje koje pilotiraju balonom nisu mudre}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Iskazni ra\v cun kao formalna teorija}
+% 
+% Poka\v zimo sada da formalne teorije mogu da opi\v su i fenomene koji odgovaraju
+% (formalnom) logi\v ckom rezonovanju. Kao primer \'cemo pokazati formalnu teoriju
+% koja opisuje iskazni ra\v cun u slede\'cem smislu: niz simbola je posledica ove
+% formalne teorije ako i samo ako je odgovaraju\'ca formula tautologija.
+% 
+% Jezik ove formalne teorije je jezik iskaznog ra\v cuna: \v cine ga iskazna slova
+% $p_1$, $p_2$,~\ldots, logi\v cki veznici $\lnot$ i $\Rightarrow$, i zagrade ( i ),
+% a formule su sve formule iskaznog ra\v cuna u kojima se javljaju samo ova dva logi\v cka veznika.
+% Va\v zno je re\'ci da odluka da se fokusiramo samo na logi\v cke veznike $\lnot$ i $\Rightarrow$ ne predstavlja
+% nikakvo ograni\v cenje u izra\v zajnoj mo\'ci teorije, zato \v sto se ostali veznici mogu u ovako
+% osiroma\v senu teoriju uvesti pomo\'cu slede\'cih tautologija:
+% 
+% \medskip
+% 
+% \begin{tabular}{l}
+%   $\vDash p \lor q \Leftrightarrow (\lnot p \Rightarrow q)$ \\
+%   $\vDash p \land q \Leftrightarrow \lnot(p \Rightarrow \lnot q)$ \\
+%   $\vDash (p \Leftrightarrow q) \Leftrightarrow (p \Rightarrow q) \land (q \Rightarrow p).$
+% \end{tabular}
+% 
+% \medskip
+% 
+% \noindent
+% Prema tome, u formalnoj teoriji iskaznog ra\v cuna preostale logi\v cke veznike shvatamo
+% kao skra\'ceni zapis nekih formula:
+% \begin{itemize}\itemsep -2pt
+% \item $p \lor q$ je skra\'ceni zapis za $\lnot p \Rightarrow q$,
+% \item $p \land q$ je skra\'ceni zapis za $\lnot(p \Rightarrow \lnot q)$, i
+% \item $p \Leftrightarrow q$ je skra\'ceni zapis za $(p \Rightarrow q) \land (q \Rightarrow p)$.
+% \end{itemize}
+% 
+% \noindent
+% U verziji koju \'cemo ovde pokazati formalna teorija iskaznog ra\v cuna ima \v cetiri aksiome:
+% 
+% \begin{description}
+% \item[A1:] $p_1 \Rightarrow (p_2 \Rightarrow p_1)$;
+% \item[A2:] $(p_1 \Rightarrow (p_2 \Rightarrow p_3)) \Rightarrow ((p_1 \Rightarrow p_2) \Rightarrow (p_1 \Rightarrow p_3))$;
+% \item[A3:] $(\lnot p_2 \Rightarrow \lnot p_1) \Rightarrow (p_1 \Rightarrow p_2)$;
+% \item[A4:] $\lnot p_1 \Rightarrow (p_1 \Rightarrow p_2)$.
+% \end{description}
+% i dva pravila izvo\dj enja --- \emph{Modus ponens} i \emph{Pravilo supstitucije}:
+% $$
+%   \mathit{MP}: \begin{array}{c}
+%     \phi \qquad \phi \Rightarrow \psi \\ \hline
+%     \psi
+%   \end{array},\qquad
+%   \mathit{SUP}: \begin{array}{cl}
+%     \phi & \text{(koja sadr\v zi slovo $p$)} \\ \cline{1-1}
+%     \phi[\alpha / p] & \text{(gde je $\alpha$ \emph{proizvoljna} formula).}
+%   \end{array}
+% $$
+% 
+% \medskip
+% 
+% Jasno je da nije svaka formula iskaznog ra\v cuna posledica ove formalne teorije.
+% Ako je $\phi$ posledica ove formalne teorije pi\v semo $\vdash \phi$.
+% 
+% \begin{EX}\label{ft03.ex.alpha=>alpha}
+%   Dokazati da je $\vdash \alpha \Rightarrow \alpha$ za svaku iskaznu formulu $\alpha$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   Neka je $\alpha$ proizvolja formula i neka je $x$ iskazno slovo koje se ne
+%   javlja u formuli~$\alpha$ i koje je razli\v cito od~$p_1$, $p_2$ i $p_3$. Tada slede\'ci
+%   niz predstavlja dokaz formule $\alpha \Rightarrow \alpha$ u formalnoj teoriji iskaznog ra\v cuna:
+% \begin{enumerate}
+% \item
+%   $p_1 \Rightarrow (p_2 \Rightarrow p_1)$\newline
+%   [A1]
+% \item
+%   $p_1 \Rightarrow (x \Rightarrow p_1)$\newline
+%   [SUP na (1) gde $x$ menja $p_2$]
+% \item
+%   $\alpha \Rightarrow (x \Rightarrow \alpha)$\newline
+%   [SUP na (2) gde $\alpha$ menja $p_1$]
+% \item
+%   $\alpha \Rightarrow ((\alpha \Rightarrow \alpha) \Rightarrow \alpha)$\newline
+%   [SUP na (3) gde $(\alpha \Rightarrow \alpha)$ menja $x$]
+% \item
+%   $(p_1 \Rightarrow (p_2 \Rightarrow p_3)) \Rightarrow ((p_1 \Rightarrow p_2) \Rightarrow (p_1 \Rightarrow p_3))$\newline
+%   [A2]
+% \item
+%   $(p_1 \Rightarrow (x \Rightarrow p_3)) \Rightarrow ((p_1 \Rightarrow x) \Rightarrow (p_1 \Rightarrow p_3))$\newline
+%   [SUP na (5) gde $x$ menja $p_2$]
+% \item
+%   $(p_1 \Rightarrow (x \Rightarrow p_1)) \Rightarrow ((p_1 \Rightarrow x) \Rightarrow (p_1 \Rightarrow p_1))$\newline
+%   [SUP na (6) gde $p_1$ menja $p_3$]
+% \item
+%   $(\alpha \Rightarrow (x \Rightarrow \alpha)) \Rightarrow ((\alpha \Rightarrow x) \Rightarrow (\alpha \Rightarrow \alpha))$\newline
+%   [SUP na (7) gde $\alpha$ menja $p_1$]
+% \item
+%   $(\alpha \Rightarrow ((\alpha \Rightarrow \alpha) \Rightarrow \alpha)) \Rightarrow ((\alpha \Rightarrow (\alpha \Rightarrow \alpha)) \Rightarrow (\alpha \Rightarrow \alpha))$\newline
+%   [SUP na (8) gde $(\alpha \Rightarrow \alpha)$ menja $x$]
+% \item
+%   $(\alpha \Rightarrow (\alpha \Rightarrow \alpha)) \Rightarrow (\alpha \Rightarrow \alpha)$\newline
+%   [MP na (4) i (9)]
+% \item
+%   $\alpha \Rightarrow (\alpha \Rightarrow \alpha)$\newline
+%   [SUP na (3) gde $\alpha$ menja $x$]
+% \item
+%   $\alpha \Rightarrow \alpha$\newline
+%   [MP na (10) i (11)]\qedhere
+% \end{enumerate}
+% \end{proof}
+% 
+% \medskip
+% 
+% Ve\'c ovaj jednostavan primer pokazuje da \'ce rad u formalnoj teoriji iskaznog ra\v cuna biti jedno mukotrpno
+% iskustvo. Zato \'cemo sada (bez dokaza) dati dve korisne teoreme koje u mnogome olak\v savaju
+% na\v se (formalne) \v zivote.
+% 
+% Neka su $\alpha_1$, \ldots, $\alpha_n$ i $\phi$ iskazne formule i neka se u formuli $\phi$ javljaju
+% slova $p_1$, \ldots, $p_n$. Ozna\v cimo sa
+% $$
+%     \phi[\alpha_1 / p_1, \ldots, \alpha_n / p_n]
+% $$
+% formulu u kojoj se istovremeno svako pojavljivanje slova $p_i$ zameni formulom $\alpha_i$, $1 \le i \le n$.
+% 
+% \begin{EX}
+%   Neka je $\phi = p_1 \Rightarrow (p_2 \Rightarrow (p_1 \Rightarrow p_2))$ i neka je
+%   $\alpha_1 = p_1 \Rightarrow p_2$, a $\alpha_2 = p_2 \Rightarrow p_1$. Tada je
+%   $$
+%     \phi[\alpha_1 / p_1, \alpha_2 / p_2] =
+%     (p_1 \Rightarrow p_2) \Rightarrow ((p_2 \Rightarrow p_1) \Rightarrow ((p_1 \Rightarrow p_2) \Rightarrow (p_2 \Rightarrow p_1))).
+%   $$
+% \end{EX}
+% 
+% \begin{THM}[Teorema o istovremenoj supstituciji]
+%   Neka su $\alpha_1$, \ldots, $\alpha_n$ i $\phi$ iskazne formule i neka se u formuli $\phi$ javljaju
+%   slova $p_1$, \ldots, $p_n$. Ako je $\vdash \phi$ onda je
+%   $\vdash \phi[\alpha_1 / p_1, \ldots, \alpha_n / p_n]$.
+% \end{THM}
+% 
+% Druga va\v zna teorema koju \'cemo predstaviti je Teorema dedukcije za iskazni ra\v cun, za \v ciju
+% formulaciju nam treba jedan va\v zan pojam.
+% 
+% \begin{DEF}
+%   Neka je $\Sigma$ skup formula iskaznog ra\v cuna i neka je $\phi$ neka formula iskaznog ra\v cuna. Tada oznaka
+%   $\Sigma \vdash \phi$ zna\v ci da postoji kona\v can niz formula
+%   $$
+%     \alpha_1, \; \alpha_2, \; \ldots, \; \alpha_n
+%   $$
+%   takav da je $\alpha_n = \phi$, i za svako $i \in \{1, \ldots, n\}$ formula $\alpha_i$ je ili aksioma, ili
+%   neka od formula iz $\Sigma$, ili je dobijena primenom nekog pravila izvo\dj enja na neke od formula koje joj
+%   prethode u nizu. Navedeni niz formula tada nazivamo \emph{dokaz formule $\phi$ iz pretpostavki $\Sigma$}.
+% \end{DEF}
+% 
+% \begin{THM}[Teorema dedukcije za iskazni ra\v cun]
+%   Neka je $\Sigma$ skup formula iskaznog ra\v cuna i neka su $\phi$ i $\psi$ formule iskaznog ra\v cuna. Tada
+%   $\Sigma \vdash \phi \Rightarrow \psi$ ako i samo ako $\Sigma \union \{\phi\} \vdash \psi$.
+% \end{THM}
+% 
+% \begin{EX}
+%   Dokazati da je $\vdash \alpha \Rightarrow \alpha$ za svaku iskaznu formulu $\alpha$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   Prema Teoremi dedukcije dovoljno je dokazati da je
+%   $$
+%     \alpha \vdash \alpha
+%   $$
+%   \v sto sada mo\v zemo da uradimo u jednom koraku:
+%   \begin{enumerate}
+%   \item
+%     $\alpha$\newline
+%     [hipoteza]
+%   \end{enumerate}
+%   Uporediti ovaj dokaz sa dokazom koji je dat u Primeru~\ref{ft03.ex.alpha=>alpha}.
+% \end{proof}
+% 
+% \begin{EX}\label{ft03.ex.tranz}
+%   Dokazati da je $\vdash (p \Rightarrow q) \Rightarrow ((q \Rightarrow r) \Rightarrow (p \Rightarrow r))$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   Prema Teoremi dedukcije dovoljno je dokazati da je
+%   $$
+%     p \Rightarrow q \vdash (q \Rightarrow r) \Rightarrow (p \Rightarrow r).
+%   $$
+%   Ako jo\v s jednom primenimo Teoremu dedukcije dobijamo da treba pokazati da je
+%   $$
+%     p \Rightarrow q, q \Rightarrow r \vdash p \Rightarrow r.
+%   $$
+%   Nakon tre\'ce primene Teoreme dedukcije dobijamo da je, zapravo, dovoljno pokazati
+%   $$
+%     p \Rightarrow q, q \Rightarrow r, p \vdash r
+%   $$
+%   \v sto je veoma lako:
+% \begin{enumerate}
+% \item
+%   $p$\newline
+%   [hipoteza]
+% \item
+%   $p \Rightarrow q$\newline
+%   [hipoteza]
+% \item
+%   $q$\newline
+%   [MP na (1) i (2)]
+% \item
+%   $q \Rightarrow r$\newline
+%   [hipoteza]
+% \item
+%   $r$\newline
+%   [MP na (3) i (4)]\qedhere
+% \end{enumerate}
+% \end{proof}
+% 
+% \begin{EX}\label{ft03.ex.lnot-lnot-p--p}
+%   Dokazati da je $\vdash \lnot\lnot p \Rightarrow p$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   Prema Teoremi dedukcije dovoljno je dokazati da je $\lnot\lnot p \vdash p$.
+% \begin{enumerate}
+% \item
+%   $\lnot\lnot p$\newline
+%   [hipoteza]
+% \item
+%   $\lnot\lnot p \Rightarrow (\lnot p \Rightarrow \lnot\lnot\lnot p)$\newline
+%   [Teorema istovr.\ supstitucije na A4 gde $\lnot p / p_1$ i $\lnot\lnot\lnot p / p_2$]
+% \item
+%   $\lnot p \Rightarrow \lnot\lnot\lnot p$\newline
+%   [MP na (1) i (2)]
+% \item
+%   $(\lnot p \Rightarrow \lnot\lnot\lnot p) \Rightarrow (\lnot\lnot p \Rightarrow p)$\newline
+%   [Teorema istovr.\  supstitucije na A3 gde $\lnot\lnot p / p_1$ i $p / p_2$]
+% \item
+%   $\lnot\lnot p \Rightarrow p$\newline
+%   [MP na (3) i (4)]
+% \item
+%   $p$\newline
+%   [MP na (1) i (5)]\qedhere
+% \end{enumerate}
+% \end{proof}
+% 
+% \begin{EX}\label{ft03.ex.p--lnot-lnot-p}
+%   Dokazati da je $\vdash p \Rightarrow \lnot\lnot p$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   U Primeru~\ref{ft03.ex.lnot-lnot-p--p} smo dokazali da je $\vdash \lnot\lnot p \Rightarrow p$.
+%   To zna\v ci da postoji kona\v can niz formula koji predstavlja dokaz ove formule.
+%   Taj kona\v can niz formula mo\v zemo umetnuti gdegod nam zatreba i tako unutar nekog drugog dokaza
+%   dobiti, kao me\dj ukorak, dokaz ove formule. Odatle sledi da sve \v sto smo ranije dokazali
+%   mo\v zemo da koristimo u dokazima novih formula. To \'cemo sada iskoristiti.
+% \begin{enumerate}
+% \item
+%   $(\lnot\lnot\lnot p \Rightarrow \lnot p) \Rightarrow (p \Rightarrow \lnot\lnot p)$\newline
+%   [Teorema istovr.\ supstitucije na A3 gde $\lnot\lnot p / p_2$ i $p / p_1$]
+% \item
+%   $\lnot\lnot p \Rightarrow p$\newline
+%   [Primer~\ref{ft03.ex.lnot-lnot-p--p}]
+% \item
+%   $\lnot\lnot\lnot p \Rightarrow \lnot p$\newline
+%   [SUP na (2) gde $\lnot p$ menja $p$]
+% \item
+%   $p \Rightarrow \lnot\lnot p$\newline
+%   [MP na (3) i (1)]\qedhere
+% \end{enumerate}
+% \end{proof}
+% 
+% \begin{EX}
+%   Dokazati da je $\vdash (p \Rightarrow q) \Rightarrow (\lnot q \Rightarrow \lnot p)$.
+% \end{EX}
+% \begin{proof}[Re\v senje]
+%   Prema Teoremi dedukcije dovoljno je pokazati da $p \Rightarrow q \vdash \lnot q \Rightarrow \lnot p$.
+% \begin{enumerate}
+% \item
+%   $p \Rightarrow q$\newline
+%   [hipoteza]
+% \item
+%   $q \Rightarrow \lnot\lnot q$\newline
+%   [SUP na Primer~\ref{ft03.ex.p--lnot-lnot-p} gde $q$ menja $p$]
+% \item
+%   $(p \Rightarrow q) \Rightarrow ((q \Rightarrow \lnot\lnot q) \Rightarrow (p \Rightarrow \lnot\lnot q))$\newline
+%   [SUP na Primer~\ref{ft03.ex.tranz} gde $\lnot\lnot q$ menja $r$]
+% \item
+%   $(q \Rightarrow \lnot\lnot q) \Rightarrow (p \Rightarrow \lnot\lnot q)$\newline
+%   [MP na (1) i (3)]
+% \item
+%   $p \Rightarrow \lnot\lnot q$\newline
+%   [MP na (2) i (4)]
+% \item
+%   $\lnot\lnot p \Rightarrow p$\newline
+%   [Primer~\ref{ft03.ex.lnot-lnot-p--p}]
+% \item
+%   $(\lnot\lnot p \Rightarrow p) \Rightarrow ((p \Rightarrow \lnot\lnot q) \Rightarrow (\lnot\lnot p \Rightarrow \lnot\lnot q))$\newline
+%   [Teorema istovr.\ supstitucije na Primer~\ref{ft03.ex.tranz} gde $\lnot\lnot p / p$, $p/q$, $\lnot\lnot q / r$]
+% \item
+%   $(p \Rightarrow \lnot\lnot q) \Rightarrow (\lnot\lnot p \Rightarrow \lnot\lnot q)$\newline
+%   [MP na (6) i (7)]
+% \item
+%   $\lnot\lnot p \Rightarrow \lnot\lnot q$\newline
+%   [MP na (5) i (8)]
+% \item
+%   $(\lnot\lnot p \Rightarrow \lnot\lnot q) \Rightarrow (\lnot q \Rightarrow \lnot p)$\newline
+%   [Teorema istovr.\ supstitucije na A3 gde $\lnot q / p_1$, $\lnot p / p_2$]
+% \item
+%   $\lnot q \Rightarrow \lnot p$\newline
+%   [MP na (9) i (10)]\qedhere
+% \end{enumerate}
+% \end{proof}
+% 
+% \medskip
+% 
+% Ovo je samo nekoliko primera koji pokazuju kako se za neke tautologije pokazuje da su posledice
+% formalne teorije iskaznog ra\v cuna. Uz mnogo truda mo\v ze se pokazati da su sve tautologije
+% posledice formalne teorije iskaznog ra\v cuna, i nijedna druga formula to nije.
+% Dakle, tautologije mo\v zemo precizno opisati formalnim teorijama.
+% 
+% \begin{THM}
+%   Neka je $\phi$ iskazna formula. Tada $\vdash \phi$ ako i samo ako je $\phi$ tautologija.
+% \end{THM}
+% 
+% Ako izjavu $\vDash \phi$ shvatimo kao \enquote{$\phi$ je ta\v cno}, a izjavu $\vdash \phi$ kao
+% \enquote{$\phi$ je dokazivo} onda prethodna veoma va\v zna teorema mo\v ze da se shvati i ovako:
+% formula iskaznog ra\v cuna je ta\v cna ako i samo ako je dokaziva.
+% 
+% Ovo je zna\v cajna osobina jer pokazuje da se u iskaznom ra\v cunu \emph{semantika} (pojam ta\v cnosti)
+% i \emph{sintaksa} (pojam formalne dokazivosti) poklapaju, \v sto nije uvek slu\v caj!
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Iskazne formule u analizi programskog koda}
+
+Iskazne formule u programiranju odgovaraju uslovima koji se javljaju u \enquote{if}, \enquote{while} i sli\v cnim
+kontrolnom strukturama. Sada \'cemo na nekoliko jednostavnih primera
+pokazati kako se ve\v stine koje smo stekli koriste za analizu toka programskog koda,
+detekciju mrtvog koda i analizu petlji. Kako ra\v cunarski programi postaju sve slo\v zeniji
+i slo\v zeniji, formalna analiza programskog koda postaje va\v zna ve\v stina za jednog programera
+jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
+\begin{quote}
+  \enquote{Program testing can be used to show the presence of bugs, but never their absence.}
+  
+  Edsgar Dijkstra
+\end{quote}
+
+\clearpage
+
+\begin{EX}
+  Posmatrajmo slede\'ci metod:
+{\small
+\begin{verbatim}
+    static int NZD(int a, int b) {
+      if(a <= 0 || b <= 0) { return -1; }
+      // (1)
+      ...
+    }
+\end{verbatim}
+}
+\noindent
+\v Sta va\v zi u ta\v cki (1) koda?
+\end{EX}
+\begin{proof}[Re\v senje]
+  Ako metod stigne u ta\v cku (1) to zna\v ci da uslov iza \enquote{if} nije ispunjen. Dakle, u ta\v cki (1)
+  va\v zi
+  $$
+    \lnot(a \le 0 \lor b \le 0)
+  $$
+  \v sto je, prema De Morganovom zakonu, ekvivalentno sa
+  $$
+    a > 0 \land b > 0.
+  $$
+  Dakle, ako metod pro\dj e \enquote{if} kontrolnu strukturu i nastavi sa radom znamo da je $a > 0$ i $b > 0$.
+\end{proof}
+
+\begin{EX}
+  U slede\'cem programskom fragmentu
+{\small
+\begin{verbatim}
+    if(x >= 6 && y < 7) {
+      // (1)
+      ...
+    }
+    else {
+      // (2)
+      ...
+    }
+\end{verbatim}
+}
+\end{EX}
+\noindent
+\v sta va\v zi u ta\v cki (1) koda, a \v sta u ta\v cki (2)?
+\begin{proof}[Re\v senje]
+  Ako kod stigne u ta\v cku (1) tada je uslov u \enquote{if} ispunjen, pa u ta\v cki (1) va\v zi
+  $x \ge 6 \land y < 7$.
+  S druge strane, ako je kod stigao do ta\v cke (2) uslov u \enquote{if} nije ispunjen, tako da u ta\v cki (2) va\v zi
+  $\lnot(x \ge 6 \land y < 7)$,
+  \v sto je ekvivalentno sa $x < 6 \lor y \ge 7$.
+\end{proof}
+
+\begin{EX}
+  Koji uslovi va\v ze u ta\v ckama (1), (2), (3) i (4) slede\'ceg programskog fragmenta:
+{\small
+\begin{verbatim}
+  if(x < 1) {
+    // (1)
+    ...
+  }
+  else if(x < 5) {
+    // (2)
+    ...
+  }
+  else if(x > 10) {
+    // (3)
+    ...
+  }
+  else {
+    // (4)
+    ...
+  }
+\end{verbatim}
+}
+\end{EX}
+\begin{proof}[Re\v senje]
+  U ta\v cki (1) va\v zi uslov naveden u prvom \enquote{if}, dakle $x < 1$.
+  
+  Ako je kod stigao u ta\v cku (2), zna\v ci da uslov
+  iza prvog \enquote{if} nije ispunjen, ali uslov iza drugog jeste. Zato u ta\v cki (2) va\v zi
+  $\lnot(x < 1) \land x < 5$ \v sto je ekvivalentno sa $x \ge 1 \land x < 5$,
+  odnosno, $1 \le x < 5$.
+
+  Ako je kod stigao u ta\v cku (3), zna\v ci da uslovi
+  iza prva dva \enquote{if}-a nisu ispunjeni, ali uslov iza tre\'ceg jeste. Zato u ta\v cki (3) va\v zi
+  $\lnot(x < 1) \land \lnot(x < 5) \land x > 10$, \v sto je ekvivalentno sa
+  $x \ge 1 \land x \ge 5 \land x > 10$, odnosno, $x > 10$.
+  
+  Kona\v cno, ako je kod stigao u ta\v cku (4) nijedan od tri uslova nije ispunjen. Zato u ta\v cki (4)
+  va\v zi $\lnot(x < 1) \land \lnot(x < 5) \land \lnot(x > 10)$, \v sto je ekvivalentno sa
+  $x \ge 1 \land x \ge 5 \land x \le 10$, odnosno, $5 \le x \le 10$.
+\end{proof}
+
+\begin{EX}
+  Koji uslovi va\v ze u ta\v ckama (1), (2), (3) i (4) slede\'ceg programskog fragmenta:
+{\small
+\begin{verbatim}
+  if(x < 1) {
+    // (1)
+    ...
+  }
+  else if(y > 5) {
+    // (2)
+    ...
+  }
+  else if(x > 3) {
+    // (3)
+    ...
+  }
+  else {
+    // (4)
+    ...
+  }
+\end{verbatim}
+}
+\end{EX}
+
+\begin{proof}[Re\v senje]
+  U ta\v cki (1) va\v zi $x < 1$.
+  
+  U ta\v cki (2) va\v zi $\lnot(x < 1) \land y > 5$ \v sto je ekvivalentno sa $x \ge 1 \land y > 5$.
+
+  U ta\v cki (3) va\v zi $\lnot(x < 1) \land \lnot(y > 5) \land x > 3$, \v sto je ekvivalentno sa
+  $x \ge 1 \land y \le 5 \land x > 3$, odnosno, $x > 3 \land y \le 5$.
+  
+  Kona\v cno, u ta\v cki (4)
+  va\v zi $\lnot(x < 1) \land \lnot(y > 5) \land \lnot(x > 3)$, \v sto je ekvivalentno sa
+  $x \ge 1 \land y \le 5 \land x \le 3$, odnosno, $1 \le x \le 3 \land y \le 5$.
+\end{proof}
+
+
+\begin{EX}
+  Analiza uslova se mo\v ze upotrebiti da se detektuje mrtav kod (\v sto je kod koji se nikada
+  ne\'ce izvr\v siti). U slede\'cem programskom fragmentu detektovati mrtav kod:
+{\small
+\begin{verbatim}
+  if(x < 1) {
+    // (1)
+    ...
+  }
+  else if(x < 5) {
+    // (2)
+    ...
+  }
+  else if(x < -3) {
+    // (3)
+    ...
+  }
+  else {
+    // (4)
+    ...
+  }
+\end{verbatim}
+}
+\end{EX}
+\begin{proof}[Re\v senje]
+  U ta\v cki (1) va\v zi uslov naveden u prvom \enquote{if}, dakle $x < 1$.
+  
+  U ta\v cki (2) va\v zi $\lnot(x < 1) \land x < 5$ \v sto je ekvivalentno sa $x \ge 1 \land x < 5$,
+  odnosno, $1 \le x < 5$.
+  
+  U ta\v cki (3) va\v zi
+  $\lnot(x < 1) \land \lnot(x < 5) \land x < -3$, \v sto je ekvivalentno sa
+  $x \ge 1 \land x \ge 5 \land x < -3$, \v sto nije mogu\'ce! Dakle, kod naveden u bloku koji po\v cinje u
+  ta\v cki (3) je mrtav kod.
+  
+  Kona\v cno, u ta\v cki (4)
+  va\v zi $\lnot(x < 1) \land \lnot(x < 5) \land \lnot(x < -3)$, \v sto je ekvivalentno sa
+  $x \ge 1 \land x \ge 5 \land x \ge -3$, odnosno, $x \ge 5$.
+\end{proof}
+
+\begin{EX}\label{ft03.ex.swap}
+  \v Sta va\v zi u ta\v ckama (1), (2), (3) i (4) slede\'ceg programskog fragmenta?
+  \v Sta radi ovaj fragment?
+\end{EX}
+{\small
+\begin{verbatim}
+  // ucitamo celobrojne promenljive a i b
+  int x = a; int y = b;
+  // (1)
+  int pom = x;
+  // (2)
+\end{verbatim}
+\clearpage
+\begin{verbatim}
+  x = y;
+  // (3)
+  y = pom;
+  // (4)
+\end{verbatim}
+}
+\begin{proof}[Re\v senje]
+  U ta\v cki (1) va\v zi
+  $$
+    x = a \land y = b.
+  $$
+  U ta\v cki (2) va\v zi
+  $$
+    x = a \land y = b \land \mathit{pom} = a.
+  $$
+  U ta\v cki (3) va\v zi
+  $$
+    x = b \land y = b \land \mathit{pom} = a,
+  $$
+  a u ta\v cki (4) va\v zi
+  $$
+    x = b \land y = a \land \mathit{pom} = a.
+  $$
+  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih \verb"x" i \verb"y".
+\end{proof}
+
+\begin{EX}
+  \v Sta va\v zi u ta\v ckama (1), (2), (3) i (4) slede\'ceg programskog fragmenta:
+
+\begin{tabular}{l}
+  \verb"// ucitamo celobrojne promenljive a i b"\\
+  \verb"int x = a; int y = b;"\\
+  \verb"// (1)"\\
+  \verb"x = x + y;"\\
+  \verb"// (2)"\\
+  \verb"y = x - y;"\\
+  \verb"// (3)"\\
+  \verb"x = x - y;"\\
+  \verb"// (4)"
+\end{tabular}
+
+\noindent
+\v Sta radi ovaj fragment?
+\end{EX}
+\begin{proof}[Re\v senje]
+  U ta\v cki (1) va\v zi
+  $$
+    x = a \land y = b.
+  $$
+  Odatle je
+  $$
+    x + y = a + b \land y = b,
+  $$
+  pa u ta\v cki (2) va\v zi
+  $$
+    x = a + b \land y = b.
+  $$
+  Odavde sledi da je
+  $$
+    x = a + b \land x - y = a,
+  $$
+  pa u ta\v cki (3) va\v zi
+  $$
+    x = a + b \land y = a.
+  $$
+  Odavde sledi da je
+  $$
+    x - y = b \land y = a,
+  $$
+  pa u ta\v cki (4) va\v zi
+  $$
+    x = b \land y = a.
+  $$
+  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih \verb"x" i \verb"y". Ovaj kod je samo akademska glavolomka!
+  \emph{Nikada ne treba na ovaj na\v cin razmenjivati vrednosti promenljivih!}
+  Smislen na\v cin je onaj pokazan u Primeru~\ref{ft03.ex.swap}.
+\end{proof}
+
+\begin{EX}
+  Neka je $\phi$ nekakav logi\v cki izraz.
+  Koji uslovi va\v ze u ta\v ckama (1) i (2) slede\'ceg programskog fragmenta:
+
+\medskip
+
+\begin{tabular}{l}
+  \verb"while("$\phi$\verb") {"\\
+  \verb"  // (1)"\\
+  \verb"  ..."\\
+  \verb"}"\\
+  \verb"// (2)"
+\end{tabular}
+\end{EX}
+\begin{proof}[Re\v senje]
+  Ta\v cka (1) se nalazi odmah nakon ulaska u petlju, tako da tu sigurno va\v zi $\phi$.
+  Ta\v cka (2) se nalazi neposredno nakon izlaska iz petlje, pa tu sigurno va\v zi $\lnot\phi$ jer se telo
+  petlje izvr\v sava sve dok je $\phi$ ta\v cno.
+\end{proof}
+
+\begin{EX}
+  Neka je $\phi$ nekakav logi\v cki izraz.
+  Koji uslovi va\v ze u ta\v ckama (1) i (2) slede\'ceg programskog fragmenta:
+
+\medskip
+
+\begin{tabular}{l}
+  \verb"do {"\\
+  \verb"  // (1)"\\
+  \verb"  ..."\\
+  \verb"} while("$\phi$\verb");"\\
+  \verb"// (2)"
+\end{tabular}
+\end{EX}
+\begin{proof}[Re\v senje]
+  Prilikom prvog ulaska u petlju nemamo dovoljno informacija da bismo znali \v sta va\v zi u ta\v cki (1).
+  No, prilikom svakog narednog ciklusa petlje u ta\v cki (1) sigurno va\v zi $\phi$.
+  Ta\v cka (2) se nalazi neposredno nakon izlaska iz petlje, pa tu sigurno va\v zi $\lnot\phi$ jer se telo
+  petlje izvr\v sava sve dok je $\phi$ ta\v cno.
+\end{proof}
+
+
+\begin{EX}
+  Posmatrajmo slede\'ci metod:
+{\small
+\begin{verbatim}
+    static int MN(int x, int y) {
+      if(x <= 0 || y <= 0) { return -1; }
+      // (1)
+      int p = 0;
+      int u = x;
+      // (2)
+      do {
+        // (3)
+        p += y;
+        u--;
+        // (4)
+      } while(u > 0);
+      // (5)
+      return p;
+    }
+\end{verbatim}
+}
+
+\medskip
+
+\noindent
+$(a)$ \v Sta va\v zi u ta\v ckama (1) i (2) koda?
+
+\medskip
+
+\noindent
+$(b)$ Dokazati da u ta\v cki (3) koda va\v zi $p + u\cdot y = x \cdot y \land u > 0$, a da u ta\v cki (4) va\v zi $p + u\cdot y = x \cdot y \land u \ge 0$.
+
+\medskip
+
+\noindent
+$(c)$ \v Sta va\v zi u ta\v cki (5) koda? \v Sta radi metod \verb"MN"?
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$
+  Ako metod stigne u ta\v cku (1) to zna\v ci da uslov iza \enquote{if} nije ispunjen. Dakle, u ta\v cki (1)
+  va\v zi
+  $$
+    x > 0 \land y > 0.
+  $$
+  Onda u ta\v cki (2) va\v zi
+  $$
+    x > 0 \land y > 0 \land p = 0 \land u = x.
+  $$
+
+  $(b)$
+  Kada program prvi put u\dj e u petlju u ta\v cki (3) va\v zi
+  $$
+    x > 0 \land y > 0 \land p = 0 \land u = x
+  $$
+  odakle lako sledi da je
+  $$
+    p + u\cdot y = x \cdot y \land u > 0.
+  $$
+  Ovo je ekvivalentno sa
+  $$
+    (p + y) + (u - 1)\cdot y = x \cdot y \land u - 1 \ge 0
+  $$
+  zato \v sto je $u$ celobrojna promenljiva. Kada nakon naredbi
+  {\small
+  \begin{verbatim}
+    p += y;
+    u--;
+  \end{verbatim}
+  }
+  \noindent
+  stignemo u ta\v cku (4) promenljiva $p$ se uve\'ca za $y$, promenljiva $u$ se smanji za 1 i zato u ta\v cki (4) va\v zi:
+  $$
+    p + u\cdot y = x \cdot y \land u \ge 0
+  $$
+  (jer $p + y$ postaje novo $p$, a $u - 1$ postaje novo $u$). Ako ciklus nastavi sa radom, ponovo sti\v zemo u ta\v cku (3)
+  u kojoj sada va\v zi
+  $$
+    (p + u\cdot y = x \cdot y \land u \ge 0) \land (u > 0)
+  $$
+  \v sto je ekvivalentno sa
+  $$
+    p + u\cdot y = x \cdot y \land u > 0.
+  $$
+  Nakon toga na isti na\v cin kao ranije zaklju\v cujemo da u ta\v cki (4) va\v zi
+  $$
+    p + u\cdot y = x \cdot y \land u \ge 0.
+  $$
+  Dakle, tokom rada petlje sve vreme va\v zi
+  $$
+    p + u\cdot y = x \cdot y \land u \ge 0.
+  $$
+  Ova formula se zato zove \emph{invarijanta petlje} jer je invarijantna (ne menja oblik) tokom izvr\v savanja petlje.
+  
+  $(c)$
+  U ta\v cki (5) koda va\v zi
+  $$
+    (p + u\cdot y = x \cdot y \land u \ge 0) \land \lnot(u > 0)
+  $$
+  odnosno,
+  $$
+    p + u\cdot y = x \cdot y \land (u \ge 0 \land \lnot(u > 0)).
+  $$
+  Kako je $u \ge 0 \land \lnot (u > 0)$ ekvivalentno sa $u = 0$ dobijamo da u ta\v cki (5) zapravo va\v zi:
+  $$
+    p + 0\cdot y = x \cdot y \text{\quad tj.\quad} p = x\cdot y.
+  $$
+  Prema tome, metod \verb"MN" radi slede\'ce: ako je $x \le 0$ ili $y \le 0$ metod vra\'ca $-1$, dok u ostalim slu\v cajevima
+  ra\v cuna proizvod $x \cdot y$.
+\end{proof}
+
+U prethodnom primeru smo videli kako se invarijante petlje koriste da analiziramo rad petlje. \emph{Invarijanta petlje} je formula
+koja va\v zi pre ulaska u telo petlje i nakon svakog izvr\v savanja tela petlje. Onda ne menja svoj oblik tokom rada petlje, odatle ime.
+Drugi va\v zan aspekt analize rada petlji je dokaz da \'ce se petlja zavr\v siti nakon kona\v cnog broja koraka. To nije uvek
+o\v cigledno. Zato \'cemo u slede\'cem primeru pokazati jednu standardnu tehniku za ovakve dokaze. Ideja je da se uo\v ci
+algebarski izraz koji se zove \emph{varijanta petlje} koji se u svakom prolasku kroz telo petlje smanjuje i petlja se zavr\v sava
+kada vrednost ovog izraza stigne do neke unapred zadate vrednosti.
+
+\begin{EX}
+  Dokazati da se metod \verb"MN" uvek zavr\v sava nakon kona\v cnog broja koraka:
+{\small
+\begin{verbatim}
+    static int MN(int x, int y) {
+      if(x <= 0 || y <= 0) { return -1; }
+      int p = 0;
+      int u = x;
+\end{verbatim}
+\clearpage
+\begin{verbatim}
+      do {
+        p += y;
+        u--;
+      } while(u > 0);
+      return p;
+    }
+\end{verbatim}
+}
+\end{EX}
+\begin{proof}[Re\v senje]
+  Lako se vidi da promenljiva $u$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,
+  u svakom prolazu kroz telo petlje se njena vrednost smanjuje za 1, i petlja se zavr\v sava kada $u$ postane~0.
+\end{proof}
+
+\begin{EX}
+  Posmatrajmo slede\'ci metod:
+{\small
+\begin{verbatim}
+    static int CK(int x, int y) {
+      if(x <= 0 || y <= 0) { return -1; }
+      int q = 0;
+      int r = x;
+      // (1)
+      while(r >= y) {
+        // (2)
+        r -= y;
+        q++;
+        // (3)
+      }
+      // (4)
+      return q;
+    }
+\end{verbatim}
+}
+
+\medskip
+
+\noindent
+$(a)$ \v Sta va\v zi u ta\v cki (1)?
+
+\medskip
+
+\noindent
+$(b)$ Dokazati da u ta\v cki (2) koda va\v zi $q \cdot y + r = x \land r \ge y$,
+a da u ta\v cki (3) va\v zi $q \cdot y + r = x \land r \ge 0$ (ovo je invarijanta petlje).
+
+\medskip
+
+\noindent
+$(c)$ \v Sta va\v zi u ta\v cki (4) koda? \v Sta radi metod \verb"CK"?
+
+\medskip
+
+\noindent
+$(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$
+  Ako metod stigne u ta\v cku (1) to zna\v ci da uslov iza \enquote{if} nije ispunjen. Dakle, u ta\v cki (1)
+  va\v zi
+  $$
+    q = 0 \land r = x \land x > 0 \land y > 0.
+  $$
+
+  $(b)$
+  Kada program prvi put u\dj e u petlju u ta\v cki (2) va\v zi
+  $$
+    q = 0 \land r = x \land x > 0 \land y > 0 \land r \ge y
+  $$
+  odakle lako sledi da je
+  $$
+    q \cdot y + r = x \land r \ge y.
+  $$
+  Ovo je ekvivalentno sa
+  $$
+    (q + 1) \cdot y + (r - y) = x \land r - y \ge 0.
+  $$
+  Kada nakon naredbi
+  {\small
+  \begin{verbatim}
+      r -= y;
+      q++;
+  \end{verbatim}
+  }
+  \noindent
+  stignemo u ta\v cku (3) promenljiva $q$ se uve\'ca $1$, promenljiva $r$ se smanji za $y$ i zato u ta\v cki (3) va\v zi:
+  $$
+    q \cdot y + r = x \land r \ge 0
+  $$
+  (jer $q + 1$ postaje novo $q$, a $r - y$ postaje novo $r$). Ciklus nastavlja sa radom, pa ponovo sti\v zemo u ta\v cku (2)
+  u kojoj sada va\v zi
+  $$
+    q \cdot y + r = x \land r \ge y.
+  $$
+  Nakon toga na isti na\v cin kao ranije zaklju\v cujemo da u ta\v cki (3) va\v zi
+  $$
+    p + u\cdot y = x \cdot y \land u \ge 0.
+  $$
+  Dakle, tokom rada petlje sve vreme va\v zi
+  $$
+    q \cdot y + r = x \land r \ge 0.
+  $$
+  Dalje ne moramo da se vrtimo u krug, sve je jasno.
+  
+  $(c)$
+  U ta\v cki (4) koda va\v zi
+  $$
+    (q \cdot y + r = x \land r \ge 0) \land \lnot(r \ge y)
+  $$
+  odnosno,
+  $$
+    q \cdot y + r = x \land 0 \le r < y.
+  $$
+  Prema tome, metod \verb"CK" radi slede\'ce: ako je $x \le 0$ ili $y \le 0$ metod vra\'ca $-1$, dok u ostalim slu\v cajevima
+  ra\v cuna koli\v cnik i ostatak pri celobrojnom deljenju $x$ sa $y$, i kao rezultat vra\'ca celibrojni koli\v cnik.
+
+  $(d)$
+  Lako se vidi da promenljiva $r$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,
+  u svakom prolazu kroz telo petlje se njena vrednost smanjuje za $y$, i petlja se zavr\v sava kada $r$ postane manje od~$y$.
+\end{proof}
+
+\clearpage
+
+\begin{EX}
+  Posmatrajmo slede\'ci metod:
+{\small
+\begin{verbatim}
+    static int NZD(int x, int y) {
+      if(x <= 0 || y <= 0) { return -1; }
+      int a = x;
+      int b = y;
+      int r;
+      // (1)
+      do {
+        // (2)
+        r = a % b;
+        a = b;
+        b = r;
+        // (3)
+      } while(b > 0);
+      // (4)
+      return a;
+    }
+\end{verbatim}
+}
+
+\medskip
+
+\noindent
+$(a)$ \v Sta va\v zi u ta\v cki (1)?
+
+\medskip
+
+\noindent
+$(b)$ Dokazati da u ta\v cki (2) koda va\v zi $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b > 0$
+(gde smo sa $\NZD(x, y)$ ozna\v cili najve\'ci zajedni\v cki delilac brojeva $x$ i $y$),
+a da u ta\v cki (3) va\v zi $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0$ (ovo je invarijanta petlje).
+
+\medskip
+
+\noindent
+$(c)$ Dokazati da u ta\v cki (4) koda va\v zi $a = \NZD(x, y)$.
+
+\medskip
+
+\noindent
+$(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
+\end{EX}
+\begin{proof}[Re\v senje]
+  $(a)$
+  Ako metod stigne u ta\v cku (1) to zna\v ci da uslov iza \enquote{if} nije ispunjen. Dakle, u ta\v cki (1)
+  va\v zi
+  $$
+    a = x > 0 \land b = y > 0.
+  $$
+
+  $(b)$
+  Kada program prvi put u\dj e u petlju u ta\v cki (2) va\v zi
+  $$
+    a = x > 0 \land b = y > 0
+  $$
+  odakle je jasno da je
+  $$
+    \NZD(a, b) = \NZD(x, y) \land a > 0 \land b > 0.
+  $$
+  Obzirom da je
+  $$
+    \NZD(a, b) = \NZD(b, a \% b)
+  $$
+  (elementarna teorija brojeva), u ta\v cki (2), prema tome, va\v zi:
+  $$
+    \NZD(b, a \% b) = \NZD(x, y) \land a > 0 \land b > 0.
+  $$
+  Evo kako se ova formula transformi\v se dok se izvr\v savaju tri naredbe dodele u telu ciklusa:
+  \begin{center}
+    \begin{tabular}{ll}
+      Formula: & $\NZD(b, a \% b) = \NZD(x, y) \land a > 0 \land b > 0$\\
+      Naredba: & \verb"r = a % b;"\\
+      Formula: & $\NZD(b, r) = \NZD(x, y) \land a > 0 \land b > 0 \land r \ge 0$\\
+      Naredba: & \verb"a = b;"\\
+      Formula: & $\NZD(a, r) = \NZD(x, y) \land a > 0 \land r \ge 0$\\
+      Naredba: & \verb"b = r;"\\
+      Formula: & $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0$.
+    \end{tabular}
+  \end{center}
+  Dakle, u ta\v cki (3) va\v zi
+  $$
+    \NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0.
+  $$
+  Ako ciklus nastavi sa radom, ponovo sti\v zemo u ta\v cku (2)
+  u kojoj sada va\v zi
+  $$
+    \NZD(a, b) = \NZD(x, y) \land a > 0 \land b > 0.
+  $$
+
+  $(c)$
+  U ta\v cki (4) koda va\v zi invarijanta petlje, i uslov za izlazak iz petlje:
+  $$
+    (\NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0) \land (b \le 0),
+  $$
+  odnosno,
+  $$
+    \NZD(a, b) = \NZD(x, y) \land a > 0 \land b = 0.
+  $$
+  Kako je $\NZD(x, y) = \NZD(a, b) = \NZD(a, 0) = a$ zaklju\v cujemo da
+  metod \verb"NZD" radi slede\'ce: ako je $x \le 0$ ili $y \le 0$ metod vra\'ca $-1$, dok u ostalim slu\v cajevima
+  odre\dj uje $\NZD(x, y)$.
+
+  $(d)$
+  Lako se vidi da promenljiva $b$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,
+  u svakom prolazu kroz telo petlje se njena vrednost smanjuje (jer nova vrednost promenljive $b$ postaje ostatak pri celobrojnom deljenju
+  $a$ sa $b$, \v sto je uvek manje od stare vrednost promenljive $b$), i petlja se zavr\v sava kada $b$ padne na~$0$.
+\end{proof}
+
+
+\section{Zadaci}
+
+\begin{NAP}\it
+Za prirodni broj $k$ i cele brojeve $m$ i $n$ pi\v semo $n\equiv_k m$ ako $n-m$ deljivo brojem $k$. Tada ka\v zemo da je su brojevi $n$ i $m$ kongruentni po modulu $k$.
+U matemati\v ckoj literaturi se umesto $n\equiv_k m$ \v ce\v s\'ce koristi oznaka $n \equiv m \pmod k$, ali \'ce
+za na\v se potrebe skra\'ceni oblik $\equiv_k$ biti korisniji.
+\end{NAP}
+
+\clearpage
+
+\ZAD{01.zad.1}{Proveriti da li su slede\' ci iskazi ta\v cni ili neta\v cni:
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $1\equiv_3 4$;
+\item $4\equiv_7 22$;
+\item $13\equiv_6 25$;
+\item $2\equiv_5 -2$;
+\item $3\equiv_7 -4$;
+\item $5\equiv_{10} -5$;
+\item $1701\equiv_9 1404$;
+\item $2070\equiv_{11} 2205$.
+\end{enumerate}
+\end{multicols}
+}
+
+\ZAD{01.zad.2}{
+Dati su slede\' ci iskazi:
+\begin{align*}
+p:&\text{ Mi\' ca se duri.}\\
+q:&\text{ Joci je danas ro\dj endan.} \\
+r:&\text{ Peca kupuje poklon.}
+\end{align*}
+Napisati slede\' ce iskaze re\v cima:
+\begin{multicols}{3}
+\begin{enumerate}[(a)]
+\item $\neg p\wedge q$;
+\item $p\vee q$;
+\item $\neg p\Rightarrow q$;
+\item $q\Leftrightarrow p$;
+\item $q\Rightarrow r\wedge\neg p$;
+\item $(q\Rightarrow r)\wedge p$.
+\end{enumerate}
+\end{multicols}
+}
+
+\ZAD{01.zad.3}{
+Neka su $p$, $q$ i $r$ slede\' ci iskazi:
+\begin{align*}
+p:&\text{ \v Si\v smi\v si su slepi.}\\
+q:&\text{ Bubamare jedu va\v si.}\\
+r:&\text{ Mravi imaju duga\v cke zube.} 
+\end{align*}
+Zapisati slede\' ce re\v cenice pomo\' cu iskaznih formula:
+\begin{enumerate}[(a)]
+\item Ako su \v si\v smi\v si slepi, onda bubamare ne jedu va\v si.
+\item \v Si\v smi\v si su slepi ako i samo ako mravi nemaju duge zube.
+\item Mravi nemaju duge zube, i ako su \v si\v simi\v si slepi, onda bubamare ne jedu va\v si.
+\item \v Si\v smi\v si su slepi ili bubamare jedu va\v si, i mravi nemaju duge zube ako bubamare ne jedu va\v si.
+\end{enumerate}
+}
+
+\ZAD{01.zad.4}{
+Negirati iskaze:
+\begin{enumerate}[(a)]
+\item \enquote{Sini\v sa je iz Novog Sada.}
+\item \enquote{Kamion je bele boje.}
+\item \enquote{Kombi je skrenuo desno.}
+\item \enquote{Pera i Vlada su plavi.}
+\item \enquote{Svi studenti su znali odgovor na pitanje.}
+\item \enquote{Ako je Nikola visok, on igra ko\v sarku.}
+\end{enumerate}
+}
+
+\begin{NAP}\it
+Iskazna formula je \emph{kontradikcija} ako je neta\v cna za svaku valuaciju slova koja se u njoj javljaju.
+Drugim re\v cima, kontradikcija je negacija tautologije.
+\end{NAP}
+
+\ZAD{01.zad.5}{Proveriti za svaku od  slede\' cih iskaznih formula da li je tautologija, kontradikcija, ili ni\v sta od ta dva:
+\begin{enumerate}[(a)]
+\item $p\wedge (p\vee q)\Leftrightarrow p$;
+\item $\neg(p\wedge q)\Leftrightarrow(\neg p\vee\neg q)$;
+\item $(\neg q\Rightarrow\neg p)\Rightarrow(p\Rightarrow q)$;
+\item $p\wedge(p\Rightarrow q)\Rightarrow q$;
+\item $(p\wedge q)\wedge(p\vee\neg q)$;
+\item $p\wedge(q\vee r)\Leftrightarrow (p\wedge q)\vee(p\wedge r)$;
+\item $p\Rightarrow p\vee q$;
+\item $(p\Rightarrow q)\Leftrightarrow (\neg p\vee q)$;
+\item $\big(p\Rightarrow(q\wedge r)\big)\Rightarrow\big((p\Rightarrow q)\wedge(p\Rightarrow r)\big)$;
+\item $(p\Rightarrow(q\Rightarrow r))\Leftrightarrow (p\wedge \neg q)\vee r$;
+\item $\big((p\Rightarrow\neg q)\vee r\big)\Leftrightarrow\big((q\Rightarrow r)\vee\neg p\big)$.
+\end{enumerate}
+}
+
+\begin{NAP}\it
+U kontekstu ovog ud\v zbenika, \emph{negirati iskaznu formulu $\phi$} zna\v ci zapisati formulu $\lnot \phi$
+i onda je, koriste\'ci pogone tautologije, svesti na ekvivalentan oblik kod koga logi\v cki veznik~$\lnot$ napada samo iskazna slova.
+\end{NAP}
+
+\ZAD{02.zad.1}{
+Sastaviti tablicu istinitosnih vrednosti za slede\' ce iskazne formule, proveriti da li je ona tautologija, i negirati one iskazne formule koje nisu tautologije:
+\begin{enumerate}[(a)]
+\item $(p\Rightarrow(\neg q\Rightarrow r))\Leftrightarrow((p\wedge\neg q)\Rightarrow r)$;
+\item $(p\Rightarrow(q\Rightarrow \neg r))\Leftrightarrow(r\Rightarrow (\neg p\vee \neg q))$;
+\item $(\neg p\Rightarrow(q\Rightarrow r))\Leftrightarrow(p\vee\neg q\vee r)$;
+\item $(\neg p\vee(q\Rightarrow  r))\Leftrightarrow(\neg r\Rightarrow \neg(p\wedge  q))$;
+\item $(\neg p\vee  q)\Rightarrow(\neg p\wedge \neg q\wedge r)$;
+\item $(\neg p\vee  \neg r)\Rightarrow(\neg p\wedge q\wedge r)$;
+\item $(\neg p\vee(q\Rightarrow  r))\Leftrightarrow(\neg r\Rightarrow (p\Rightarrow\neg  q))$;
+\item $(p\vee  \neg q\vee \neg r)\Rightarrow(\neg p\wedge \neg q\wedge r)$;
+\item $(\neg p\wedge  \neg q)\Rightarrow(p\vee\neg q\vee \neg r)$.
+\end{enumerate}
+}
+
+\ZAD{02.zad.2}{
+Bez sastavljanja tablice istinitosnih vrednosti dokazati da su slede\' ce iskazne formule tautologije:
+\begin{enumerate}[(a)]
+\item $(p\Leftrightarrow \neg q)\wedge(\neg r\vee \neg s\Rightarrow q)\Rightarrow(p\Rightarrow s)$;
+\item $s\wedge(\neg s\vee p)\Rightarrow(q\vee r\Rightarrow p)\vee t$;
+\item $s\wedge p\wedge (s\vee \neg r\Rightarrow (\neg q\vee t))\Rightarrow (q\Rightarrow t)$;
+\item $p\wedge (q\Rightarrow \neg p)\Rightarrow \neg q\vee s\vee \neg t$;
+\item $s\wedge t\wedge(t\vee r\Rightarrow \neg p)\Rightarrow (q\Rightarrow \neg p)$;
+\item $(t\Rightarrow s\vee \neg p)\wedge \neg s\wedge (p\wedge r)\Rightarrow (q\Rightarrow \neg t)$;
+\item$(p\vee\neg r\Rightarrow \neg(s\vee t))\wedge(q\Rightarrow s)\Rightarrow r\vee \neg q$.
+\end{enumerate}
+}
+

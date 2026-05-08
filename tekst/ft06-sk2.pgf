@@ -1,0 +1,23 @@
+%% DO NOT FORGET TO \usepackage{pgf,acadpgf}
+\begin{pgfpicture}
+  \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
+  \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
+  \pgfsetlinewidth{\acadpgflinewidth}
+  \pgftransformshift{\pgfpointxy{-182.813}{-458.806}}
+
+  \begin{pgfscope}
+    \pgfpathellipse{\pgfpointxy{473.092}{613.272}}{\pgfpointxy{196.975}{0.0}}{\pgfpointxy{0.0}{105.489}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \pgftext[top,left,at={\pgfpointxy{274.022}{729.756}}]{$C$}
+  \pgftext[at={\pgfpointxy{398.637}{667.901}}]{1}
+  \pgftext[at={\pgfpointxy{507.963}{667.901}}]{2}
+  \pgftext[at={\pgfpointxy{599.382}{653.773}}]{3}
+  \pgftext[at={\pgfpointxy{336.435}{603.854}}]{4}
+  \pgftext[at={\pgfpointxy{392.982}{624.575}}]{5}
+  \pgftext[at={\pgfpointxy{468.379}{608.563}}]{6}
+  \pgftext[at={\pgfpointxy{569.223}{600.086}}]{7}
+  \pgftext[at={\pgfpointxy{604.094}{577.481}}]{8}
+  \pgftext[at={\pgfpointxy{414.659}{565.237}}]{9}
+  \pgftext[at={\pgfpointxy{518.33}{554.876}}]{0}
+\end{pgfpicture}
