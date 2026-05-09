@@ -26,13 +26,6 @@
 \end{enumerate}
 
 \RES{01.zad.3}
-Neka su $p$, $q$ i $r$ slede\' ci iskazi:
-\begin{align*}
-p:&\text{ \v Si\v smi\v si su slepi.}\\
-q:&\text{ Bubamare jedu va\v si.}\\
-r:&\text{ Mravi imaju duga\v cke zube.} 
-\end{align*}
-Zapisati slede\' ce re\v cenice pomo\' cu iskaznih formula:
 \begin{enumerate}[(a)]
 \item $p\Rightarrow \neg q$;
 \item $p\Leftrightarrow \neg r$;
@@ -45,7 +38,7 @@ Zapisati slede\' ce re\v cenice pomo\' cu iskaznih formula:
 \item \enquote{Sini\v sa nije iz Novog Sada.}
 \item \enquote{Kamion nije bele boje.}
 \item \enquote{Kombi nije skrenuo desno.}
-\item \enquote{Bar jedan od njih dvojice nije plav.}
+\item \enquote{Pera i Vlada nisu obojica plavi.}
 \item \enquote{Neki studenti nisu znali odgovor na pitanje.} (\enquote{Bar jedan strudent nije znao odgovor na pitanje.})
 \item Primetimo da je postavljena re\v cenica implikacija. Implikacija $p\Rightarrow q$ je neta\v cna ako i samo ako je $p$ ta\v cno i $q$ neta\v cno. Prema tome, negacija zadatog iskaza je:
 
@@ -63,7 +56,7 @@ $\top$ & $\bot$ & $\top$ & $\top$ & $\top$\\
 $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$\\
 $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
 \end{tabular}\]
-Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji. Po\v sto je zadataka iskazna formula tautologija, ona nije i kontradikcija, \v sto vidimo i iz tablice istinitosnih vrednosti.
 
 \item Ozna\v cimo zadatu iskaznu formulu sa $F$, i odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti.
 \[\begin{tabular}{c|c|c|c|c|c|c|c}
@@ -74,7 +67,7 @@ $\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
 $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
 $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
 \end{tabular}\]
-Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji. Zadataka iskazna formula nije kontradikcija.
 
 \item Doka\v zimo da je iskazna formula $F=(\neg q\Rightarrow\neg p)\Rightarrow(p\Rightarrow q)$ tautologija. Pretpostavimo suprotno, tj. da je $v(F)=\bot$ za neku valuaciju $v$.
 
@@ -85,6 +78,8 @@ Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je
 5. Iz 3. sledi da je $v(q)=\bot$.\\
 6. Na osnovu 4. i 5. sledi da je $v(\neg q\Rightarrow\neg p)=\top\Rightarrow \bot=\bot$, \v sto je u kontradikciji sa 2. Ovim je dokazano da je $F$ tautologija.
 
+Po\v sto je zadataka iskazna formula tautologija, ona nije kontradikcija.
+
 \item Odgovorimo na zadato pitanje pomo\' cu tablice istinitosnih vrednosti. 
 \[\begin{tabular}{c|c|c|c|c}
 $p$ & $q$ & $p\Rightarrow q$ & $p\wedge (p\Rightarrow q)$ & $p\wedge(p\Rightarrow q)\Rightarrow q$\\
@@ -94,9 +89,9 @@ $\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
 $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$\\
 $\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$\\
 \end{tabular}\]
-Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji.
-\item Zadata formula nije tautologija po\v sto je njena istinitosna vrednost $\bot$ u bilo kojoj valuaciji u kojoj je $v(p)=\bot$.
-\item Ozna\v cimo zadatu formulu sa $F$, i neka je $L=p\wedge(q\vee r)$ i $D= (p\wedge q)\vee(p\wedge r)$.  Sastavimo tablicu istinitosnih vrednosti za zadatu iskaznu $F$.
+Iz gornje tabele zaklju\v cujemo da je zadata iskazna formula tautologija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji, i zaklju\v cujemo da ona nije kontradikcija.
+\item Zadata formula nije tautologija po\v sto je njena istinitosna vrednost $\bot$ u bilo kojoj valuaciji u kojoj je $v(p)=\bot$. Tako\dj e, zadata iskazna formula nije ni kontradikcija jer je njena istinitosna vrednost $\top$ u valuaciji  u kojoj je $v(p)=v(q)=\top$.
+\item Ozna\v cimo zadatu formulu sa $F$, i neka je $L=p\wedge(q\vee r)$ i $D= (p\wedge q)\vee(p\wedge r)$.  Sastavimo tablicu istinitosnih vrednosti za zadatu iskaznu formulu $F$.
 \[\begin{tabular}{c|c|c|c|c|c|c|c|c}
 $p$ & $q$ & $r$ & $q\vee r$ & $L$ & $p\wedge q$ & $p\wedge r$ & $ D$ & $F$\\
 \hline\hline
@@ -109,8 +104,8 @@ $\bot$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
 $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
 $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$\\
 \end{tabular}\]
-Ovim smo pokazali da je $F$ tautologija.
-\item Sastavljanjem tablice istinitosnih vrednosti lako se pokazuje da je zadata formula tautologija.
+Ovim smo pokazali da je $F$ tautologija i da nije kontradikcija.
+\item Sastavljanjem tablice istinitosnih vrednosti lako se pokazuje da je zadata formula tautologija, kao i da nije kontradikcija.
 \item Ozna\v cimo zadatu formulu sa $F$, i pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$. Ukoliko u nastavku dobijemo kontradikciju, time bismo pokazali da je $F$ tautologija. Sa druge strane, mogu\' ce je da na ovaj na\v cin dobijemo i valuaciju u kojoj $F$ ima istinitosnu vrednost $\bot$. Po\v sto je $v(F)=\bot$, tada je
 \begin{itemize}
 \item $v(p\Rightarrow q)=\top$ i $v(\neg p\vee q)=\bot$, ili
@@ -120,21 +115,23 @@ Po\v sto postoje dva slu\v caja, da bismo dokazali da je $F$ tautologija, neopho
 
 1. $v(p\Rightarrow q)=\top$.\\
 2. $v(\neg p\vee q)=\bot$.\\
-3. Iz 2. sledi da je $\Rightarrow v(q)=\bot$.\\
-4. Iz 2. sledi da je $\Rightarrow v(\neg p)=\bot\Rightarrow v(p)=\top$.\\
-5. Iz 3. i 4. sledi da je $\Rightarrow v(p\Rightarrow q)=\bot$.
+3. Iz 2. sledi da je $v(q)=\bot$.\\
+4. Iz 2. sledi da je $v(\neg p)=\bot$, tj. $v(p)=\top$.\\
+5. Iz 3. i 4. sledi da je $v(p\Rightarrow q)=\bot$.
 
-Ovim smo dobili kontradikciju zbog (1) i (5).
+Ovim smo dobili kontradikciju zbog 1. i 5.
 
 Pretpostavimo sada da je $v(\neg p\vee q)=\top$ i $v(p\Rightarrow q)=\bot$.
 
 1. $v(\neg p\vee q)=\top$.\\
 2. $v(p\Rightarrow q)=\bot$.\\
-3. Iz 2. sledi da je $\Rightarrow v(q)=\bot$.\\
-4. Iz 2. sledi da je $\Rightarrow v(p)=\top$.\\
-5. Iz 3. i 4. sledi da je $\Rightarrow v(\neg p\vee q)=\bot$.
+3. Iz 2. sledi da je $v(q)=\bot$.\\
+4. Iz 2. sledi da je $v(p)=\top$.\\
+5. Iz 3. i 4. sledi da je $v(\neg p\vee q)=\bot$.
 
-Dobili smo kontradikciju zbog (5) i (1). Po\v sto smo dobili kontradikciju u oba slu\v caja, sledi da je $v(F)=\top$ za svaku valuaciju $v$, \v cime je pokazano da je $F$ tautologija.
+Dobili smo kontradikciju zbog 5. i 1. Po\v sto smo dobili kontradikciju u oba slu\v caja, sledi da je $v(F)=\top$ za svaku valuaciju $v$, \v cime je pokazano da je $F$ tautologija.
+
+Odavde sledi i da $F$ nije kontradikcija
 
 \item Odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti. Ozna\v cimo zadatu iskaznu formulu sa $F$.
 \[\begin{tabular}{c|c|c|c|c|c|c|c|c}
@@ -149,7 +146,7 @@ $\bot$ & $\top$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
 $\bot$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
 $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$\\
 \end{tabular}\]
-Ovim je dokazano da je $F$ tautologija.
+Ovim je dokazano da je $F$ tautologija i da nije kontradikcija.
 
 \item %Ovaj zadatak re\v si\' cemo na dva na\v cina - bez sastavljanja tablice istinitosnih vrednosti, i sa tablicom. Re\v simo ga najpre bez tablice.
 %
@@ -157,15 +154,15 @@ Ovim je dokazano da je $F$ tautologija.
 Neka je $F=(p\Rightarrow(q\Rightarrow r))\Leftrightarrow (p\wedge \neg q)\vee r$. Odgovorimo na pitanje bez sastavljanja tablice istinitosnih vrednosti. Pretpostavimo najpre da je $v(F)=\bot$. Tada postoje dve mogu\' cnosti:
 \begin{itemize}
 \item $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$, ili
-\item $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$.
+\item $v(p\Rightarrow(q\Rightarrow r))=\bot$ i $v((p\wedge \neg q)\vee r)=\top$.
 \end{itemize}
 Pretpostavimo najpre da je $v(p\Rightarrow(q\Rightarrow r))=\top$ i $v((p\wedge \neg q)\vee r)=\bot$.
 
 1. $v(p\Rightarrow(q\Rightarrow r))=\top$.\\
 2. $v((p\wedge \neg q)\vee r)=\bot$.\\
-3. Iz 2. sledi da je $\Rightarrow v(r)=\bot$.\\
-4. Iz 2. sledi da je $\Rightarrow v(p\wedge\neg q)=\bot$.\\
-5. Iz 4. sledi da je $\Rightarrow v(p)=\bot\text{ ili }v(q)=\top$.
+3. Iz 2. sledi da je $v(r)=\bot$.\\
+4. Iz 2. sledi da je $v(p\wedge\neg q)=\bot$.\\
+5. Iz 4. sledi da je $v(p)=\bot\text{ ili }v(q)=\top$.
 
 Me\dj utim, ako je $v(p)=\bot$, onda je $v(p\Rightarrow(q\Rightarrow r))=\top$, i na ovaj na\v cin smo dobili da zadata iskazna formula nije tautologija. Naime, za $v(p)=\bot$ i $v(r)=\bot$ je formula $F$ neta\v cna, tj. formula je neta\v cna u slede\' cim valuacijama:
 \begin{align*}
@@ -181,7 +178,9 @@ p & q & r \\
 \end{array}.
 \end{align*}
 
-{\it Napomena.} U prvom re\v senju zadatka smo nakon prvog koraka izveli zaklju\v cak da postoje dva podslu\v caja kada formula $F$ mo\v ze da bude neta\v cna. Da formula $F$ jeste tautologija, onda bi smo to dokazali tako \v sto bismo u oba podslu\v caja prona\v sli kontradikciju. Kada iskazna formula nije tautologija, onda se iz bar jednog od poslu\v cajeva mo\v ze izvesti valuacija u kojoj je $F$ neta\v cna - \v sto smo ovde i uradili.
+Data iskazna formula nije ni kontradikcija jer je njena istinitosna vrednost $\top$ u svakoj valuaciji u kojoj je $v(r)=\top$.
+
+{\it Napomena.} Re\v savaju\' ci zadatak najpre smo izveli zaklju\v cak da postoje dva podslu\v caja kada formula $F$ mo\v ze da bude neta\v cna. Da formula $F$ jeste tautologija, onda bismo to dokazali tako \v sto bismo u oba podslu\v caja prona\v sli kontradikciju. Kada iskazna formula nije tautologija, onda se iz bar jednog od poslu\v cajeva mo\v ze izvesti valuacija u kojoj je $F$ neta\v cna - \v sto smo ovde i uradili.
 
 %{\it Drugo re\v senje.} Odgovorimo na pitanje pomo\' cu tablice istinitosnih vrednosti. Ozna\v cimo zadatu iskaznu formulu sa $F$.
 %\[\begin{tabular}{c|c|c|c|c|c|c|c}
@@ -213,6 +212,8 @@ Dakle, u svim valuacijama u kojima je $v(p)=\top$ je $v(F)=\top$. Pretpostavimo 
 Prime\' cujemo da za $v(p)=\top$ va\v zi 
 \[v(F)=\neg v(q)\vee v(r)\Leftrightarrow \neg v(q)\vee v(r)=\top.\]
 Dakle, iskazna formula $F$ je tautologija.
+
+Po\v sto je iskazna formula $F$ tautologija, ona nije kontradikcija.
 %
 %Ozna\v cimo zadatu formulu sa $F$. Neka je $L=(p\Rightarrow\neg q)\vee r$ i $D=(q\Rightarrow r)\vee\neg p$. Sastavimo tablicu istinitosnih vrednosti za zadatu formulu.
 %\[\begin{tabular}{c|c|c|c|c|c|c|c|c|c}
@@ -261,8 +262,9 @@ p\Leftrightarrow q&\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)\\
 %, a njenim negiranjem dobija se
 %\[\big( p\wedge q\wedge r\wedge (r\Rightarrow (\neg p\vee \neg q)) \big)\vee\big( (p\Rightarrow(q\Rightarrow \neg r))\wedge r\wedge p\wedge q \big).\]
 
-\item Zadata iskazna formula nije tautologija, a njenim negiranjem dobija se
-\[  \big((\neg p\Rightarrow(q\Rightarrow r))\wedge \neg p\wedge q\wedge r \big)\vee\big( \neg p\wedge q\wedge \neg r\wedge   (p\vee\neg q\vee r) \big).\]
+\item Zadata iskazna formula je tautologija.
+%nije tautologija, a njenim negiranjem dobija se
+%\[  \big((\neg p\Rightarrow(q\Rightarrow r))\wedge \neg p\wedge q\wedge \neg r \big)\vee\big( \neg p\wedge q\wedge \neg r\wedge   (p\vee\neg q\vee r) \big).\]
 
 \item Zadata iskazna formula je tautologija.
 %, i njenim negiranjem dobija se
@@ -272,7 +274,7 @@ p\Leftrightarrow q&\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)\\
 \item Data iskazna formula nije tautologija. Negirajmo je. 
 \begin{align*}
 &\neg\big((\neg p\vee  q)\Rightarrow(\neg p\wedge \neg q\wedge r)\big) \\
-&\equiv \neg\big(\neg(\neg p\vee q)\vee \neg(\neg(\neg p\wedge\neg q\wedge r))\big)\\
+&\equiv \neg\big(\neg(\neg p\vee q)\vee (\neg p\wedge\neg q\wedge r)\big)\\
 &\equiv (\neg p\vee q)\wedge \neg(\neg p\wedge\neg q\wedge r)\\
 &\equiv (\neg p\vee q)\wedge (p\vee q\vee\neg r)
 \end{align*}
@@ -311,9 +313,9 @@ p\Leftrightarrow q&\equiv (p\Rightarrow q)\wedge(q\Rightarrow p)\\
 6. Iz 3. sledi da je $v(p)=\top$.\\
 7. Iz 3. sledi da je $v(s)=\bot$.\\
 8. Iz 4. i 6. sledi da je $v(\neg q)=\top$, tj. da je $v(q)=\bot$.\\
-9. Iz 6. i 7. sledi da je
+9. Iz 8. i 7. sledi da je
 \[v(\neg r\vee \neg s\Rightarrow q)=v(\neg r)\vee \top\Rightarrow \bot=\top\Rightarrow \bot=\bot.\]
-Ovo je kontradikcija sa 3, pa je dokazano da iskazna formula $F$ ni u  jednoj valuaciji nije neta\v cna, tj. da je $F$ tautologija.
+Ovo je kontradikcija sa 5, pa je dokazano da iskazna formula $F$ ni u  jednoj valuaciji nije neta\v cna, tj. da je $F$ tautologija.
 
 \item Ozna\v cimo iskaznu formulu sa $F$.
 
@@ -346,7 +348,7 @@ Ovo je kontradikcija sa 3, pa je dokazano da iskazna formula $F$ ni u  jednoj va
 1. $v(F)=\bot$.\\
 2. Iz 1. sledi da je $v(p\wedge (q\Rightarrow \neg p))=\top$.\\
 3. Iz 1. sledi da je $v(\neg q\vee s\vee \neg t)=\bot$.\\
-4. Iz 3. sledi da je $v(\neg q)=\bot\Rightarrow v(q)=\top$.\\
+4. Iz 3. sledi da je $v(\neg q)=\bot$, tj. $v(q)=\top$.\\
 5. Iz 2. sledi da je $v(p)=\top$.\\
 6. Iz 2. sledi da je $v(q\Rightarrow\neg p)=\top$.\\
 7. Na osnovu 4. i 5. sledi da je $v(q\Rightarrow\neg p)=\bot$, \v sto je u kontradikciji sa 6.
@@ -358,31 +360,31 @@ Dakle, $F$ je tautologija.
 1. $v(F)=\top$\\
 2. Iz 1. sledi da je $v(s\wedge t\wedge(t\vee r\Rightarrow \neg p))=\top$.\\
 3. Iz 1. sledi da je $v(q\Rightarrow \neg p)=\bot$.\\
-4. Iz 2. sledi da je $v(s)=\top$.\\
+4. Iz 2. sledi da je $v(t)=\top$.\\
 5. Iz 2. sledi da je $v(t\vee r\Rightarrow \neg p)=\top$.\\
 6. Na osnovu 4. i 5. sledi da je $v(p)=\bot$.\\
 7. Iz 6. sledi da je $v(q\Rightarrow \neg p)=\top$, \v sto je u kontradikciji sa 3.
 
 Dakle, $F$ je tautologija.
 
-\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
-
-1. $v(F)=\bot$.\\
-2. Iz 1. sledi da je $v(q\Rightarrow\neg p)=\bot$.\\
-3. Iz 1. sledi da je $v(s\wedge t\wedge(t\vee r\Rightarrow \neg p))=\top$.\\
-4. Iz 2. sledi da je $v(\neg p)=\bot\Rightarrow v(p)=\top$.\\
-5. Iz 3. sledi da je $v(t)=\top$.\\
-6. Na osnovu 4. i 5. sledi da je $v(t\vee r\Rightarrow \neg p)=\bot$.\\
-7. Iz 3. sledi da je $v(t\vee r\Rightarrow \neg p)=\top$, \v sto je u kontradikciji sa 6.
-
-Dakle, $F$ je tautologija.
+%\item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
+%
+%1. $v(F)=\bot$.\\
+%2. Iz 1. sledi da je $v(q\Rightarrow\neg p)=\bot$.\\
+%3. Iz 1. sledi da je $v(s\wedge t\wedge(t\vee r\Rightarrow \neg p))=\top$.\\
+%4. Iz 2. sledi da je $v(\neg p)=\bot\Rightarrow v(p)=\top$.\\
+%5. Iz 3. sledi da je $v(t)=\top$.\\
+%6. Na osnovu 4. i 5. sledi da je $v(t\vee r\Rightarrow \neg p)=\bot$.\\
+%7. Iz 3. sledi da je $v(t\vee r\Rightarrow \neg p)=\top$, \v sto je u kontradikciji sa 6.
+%
+%Dakle, $F$ je tautologija.
 
 \item Ozna\v cimo iskaznu formulu sa $F$. Pretpostavimo da je $v(F)=\bot$ za neku valuaciju $v$.
 
 1. $v(F)=\bot$.\\
 2. Iz 1. sledi da je $v(q\Rightarrow \neg t)=\bot$.\\
 3. Iz 1. sledi da je $v\big((t\Rightarrow s\vee \neg p)\wedge \neg s\wedge (p\wedge r)\big)=\top$.\\
-4. Iz 2. sledi da je $v(\neg t)=\bot\Rightarrow v(t)=\top$.\\
+4. Iz 2. sledi da je $v(\neg t)=\bot$, tj. $v(t)=\top$.\\
 5. Iz 3. sledi da je $v(p)=\top$.\\
 6. Iz 3. sledi da je $v(t\Rightarrow s\vee\neg p)=\top$.\\
 7. Na osnovu 4, 5. i 6. sledi da je $v(s)=\top$.\\
