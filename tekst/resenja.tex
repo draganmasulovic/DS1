@@ -526,7 +526,7 @@ Pretpostavimo da je $n$ paran. Tada je $n=2k$ za neki ceo broj $k$. Odatle, $n^2
 \RES{03.zad.2}
  Podsetimo se, za ceo broj $z$ ka\v zemo da je deljiv sa $p$ ako postoji ceo broj $z_1$ takav da je $z=p\cdot z_1$.
 
-Neka su $x$ i $y$ prirodni brojevi deljivi sa $p$. Onda postoje $x_1$ i $y_1$ takvi da je $x=p\cdot x_1$ i $y=p\cdot y_1$. Tada sledi
+Neka su $x$ i $y$ prirodni brojevi deljivi sa $p$. Onda postoje prirodni brojevi $x_1$ i $y_1$ takvi da je $x=p\cdot x_1$ i $y=p\cdot y_1$. Tada sledi
 \[mx+ny=m\cdot p\cdot x_1+n\cdot p\cdot y_1=p(mx_1+ny_1),\]
 \v cime smo dokazali da je $mx+ny$ deljiv sa $p$. Ovim je tvrdnja dokazana.
 
@@ -538,7 +538,7 @@ Doka\v zimo i ovu tvrdnju kontrapozicijom. Neka nije ispunjen uslov da je: $n\le
 \[\neg(n\leq 10\vee m\leq 10)\text{ akko }n>10\wedge m> 10.\]
 Me\dj utim, $n>10\wedge m> 10$ povla\v ci da je $nm>10\cdot 10=100$. Ovim je dokaz zavr\v sen.
 
-Uradimo ovaj dokaz i na malo druga\v ciji na\v cin. Pretpostavljamo da je $nm\leq 100$. Pretpostavimo da nije ispunjeno: $n\leq 10$ ili $m\leq 10$. Tada je $n>10$ i $m>10$. Odatle dobijamo
+Doka\v zimo ovo tvr\dj enje i svo\dj enjem na kontradikciju. Pretpostavljamo da je $nm\leq 100$. Pretpostavimo da nije ispunjeno: $n\leq 10$ ili $m\leq 10$. Tada je $n>10$ i $m>10$. Odatle dobijamo
 \[100\geq nm>10\cdot 10=100,\]
 tj. $100>100$, \v cime smo dobili kontradikciju. Ovim je dokaz zavr\v sen.
 
@@ -551,7 +551,7 @@ Nakon sre\dj ivanja dobijamo
 \[pl^2=k^2.\]
 U nastavku koristimo \v cinjenicu da za svaki prirodan broj $n$ va\v zi slede\' ce:
 \[p\mid n\text{ akko }p\mid n^2.\]
-Iz prethodne relacije zaklju\v cujemo $k^2$ deljiv sa $p$, a to implicira da je i $k$ deljiv sa $p$. Ako je $k$ deljiv sa $p$, onda je $k=pk_1$ za neko $k_1\in\mathbb N$. Tada dobijamo slede\' ce.
+Iz prethodne relacije zaklju\v cujemo da je $k^2$ deljiv sa $p$, a to implicira da je i $k$ deljiv sa $p$. Ako je $k$ deljiv sa $p$, onda je $k=pk_1$ za neko $k_1\in\mathbb N$. Tada dobijamo slede\' ce.
 \begin{align*}
 pl^2&=(pk_1)^2=p^2k_1^2\\
 l^2&=pk_1^2
@@ -568,7 +568,7 @@ Iz gornje jednakosti zaklju\v cujemo da je $l^2$ deljiv sa $p$, iz \v cega sledi
 \RES{03.zad.8}
 $(\Leftarrow)$ Neka je, bez umanjenja op\v stosti, $x$ paran broj. Onda je $x=2x_1$. Tada je $xy=2x_1y$, pa zaklju\v cujemo da je $xy$ paran broj.
 
-$(\Rightarrow)$ Doka\v zimo ovo kontrapozicijom. Pretpostavimo da su $x$ i $y$ neparni brojevi. Tada je $x=2x_1-1$ i $y=2y_1-1$. Odatle sledi $xy=(2x_1-1)(2y_1-1)=4x_1y_1-2x_1-2y_1-1=2(2x_1y_1-x_1-y_1)-1$. Odatle zaklju\v cujemo da je $xy$ neparan broj. Ovim smo dokazali i drugu implikaciju.
+$(\Rightarrow)$ Doka\v zimo ovo kontrapozicijom. Pretpostavimo da su $x$ i $y$ neparni brojevi. Tada je $x=2x_1-1$ i $y=2y_1-1$ za neke prirodne brojeve $x_1$ i $y_1$. Odatle sledi $xy=(2x_1-1)(2y_1-1)=4x_1y_1-2x_1-2y_1-1=2(2x_1y_1-x_1-y_1)-1$. Odatle zaklju\v cujemo da je $xy$ neparan broj. Ovim smo dokazali i drugu implikaciju.
 
 \RES{03.zad.9}$(\Leftarrow)$ Neka je $x=2$. Tada je $12-14+4=2=4+6-8$. Tako\dj e, ako je $x=3$, tada je $27-21+4=10=9+9-8$. Ovim je dokazana prva implikacija, pa doka\v zimo sada i drugu.
 
@@ -586,9 +586,9 @@ Re\v simo gornju kvadratnu jedna\v cinu.
 \begin{align*}
 x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{5\pm\sqrt{25-24}}2=\frac{5\pm 1}2
 \end{align*}
-Dakle, $x^2-5x+6=0$ va\v zi samo ako je $x=2$ ili $x=3$. Ovim je dokazana i druga implikacija.
+Dakle, ako je $x^2-5x+6=0$, onda je $x=2$ ili $x=3$. Ovim je dokazana i druga implikacija.
 
- $x_1=2$ i $x_2=3$ su re\v senja posmatrane kvadratne jedna\v cine.
+% $x_1=2$ i $x_2=3$ su re\v senja posmatrane kvadratne jedna\v cine.
 
 \RES{03.zad.10}
 Doka\v zimo najpre implikaciju $(\Leftarrow)$.
@@ -614,7 +614,7 @@ Neka je $n$ neparan broj. Tada je $n=2k+1$ za neko $k\geq 0$. Sledi
 Doka\v zimo i suprotnu implikaciju kontrapozicijom. Neka $n$ nije neparan broj. Tada je $n=2k$ za neki prirodan broj $k$. Onda je $n^2=(2k)^2=2\cdot 2k^2$, tj. $n^2$ je paran broj. Ovim je tvrdnja zadatka dokazana.
 
 \RES{03.zad.13}
-Neka su $x_1$ i $x_2$ re\v senja zadate kvadratne jedna\v cine. Prema Vijetovim formulama va\v zi slede\' ce.
+Neka su $x_1$ i $x_2$ re\v senja zadate kvadratne jedna\v cine. Prema Vijetovim formulama va\v zi slede\' ce.\footnote{Vijetove formule predstavljaju vezu izme\dj u kvadratne jedna\v cine i njenih re\v senja. Ako su $x_1$ i $x_2$ re\v senja kvadratne jedna\v cine $ax^2+bx+c=0$, tada va\v zi $x_1+x_2=-\frac ba$ i $x_1x_2=\frac ca$.}
 \begin{align*}
 x_1x_2&=b\\
 x_1+x_2&=-a
@@ -630,7 +630,7 @@ Odavde vidimo da je $a$ neparan broj, i vidimo i da je $b$ paran jer je proizvod
 Neka su $x_1$ i $x_2$ re\v senja zadate kvadratne jedna\v cine. Po\v sto su $x_1$ i $x_2$ parni brojevi, onda je $x_1=2k$ i $x_2=2l$ za neke $k,l\in\mathbb N$. Tada je
 \begin{align*}
 4kl=x_1x_2&=b\\
-a(k+l)=x_1+x_2&=-a,
+2(k+l)=x_1+x_2&=-a,
 \end{align*}
 odakle sledi da su $a$ i $b$ parni brojevi.
 
@@ -638,7 +638,7 @@ odakle sledi da su $a$ i $b$ parni brojevi.
 Po\v sto je zbir dva broja iste parnosti paran broj, sledi da je $n^2+3n$ paran broj. Dalje, zbir dva parna broja je paran broj, pa je $n^2+3n+2$ paran broj.
 
 \RES{03.zad.16}
-U ovom re\v senju koristi\' cemo \v cinjenicu da je $\sqrt 2$ iracionalan broj. Pretpostavimo suprotno, tj. da je $\frac{\sqrt 2}3+4$ racionalan broj. Tada je
+U ovom re\v senju koristi\' cemo \v cinjenicu da je $\sqrt 2$ iracionalan broj, \v sto znamo na osnovu zadatka \ref{03.zad.6}. Pretpostavimo suprotno, tj. da je $\frac{\sqrt 2}3+4$ racionalan broj. Tada je
 \[\frac{\sqrt 2}3+4=\frac pq\]
 za neke $p\in\mathbb Z$ i $q\in\mathbb N$. Tada dobijamo slede\' ce.
 \begin{align*}
@@ -667,12 +667,12 @@ Pretpostavimo suprotno, tj. da je $pq+pr+qr=pk$ za neko $k\in\mathbb N$. Tada je
 tj. $p\mid qr$. Ovo je u kontradikciji sa pretpostavkom da su $p$, $q$ i $r$ razli\v citi prosti brojevi.
 
 \RES{03.zad.21}
-Neka je $n$ kvadrat prirodnog broja, tj. $n=k^2$ za neko $k\in\mathbb N$. Primetimo da je $(k+1)^2>k^2+1=n+1$ najmanji kvadrat prirodnog broja ve\' ci od $n$. Dakle, $n+1$ nije kvadrat prirodnog broja.
+Neka je $n$ kvadrat prirodnog broja, tj. $n=k^2$ za neko $k\in\mathbb N$. Primetimo da je $(k+1)^2$ najmanji kvadrat prirodnog broja ve\' ci od $n$. Dalje, po\v sto va\v zi nejednakost $(k+1)^2>k^2+1=n+1$, sledi da $n+1$ nije kvadrat prirodnog broja.
 
 \RES{03.zad.22}
 Neka je $n$ prirodan broj koji je kvadrat racionalnog broja, tj. $n=k^2$ za neko $k\in\mathbb Q$. Pretpostavimo suprotno, tj. da $k$ nije prirodan broj. Tada je $k=\frac pq$ za uzajamno proste brojeve $p$ i $q$, $q>1$. Dalje, sledi
 \[n=k^2=\frac{p^2}{q^2},\]
-i po\v sto $p^2$ i $q^2$ uzajmno prosti i $q^2>1$, sledi da $n$ nije prirodan broj. Ovo je u kontradikciji sa polaznom pretpostavkom, pa je tvrdnja zadatka dokazana.
+i po\v sto su $p^2$ i $q^2$ uzajmno prosti i $q^2>1$, sledi da $n$ nije prirodan broj. Ovo je u kontradikciji sa polaznom pretpostavkom, pa je tvrdnja zadatka dokazana.
 
 \RES{03.zad.23}
 Ozna\v cimo sa $\alpha$, $\beta$ i $\gamma$ uglove trougla naspram njegovih stranica $a$, $b$ i $c$, redom. Potrebno je dokazati da, ako je $a<b$ implicira $\alpha<\beta$. Doka\v zimo ovo kontrapozicijom.  Neka je $\alpha\geq\beta$. Onda je $\alpha=\beta$ ili $\alpha>\beta$. Ako je $\alpha=\beta$, onda sledi $a=b$ jer naspram podudarnih usglova le\v ze podudarne stranice. Ako je $\alpha>\beta$, onda je $a>b$ jer naspram ve\' ceg ugla trougla le\v zi ve\' ca stranica. Dakle, $\alpha\geq\beta$ povla\v ci $a\geq b$. Na ovaj na\v cin smo kontrapozicijom dokazali da naspram ve\' ce stranice u trouglu le\v zi ve\' ci ugao.
@@ -683,10 +683,10 @@ Pretpostavimo suprotno, tj. da $\pi^m$ jeste algebarski broj za neki prirodan br
 Neka je $q(x)=b_n x^{mn}+b_{n-1}x^{m(n-1)}+...+b_1x^m+b_0$. Onda je $q(\pi)=0$, \v sto je kontradikcija jer $\pi$ nije algebarski broj.
 
 \RES{03.zad.25}
-Neka je $k$ najve\' ci prirodan broj takav da je $2^k\leq n$. Doka\v zimo da je $2^k$ parniji od svakog prirodnog broja $x$, $x\leq n$. Pretpostavimo suprotno, tj. da postoji $y\leq n$ od kojeg $2^k$ nije parniji. Tada je, na osnovu izbora broja $k$, $y=2^lz$ za $l\leq k$ i neparno $z$. Me\dj utim, po\v sto je $2^{l+1}<2^lz\leq n$, sledi da $k$ nije najve\' ci broj sa osobinom da $2^k\leq n$, \v cime smo dobili kontradikciju. Ovim je tvrdnja zadatka dokazana.
+Neka je $k$ najve\' ci prirodan broj takav da je $2^k\leq n$. Doka\v zimo da je $2^k$ parniji od svakog prirodnog broja $x$, $x\leq n$. Pretpostavimo suprotno, tj. da postoji $y\leq n$ od kojeg $2^k$ nije parniji. Tada je, na osnovu izbora broja $y$, $y=2^lz$ za $l\geq k$ i neparno $z$. Me\dj utim, po\v sto je $2^{l+1}<2^lz\leq n$, sledi da $k$ nije najve\' ci broj sa osobinom da $2^k\leq n$, \v cime smo dobili kontradikciju. Ovim je tvrdnja zadatka dokazana.
 
 \RES{03.zad.26}
-\v Sahovska tabla ima 32 bela polja i 32 crna polja. Bez umanjenja op\v stosti, \v sahovska tabla bez dva polja u naspramnim uglovima ima 30 belih polja i 32 crna. Po\v sto svaka plo\v cica pokriva ta\v cno po jedno crno i belo polje, sledi da je nemogu\' ce pokriti \v sahovsku tablu bez dva naspramna ugla plo\v cicama kao \v sto je navedeno u postavci zadatka.
+\v Sahovska tabla ima 32 bela polja i 32 crna polja. Bez umanjenja op\v stosti, \v sahovska tabla bez dva polja u naspramnim uglovima ima 30 belih polja i 32 crna. Pretpostavimo sada da je mogu\' ce pokriti plo\v cicama dimenzija $2\times 1$ \v sahovsku tablu bez dva polja u naspramnim uglovima. Po\v sto svaka plo\v cica pokriva jedno belo i jedno crno polje, sledi da je broj crnih polja jednak broju belih polja. Ovim smo dobili kontradikciju, \v cime je dokazana tvrdnja zadatka.
 
 
 \RES{04.zad.1}
@@ -699,7 +699,8 @@ Neka je $k$ najve\' ci prirodan broj takav da je $2^k\leq n$. Doka\v zimo da je 
 \[2^{k+1}=2\cdot 2^k=2^k+2^k>k+1,\]
 \v cime smo tvrdnju dokazali.
 
-\RES{04.zad.2}
+\RES{04.zad.2} Ovaj, kao i naredni zadaci iz glave \ref{dokazi-u-matematici} bi\' ce re\v seni koriste\' ci matemati\v cku indukciju.
+
 {\it Baza indukcije.} Za $n=5$ dobijamo $2^5=32>25=5^2$.
 
 {\it Induktivna hipoteza.} Pretpostavimo da je $2^k>k^2$ za neko $k\geq 5$.
@@ -791,7 +792,7 @@ Ovim je tvrdnja zadatka pokazana.
 
 \RES{04.zad.6}
 \begin{enumerate}[(a)]
-\item {\it Baza indukcije.} Za $n=1$ dobijamo $1=\frac 22$, \v cime je baza indukcije dokazana.
+\item {\it Baza indukcije.} Za $n=1$ dobijamo $1=\frac {1\cdot2}2$, \v cime je baza indukcije dokazana.
 
 {\it Induktivna hipoteza.} Preptostavimo da tvrdnja va\v zi za $n=k$, tj. da je
 \[1+2+...+n=\frac {k(k+1)}2.\]
@@ -902,7 +903,7 @@ Dalje, koriste\' ci tautologiju $\big(a\Rightarrow (b\Rightarrow c)\big)\Leftrig
 {\it Induktivna hipoteza.} Pretpostavimo da bilo kojih $k$ pravih od kojih se svake dve seku i od kojih se nikoje tri ne seku u istoj ta\v cki dele ravan na $\frac{k^2+k+2}2$ delova.
 
 {\it Induktivni korak.} Neka su $p_1,p_2,\dots,p_k,p_{k+1}$ $k+1$ prava od kojih se svake dve seku i nikoje tri se ne seku u istoj ta\v cki. Na osnovu indukcijske hipoteze, prave $p_1,p_2,\dots,p_k$ dele ravan na $\frac{k^2+k+2}2$ delova. Primetimo da prava $p_{k+1}$ ima sa ostalim pravama ta\v cno $k$ prese\v cnih ta\v caka, \v sto zna\v ci da ostale prave dele pravu $p_{k+1}$ na $k+1$ deo. Dakle, ako posmatramo oblasti na koje prave  $p_1,p_2,\dots,p_k$ dele ravan, prava $p_{k+1}$ prolazi kroz ta\v cno $k+1$ oblast, i svaku od tih oblasti ona deli na dva dela. Prema tome, broj delova na koje prave $p_1,p_2,\dots,p_k,p_{k+1}$ dele ravan je za $k+1$ ve\' ci od broja delova na koje prave $p_1,p_2,\dots,p_k$ dele ravan. Na ovaj na\v cin, koriste\' ci indukcijsku hipotezu, dobijamo da je broj delova na koje $k+1$ posmatrana prava deli ravan jednak
-\[\frac{k^2+k+2}2+k+1=\frac{k^2+k+4}2=\frac{(k+1)^2+(k+1)+2}2.\]
+\[\frac{k^2+k+2}2+k+1=\frac{k^2+3k+4}2=\frac{(k+1)^2+(k+1)+2}2.\]
 
 \RES{04.zad.14} Doka\v zimo da je 
 \[1+\frac 12+\frac 14+\cdots+\frac 1{2^n}=2-\frac 1{2^n}\]
@@ -914,7 +915,7 @@ za svaki prirodni broj $n$.
 \[1+\frac 12+\frac 14+\cdots+\frac 1{2^k}=2-\frac 1{2^k}.\]
 
 {\it Induktivni korak.} Poka\v zimo jednakost za $n=k+1$. Koriste\' ci indukcijsku hipotezu, dobijamo
-\[ 1+\frac 12+\frac 14+\cdots+\frac 1{2^k}+\frac 1{2^{k+1}}=2-\frac 1{2^k}+\frac 1{2^{k+1}}=2-1\frac 1{2^{k+1}}. \]
+\[ 1+\frac 12+\frac 14+\cdots+\frac 1{2^k}+\frac 1{2^{k+1}}=2-\frac 1{2^k}+\frac 1{2^{k+1}}=2-\frac 1{2^{k+1}}. \]
 Ovim smo dokazali da za svako $n\in\mathbb N$ va\v zi jednakost
 \[1+\frac 12+\frac 14+\cdots+\frac 1{2^n}=2-\frac 1{2^n}.\]
 Ovim je nejednakost
@@ -991,32 +992,30 @@ Dokaz sli\v can kao re\v senje zadatka \ref{Joca-sa-postarinom}.
 }
 
 \RES{04.zad.21}{
-Ivica sla\v ze slagalicu. Slagalica se sla\v ze tako \v sto se spajaju dva komada slagalice tako da oni sa\v cine blok, dodavanjem komada slagalice ve\' cem bloku, ili spajanjem dva bloka. Ako Ivicina slagalica ima 500 blokova, dokazati da \' ce je Ivica slo\v ziti u 499 koraka. 
-
 Doka\v zimo totalnom indukcijom da se slaganje bloka slagalice od $n$ deli\' ca sla\v ze u $n-1$ koraku.
 
 {\it Baza indukcije.} Ako blok slagalice ima samo jedan deli\' c, tada se on sla\v ze u $n-1=0$ koraka jer, u ovom slu\v caju, nema deli\' ca koji bi se trebali spajati.
 
-{\it Indukciona hipoteza.} Neka je $k$ prirodan broj, i pretpostavimo da se blok slagalice sa $l$ deli\' ca, gde je $l\leq k$, sla\v ze u $l-1$ koraku.
+{\it Indukciona hipoteza.} Neka je $k$ prirodan broj, i pretpostavimo da se svaki blok slagalice sa $l$ deli\' ca, gde je $l\leq k$, sla\v ze u $l-1$ koraka.
 
 {\it Indukcioni korak.} Posmatrajmo blok slagalice koji ima $k+1$ deli\' c. Potrebno je dokazati da je za njegovo slaganje Ivici potrebno $k$ koraka. Pretpostavimo da je Ivica slagao ovu slagalicu, i da je on u svom poslednjem koraku spajao dva manja bloka od $m$ deli\' ca i $k+1-m$ deli\' ca. Po\v sto je $m\leq k$ i $k+1-m\leq k$, na osnovu indukcione hipoteze sledi da se ta dva bloka slagalice sla\v zu u $m-1$ i $k-m$ koraka. Prema tome, Ivici je za slaganje dela slagalice od $k+1$ deli\' ca bilo potrebno $(m-1)+(k-m)+1=k$ koraka.
 
-Ovim je dokazano da Ivica da blok slagalice od $n$ deli\' ca sla\v ze u $n-1$ koraku. Prema tome, ako Ivicina cela slagalica ima 500 deli\' ca, on bi nju slo\v zio u 499 koraka.
+Ovim je dokazano da Ivica blok slagalice od $n$ deli\' ca sla\v ze u $n-1$ koraku. Prema tome, ako Ivicina cela slagalica ima 500 deli\' ca, on bi nju slo\v zio u 499 koraka.
 }
 
 \RES{05.zad.1}
 \begin{multicols}{2}
 \begin{enumerate}[(a)]
 \item $\{-2,-1,0,1,2,3\}$;
-\item $\{-4,-2,0,2,8,16\}$;
-\item $\{ -\frac{\sqrt 3}2,\frac 12,0,\frac{\sqrt 3}2,1 \}$;
+\item $\{-4,-2,2,8,16\}$;
+\item $\{ -\frac{\sqrt 3}2,-\frac 12,0,\frac 12,\frac{\sqrt 3}2,1 \}$;
 \item $\{ 3,6,9,12,\dots \}$;
 \item $\{ 1,4,9,16,25,\dots \}$;
 \item $\{ -2,\frac 13 \}$; 
 \item $\{ \frac 13 \}$;
 \item $\{ -2,-1,0 \}$;
 \item $\emptyset$;
-\item $\{ \frac 12,1,\frac 32,\frac 52,\dots \}$;
+\item $\{ \frac 12,1,\frac 32,2,\frac 52,\dots \}$;
 \item $\{ 2,6,12,20,30,\dots \}$;
 \item $\{ 1,2,3,5,7,11,\dots \}$.
 \end{enumerate}
@@ -1066,7 +1065,7 @@ Primetimo da je $A=\{2,4,6,8,10\}$.
 \item $A \cup B=\{ 2,3,4,5,6,8,10 \}$;
 \item $A \cap D=  \emptyset$;
 \item $\overline{B \cup C}=\{ 1,2 \}$;
-\item $A \cap (B \cup D)=\{ 4,6,8,10 \}$;
+\item $A \cap (B \cup D)=\{ 4,6\}$;
 \item $B \cap(\overline A \cup\overline D)=\{3, 4, 5, 6\}$; % ovaj je razlicit u odnosu na vezbe.
 \item $(\overline{C \cap D}) \cup B=\{ 1, 2, 3, 4, 5, 6, 8, 10\}$;
 \item $\overline B\cap\overline C$=\{ 1,2 \};
@@ -1089,8 +1088,8 @@ Ovim je zadata skupovna jednakost dokazana.
 \item Ova jednakost dokazuje se sli\v cno kao prethodna.
 \item Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
 \begin{align*}
-x\in A\setminus(A\cap B)&\text{ akko } x\in A\wedge x\not\in A\cap B\text{ akko } x\in A\wedge\neg(x\in A\wedge x\not\in B)\\
-&\text{ akko }x\in A\wedge \neg(x\not\in A\vee x\in B)\\
+x\in A\setminus(A\cap B)&\text{ akko } x\in A\wedge x\not\in A\cap B\text{ akko } x\in A\wedge\neg(x\in A\wedge x\in B)\\
+&\text{ akko }x\in A\wedge (x\not\in A\vee x\not\in B)\\
 &\text{ akko }(x\in A\wedge x\not\in A)\vee(x\in A\vee x\not\in B)\\
 &\text{ akko }\bot \vee(x\in A\vee x\not\in B)\text{ akko }(x\in A\vee x\not\in B)\\
 &\text{ akko }x\in A\setminus B
@@ -1121,7 +1120,7 @@ Ovim je jednakost dokazana.
 x\in  (A \cup B) \setminus (\overline A \cap C)&\text{ akko } (x\in A\vee x\in B)\wedge\neg (x\not\in A\wedge x\in C)\\
 &\text{ akko } (x\in A\vee x\in B)\wedge (x\in A\vee x\not\in C)\\
 &\text{ akko } x\in A\vee (x\in B\wedge x\not\in C)\\
-&\text{ akko } x\in A\cup(V\setminus C)
+&\text{ akko } x\in A\cup(B\setminus C)
 \end{align*}
 Ovim je zadata jednakost dokazana.
 \item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce.
@@ -1156,7 +1155,7 @@ Poka\v zimo sada da druga jednakost ne va\v zi. Primetimo da za $A=\{a\}$ i $B=C
 Dakle, nije ta\v cno da jednakost $A\cup (B\triangle C)=(A\cup B)\triangle(A\cup C)$ va\v zi za sve skupove $A$, $B$ i $C$.
 
 \RES{06.zad.2}{
-Ozna\v cimo sa $U$ skup svih anketiranih u\v cenika, i neka su $N$, $K$ i $P$ skupovi svih u\v cenika koji igraju igre na Nintendu, kompjuteru i PlayStationu, redom. Prema postavke zadatka je
+Ozna\v cimo sa $U$ skup svih anketiranih u\v cenika, i neka su $N$, $K$ i $P$ skupovi svih u\v cenika koji igraju igre na Nintendu, kompjuteru i PlayStationu, redom. Prema postavci zadatka je
 \begin{align*}
 \lvert U\rvert&=1000, & \lvert N\rvert&=275\text{ i}\\
 \lvert K\rvert&=455, & \lvert P\rvert&=405.
@@ -1211,6 +1210,8 @@ x-y&=1000\\
 2x-y&=2400
 \end{align*}
 Re\v savanjem gornjeg sistema jedna\v cina dobijamo $x=1400$ i $y=400$. Dakle, postoji 400 gra\dj ana koji su \v clanovi sve tri biblioteke.
+
+Delove zadatka (c) i (d) ostavljamo \v citaocu za ve\v zbu.
 }
 
 % \RES{06.zad.4}{
@@ -1302,9 +1303,9 @@ Ovim je inkluzija pokazana.
 \end{enumerate}
 
 
-\RES{06.zad.10}
+\RES{06.zad.10} Dokaza\' cemo jednakosti (a) i (b), dok ostale zadatke ostavljamo \v citaocu za ve\v zbu.
 \begin{enumerate}[(a)]
-\item Elementi skupa $P=\big((A\setminus B)\times X\big)\times M$ ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in\setminus A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
+\item Elementi skupa $P=\big((A\setminus B)\times X\big)\times M$ su ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
 % Elementi skupova $\big((A\setminus B)\times X\big)\times M$ i $\big((A\times X)\setminus(B\times X)\big)\times M$ su ure\dj eni parovi $(u,z)$.
 Prema tome, da bismo dokazali datu skupovnu jednakost, potrebno je dokazati da element $((x,y),z)$ pripada $L$ akko $((x,y),z)$ pripada skupu $D$. 
 
