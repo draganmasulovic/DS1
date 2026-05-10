@@ -1343,7 +1343,7 @@ Ovim je zadata jednakost dokazana.
 \end{enumerate}
 
 \RES{07.zad.1}{
-Naravno, za svaku navedenih re\v cenica mogu\' ce je na vi\v se na\v cina konstruisati odgovaraju\' cu predikatsku formulu. Ovde \' cemo za neke od zadatih re\v cenica navesti i vi\v se od jedne predikatske formule.
+Naravno, za svaku od navedenih re\v cenica mogu\' ce je na vi\v se na\v cina konstruisati odgovaraju\' cu predikatsku formulu. Ovde \' cemo za neke od zadatih re\v cenica navesti i vi\v se od jedne predikatske formule.
 \begin{enumerate}[(a)]
 \item $(\exists n\in\mathbb Z)(2\mid n)$;
 
@@ -1399,9 +1399,6 @@ Ovaj iskaz je ta\v can. Za svaki prirodan broj $x$ mogu\' ce je odabrati priroda
 \item \enquote{Postoje realni brojevi $x$ i $y$ takvi da je $y< x<y^2$.}
 
 Ovaj iskaz je ta\v can. Na primer, va\v zi $2<3<2^2$.
-\item $(\forall x\in\mathbb Q)(\exists y\in \mathbb Q)(x\cdot y\in\mathbb Z)$;
-\item $(\forall x\in\mathbb Q^+)(\exists y\in \mathbb Z)(x\cdot y\in\mathbb Z)$;
-\item $(\forall x\in \mathbb R)(\exists y\in\mathbb R)(0<x\cdot y\wedge x\cdot y<2)$;
 \item[(g)] \enquote{Za svaka dva racionalna broja $x$ i $y$ postoji racionalni broj $z$ takav da je $x\leq z\leq y$ ili $y\leq z\leq x$.}
 
 Ovaj iskaz je ta\v can jer je mogu\' ce odabrati da je racionalni broj $\displaystyle z=\frac{x+y}2$, i u tom slu\v caju je ispunjen bar jedan od uslova $x\leq z\leq y$ i $y\leq z\leq x$.
@@ -1427,8 +1424,8 @@ Ovde \' cemo postupno re\v siti zadake (a) i (g), dok ostale ostavljamo za ve\v 
 \begin{align*}
 &\neg(\forall x)\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
 &\equiv(\exists x)\neg\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
-&\equiv(\exists x)\big[(\exists y)S(x,y)\Rightarrow\neg(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
-&\equiv(\exists x)\big[(\exists y)S(x,y)\Rightarrow(\exists y)\big[\neg R(y)\wedge \neg S(x,y)\big] \big]\\
+&\equiv(\exists x)\big[(\exists y)S(x,y)\wedge\neg(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
+&\equiv(\exists x)\big[(\exists y)S(x,y)\wedge(\exists y)\big[\neg R(y)\wedge \neg S(x,y)\big] \big]\\
 \end{align*}
 
 \end{enumerate}
@@ -1442,7 +1439,7 @@ F_3&=(\forall x)(R(x)\Rightarrow P(x)),& F_4&=(\exists x)(R(x)\wedge\neg Q(x)).
 \end{align*}
 Konstrui\v simo model za predikatsku formulu $F=F_1\wedge F_2\wedge F_2\wedge F_4$. Bi\' ce neophodno odrediti domen $D$ i zna\v cenja predikata $P$, $Q$ i $R$ za koje \' ce sve formule $F_1$, $F_2$, $F_3$ i $F_4$ biti ta\v cne. U ovom slu\v caju, predikati $P$, $Q$ i $R$ bi\' ce unarne relacije na skupu $D$.
 
-Neka $D$ sadr\v zi element $a$, a kako bi $F_2$ bila ta\v cna, uzmimo da va\v zi $R(a)$. Dalje, kako bi $F_3$ bila ta\v cna, neophodno je da va\v zi i $R(a)$. Sli\v cno, da bi i $F_1$ bila ta\v cna formula, ne sme da va\v zi $Q(a)$. U ovom slu\v caju je i $F_4$ ta\v cna. Na ovaj na\v cin konstruisan je model \v ciji je domen $D=\{a\}$ i \v ciji predikati $P$, $Q$ i $R$ imaju slede\' ca zna\v cenja.
+Neka $D$ sadr\v zi element $a$, a kako bi $F_2$ bila ta\v cna, uzmimo da va\v zi $R(a)$. Dalje, kako bi $F_3$ bila ta\v cna, neophodno je da va\v zi i $P(a)$. Sli\v cno, da bi i $F_1$ bila ta\v cna formula, ne sme da va\v zi $Q(a)$. U ovom slu\v caju je i $F_4$ ta\v cna. Na ovaj na\v cin konstruisan je model \v ciji je domen $D=\{a\}$ i \v ciji predikati $P$, $Q$ i $R$ imaju slede\' ca zna\v cenja.
 \begin{align*}
 P(x)&\leadsto x\in\{a\}\\
 Q(x)&\leadsto x\in\emptyset\text{, tj. }Q\text{ je prazna relacija}\\
@@ -1465,26 +1462,26 @@ Uvedimo slede\' ce oznake.
 F_1=(\forall x)(A(x)\Rightarrow B(x)) && F_2=(\exists x)A(x) && F_3=(\exists x)\neg B(x)
 \end{align*}
 
-Dalje, neka je $D$ domen, i neka $a\in D$. Da bi $F_2$ bila ta\v cna, neophodno je da va\v zi $A(a)$. Dalje, da bi $F_1$ bila ta\v cna, neophodno je da va\v zi i $B(a)$. Sada, da bi i $F_3$ bila ta\v cna, neophodno je da domen $D$ sadr\v zi i elememt $b$ takav da nije $B(b)$. Na ovaj na\v cin, konstruisan je kontramodel polazne formule, \v ciji je domen $D=\{a,b\}$ \v ciji su predikati $A$ i $B$ imaju slede\' ca zna\v cenja.
+Dalje, neka je $D$ domen, i neka $a\in D$. Da bi $F_2$ bila ta\v cna, uzmimo da va\v zi $A(a)$. Dalje, da bi $F_1$ bila ta\v cna, neophodno je da va\v zi i $B(a)$. Sada, da bi i $F_3$ bila ta\v cna, neophodno je da domen $D$ sadr\v zi i elememt $b$ takav da nije $B(b)$. Na ovaj na\v cin, konstruisan je kontramodel polazne formule, \v ciji je domen $D=\{a,b\}$ \v ciji predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 A(x)&\leadsto x\in\{a\}\\
-B(x)&\leadsto x\in\{a\}
+B(x)&\leadsto x\in\{a\}.
 \end{align*}
 Ovim je dokazano da zadata formula nije valjana.
 
-\noindent {\it Drugi na\v cin.} Jedan kontramodel zadate formule je sa domenom $\mathbb N$ i u kome predikati $A$ i $B$ imaju slede\' ca zna\v cenja.
+\noindent {\it Drugi na\v cin.} Jedan kontramodel zadate formule je sa domenom $\mathbb N$ i u kome predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 A(x)&\leadsto 6\mid x\\
-B(x)&\leadsto 2\mid x
+B(x)&\leadsto 2\mid x.
 \end{align*}
-Ovim smo pokazali da zadataka formula nije valjana.
+Ovim smo pokazali da zadata formula nije valjana.
 }
 
 \RES{10.zad.3}{
 \begin{enumerate}[(a)]
 \item Zadata predikatska formula ekvivalentna je sa
 \[F=(\exists x)\big(  P(x)\wedge (\exists y)\big(P(y)\wedge    Q(x)\wedge Q(y) \wedge  (\exists z) \neg P(z)  \big)\big).\]
-Neka je $a$ element domena $D$. Najpre uo\v cavamo da za bar jedan element $x$ mora da va\v zi $P(x)$ da bi predikatska formula bila ta\v cna. Neka va\v zi $P(a)$. Sli\v cno, da bi $F$ bila ta\v cna, neophodno da je da bar jedan element domena ima svojstvo $Q$. Neka je $b$ element domena takav da va\v zi $Q(b)$. Tako\dj e, neophodno je i da postoji element $c$ takav da va\v zi $P(c)$. Dalje, ukoliko ne bi va\v zilo i $P(b)$ i $Q(a)$, formula $F$ ne bi bila ta\v cna. Zato, neka va\v zi $P(b)$ i $Q(a)$. Na ovaj na\v cim smo konstruisali jedan model formule $F$, \v ciji je domen $D=\{a,b,c\}$ i u kome predikati $P$ i $Q$ imaju slede\' ca zna\v cenja.
+Neka je $a$ element domena $D$. Najpre uo\v cavamo da za bar jedan element $x$ mora da va\v zi $P(x)$ da bi predikatska formula bila ta\v cna. Neka va\v zi $P(a)$. Sli\v cno, da bi $F$ bila ta\v cna, neophodno je da bar jedan element domena ima svojstvo $Q$. Neka je $b$ element domena takav da va\v zi $Q(b)$. Tako\dj e, neophodno je i da postoji element $c$ takav da ne va\v zi $P(c)$. Dalje, ukoliko ne bi va\v zilo i $P(b)$ i $Q(a)$, formula $F$ ne bi bila ta\v cna. Zato, neka va\v zi $P(b)$ i $Q(a)$. Na ovaj na\v cim smo konstruisali jedan model formule $F$, \v ciji je domen $D=\{a,b,c\}$ i u kome predikati $P$ i $Q$ imaju slede\' ca zna\v cenja.
 \begin{align*}
 P(x)&\leadsto x\in\{a,b\}\\
 Q(x)&\leadsto x\in\{a,b\}
@@ -1533,7 +1530,7 @@ Ovim je konstrisan model date predikatske formule.
 
 \RES{10.zad.6}{Re\v si\' cemo zadatak (b). Ostale ostavljamo \v citaocu za ve\v zbu.
 \begin{enumerate}[(b),wide, labelindent=0pt]
-\item[(d)] Neka je
+\item[(b)] Neka je
 \begin{align*}
 F_1&=\{(\forall x)(P(x)\wedge Q(x)\Rightarrow S(x)),\\
 F_2&=(\forall x)(T(x)\Rightarrow S(x)),\\
@@ -1541,7 +1538,7 @@ F_3&=(\exists x)(P(x)\wedge\neg Q(x)),\\
 F_4&=(\exists x)(Q(x)\wedge\neg P(x)\text{ i}\\
 F_5&=(\exists x)(S(x)\wedge\neg T(x))\}.
 \end{align*}
-Konstrui\v simo postepeno model za formulu $F=F_1\wedge F_2\wedge F_3\wedge F_4\wedge F_5$. Neka je $D$ domen, i neka $a\in D$. Da bi $F_3$ i $F_4$ bile ta\v cne, neka va\v zi $P(a)$, i neka za neko $b\in D$ va\v zi $Q(b)$. Dalje, kako bi i $F_5$ bila ta\v cna, neka za neko $c\in D$ va\v zi $S(c)$. Na ovaj na\v cin konstruisali smo model za dati skup formula \v ciji je domen $D=\{a,b,c\}$, i u kome predikati imaju slede\' ca zna\v cenja.
+Konstrui\v simo postepeno model za formulu $F=F_1\wedge F_2\wedge F_3\wedge F_4\wedge F_5$. Neka je $D$ domen, i neka $a\in D$. Da bi $F_3$ i $F_4$ bile ta\v cne, neka va\v zi $P(a)$ i ne va\v zi $Q(a)$, i neka za neko $b\in D$ va\v zi $Q(b)$ i ne va\v zi $P(b)$. Dalje, kako bi i $F_5$ bila ta\v cna, neka za neko $c\in D$ va\v zi $S(c)$. Na ovaj na\v cin konstruisali smo model za dati skup formula \v ciji je domen $D=\{a,b,c\}$, i u kome predikati imaju slede\' ca zna\v cenja.
 \begin{align*}
 P(x)&\leadsto x\in\{a\}\\
 Q(x)&\leadsto x\in\{b\}\\
