@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  12 MAY 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  12 MAY 2026 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,65 +1085,68 @@ Package pdftex.def Info: pmfns.png  used on input line 382.
 {C:/Users/DM/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/DM/AppD
 ata/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./uns.jpg> <./pmfns.png
 >]
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 400.
+ (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 400.
 
-[2
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 400.
 
-] (predgovor.tex)
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 400.
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
+00.
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 40
+0.
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
+00.
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
+30.
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+
+[2] (predgovor.tex)
 
 [1
+
 
 ]
 
 [2
 
 ] (main-DS1.toc
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 3.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
-File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 3.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
-File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 3.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
-File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 3.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
-File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
-.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 3.
-
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
-File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
-)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
-.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-
 
 [3
 
@@ -1193,12 +1196,6 @@ been already used, duplicate ignored
                    \relax 
 l.130       \end{enumerate}
                             [2]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-38.
-
-(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
 Overfull \hbox (1.34999pt too wide) in paragraph at lines 227--242
 $[]$ $[]$ 
  []
@@ -2296,7 +2293,7 @@ Underfull \vbox (badness 2126) has occurred while \output is active []
 [233
 
 ]
-Overfull \hbox (4.31062pt too wide) in paragraph at lines 1740--1742
+Overfull \hbox (4.31062pt too wide) in paragraph at lines 1742--1744
 []\T1/ptm/m/n/10.95 Preostaje jo² sa-mo da se po-ka-ºe tran-zi-tiv-nost. Ne-ka 
 su $\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )\
 OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1
@@ -2305,12 +2302,15 @@ OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1
  []
 
 (samir9-7-b.pgf)
+Underfull \vbox (badness 4072) has occurred while \output is active []
+
+
 
 [234] (samir9-7-c.pgf) (samir9-7-f.pgf) (samir9-8.pgf)
 
-[235] (samir9-9-a.pgf) (samir9-9-d.pgf)
+[235] (samir9-9-a.pgf)
 
-[236] (samir9-10-a.pgf)
+[236] (samir9-9-d.pgf) (samir9-10-a.pgf)
 
 [237] (samir9-10-d.pgf) (samir11-1-a.pgf)
 
@@ -2318,26 +2318,28 @@ OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1
 
 [239]
 
-[240] (samir11-5-a.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1926
+[240]
+
+[241] (samir11-5-a.pgf)
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1933
+ [] 
+ []
+
+(samir11-5-d-1.pgf)
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1947
  [] 
  []
 
 
 
-[241] (samir11-5-d-1.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1940
- [] 
- []
-
-(samir11-5-d-2.pgf)
-
-[242]
+[242] (samir11-5-d-2.pgf)
 
 [243]
 
 [244]
-Overfull \hbox (3.22258pt too wide) in paragraph at lines 2035--2036
+
+[245]
+Overfull \hbox (3.22258pt too wide) in paragraph at lines 2042--2043
 []\T1/ptm/m/n/10.95 Pokaºimo da je $\OML/ztmcm/m/it/10.95 f$ \T1/ptm/m/n/10.95 
 bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 .95 f\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )
@@ -2345,8 +2347,6 @@ bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
  []
 
 
-
-[245]
 
 [246])
 
@@ -2363,7 +2363,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{cite.Gersting
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 \end{document}
+l.469 \end{document}
                     ] (main-DS1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
@@ -2378,14 +2378,14 @@ Package rerunfilecheck Info: File `main-DS1.out' has not changed.
  )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 1792 ({)
+### simple group (level 2) entered at line 1796 ({)
 ### simple group (level 1) entered at line 881 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 28640 strings out of 473899
- 519153 string characters out of 5727915
- 918366 words of memory out of 5000000
- 49419 multiletter control sequences out of 15000+600000
+ 28641 strings out of 473899
+ 519169 string characters out of 5727915
+ 918365 words of memory out of 5000000
+ 49420 multiletter control sequences out of 15000+600000
  669711 words of font info for 204 fonts, out of 8000000 for 9000
  1154 hyphenation exceptions out of 8191
  87i,22n,107p,911b,809s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2413,7 +2413,7 @@ a.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
 fb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
 <C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb><C
 :/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main-DS1.pdf (255 pages, 1495682 bytes).
+Output written on main-DS1.pdf (255 pages, 1497346 bytes).
 PDF statistics:
  2876 PDF objects out of 2984 (max. 8388607)
  1217 named destinations out of 1440 (max. 500000)
