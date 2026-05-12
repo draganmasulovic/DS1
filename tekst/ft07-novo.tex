@@ -108,7 +108,7 @@ na klastere \enquote{me\dj usobno sli\v cnih} objekata, \v sto i jeste cilj svak
 \begin{EX}\label{ft07.ex.01-weight-2}
   Posmatrajmo ponovo situaciju opisanu u Primeru~\ref{ft07.ex.01-weight} s tim da \'cemo radi odre\dj enosti
   uzeti da je $A = \{0,1\}^4$. Podsetimo se da za 01-nizove $u$ i $v$ sa $u \sim v$ ozna\v cavamo
-  da $u$ i $v$ imaju istu te\v zinu (= isti broj jedinica). Relaciju $\sim$ je ilustrovana na Sl.~\ref{ds1.sl.01-4}.
+  da $u$ i $v$ imaju istu te\v zinu (= isti broj jedinica). Relacija $\sim$ je ilustrovana na Sl.~\ref{ds1.sl.01-4}.
   Vidimo da su elementi skupa $A$ podeljeni u grupe (klastere), i da se u istoj grupi nalaze
   svi elementi koji su me\dj usobno \enquote{sli\v cni}, \v sto u ovom slu\v caju zna\v ci da imaju istu
   te\v zinu. Niz 0000 je sam u klasi jer je to jedini niz sa te\v zinom~0. Sli\v cno je i niz 1111
@@ -582,7 +582,7 @@ sortiraju po prezimenu. Slede\'ca teorema pokazuje da dvokriterijumsko sortiranj
   
   \medskip
   
-  Doka\v zimo sada antisimetri\v cnot. Neka je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
+  Doka\v zimo sada antisimetri\v cnost. Neka je $(a_1, a_2) \preccurlyeq (b_1, b_2)$ i $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
   Kao prvi korak dokaza\'cemo da je $a_1 = b_1$. Pretpostavimo da to nije ta\v cno. Tada je $a_1 \ne b_1$, pa na osnovu
   definicije dobijamo
   \begin{align*}
@@ -597,7 +597,7 @@ sortiraju po prezimenu. Slede\'ca teorema pokazuje da dvokriterijumsko sortiranj
     (a_1, a_2) \preccurlyeq (b_1, b_2) &\Rightarrow a_1 = b_1 \land a_2 \mathrel{\sqsubseteq_2} b_2 \Rightarrow a_2 \mathrel{\sqsubseteq_2} b_2\\
     (b_1, b_2) \preccurlyeq (a_1, a_2) &\Rightarrow b_1 = a_1 \land b_2 \mathrel{\sqsubseteq_2} a_2 \Rightarrow b_2 \mathrel{\sqsubseteq_2} a_2,
   \end{align*}
-  pa je $a_2 = b_2$. Dakle, $(a_1, b_1) = (a_2, b_2)$.
+  pa je $a_2 = b_2$. Dakle, $(a_1, a_2) = (b_1, b_2)$.
   
   \medskip
   
@@ -805,8 +805,7 @@ Primetimo da je broj 4 deljiv i brojem 1. Me\dj utim, ne\'cemo broj 4 spojiti li
 dijagramu. Zato se kod Haseovih dijagrama uvodi slede\'ci dogovor:
 \begin{quote}
     element $x$ je manji od elementa $y$ ako je $x$ ispod $y$ i postoji
-    put koji spaja $x$ sa $y$ u kome linije idu stalno navi\v se;
-    ako takav put ne postoji, onda su $x$ i $y$ neuporedivi.
+    put koji spaja $x$ sa $y$; ako takav put ne postoji, onda su $x$ i $y$ neuporedivi.
 \end{quote}
 To je slu\v caj sa brojevima 3 i 4 na poslednjem dijagramu: zato \v sto su 3 i 4 neuporedivi ne postoji put od 3 do 4 koji ide
 samo navi\v se.
@@ -919,7 +918,8 @@ samo navi\v se.
   \begin{EX}
     Pored je dat Haseov dijagram relacije poretka $\le$ na skupu
     $\{1, 2, 3, 4, 5\}$. Svaki linearni poredak ima ovakav Haseov dijagram.
-    Odatle ime -- \emph{linearni poredak}.
+    Ime \emph{linearni poredak} poti\v ce od \v cinjenice da je Haseov dijagram
+    takvog ure\dj enja \enquote{jedna linija}.
   \end{EX}
 \end{minipage}
 \hfill
@@ -932,9 +932,9 @@ samo navi\v se.
 \bigskip
 
 \emph{Najmanji element} relacije poretka na skupu $A$ je element skupa $A$ koji je uporediv sa svim elementima skupa $A$
-i manji od svih njih. Sli\v cno, \emph{najve\'ci element} relacije poretka na skupu $A$ je element skupa $A$
-koji je uporediv sa svim elementima skupa $A$ i ve\'ci od svih njih. Preciznije, neka je $\sqsubseteq$ relacija
-poretka na skupu $A$. Element $a \in A$ je \emph{najmanji} element ako
+i nalazi se ispod svih njih. Sli\v cno, \emph{najve\'ci element} relacije poretka na skupu $A$ je element skupa $A$
+koji je uporediv sa svim elementima skupa $A$ i nalazi se iznad svih njih. Preciznije, neka je $\sqsubseteq$ relacija
+poretka na skupu~$A$. Element $a \in A$ je \emph{najmanji} element ako
 $$
   (\forall x \in A) \; a \sqsubseteq x,
 $$
@@ -946,9 +946,9 @@ $$
 \begin{EX}\label{ft07.ex.delj-2-12}
   Uobi\v cajena relacija poretka $\le$ na skupu $\ZZ$ nema ni najmanji ni najve\'ci element.
 
-  Relacija poretka koja je prikazana u Primeru~\ref{ft07.ex.P123} ima i najmanji i najve\'ci element.
-
   Relacija poretka koja je prikazana u Primeru~\ref{ft07.ex.deljivost-1-10} ima najmanji element, ali nema najve\'ci.
+
+  Relacija poretka koja je prikazana u Primeru~\ref{ft07.ex.P123} ima i najmanji i najve\'ci element.
 \end{EX}
 
 \bigskip
@@ -989,7 +989,12 @@ $$
 $$
 odnosno, ako ispod njega nema drugih elemenata. Relacija poretka mo\v ze, a ne mora imati maksimalne i minimalne elemente,
 minimalnih i maksimalnih elemenata mo\v ze biti vi\v se, a mo\v ze se desiti da je neki element istovremeno i maksimalan
-i minimalan element relacije pretka, kao \v sto pokazuje slede\'ci primer.
+i minimalan element relacije pretka, kao \v sto pokazuju slede\'ci primeri.
+
+\begin{EX}
+  Relacija poretka $\mid$ (deljivost) na skupu $\NN$ ima najmanji element~1, a nema maksimalne elemente zato \v sto za svaki
+  prirodan broj $m$ postoji prirodan broj $n > m$ takav da je $m \mid n$.
+\end{EX}
 
 \bigskip
 
@@ -1007,6 +1012,11 @@ i minimalan element relacije pretka, kao \v sto pokazuje slede\'ci primer.
     \input ft07-r11.pgf
   \end{center}
 \end{minipage}
+
+\bigskip
+
+Relacija poretka ne mora da ima ni najmanji ni najve\'ci element, ali ako takvi elementi postoje onda su jedinstveni,
+kako to pokazuje slede\'ca teorema.
 
 \begin{THM}
   Neka je $\sqsubseteq$ relacija poretka na skupu $A$.

@@ -22,7 +22,7 @@ Za potrebe ovog kursa iskazi ne govore o svakodnevnim situacijama, ve\'c o apstr
 
 \noindent
 \begin{minipage}{3.5in}
-  \hspace*{1.5em}Nama \'ce posebno biti interesantni iskazi koje govore o stanju memorije tokom izvr\v savanja programa.
+  \hspace*{1.5em}Nama \'ce posebno biti interesantni iskazi koji govore o stanju memorije tokom izvr\v savanja programa.
   Na primer, pretpostavimo da jedan mali program ima dve celobrojne promenljive, \verb`x` i \verb`y`, i jednu logi\v cku promenljivu \verb`p`,
   i pretpostavimo da je tokom izvr\v savanja programa u jednom trenutku stanje u memoriji ra\v cunara opisano u tabeli pored.
   Tada su slede\'ce tvrdnje iskazi:
@@ -465,7 +465,8 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       \bot & \bot & \top & \bot & \bot
     \end{array}
   $$
-  Tako smo dobili da je $\top = v(x \lor z) = v(x) \lor v(z) = \bot \lor \bot = \bot$, \v sto je neta\v can iskaz.
+  Tako smo dobili da je $\top = v(x \lor z) = v(x) \lor v(z) = \bot \lor \bot = \bot$, 
+  odnosno, $\top = \bot$, \v sto je nemogu\'ce.
   Dakle, pretpostavka da postoji valuacija u kojoj polazna formula nije tautologija vodi u kontradikciju,
   \v sto zna\v ci da je ta pretpostavka neodr\v ziva. Time je dokazano da je $\phi$ tautologija.
 \end{proof}
@@ -478,7 +479,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
 \end{EX}
 \begin{proof}[Re\v senje]
   Pretpostavimo i ovaj put da formula nije tautologija. Onda postoji valuacija u kojoj je formula neta\v cna.
-  Kako formula ima oblik $p_1 \Rightarrow ( \ldots )$, svaka valuacija u kojoj je ona bude neta\v cna izgleda ovako:
+  Kako formula ima oblik $p_1 \Rightarrow ( \ldots )$, svaka valuacija u kojoj je ona neta\v cna izgleda ovako:
   $$
     v: \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
       p_1 & p_2 \Rightarrow (p_3 \Rightarrow ( \ldots \Rightarrow (p_n \Rightarrow p_1) \ldots ))\\
@@ -510,7 +511,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       \top & \top & \top & \ldots & \top & \bot 
     \end{array}
   $$
-  Tako smo dobili da je $\top = v(p_1) = \bot$, \v sto je neta\v can iskaz.
+  Tako smo dobili da je $\top = v(p_1) = \bot$, odnosno, $\top = \bot$, \v sto je nemogu\'ce.
   Pretpostavka da postoji valuacija u kojoj polazna formula nije tautologija vodi u kontradikciju,
   \v sto zna\v ci da je ta pretpostavka neodr\v ziva. Time je dokazano da je $\phi$ tautologija.
 \end{proof}
@@ -793,7 +794,7 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
   \begin{align*}
     \lnot&(p \lor q \Leftrightarrow p \lor r) \;\;\equiv\;\;\\
     &\;\;\equiv\;\; ((p \lor q) \land \lnot (p \lor r)) \lor ((p \lor r) \land \lnot(p \lor q)) && \text{Primer~\ref{ft03.ex.neg-ekviv}}\\
-    &\;\;\equiv\;\; ((p \lor q) \land \lnot p \land \lnot r)) \lor ((p \lor r) \land \lnot p \land \lnot q)) && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; ((p \lor q) \land \lnot p \land \lnot r) \lor ((p \lor r) \land \lnot p \land \lnot q) && \text{De Morganov zakon}\\
     &\;\;\equiv\;\; (p \land \lnot p \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
     &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (p \land \lnot p \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{Distributivnost}\\
     &\;\;\equiv\;\; (\bot \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
@@ -819,14 +820,14 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
                (\beta_1  \lor \beta_2  \lor \ldots \lor \beta_m)  \land \ldots \land
                (\theta_1 \lor \theta_2 \lor \ldots \lor \theta_n)
       $$
-      gde je svaka od formula $\alpha_i$, $\beta_j$, $\gamma_k$ iskazno slovo ili negirano iskazno slovo.
+      gde je svaka od formula $\alpha_i$, $\beta_j$, \ldots, $\theta_k$ iskazno slovo ili negirano iskazno slovo.
       Iskazna formula $\phi$ je u \emph{disjunktivnoj normalnoj formi} ako je
       $$
         \phi = (\alpha_1 \land \alpha_2 \land \ldots \land \alpha_l) \lor
                (\beta_1  \land \beta_2  \land \ldots \land \beta_m)  \lor \ldots \lor
                (\theta_1 \land \theta_2 \land \ldots \land \theta_n)
       $$
-      gde je svaka od formula $\alpha_i$, $\beta_j$, $\gamma_k$ iskazno slovo ili negirano iskazno slovo.
+      gde je svaka od formula $\alpha_i$, $\beta_j$, \ldots, $\theta_k$ iskazno slovo ili negirano iskazno slovo.
     \end{DEF}
     
     Slede\'ca teorema (koju ne\'cemo dokazati) garantuje da se svaka iskazna formula mo\v ze ekvivalentnim
@@ -957,7 +958,7 @@ $
   R \Rightarrow \lnot K \equiv K \Rightarrow \lnot R
 $
 zaklju\v cujemo, tako\dj e, da je $K \Rightarrow \lnot R$, odnosno, da
-\emph{komete nemaju kovrd\v zav rep.}
+\emph{komete nemaju kovrd\v zav rep}, \v sto je prili\v cno ta\v cno.
 
 \paragraph{Primer: Problem sa magarcima i bivolima.}
 Iz slede\'cih premisa izvesti odgovaraju\'ci zaklju\v cak:
@@ -1070,7 +1071,7 @@ Tada prethodne izjave mo\v zemo formalno da zapi\v semo ovako:
   (ako je mudar i pilotira balonom onda nosi ki\v sobran);
 \item%4
   $L \land F \Rightarrow \lnot T$
-  (ako je luckast i jede jeftine kifle onda ne treba da jede na javnom mestu);
+  (ako je luckast i jede jeftine kifle onda ne mo\v ze da jede na javnom mestu);
 \item%5
   $\lnot S \land B \Rightarrow V$
   (ako je mlad ($=$ nije star) i pilotira balonom onda voli da se kin\dj uri);
@@ -1507,7 +1508,7 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 \begin{quote}
   \enquote{Program testing can be used to show the presence of bugs, but never their absence.}
   
-  Edsgar Dijkstra
+  Edsger Dijkstra
 \end{quote}
 
 \clearpage
@@ -1720,7 +1721,7 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
   $$
     x = b \land y = a \land \mathit{pom} = a.
   $$
-  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih \verb"x" i \verb"y".
+  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih $x$ i $y$.
 \end{proof}
 
 \begin{EX}
@@ -2059,7 +2060,7 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
     q \cdot y + r = x \land 0 \le r < y.
   $$
   Prema tome, metod \verb"CK" radi slede\'ce: ako je $x \le 0$ ili $y \le 0$ metod vra\'ca $-1$, dok u ostalim slu\v cajevima
-  ra\v cuna koli\v cnik i ostatak pri celobrojnom deljenju $x$ sa $y$, i kao rezultat vra\'ca celibrojni koli\v cnik.
+  ra\v cuna koli\v cnik i ostatak pri celobrojnom deljenju $x$ sa $y$, i kao rezultat vra\'ca celobrojni koli\v cnik.
 
   $(d)$
   Lako se vidi da promenljiva $r$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,

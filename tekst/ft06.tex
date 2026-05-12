@@ -242,7 +242,7 @@ razlika izdvojiti one elemente jednog skupa koji se ne nalaze u drugom.
   $$
     \fbox{$x \in A \cup B \Leftrightarrow x \in A \lor x \in B.$}
   $$
-  \emph{Razlika} skupova $A$ i $B$ skup \v ciji elementi su oni elementi skupa $A$ koji ne pripadaju skupu $B$;
+  \emph{Razlika} skupova $A$ i $B$ je skup \v ciji elementi su oni elementi skupa $A$ koji ne pripadaju skupu $B$;
   $$
     A \setminus B = \{ x : x \in A \land x \notin B \}.
   $$
@@ -333,7 +333,8 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
 
 Skupovi mogu biti \emph{kona\v cni} kao, na primer, skup $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$,
 ili \emph{beskona\v cni} kao, na primer, skupovi $\NN = \{ 1, 2, 3, \ldots \}$ i $\ZZ = \{ \ldots, -1, 0, 1, 2, \ldots\}$.
-Za kona\v cne skupove lako mo\v zemo da utvrdimo njihov \emph{broj elemenata}. Broj elemenata skupa $A$ ozna\v cavamo ovako $|A|$.
+Za kona\v cne skupove lako mo\v zemo da utvrdimo njihov \emph{broj elemenata}.
+Za broj elemenata skupa $A$ pi\v semo $|A|$.
 Na primer, $|C| = 10$, gde je $C$ skup naveden u prvoj re\v cenici. Mo\v zemo govoriti i o broju elemenata beskona\v cnog
 skupa, ali je to mnogo osetljivije pitanje kojim \'cemo se baviti na samom kraju kursa.
 
@@ -581,8 +582,8 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Sli\v cno tome, zbog $|A \cap C| = 20$ upisa\'cemo 3 u odgovaraju\'ci segment
-  tako da ceo skup $A \cap C$ ima 20 elementa.
+  Sli\v cno tome, zbog $|A \cap B| = 20$ upisa\'cemo 3 u odgovaraju\'ci segment
+  tako da ceo skup $A \cap B$ ima 20 elementa.
 \end{minipage}
 \hfill
 \begin{minipage}{2.5in}
@@ -932,7 +933,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
 \end{EX}
 \begin{proof}[Re\v senje]
   Registar 64-bitnog procesora \v cini niz bitova du\v zine 64. Kako jedan bit mo\v ze imati stanje 0 ili 1,
-  u registar 64-bitnog procesora mo\v ze da se smesti proizvoljna 01-re\v c du\v zine 64. Dakle, skup mogu\'cih stanja
+  u registar 64-bitnog procesora mo\v ze da se smesti pro\-iz\-voljna 01-re\v c du\v zine 64. Dakle, skup mogu\'cih stanja
   ovakvog registra je $\{0, 1\}^{64}$. Broj razli\v citih stanja je, zato,
   $$
     |\{0, 1\}^{64}| = |\{0,1\}|^{64} = 2^{64} = 18\;446\;744\;073\;709\;551\;616. \qedhere
@@ -1008,7 +1009,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
 
 \section{Pojam relacije}
 
-Relacija predstavlja odnos me\dj u nekom objektima. Na primer, cenovnik jedne prodavnice na dan 31.12.2018.\ je izgledao ovako:
+Relacija predstavlja odnos me\dj u nekim objektima. Na primer, cenovnik jedne prodavnice na dan 31.12.2018.\ je izgledao ovako:
 \begin{center}\label{ft07.page.tabela}
   \begin{tabular}{rlr}
   \hline
@@ -1119,7 +1120,7 @@ Zbog njihovog pre svega istorijskog zna\v caja, Definiciju~\ref{ds1.def.rel-0} \
   \begin{EX}\label{ft07.ex.01}
     Neka je $A = \{0, 1, 2, 3, 4\}$ i neka je $\rho = \{(0,1), (1,2), (2,3), (3,4), (4,0)\}$.
     Binarne relacije na jednom skupu se mogu lako predstaviti crte\v zom: predstavimo skup $A$ Venovim dijagramom
-    i onda parove koji \v cine relaciju ozna\v cimo strelicama, kako je to pokazano na slici iznad.
+    i onda parove koji \v cine relaciju ozna\v cimo strelicama, kako je to pokazano na slici pored.
   \end{EX}
 \end{minipage}
 \hfill
@@ -1156,7 +1157,7 @@ Zbog njihovog pre svega istorijskog zna\v caja, Definiciju~\ref{ds1.def.rel-0} \
 \noindent
 \begin{minipage}{3in}
   \begin{EX}\label{ft07.ex.03}
-    Neka je $C = \{1, 2, 3, 4, 5\}$ i neka je $\theta = \{(a, b) \in C \times C : a \le b\}$.
+    Neka je $C = \{1, 2, 3, 4, 5\}$ i neka je $\theta = \{(a, b) \in C \times C : a \ge b\}$.
     Relacija $\theta$ je predstavljena crte\v zom pored sa koga se lako uvi\dj a
     da i relacija $\theta$ ima interesantnu strukturu. Ovo je druga vrsta specijalnih binarnih
     relacija o kojima \'cemo detaljno govoriti kasnije.
@@ -1238,14 +1239,20 @@ $$
   $$
     X \subseteq A \lor X \subseteq B \Rightarrow X \subseteq A \cup B.
   $$
-  Sada tvr\dj enje (3) sledi direktno iz ovog niza implikacija:
+  Sada tvr\dj enje (3) sledi direktno iz ovog niza zaklju\v caka:
   \begin{align*}
     X \in \calP(A) \cup \calP(B)
-    &\Rightarrow X \in \calP(A) \lor X \in \calP(B)\\
-    &\Rightarrow X \subseteq A \lor X \subseteq B\\
+    &\Leftrightarrow X \in \calP(A) \lor X \in \calP(B)\\
+    &\Leftrightarrow X \subseteq A \lor X \subseteq B\\
     &\Rightarrow X \subseteq A \cup B\\
-    &\Rightarrow X \in \calP(A \cup B).\qedhere
+    &\Leftrightarrow X \in \calP(A \cup B).\qedhere
   \end{align*}
+  Primetimo da u tre\'cem koraku imamo implikaciju, a ne ekvivalenciju zato \v sto iskaz
+  $$
+    X \subseteq A \cup B \Rightarrow X \subseteq A \lor X \subseteq B
+  $$
+  \emph{nije ta\v can!} (Na\'ci kontraprimer!)
+  Upravo zato u (3) nemamo jednakost skupova.
 \end{proof}
 
 \begin{EX}
@@ -1276,7 +1283,7 @@ $$
     \end{cases}
   $$
   Na primer, neka je $A = \{a, b, c, d, e, f\}$ i $B = \{b, d, e\}$. Tada je $B$ predstavljen nizom $010110$
-  zato \v sto $a \notin B$, $b \in B$, $c \notin B$ itd. Jasno, je da je prazan skup predstavljen nizom $000000$,
+  zato \v sto $a \notin B$, $b \in B$, $c \notin B$ itd. Jasno je da je prazan skup predstavljen nizom $000000$,
   a ceo skup $A$ nizom $111111$. Evo tabelarnog pregleda:
   $$
     \begin{array}{c|cccccc}
@@ -1334,7 +1341,7 @@ $$
       \hline
     \end{array}
 $$
-Pogledajmo sada kako se izvode osnovne skupovne operacije sa ovako predstavljenim skupovima. Unija skupova se svodi na to
+Pogledajmo sada kako se izvode osnovne skupovne operacije sa ovako pred\-stav\-ljenim skupovima. Unija skupova se svodi na to
 da se po koordinatama primeni operacija disjunkcije. Ta operacija se zove \enquote{bitwise-or} i \v cesto se ozna\v cava vertikalnom crtom $|$:
 $$
   \begin{array}{r|cccccccc|l}

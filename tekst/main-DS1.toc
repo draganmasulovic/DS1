@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {4.5}Pojam relacije}{108}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Pojam binarne relacije}{109}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Partitivni skup}{111}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Reprezentacija malih skupova 01-nizovima}{112}{section.4.8}%
+\contentsline {section}{\numberline {4.8}Reprezentacija malih skupova 01-nizovima}{113}{section.4.8}%
 \contentsline {section}{\numberline {4.9}Zadaci}{114}{section.4.9}%
 \contentsline {chapter}{\numberline {5}Predikatski ra\v cun}{119}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Formule predikatskog ra\v cuna}{120}{section.5.1}%
@@ -45,9 +45,9 @@
 \contentsline {section}{\numberline {5.2}Interpretacija predikatske formule}{122}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Oblast dejstva kvantifikatora}{126}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Valjane formule}{128}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Uvo\dj enje novih kvantifikatora}{131}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Predikatski ra\v cun u analizi programskog koda}{132}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Zadaci}{136}{section.5.7}%
+\contentsline {section}{\numberline {5.5}Uvo\dj enje novih kvantifikatora}{130}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Predikatski ra\v cun u analizi programskog koda}{131}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Zadaci}{135}{section.5.7}%
 \contentsline {chapter}{\numberline {6}Binarne relacije}{139}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Klasifikacija}{139}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Pore\dj enje}{146}{section.6.2}%
@@ -68,4 +68,4 @@
 \contentsline {section}{\numberline {7.7}Upore\dj ivanje beskona\v cnih skupova}{180}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Zadaci}{184}{section.7.8}%
 \contentsline {chapter}{\numberline {8}Re\v senja odabranih zadataka}{189}{chapter.8}%
-\contentsline {chapter}{Literatura}{249}{Item.642}%
+\contentsline {chapter}{Literatura}{249}{Item.638}%

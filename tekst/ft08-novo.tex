@@ -62,8 +62,8 @@ Da bi sistem kao \v sto je kasa na blagajni mogao da koristi \v sifarnik potrebn
 Kada su ispunjena ova tri uslova ka\v zemo da je uspostavljena \emph{funkcionalna zavisnost} izme\dj u
 ulaznih podataka (validne \v sifre proizvoda) i izlaznih podataka (cena proizvoda).
 
-Funkcionalna zavisnost predstavlja fundamentalni koncept za operativno upravljanje velikim koli\v cinama
-podataka. U relacionim bazama podataka svaka tabela (= relacija) ima jednu kolonu koja
+Funkcionalna zavisnost predstavlja fundamentalni koncept za operativno uprav\-ljanje velikim koli\v cinama
+podataka. U relacionim bazama podataka svaka tabela~(=~relacija) ima jednu kolonu koja
 sadr\v zi \emph{klju\v c}, a to je naj\v ce\v s\'ce neki broj ili string
 koji \emph{jedinstveno} odre\dj uje ceo red tabele.
 Na primer, svaki dr\v zavljanin Republike Srbije ima jedinstveni mati\v cni broj gra\dj anina (JMBG).
@@ -101,7 +101,7 @@ Formalno,
 
 
 \begin{EX}
-  Funkcionlanu zavosnost (pravilo kojim se ulaznim podacima dodeljuju izlazni podaci)
+  Funkcionalnu zavisnost (pravilo kojim se ulaznim podacima dodeljuju izlazni podaci)
   mo\v zemo da opi\v semo na razne na\v cine. Neka je
   $$
     \Phi = \big\{\bigtriangleup, \Diamond, \square, \bigcirc, \pentagon, \hexagon, \triangleleft, \bowtie\big\}
@@ -339,7 +339,7 @@ Formalno,
   \begin{center}
     \input ft08-f11.pgf
   \end{center}
-  To je, o\v cito, bijekcija. Lako se pokazuje (i bi\'ce nam va\v zno kasnije) da za svaku funkciju $f : A \to B$ va\v zi:
+  Lako se pokazuje (i bi\'ce nam va\v zno kasnije) da za svaku funkciju $f : A \to B$ va\v zi:
   $$
     \id_B \circ f = f \circ \id_A = f.
   $$
@@ -471,7 +471,7 @@ svaki element skupa $B$ je \enquote{pogo\dj en} \emph{ta\v cno jednom} strelicom
     \end{tabular}
   \end{center}
   Na primer, kod simbola \verb`'A'` je 100001, a kod simbola \verb`'*'` je 001010.
-  Obrnuto, kod 110100 korira simbol \verb`'T'`. Ovom tabelom je, dakle, uspostavljena bijekcija
+  Obrnuto, kod 110100 kodira simbol \verb`'T'`. Ovom tabelom je, dakle, uspostavljena bijekcija
   $f : A \to \{0,1\}^6$ izme\dj u alfabeta $A$ koji se sastoji od 64 simbola navedena u tabeli
   i skupa $\{0,1\}^6$.
   
@@ -920,7 +920,7 @@ svaka injektivna funkcija $f : A \to A$ mora biti bijekcija.
 
 Neka su $A$ i $B$ proizvoljni (kona\v cni ili beskona\v cni) skupovi.
 Da bismo utvrdili da li $A$ i $B$ imaju isti broj elemenata
-ili neki od njih ima vi\v se elemenata od ono drugog vi\v se ne mo\v zemo da se oslanjamo na ideju da \'cemo
+ili neki od njih ima vi\v se elemenata od onog drugog, vi\v se ne mo\v zemo da se oslanjamo na ideju da \'cemo
 \enquote{prebrojati} elemente oba skupa i onda uporediti dobijene \enquote{brojeve}.
 Postoji matemati\v cki jezik koji nam omogu\'cuje da govorimo o broju elemenata beskona\v cnog skupa ali je on
 veoma komplikovan i daleko prevazilazi teorijske osnove koje smo do sada izlo\v zili.
@@ -988,7 +988,7 @@ Za kona\v cne skupove je jasno da
 \end{itemize}
 Za beskona\v cne skupove, me\dj utim, ovi stavovi nisu nimalo o\v cigledni. Na primer,
 da bi se pokazao prvi stav treba pokazati da za svaka dva beskona\v cna skupa $A$ i $B$ ili postoji injektivno preslikavanje
-$f : A \to B$, ili postoji bijektivno preslikavanje iz $g : A \to B$, ili postoji injektivno preslikvanje iz $h : B \to A$.
+$f : A \to B$, ili postoji bijektivno preslikavanje iz $g : A \to B$, ili postoji injektivno preslikavanje iz $h : B \to A$.
 Da bi se pokazao drugi stav treba pokazati da iz \v cinjenice
 da postoji injektivno preslikavanje $f : A \to B$ i injektivno preslikavanje $g : B \to A$ sledi da postiji
 bijekcija $h : A \to B$. Sre\'com, oba ova stava su ta\v cna i za beskona\v cne skupove, ali njihovi dokazi prevazilaze
