@@ -1556,7 +1556,7 @@ Drugim re\v cima, $a$ je jedini element domena za koji va\v zi $P$, $b$ je jedin
 \item Da bismo pokazali da refleksivnost i simetri\v cnost ne impliciraju tranzitivnost, konstruisa\' cemo relaciju koja je refleksivna i simetri\v cna, ali nije i tranzitivna. Posmatrajmo nad skupom $\{a,b,c\}$ relaciju $\rho=\{(a,a),(a,b),(b,a),\allowbreak (b,b),\allowbreak(b,c),\allowbreak(c,b),\allowbreak(c,c)\}$. Relacija $\rho$ je i refleksivna i simetri\v cna, ali nije i tranzitivna jer je $a\mathrel\rho b$ i $b\mathrel\rho c$, a nije $a\mathrel\rho c$. 
 
 Umesto gorenavedenog primera, mogli smo i konstruisati relaciju $\sigma$ nad skupom $\mathbb N$ takvu da je $x\mathrel\sigma y$ akko
-$\lvert x-y\rvert\leq 1$. Lako se vidi da je $\sigma$ simetri\v cna i tranzitivna relacija, a po\v sto je $1\mathrel\sigma 2$ i $2\mathrel\sigma 3$, a nije $1\mathrel\sigma 3$, relacija $\sigma$ nije i tranzitivna.
+$\lvert x-y\rvert\leq 1$. Lako se vidi da je $\sigma$ simetri\v cna i refleksivna relacija, a po\v sto je $1\mathrel\sigma 2$ i $2\mathrel\sigma 3$, a nije $1\mathrel\sigma 3$, relacija $\sigma$ nije i tranzitivna.
 \item Relacija $\leq$ na skupu $\mathbb N$ je refleksivna i tranzitivna relacija, a nije simetri\v cna.
 \item Prazna relacija je istovremeno i tranzitivna, i simetri\v cna, ali nije refleksivna. 
 \item Prazna relacija je simetri\v cna, antisimetri\v cna i tranzitivna, ali nije refleksivna.
@@ -1572,10 +1572,10 @@ $\lvert x-y\rvert\leq 1$. Lako se vidi da je $\sigma$ simetri\v cna i tranzitivn
 \end{center}
 \item {\it Refleksivnost.} Graf relacije $\rho$ nad svakim elementom ima petlju, \v sto nam govori da za svaki element $x$ va\v zi $x\mathrel\rho x$ na osnovu \v cega zaklju\v cujemo da je $\rho$ refleksivna relacija.
 
-{\it Simetri\v cnost.} Relacija $\rho$ je simetri\v cna, \v sto vidimo po tome \v sto njen graf nema nijednu \enquote{jednosmernu strelicu}, odnosno sve strelice su \enquote{dvosmerne}.
+{\it Simetri\v cnost.} Relacija $\rho$ je simetri\v cna, \v sto vidimo po tome \v sto njen graf nema nijednu \enquote{jednosmernu strelicu} izme\dj u razli\v citih elemenata, odnosno sve strelice izme\dj u razli\v citih elemenata su \enquote{dvosmerne}.
 Drugim re\v cima, sa grafa se lako uo\v cava da ne postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$, a da nije $y\mathrel\rho x$.
 
-{\it Antisimetri\v cnost.} Relacija $\rho$ nije antisimetri\v cna, \v sto zaklju\v cujemo po tome \v sto njen graf sadr\v zi dvosmerne strelice, odnosno postoje elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Na primer, takvu su elementi 1 i 4.
+{\it Antisimetri\v cnost.} Relacija $\rho$ nije antisimetri\v cna, \v sto zaklju\v cujemo po tome \v sto njen graf sadr\v zi dvosmerne strelice, odnosno postoje razli\v citi elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Na primer, takvu su elementi 1 i 4.
 
 {\it Tranzitivnost.} Relacija $\rho$ jeste i tranzitivna. Posmatraju\' ci njen graf, to mo\v zemo zaklju\v citi na slede\' ci na\v cin. Ne postoje tri razli\v cita elementa $x$, $y$ i $z$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho z$. Pored toga, postoje razli\v citi elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$, \v sto iz grafa zapa\v zamo po dvosmernim strelicama, ali i u tom slu\v caju va\v zi $x\mathrel\rho x$. Drugim re\v cima, gde god imamo dvosmernu strelicu izme\dj u elemenata $x$ i $y$, postoje i petlje nad elementima $x$ i $y$.
 \item Relacija $\rho$ je relacija ekvivalencije jer je refleksivna, simetri\v cna i tranzitivna. Ona me\dj utim nije i relacija poretka jer nije antisimetri\v cna. 
@@ -1592,7 +1592,7 @@ Drugim re\v cima, sa grafa se lako uo\v cava da ne postoje dva razli\v cita elem
 \end{center}
 \item {\it Refleksivnost.} Zadata relacija nije refleksivna, \v sto sa grafa mo\v zemo zaklju\v citi po tome \v sto nema nad svakim elementom petlje. Na primer, nema petlje nad elementom $1$.
 
-{\it Simetri\v cnost.} Prime\' cujemo na grafu relacije $\rho$ da on ima jednosmerne strelice, kao na primer izme\dj u 1 i 0, na osnovu \v cega zaklju\v cujemo da $\rho$ nije simetri\v cna relacija.
+{\it Simetri\v cnost.} Prime\' cujemo na grafu relacije $\rho$ da on ima jednosmerne strelice izme\dj u nekih razli\v citih elemenata, kao na primer izme\dj u 1 i 0, na osnovu \v cega zaklju\v cujemo da $\rho$ nije simetri\v cna relacija.
 
 {\it Antisimetri\v cnost.} Na osnovu toga \v sto graf relacije $\rho$ ima dvosmernu strelicu izme\dj u elemenata 0 i 5 zaklju\v cujemo da relacija $\rho$ nije antisimetri\v cna.
 
@@ -1609,7 +1609,7 @@ Osim toga, mogli smo primetiti i da postoji dvosmerna strelica izme\dj u elemena
 \begin{enumerate}[(a)]
 \item Po\v sto $3\mid 0$ i $x-x=0$, sledi da je $x\mathrel\rho x$ za svako $x\in\mathbb N$, \v cime je pokazano da je $\rho$ refleksivna relacija.
 
-Dalje, ako je $x\mathrel\rho$ za $x,y\in\mathbb N$, tada $3\mid x-y$. Naravno, odatle sledi da je i $y-x$ deljivo sa $3$, \v sto povla\v ci i da je $y\mathrel\rho x$. Ovim je pokazano da je $\rho$ simetri\v cna relacija.
+Dalje, ako je $x\mathrel\rho y$ za $x,y\in\mathbb N$, tada $3\mid x-y$. Naravno, odatle sledi da je i $y-x$ deljivo sa $3$, \v sto povla\v ci i da je $y\mathrel\rho x$. Ovim je pokazano da je $\rho$ simetri\v cna relacija.
 
 Relacija $\rho$ nije antisimetri\v cna po\v sto postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Naime, $3$ i $6$ \v cine jedan par takvih brojeva, \v cime smo prona\v sli kontraprimer za antisimetri\v cnost.
 
@@ -1623,13 +1623,13 @@ Sabiranjem ove dve jednakosti dobijamo
 \v sto povla\v ci $x\mathrel\rho z$. Ovim je dokazano da je $\rho$ tranzitivna relacija.
 \item Relacija $\rho$ nije refleksivna. Naime, ako je $x\mathrel\rho x$, tada sledi $x=3^kx$ za neko $k\in\mathbb N$. Sledi da je $3^k=1$, \v sto ne va\v zi ni za jedan prirodan broj $k$.
 
-Relacija $\rho$ nije ni simetri\v cna. Naime, kako je $3=3^1\cdot 1$, sledi da je $3\mathrel\rho 1$. Sa druge strane, nije $1\mathrel\rho 3$ jer nije $3^k=\frac 13$ ni za jedan prirodan broj $k$. 
+Relacija $\rho$ nije ni simetri\v cna. Naime, kako je $3=3^1\cdot 1$, sledi da je $3\mathrel\rho 1$. Sa druge strane, nije $1\mathrel\rho 3$ jer ni za jedan prirodan broj $k$ ne va\v zi $1=3^k\cdot 3$. 
 
 Da bismo pokazali da je relacija antisimetri\v cna, pretpostavimo da za neke $x,y\in\mathbb N$ va\v zi $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno da je $x=3^ky$ za neko $k\in\mathbb N$ i $y=3^lx$ za neko $l\in\mathbb N$. Tada je $x=3^k(3^lx)=3^{k+l}x$, \v sto povla\v ci da je $k+l=0$, a to je nemogu\' ce po\v sto su $k$ i $l$ prirodni brojevi. Po\v sto smo pokazali da je nemogu\' ce da va\v zi $x\mathrel\rho y$ i $y\mathrel\rho x$ ni za koje prirodne brojeve $x$ i $y$, ovim je pokazano da je relacija $\rho$ antisimetri\v cna.
 
 Jo\v s jedan na\v cin da poka\v zemo da je relacija $\rho$ antisimetri\v cna bio bi slede\' ci. Primetimo da $x\mathrel\rho y$ implicira da je $x>y$. Prema tome, za ma koje prirodne brojeve $x$ i $y$, $x\mathrel\rho y$ i $y\mathrel\rho x$ implicira $x>y$ i $y>x$, \v sto je nemogu\' ce, \v cime je dokazano da je $\rho $ antisimetri\v cna.
 
-Primetimo i  da u gornjem dokazu antisimetri\v cnosti mi iz pretpostavke da je $x\mathrel\rho y$ i $y\mathrel\rho x$ nismo na kraju dobili $x=y$. Ovo ne predstavlja problem, jer mi smo demonstrirali da $x\mathrel\rho y$ i $y\mathrel\rho x$ nije ta\v cno, a samim tim je implikacija $x\mathrel\rho y\wedge y\mathrel\rho x\Rightarrow x=y$ ta\v cna za sve $x,y\in\mathbb N$.
+Primetimo i  da u gornjem dokazu antisimetri\v cnosti iz pretpostavke da je $x\mathrel\rho y$ i $y\mathrel\rho x$ nismo na kraju dobili $x=y$. Ovo ne predstavlja problem, jer mi smo demonstrirali da $x\mathrel\rho y$ i $y\mathrel\rho x$ nije ta\v cno, a samim tim je implikacija $x\mathrel\rho y\wedge y\mathrel\rho x\Rightarrow x=y$ ta\v cna za sve $x,y\in\mathbb N$.
 
 Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$. Tada je $x=3^ky$ i $y=3^lz$ za neke $k,l\in\mathbb N$. Odavde dobijamo $x=3^k(3^lz)=3^{k+l}z$, odakle sledi da je $x\mathrel\rho z$. Ovim je pokazano da je $\rho$ tranzitivna relacija. 
 
@@ -1646,14 +1646,14 @@ Poka\v zimo dalje da je relacija deljivosti tranzitivna. Prisetimo se definicije
 \RES{08.zad.7}{
 \begin{enumerate}[(a)]
 \item Svaka prava je paralelna sa samom sobom, pa relacija $\rho$ jeste refleksivna. Tako\dj e je i simetri\v cna i tranzitivna. Kako je mogu\' ce odabrati dve razli\v cite prave koje su me\dj usobno paralelne, $\rho$ nije antisimetri\v cna.
-\item Nijedna prava nije normalna na samu sebe, odakle sledi da relacija $\rho$ nije refleksivna. Dalje, relacija $\rho$ jeste simetri\v cna, ali nije antisimetri\v cna. Kona\v cno, ako za neke prave $x$, $y$ i $z$ va\v zi $x\perp y$ i $y\perp z$, to ne povla\v ci da su i prave $x$ i $z$ me\dj usobno normalne. Dovoljno je odabrati me\dj usobno normalne prave $x$ i $y$ i pravu $z$ tako da se ona poklapa sa pravom $x$, i u tom slu\v caju prave nije $x\perp z$ iako je $x\perp y$ i $y\perp z$.
+\item Nijedna prava nije normalna na samu sebe, odakle sledi da relacija $\rho$ nije refleksivna. Dalje, relacija $\rho$ jeste simetri\v cna, ali nije antisimetri\v cna. Kona\v cno, ako za neke prave $x$, $y$ i $z$ va\v zi $x\perp y$ i $y\perp z$, to ne povla\v ci da su i prave $x$ i $z$ me\dj usobno normalne. Dovoljno je odabrati me\dj usobno normalne prave $x$ i $y$ i pravu $z$ tako da se ona poklapa sa pravom $x$, i u tom slu\v caju nije $x\perp z$ iako je $x\perp y$ i $y\perp z$.
 \end{enumerate}
 }
 
 \RES{08.zad.8}{
 Po\v sto je $p\Rightarrow p$ tautologija, relacija $\rho$ je refleksivna.
 
-Dalje, da bismo pokazali da $\rho$ nije simetri\v cna relacija, posmatrajmo iskaze $p$ i $p\wedge q$. Iskaz $p\Rightarrow p\wedge q$ jeste tautolija, ali $p\wedge q\Rightarrow p$ nije, odnosno va\v zi $p\mathrel\rho p\wedge q$, dok $p\wedge q\mathrel\rho p$ ne va\v zi. Dakle, $\rho$ nije simetri\v cna relacija.
+Dalje, da bismo pokazali da $\rho$ nije simetri\v cna relacija, posmatrajmo iskaze $p$ i $p\wedge q$. Iskaz $p\wedge q \Rightarrow p$ jeste tautolija, ali $p\Rightarrow p\wedge q$ nije, odnosno va\v zi $p\wedge q\mathrel\rho p$, dok $p\mathrel\rho p\wedge q$ ne va\v zi. Dakle, $\rho$ nije simetri\v cna relacija.
 
 Poznato nam je da postoje razli\v citi iskazi koji su ekvivalentni, kao na primer $\neg(p\wedge q)$ i $\neg p\vee\neg q$.  Tada va\v zi $\neg(p\wedge q)\mathrel\rho \neg p\vee\neg q$ i $\neg p\vee\neg q\mathrel\rho\neg(p\wedge q)$. Dakle, $\rho$ nije antisimetri\v cna.
 
@@ -1663,7 +1663,7 @@ Konav\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\r
 \RES{08.zad.10}{
 Za $\rho\cap\sigma$ je odgovor potvrdan za sve \v cetiri navedene osobine, \v sto se lako proverava po definiciji.
 
-Odgovorimo sada na pitanja za $\rho\cup\sigma$. Lako se uo\v cava da je unija dve refleksivne, odnosno simetri\v cne relacije, tako\dj e refleksivna, odnosno simetri\v cna, relacija. Unija dve antisimetri\v cne relacije ne mora biti antisimetri\v cna. Naime, unija relacija $\leq$ i $\geq$ nad skupom $\mathbb N$ je puna relacija, koja nije antisimetri\v cna. Poka\v zimo jo\v s da ni unija dve tranzitivne relacije ne mora biti tranzitivna. Unija relacija $<$ i $>$ nad skupom prirodnih brojeva \v cini relaciju $\neq$, a relacija $\neq$ nije tranzitivna.
+Odgovorimo sada na pitanja za $\rho\cup\sigma$. Lako se uo\v cava da je unija dve refleksivne, odnosno simetri\v cne relacije, tako\dj e refleksivna, odnosno simetri\v cna relacija. Unija dve antisimetri\v cne relacije ne mora biti antisimetri\v cna. Naime, unija relacija $\leq$ i $\geq$ nad skupom $\mathbb N$ je puna relacija, koja nije antisimetri\v cna. Poka\v zimo jo\v s da ni unija dve tranzitivne relacije ne mora biti tranzitivna. Unija relacija $<$ i $>$ nad skupom prirodnih brojeva \v cini relaciju $\neq$, a relacija $\neq$ nije tranzitivna.
 %
 %Kona\v cno, lako se pokazuje da je kompozicija dve refleksivne relacije je refleksivna. Kompozicija dve simetri\v cne relacije ne mora biti simetri\v cna. Naime, posmatrajmo relacije $\rho=\{(a,b),(b,a)\}$ i $\sigma=\{(b,c),(c,a)\}$ nad skupom $\{a,b,c\}$. Tada je $a\mathrel{\rho\circ\sigma}c$, pri \v cemu nije i $c\mathrel{\rho\circ\sigma}a$. Tako\dj e, ni kompozicija dve antisimetr\v cne relacije ne mora biti antisimetri\v cna. Primetimo da je kompozicija relacija $\leq\circ\geq$ nad $\mathbb N$ puna relacija, koja nije antisimetri\v cna. Da bismo demonstrirali da ni kompozicija tranzitivnih relacija ne mora biti tranzitivna, posmatrajmo relacije $\rho=\{(a,a),(b,c)\}$ i $\sigma=\{(a,b),(c,c)\}$ nad skupom $\{a,b,c\}$. Lako se prime\' cuje da relacija $\rho\circ\sigma=\{(a,b),(b,c)\}$ nije tranzitivna.
 }
@@ -1674,18 +1674,18 @@ Odgovor je potvrdan za sve \v cetiri osobine. Dokaz ostavljamo \v citaocu za ve\
 
 \RES{08.zad.11}{
 \begin{enumerate}[(a)]
-\item Lako se uo\v cava da je relacija $\rho$ je refleksivna. Tako\dj e, relacija je $\rho$ je simetr\v cna jer
-\[ (x_1,y_1)\mathrel\rho (x_2,y_2)\text{ akko }x_1=x_2\text{ akko }(x_2,y_2)\mathrel\rho (x_1,x_2). \]
+\item Lako se uo\v cava da je relacija $\rho$ je refleksivna. Tako\dj e, relacija je $\rho$ je simetri\v cna jer
+\[ (x_1,y_1)\mathrel\rho (x_2,y_2)\text{ akko }x_1=x_2\text{ akko }(x_2,y_2)\mathrel\rho (x_1,y_1). \]
 Dalje, $\rho$ je i tranzitivna relacija jer $(x_1,y_1)\mathrel\rho (x_2,y_2)$ i $(x_2,y_2)\mathrel\rho(x_3,y_3)$ povla\v ci $x_1=x_2=x_3$, \v sto povla\v ci da je $(x_1,y_1)\mathrel\rho(x_3,y_3)$.
 
 Tako\dj e smo mogli i direktnije pokazati da je $\rho$ relacija ekvivalencije ako bismo uo\v cili da je ta\v cka u ravni u relaciji $\rho$ sa drugom ako i samo ako one obe le\v ze na istoj pravoj paralelnoj sa $y$-osom. Ovo pru\v za odgovor i na pitanje koje su klase ekvivalencije relacije $\rho$, to svaka klasa ekvivalencije je prava paralelna sa $y$-osom.
-\item Mogli bismo po definiciji dokazati da je relacija $\rho$ refleksivna, simetri\v cna i tranzitivna, ali ovo ostavljamo \v citaocu za ve\v zbu. Umesto toga, mi \' cemo pokazati da su dve ta\v cke ravni u relaciji ako i samo ako le\v ze na istoj pravoj \v ciji je koeficijent pravca $k=-1$. Neka $(x_1,y_1),(x_2,y_2)\in\mathbb R^2$ dve razli\v cite ta\v cke. Tada
+\item Mogli bismo po definiciji dokazati da je relacija $\rho$ refleksivna, simetri\v cna i tranzitivna, ali ovo ostavljamo \v citaocu za ve\v zbu. Umesto toga, mi \' cemo pokazati da su dve ta\v cke ravni u relaciji ako i samo ako le\v ze na istoj pravoj \v ciji je koeficijent pravca $k=-1$. Neka su $(x_1,y_1),(x_2,y_2)\in\mathbb R^2$ dve razli\v cite ta\v cke. Tada
 \begin{align*}
 (x_1,y_1)\mathrel\rho(x_2,y_2)&\text{ akko }x_1+y_1=x_2+y_2\\
 &\text{ akko }y_2-y_1=x_1-x_2=-(x_2-x_1)\\
 &\text{ akko }k=\frac{y_2-y_1}{x_2-x_1}=-1.
 \end{align*}
-Ovim je pokazano da je koeficijent pravca prave koja sadr\v zi razli\v cite ta\v cke $(x_1,y_1)$ i $(x_2,y_2)$ jednak $-1$.
+Ovim je pokazano da je koeficijent pravca prave koja sadr\v zi razli\v cite ta\v cke $(x_1,y_1)$ i $(x_2,y_2)$ iz iste klase ekvivalencije jednak $-1$.
 
 Pru\v zi\' cemo za ovo i elementarniji dokaz. Neka je $y=kx+n$ jedna\v cina prave odre\dj ene dvema razli\v citim ta\v ckama $(x_1,y_1)$ i $(x_2,y_2)$. Tada je
 \begin{align*}
@@ -1716,7 +1716,7 @@ Sli\v cno kao u zadatku \ref{prethodni-zadatak} (b), mo\v ze se pokazati da su d
 }
 
 \RES{09.zad.1}{
-Relacija deljivosti je refleksivna, antisimetri\v cna i tranzitivna na skupu prirodnih brojeva. Najmanji element je $1$ zato \v sto $1$ svaki prirodan broj, ali najve\' ci element ne postoji zato \v sto svaki prirodan broj deli neki prirodan broj ve\' ci od sebe.
+Relacija deljivosti je refleksivna, antisimetri\v cna i tranzitivna na skupu prirodnih brojeva. Najmanji element je $1$ zato \v sto $1$ deli svaki prirodan broj, ali najve\' ci element ne postoji zato \v sto svaki prirodan broj deli neki prirodan broj ve\' ci od sebe.
 
 Relacija deljivosti na skupu celih brojeva je refleksivna i tranzitivna, ali nije antisimetri\v cna. Naime, $n\mid-n$ i $-n\mid n$ za svaki ceo broj $n$.
 }
@@ -1726,8 +1726,10 @@ Relacija deljivosti na skupu celih brojeva je refleksivna i tranzitivna, ali nij
 \item Relacija $\rho$ nije refleksivna jer nijedan skup nije strogi podskup sebe samog.
 \item Relacija $\rho$ nije antisimetri\v cna relacija, a kao kontraprimer mogu\' ce je odabrati bilo koja dva razli\v cita podskupa skupa $A$ iste kardinalnosti.
 \item Relacija $\rho$ nije antisimetri\v cna. Kao kontraprimer mogu\' ce je odabrati bilo koja dva razli\v cita cela broja jednaka po apsulutnoj vrednosti, kao npr. $2$ i $-2$.
-\item Relacija $\rho$ nije antisimetri\v cna, a kao primer mogu\' ce je izabrati bilo koja dva ure\dj ena para $(x,y_1$ i $(x,y_2)$, gde je $y_1\neq y_2$.
-\item Odgovor zavisi od izbora skupa $A$. Relacija $\rho$ je refleksivna, ali ne mora biti antisimetri\v cna - ukoliko postoje dve osobe od kojih je jedna vi\v za a druga starija. Sa druge srane, ako je svaki put osoba vi\v sa od dve osobe istovremeno i starija, onda je relacija tranzitivna. Tako\dj e, po\  sto ne postoje dve osobe iste visine, niti iste starosti, a i ne postoje dve osobe od kojih je jedna starija a druga vi\v sa, relacija $\rho$ je i antisimetri\v cna.
+\item Relacija $\rho$ nije antisimetri\v cna, a kao primer mogu\' ce je izabrati bilo koja dva ure\dj ena para $(x,y_1)$ i $(x,y_2)$, gde je $y_1\neq y_2$.
+\item Odgovor zavisi od izbora skupa $A$. Relacija $\rho$ je refleksivna, ali ne mora biti antisimetri\v cna - ukoliko postoje dve osobe od kojih je jedna vi\v sa a druga starija. Sa druge srane, ako je, za svake dve osobe, ona osoba koja je vi\v sa istovremeno i starija, 
+%je svaki put osoba vi\v sa od dve osobe istovremeno i starija
+ onda je relacija tranzitivna. Tako\dj e, po\v sto ne postoje dve osobe iste visine, niti iste starosti, a i ne postoje dve osobe od kojih je jedna starija a druga vi\v sa, relacija $\rho$ je i antisimetri\v cna.
 \item Relacija $\rho$ nije antisimetri\v cna. Naime, $(1,2)$ i $(2,1)$ su dva razli\v cita elementa takva da je $(1,2)\mathrel\rho(2,1)$ i $(2,1)\mathrel\rho(1,2)$.
 \end{enumerate}
 }
@@ -1749,29 +1751,31 @@ Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka su $x$, $y$ i $z
 }
 
 \RES{09.zad.5}{
-Refleksivnost i tranzitivnost pokazuju se sli\v cno kao i u prethodnom zadatku. Poka\v zimo da je relacija $\rho$ je simetri\v cna. Neka je $x\mathrel\rho y$ za neke $x,y\in\mathbb N$. Tada je $x=2^ky$, odnosno $y=2^{-k}x$, \v sto povla\v ci $y\mathrel\rho x$. Ovim smo pokazali da je $\rho$ relacija ekvivalencije.
+Refleksivnost i tranzitivnost pokazuju se sli\v cno kao i u prethodnom zadatku. Poka\v zimo da je relacija $\rho$ simetri\v cna. Neka je $x\mathrel\rho y$ za neke $x,y\in\mathbb N$. Tada je $x=2^ky$, odnosno $y=2^{-k}x$, \v sto povla\v ci $y\mathrel\rho x$. Ovim smo pokazali da je $\rho$ relacija ekvivalencije.
 }
 
 \RES{09.zad.6}{
 Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+
+Ostaje jo\v s samo da doka\v zemo da je relacija $\sigma$ i tranzitivna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma z$. Tada, ako je $x=y$, onda iz $y\mathrel\sigma z$ trivijalno sledi $x\mathrel\sigma z$. Sli\v cno, $y=z$ trivijalno povla\v ci $x\mathrel\sigma z$. Kona\v cno, neka je $x\neq y\neq z$. Tada va\v zi $x\mathrel\rho y$ i $y\mathrel\rho z$, pa na osnovu tranzitivnosti relacije $\rho$ sledi $x\mathrel\rho z$, \v sto kona\v cno implicira $x\mathrel\sigma y$.
 }
 
 \RES{09.zad.8}{
 Re\v simo zadatke (b), (c) i (f). Ostale ostavljamo \v citaocu za ve\v zbu.
 \begin{enumerate}
-\item[(b)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+\item[(b)] Prika\v zimo najpre tra\v zeni Haseov dijagram.
 
 \begin{center}
 \input samir9-7-b.pgf
 \end{center}
 Minimalni elementi su 2, 3 i 7, maksimalni elementi su 7, 6 i 8. Ne postoji ni najve\' ci ni najmanji element.
-\item[(c)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+\item[(c)] Prika\v zimo najpre tra\v zeni Haseov dijagram.
 \begin{center}
 \input samir9-7-c.pgf
 \end{center}
 
 Jedini minimalni element je 1, koji je ujedno i najmanji element, i 20 je jedini maksimalni element, koji je tako\dj e i najve\' ci element. 
-\item[(f)] Prika\v zimo najpre tra\v zeni Hase dijagram.
+\item[(f)] Prika\v zimo najpre tra\v zeni Haseov dijagram.
 \begin{center}
 \input samir9-7-f.pgf
 \end{center}
@@ -1786,7 +1790,7 @@ Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Je
 \input samir9-8.pgf
 \end{center}
 
-Svi minimalni elementi su $(0,5)$, $(0,2)$, $(1,3)$ i $(2,5)$, svi maksimalni elementi su $(2,8)$, $(0,8)$, $(1,5)$ i $(1,8)$. Zadati ure\dj eni skup nema ni najve\' ci ni najmanji element.
+Svi minimalni elementi su $(0,5)$, $(0,2)$, $(1,2)$ i $(2,5)$, svi maksimalni elementi su $(2,8)$, $(0,8)$, $(1,5)$ i $(1,8)$. Zadati ure\dj eni skup nema ni najve\' ci ni najmanji element.
 }
 
 \RES{09.zad.10}{
@@ -1799,11 +1803,11 @@ Svi minimalni elementi su $(0,5)$, $(0,2)$, $(1,3)$ i $(2,5)$, svi maksimalni el
 
 {\it Simetri\v cnost.} Relacija $\rho$ nije simetri\v cna jer postoje elementi $x$ i $y$ takvi da je $x\mathrel\rho y$ i da nije $y\mathrel\rho x$. Na primer, va\v zi $1\mathrel\rho 2$ a nije $2\mathrel\rho 1$.
 
-{\it Antisimetri\v cnost.} Poka\v zimo da je relacije $\rho$ antisimetri\v cna. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$, i neka je $x\neq y$. Tada va\v zi $x\mid y$ i $y\mid x$, \v sto dalje povla\v ci $x\mid y$, \v cime smo dobili kontradikciju. Sledi da $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$.
+{\it Antisimetri\v cnost.} Poka\v zimo da je relacije $\rho$ antisimetri\v cna. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$, i neka je $x\neq y$. Tada va\v zi $x\mid y$ i $y\mid x$, \v sto dalje povla\v ci $x= y$, \v cime smo dobili kontradikciju. Sledi da $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$.
 
 {\it Tranzitivnost.} Doka\v zimo da je $\rho$ tranzitivna relacija.Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke prirodne brojeve $x$, $y$ i $z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$, pa pretpostavimo dalje da je $x\neq y$ i $y\neq z$. Tada $x\mid y$ i $y\mid z$, odakle sledi $x\mid z$. Dalje, po\v sto je $x\mathrel y$, postoji prost broj $p$ takav da $p\mid y$ i $p\mathrel{\not|}x$. Po\v sto $p\mid y$ i $y\mid z$, sledi da $p\mid z$. Prema tome, postoji prost broj kojim je deljiv broj $z$, a kojim nije deljiv broj $x$. Ovim smo pokazali da je $x\mathrel\rho z$, \v cime je dokazanod a je relacija $\rho$ tranzitivna.
 \item Po\v sto je $\rho$ refleksivna, antisimetri\v cna i tranzitivna, ona je i relacija poretka, ali po\v sto nije simetri\v cna, ona nije relacija ekvivalencije.
-\item Prika\v zimo kona\v cno tra\v zeni Hase dijagram relacije $\rho$.
+\item Prika\v zimo kona\v cno tra\v zeni Haseov dijagram relacije $\rho$.
 \begin{center}
 \input samir9-9-d.pgf
 \end{center}
@@ -1825,8 +1829,8 @@ Po\v sto relacija poretka $\rho$ ima elemenata koji nisu uporedivi, poput 2 i 3,
 {\it Antisimetri\v cnost.} Poka\v zimo da je $\rho$ antisimetri\v cna relacija. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$ za neke prirodne brojeve $x$ i $y$. Primetimo da $x\mathrel\rho y$ povla\v ci $x\leq y$. Prema tome, va\v zi $x\leq y$ i $y\leq x$, \v cime smo pokazali da je $x=y$.
 
 {\it Tranzitivnost.} Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$. Zato u nastavku pretpostavljamo da je $x\neq y$ i $y\neq z$. Po\v sto je $x\mathrel\rho y$, sledi $x\mid y$ i postoji prirodan broj $k$ takav da je $x\mid k$ i $y=kx$. Sli\v cno, $y\mid z$ i postoji prirodan broj $l$ takav da je $y\mid l$ i $z=ly$. Kona\v cno, primetimo da je $z=(kl)x$, kao i to da $x\mid kl$. Sledi $x\mathrel\rho z$, \v cime smo dokazali da je relacija $\rho$ tranzitivna.
-\item Relacija $\rho$ je relacija poretka jer je refleksivna, simetri\v cna i antisimetri\v cna, ali nije i relacija ekvivalencije jer nije simetri\v cna.
-\item Prika\v zimo kona\v cno tra\v zeni Hase dijagram relacije $\rho$.
+\item Relacija $\rho$ je relacija poretka jer je refleksivna, tranzitivna i antisimetri\v cna, ali nije i relacija ekvivalencije jer nije simetri\v cna.
+\item Prika\v zimo kona\v cno tra\v zeni Haseov dijagram relacije $\rho$.
 \begin{center}
 \input samir9-10-d.pgf
 \end{center}
@@ -1836,7 +1840,7 @@ Relacija $\rho$ nije relacija totalnog poretka.
 }
 
 \RES{09.zad.12}{
-Relacije $\rho$ je relacija poretka koja nije i relacija ekvivalencije. Crtanje grafa i Hase dijagrama relacije $\rho$ ostavljamo \v citaocu za ve\v zbu, kao i dokaze da je ona refleksivna, antisimetri\v cna i tranzitivna, i da nije simetri\v cna. 
+Relacije $\rho$ je relacija poretka koja nije i relacija ekvivalencije. Crtanje grafa i Haseovog dijagrama relacije $\rho$ ostavljamo \v citaocu za ve\v zbu, kao i dokaze da je ona refleksivna, antisimetri\v cna i tranzitivna, i da nije simetri\v cna. 
 }
 
 
@@ -1870,7 +1874,7 @@ Funkcija $f$ nije injekcija jer je $f(2)=2=f(4)$, a ni sirjekcija jer se nijedan
 f[A]&=A\\
 f(x)&=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9)\}
 \end{align*}
-Ova funkcija je i injekcija i sirjekcija. Injekcija je jer se ni koja dva razli\v cta elementa domena ne slikaju u isti element kodomena, a sirekcija je jer ne postoji element kodome u kojeg se ne slika nijedan element domena.
+Ova funkcija je i injekcija i sirjekcija. Injekcija je jer se ni koja dva razli\v cta elementa domena ne slikaju u isti element kodomena, a sirekcija je jer ne postoji element kodomena u kojeg se ne slika nijedan element domena.
 \end{enumerate}
 }
 
@@ -1878,15 +1882,18 @@ Ova funkcija je i injekcija i sirjekcija. Injekcija je jer se ni koja dva razli\
 \begin{enumerate}[(a)]
 \item O\v cigledno funkcija $g(x)=x^2$ ima skup slika $[0,+\infty)$, a odatle sledi da je $f[\mathbb R]=[2,+\infty)$. Najpre, \v cigledno $f$ nije sirjektivna jer se u elemente kodomena manje od 2 ne slika nijedan element domena. Pored toga, $f$ nije ni injektivna jer je $f(1)=f(-1)$.
 
-Do ovih zaklju\v caka smo mogli do\' ci i poznaju\' ci \v cinjenicu da je grafik kvadratne funkcije parabola. Naime, po\v sto je njen grafik mogu\' ce prese\' ci pravom paralelnom sa $x$-osom koja bi ga presekla u vi\v se od jedne ta\v cke, funkcija nije injektivna. Tako\dj e, po\v sto postoji prava paralelna sa $x$-osom koja grafik funkcije $f$ ne bi presekla ni u jednoj ta\v cki, $f$ nije sirjektivna.
+Do ovih zaklju\v caka smo mogli do\' ci i poznaju\' ci \v cinjenicu da je grafik kvadratne funkcije parabola. Naime, po\v sto je njen grafik mogu\' ce prese\' ci pravom paralelnom sa $x$-osom koja bi ga presekla u vi\v se od jedne ta\v cke, funkcija nije injektivna. Dalje, za sirjektivnost posmatrajmo sve prave paralelne sa $x$-osom, a koje $y$-osu seku u vrednosti koja pripada kodomenu. Po\v sto je kodomen funkcije $f$ skup $\mathbb R$, posmatra\' cemo sve prave paralelne sa $x$-osom. Kona\v cno, po\v sto postoji takva prava koja ne se\v ce grafik funkcije $f$, funkcija $f$ nije sirjektivna.
 \item Videli smo malopre da je skup slika funkcije $g(x)=x^2+2=[2,+\infty)$, a kako funkcija $h(x)=x^2$ slika interval $[2,+\infty)$ na interval $[4,+\infty)$, sledi da je $f[\mathbb R]=[4,+\infty)$. Ova funkcija nije sirjektivna jer se nijedan element domena ne slika ni u jednu vrednost manju od $4$, a nije ni injektivna jer je $f(-1)=f(1)$.
-\item[(d)] Poznato nam je da se funkcija $g(x)=x^2+1$ slika $\mathbb R$ na $[1,+\infty)$. Dalje, funkcija $h(x)=\frac 1x$ slika $[1,+\infty)$ na $(0,1]$, a kako je $f(x)=(h\circ g)(x)=h(g(x))$, sledi da je $f[\mathbb R]=(0,1]$. Po\v sto skup slika funkcije $f$ nije ceo skup $\mathbb R$, $f$ nije sirjektivna, a nije ni injektivna jer je $f(2)=f(-2)$, odnosno postoje dve razli\v cite vrednosti iz domena koje imaju jednake slike u kodomenu.
+\item[(d)] Poznato nam je da funkcija $g(x)=x^2+1$ slika $\mathbb R$ na $[1,+\infty)$. Dalje, funkcija $h(x)=\frac 1x$ slika $[1,+\infty)$ na $(0,1]$, a kako je $f(x)=(h\circ g)(x)=h(g(x))$, sledi da je $f[\mathbb R]=(0,1]$. Po\v sto skup slika funkcije $f$ nije ceo skup $\mathbb R$, $f$ nije sirjektivna, a nije ni injektivna jer je $f(2)=f(-2)$, odnosno postoje dve razli\v cite vrednosti iz domena koje imaju jednake slike u kodomenu.
 \item[(e)] Funkcija $f$ jednaka je kompoziciji $g\circ h\circ k$, gde su $k(x)=\frac 34x -\frac\pi6$, $h(x)=\sin x$ i $g(x)=3x$. Tada je 
 \begin{align*}
 f[\mathbb R]&=(g\circ h\circ k)[\mathbb R]=g\big[h[k[\mathbb R]]\big]\\
 &=g\big[h[\mathbb R]\big]=g\big[[-1,1]\big]=[-3,3].
 \end{align*}
 Funkcija $f$ o\v cigledno nije sirjektivna jer joj skup slika nije jednak celom kodomenu, a nije ni injektivna jer je periodi\v cna. Npr. $f(\frac 43\pi)=f(0)=-\frac 32$.
+\begin{NAP}
+Ka\v zemo da je funkcija $f:\mathbb R\rightarrow\mathbb R$ periodi\v cna ako postoji konstanta $c\in\mathbb R$ takva da je $f(x)=f(x+c)$. Poznato nam je da funkcije $\sin(x)$ i $\cos(x)$ imaju period $2\pi$, i da funkcije $\tg(x)$ i $\ctg(x)$ imaju period $\pi$.
+\end{NAP}
 \end{enumerate}
 }
 
