@@ -1912,7 +1912,7 @@ odnosno
 \[ f^{-1}\big[[-1,1]\big]=\bigcup_{k\in\mathbb Z}[-\frac \pi6+k\pi,\frac \pi6+k\pi].\]
 \item $f^{-1}[D]=\{1,2,3\}$.
 \item $f^{-1}[D]=\{(x,y)\in\mathbb R^2 :  x^2+y^2\leq 1\}$, odnosno jedini\v cni krug sa centrom u koordinatnom po\v cetku.
-\item $f^{-1}[D]=[2,+\infty)$.
+\item $f^{-1}[D]=[16,+\infty)$.
 \item $f^{-1}[D]=\emptyset$.
 \item $f^{-1}[D]=A$.
 \end{enumerate}
@@ -1941,7 +1941,6 @@ Skupovi slika su $f[A]=\{0,1,2,3,4\}$, $g[B]=\{0,1,2,3\}$ i $(g\circ f)[A]=\{0,1
 
 Funkcija $f$ je injektivna jer ne postoje dva razli\v cita elementa njenog domena $A$ koji se slikaju na isti element kodomena $B$. Ona nije i sirjektivna jer se nijedan element domena ne slika na $5$. Dalje, funkcija $g$ nije ni injektivna jer je $g(1)=g(3)$, a nije ni sirjektivna jer ne postoji element kodomena $B$ koji se slika na $4$. Funkcija $g\circ f$ nije injekcija jer je $(g\circ f)(-4)=(g\circ f)(4)$, a nije ni sirjekcija jer se nijedan element njenog domena ne slika na $3$.
 \item[(d)] Odredimo funkcije $f$, $g$ i $g\circ f$.
-\item Odredimo najpre funkcije $f$, $g$ i $g\circ f$.
 \begin{center}
 \input samir11-5-d-1.pgf
 \end{center}
@@ -1952,10 +1951,9 @@ Funkcija $f$ je injektivna jer ne postoje dva razli\v cita elementa njenog domen
 %\end{align*}
 Skupovi slika su $f[A]=\{2,3,4,5\}$, $g[B]=C$ i $(g\circ f)[A]=\{1,3,6,9\}$.
 
-Funkcija $f$ nije ni injektivna jer je $f(-2)=f(2)$, a ni sirjektivna jer $f$ ne slika nijedan element na $1$. Dalje, $g$ je i injekcija i sirjekcija, pa je i bijekcija. Preslikavanje $g\circ f$ nije injektivno jer je $(g\circ f)(-2)=(g\circ f)(2)$, a nije ni sirjektivno jer se ne postoji element domena $A$ koji funkcija $g\circ f$ slika na $0$.
+Funkcija $f$ nije ni injektivna jer je $f(-2)=f(2)$, a ni sirjektivna jer $f$ ne slika nijedan element na $1$. Dalje, $g$ je i injekcija i sirjekcija, pa je i bijekcija. Preslikavanje $g\circ f$ nije injektivno jer je $(g\circ f)(-2)=(g\circ f)(0)$, a nije ni sirjektivno jer ne postoji element domena $A$ koji funkcija $g\circ f$ slika na $0$.
 
 Kona\v cno, po\v sto je $g$ bijekcija, odredimo njenu inverznu funkciju.
-\item Odredimo najpre funkcije $f$, $g$ i $g\circ f$.
 \begin{center}
 \input samir11-5-d-2.pgf
 \end{center}
@@ -1981,7 +1979,7 @@ Sada mo\v zemo da zapi\v semo funkciju $g\circ f$.
 \[  (g\circ f)(x)=\begin{cases}
 \lvert x^3+1 \rvert&\text{ako }x<0\\
 \displaystyle\frac{x^3+4}3&\text{ako }x\in [0,1)\\
-\lvert x-1\rvert&\text{ako }x<[1,2)\\
+\lvert x-1\rvert&\text{ako }x\in[1,2)\\
 \displaystyle\frac{x+2}3&\text{ako }x\geq 2
 \end{cases}
 \]
@@ -1995,7 +1993,7 @@ Sada mo\v zemo da zapi\v semo funkciju $g\circ f$.
 \[ f^{-1}(m)=m+6. \]
 \item Funkcija $f$ je injetivna jer iz $f(n)=f(m)$, odnosno $3n-5=3m-6$ sledi $n=m$.
 
-Da bismo pokazali da $f$ nije sirjektivna, poka\v zimo da $f$ nijedan ceo broj ne slika na $0$. Neka je $f(n)=0$, odnosno $3n-5=0$. Tada je $3n=5$, tj. $n=\frac 53$, \v sto nije ceo broj. Dakle, ne postoji ceo broj $n$ koji se slika na $0$, \v sime je pokazanod a $f$ nije sirjekcija.
+Da bismo pokazali da $f$ nije sirjektivna, poka\v zimo da $f$ nijedan ceo broj ne slika na $0$. Neka je $f(n)=0$, odnosno $3n-5=0$. Tada je $3n=5$, ali po\v sto desna srane ove jednakosti nije deljiva sa $3$, zaklju\v cujemo da ne postoji ceo broj $n$ koji se slika na $0$, \v cime je pokazano da $f$ nije sirjekcija.
 
 Predstavi\' cemo sada i druga\v ciji na\v cin kako smo mogli zaklju\v citi da $f$ nije sirjektivna. Lako se uo\v cava da $3n-5$ nije deljivo sa $3$ ni za jedan ceo broj $n$, odakle zaklju\v cujemo da skup slika od $f$ ne sadr\v zi nijedan broj deljiv sa $3$.
 \item[(c)] Zadata funkcija nije ni injekcija ni sirjekcija. Isto va\v zi i za funkcije iz (e) i (f).
@@ -2009,11 +2007,11 @@ Poka\v zimo da je $f$ sirjekcija. Neka $m\in\mathbb Z$. Ako je $m$ parno, onda j
 m+1&m\text{ je paran}\\
 m-1&m\text{ je neparan.}
 \end{cases}\]
-\item[(h)] Primetimo da je $f(n)\geq 0$ za $n\in\mathbb N_0$, i da je $f(n)<0$ za $n<0$. Koriste\' ci ovo, mo\v ze se lako pokazati da je $f(n)=f(m)$ povla\v ci $n=m$, \v sto implicira da je $f$ injekcija. Me\dj utim, $f$ nije i sirjekcija jer se nijedan ceo broj ne slika na $-1$.
-\item[(i)] Primetimo da je funkcija $g:2\mathbb Z+1\rightarrow Z$ definisana sa $g(n)=\frac{n+1}2$ bijekcija, gde $2\mathbb Z+1$ ozna\v cava skup neparnih celih brojeva. Ovo ostavljamo \v citaocu za ve\v zbu.
+\item[(h)] Primetimo da je $f(n)\geq 0$ za $n\in\mathbb N_0$, i da je $f(n)<0$ za $n<0$. Koriste\' ci ovo, mo\v ze se lako pokazati da $f(n)=f(m)$ povla\v ci $n=m$, \v sto implicira da je $f$ injekcija. Me\dj utim, $f$ nije i sirjekcija jer se nijedan ceo broj ne slika na $-1$.
+\item[(i)] Primetimo da je funkcija $g:2\mathbb Z+1\rightarrow\mathbb Z$ definisana sa $g(n)=\frac{n+1}2$ bijekcija, gde $2\mathbb Z+1$ ozna\v cava skup neparnih celih brojeva. Ovo ostavljamo \v citaocu za ve\v zbu.
 
-Odatle sledi da je $f$ sirjekcija, jer za svaki ceo broj postoji neparan broj koji su na njega slika. Me\dj utim, $f$ nije i injekcija, jer i za $f(0)$ postoji neparan broj $n$ koji se na njega slika, odakle sledi $f(0)=f(n)$.
-\item[(j)] Ostavljamo \v citaocu za ve\v zbu da poka\v ze da je $g:2\mathbb Z\rightarrow 2\mathbb Z+1$, gde $2\mathbb Z$ i $\mathbb Z+1$ ozna\v cavaju skupove parnih celih brojeva i neparnih celih brojeva, redom, definisana sa $g(n)=n-1$ bijekcija iz skupa parnih celih brojeva u skup neparnih celih brojeva. Tako\dj e je i funkcija $h:2\mathbb Z+1\rightarrow2\mathbb Z$ definisana sa $h(n)=n+3$ bijekcija iz skupa neparnih celih brojeva u skup parnih celih brojeva, \v sto tako\dj eostavljamo \v citaocu za ve\v zbu.
+Odatle sledi da je $f$ sirjekcija, jer za svaki ceo broj postoji neparan broj koji se na njega slika. Me\dj utim, $f$ nije i injekcija, jer i za $0=f(0)$ postoji neparan broj $n$ koji se na njega slika, odakle sledi $f(0)=f(n)$.
+\item[(j)] Ostavljamo \v citaocu za ve\v zbu da poka\v ze da je $g:2\mathbb Z\rightarrow 2\mathbb Z+1$, gde $2\mathbb Z$ i $2\mathbb Z+1$ ozna\v cavaju skupove parnih celih brojeva i neparnih celih brojeva, redom, definisana sa $g(n)=n-1$ bijekcija iz skupa parnih celih brojeva u skup neparnih celih brojeva. Tako\dj e je i funkcija $h:2\mathbb Z+1\rightarrow2\mathbb Z$ definisana sa $h(n)=n+3$ bijekcija iz skupa neparnih celih brojeva u skup parnih celih brojeva, \v sto tako\dj e ostavljamo \v citaocu za ve\v zbu.
 
 Koriste\' ci sve ovo, nije te\v sko pokazati da je $f$ injekcija i sirjekcija, odakle sledi da je $f$ bijekcija. Kona\v cno, njena inverzna funkcija je
 \[f^{-1}(m)=\begin{cases}
@@ -2024,14 +2022,23 @@ m+1&m\text{ je neparan.}
 }
 
 
-\RES{12.zad.2}{Zadatke (d), (e), (f), (g) u (j) ostavljamo za ve\v zbu.
+\RES{12.zad.2}{Zadatke (d), (e), (f), (g) i (j) ostavljamo za ve\v zbu.
 \begin{enumerate}[(a)]
 \item Funkcija $f$ nije ni injektivna ni sirjektivna, jer je $f(1)=f(-1)$, i za svako $x\in\mathbb R$ va\v zi $f(x)\geq 4$.
-\item Funkciju $f(x)$ mogu\' ce je izraziti i kao 
-\[\frac x{x-1}=\frac{x-1+1}{x-1}=\frac{x-1}{x-1}+\frac 1{x-1}=1+\frac 1{x-1}.\]
-Po\v sto je $\frac 1{x-1}\neq 0$ za svako $x$, onda je i $f(x)\neq 1$ za svako $x$, pa $f$ nije sirjekcija.
+\item Poka\v zimo da je $f$ sirjekcija. Neka je $y\in\mathbb R\setminus\{1\}$, i odredimo $x$ takvo da je $f(x)=y$. Primetimo da va\v zi
+\begin{align*}
+%y=f(x)&\text{ akko }
+y=\frac x{1-x}&\text{ akko }x=y(1-x)=y-yx\\
+&\text{ akko }y=x+yx=x(1+y)\\
+&\text{ akko }x=\frac y{1+y}.
+\end{align*}
+Dakle, za svako $y$ iz kodomena funkcije $f$ postoji realan broj $x$ takav da je $\frac x{1-x}=y$. Potrebno je pokazati i da je $x\neq 1$, odnosno da je $x$ element domena. Me\dj utim, ako bi bilo $x=1$, to bi povla\v cilo da izraz $\frac x{1-x}$ nije definisan, tj. nije $y=\frac x{1-x}$, pa prema tome, $x\in\mathbb R\setminus\{1\}$. Dakle, za svako $y$ iz kodomena funkcije $f$ postoji $x$ iz domena funkcije $f$ takav da je $f(x)=y$, \v cime je pokazano da je $f$ sirjekcija.
 
-Poka\v zimo da je funkcija $f$ injektivna. Neka je $f(x_1)=f(x_2)$. Tada sledi
+%Po\v sto je $\frac 1{x-1}\neq 0$ za svako $x$, onda je i $f(x)\neq 1$ za svako $x$, pa $f$ nije sirjekcija.
+
+Poka\v zimo da je funkcija $f$ injektivna. Funkciju $f(x)$ mogu\' ce je izraziti i kao 
+\[\frac x{x-1}=\frac{x-1+1}{x-1}=\frac{x-1}{x-1}+\frac 1{x-1}=1+\frac 1{x-1}.\]
+Neka je $f(x_1)=f(x_2)$. Tada sledi
 \begin{align*}
 1+\frac 1{x_1-1}&=1+\frac 1{x_2-1}\text{, \v sto povla\v ci}\\
 \frac 1{x_1-1}&=\frac 1{x_2-1}\text{, odakle sledi}\\
@@ -2058,7 +2065,7 @@ Sabiraju\' ci ove dve jednakosti, dobijamo $2x=u+v$, odnosno
 Dakle, na ovaj na\v cin smo odredili ure\dj eni par
 \[(x,y)=\Big(\frac{u+v}2,\frac{u-v}2\Big)\]
 takav da je $f(x,y)=(u,v)$. Ovim smo dokazali da je $f$ sirjekcija.
-\item[(i)] Funkcija $f$ nije sirjektivna jer je $x^2+y^2\geq 0$. Prema tome, nijedan element domene se ne slika ni na jedan element kodomena kome je druga koordinata negativna. Npr., nijedan element se ne slika na $(0,-1)$.
+\item[(i)] Funkcija $f$ nije sirjektivna jer je $x^2+y^2\geq 0$. Prema tome, nijedan element domena se ne slika ni na jedan element kodomena kome je druga koordinata negativna. Npr., nijedan element se ne slika na $(0,-1)$.
 
 Da bismo pokazali da $f$ nije ni injekcija, primetimo da je $f(x,y)=f(y,x)$ za sve $x,y\in\mathbb R$. Prema tome, kao kontraprimer mogu\' ce je odabrati i ure\dj ene parove $(1,0)$ i $(0,1)$, odnosno po\v sto je $f(1,0)=f(0,1)$, $f$ nije injekcija.
 \end{enumerate}
