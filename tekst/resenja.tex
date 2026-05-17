@@ -742,14 +742,17 @@ Ovim je tvrdnja dokazana.
 {\it Induktivni korak.} Doka\v zimo da je i $5^{k+1}-1$ deljivo sa $4$. Dobijamo
 \[5^{k+1}-1=5\cdot 5^{k}-1=4\cdot 5^k+5^k-1=4\cdot 5^k+4l=4(5^k+l),\]
 pri \v cemu smo indukcijsku hipotezu primenili kod tre\' ce jednakosti. Ovim je tvrdnja dokazana.
-\item {\it Baza indukcije.} Za $n=1$ dobijamo da je $2^3+3^3=8+27=35$ \v sto je deljivo sa $7$.
+\item[(c)] {\it Baza indukcije.} Za $n=1$ dobijamo da je $3\cdot 5^{3}+2^{4}=391=23\cdot 17$, \v sto je deljivo sa $17$.
 
-{\it Induktivna hipoteza.}  Pretpostavimo da je $2^{k+2}+3^{2k+1}$ deljivo sa $7$ za neko $k\in\mathbb N$, tj. da je $2^{k+2}+3^{2k+1}=7l$ za neko $l\in\mathbb Z$.
+{\it Induktivna hipoteza.}  Pretpostavimo da je $3\cdot 5^{2k+1}+2^{3k+1}$ deljivo sa $17$ za neko $k\in\mathbb N$, tj. da je $3\cdot 5^{2k+1}+2^{3k+1}=17l$ za neko $l\in\mathbb Z$.
 
 {\it Induktivni korak.} Doka\v zimo sada da tvrdnja va\v zi i za $n=k+1$. Dobijamo
 \begin{align*}
-2^{k+3}+3^{2k+3}&=2^{k+3}+3^{2k+3}=2\cdot 2^{k+2}+9\cdot 3^{2k+1}\\
-&=2(2^{k+2}+3^{2k+1})+7\cdot 3^{2k+1}=7(2l+3^{2k+1})
+3\cdot 5^{2(k+1)+1}+2^{3(k+1)+1}&=25\cdot 3\cdot 5^{2k+1}+8\cdot 2^{3k+1}\\
+&=17\cdot 3\cdot 5^{2k+1}+8(3\cdot 5^{2k+1}+2^{3k+1})\\
+&=17\cdot 3\cdot 5^{2k+1}+8\cdot 17l=17(3\cdot 5^{2k+1}+8l)
+%2^{k+3}+3^{2k+3}&=2^{k+3}+3^{2k+3}=2\cdot 2^{k+2}+9\cdot 3^{2k+1}\\
+%&=2(2^{k+2}+3^{2k+1})+7\cdot 3^{2k+1}=7(2l+3^{2k+1})
 \end{align*}
 pri \v cemu smo indukcijsku hipotezu primenili kod pretposlednje jednakosti. Ovim je tvrdnja dokazana.
 \end{enumerate}
@@ -809,16 +812,21 @@ Ovim je tvrdnja zadatka pokazana.
 &=(k+1)\cdot\frac{k+2}2=\frac{(k+1)(k+2)}2.
 \end{align*}
 Ovim je tvrdnja dokazana.
-\item[(c)] {\it Baza indukcije.} Za $n=1$ dobijamo $1^3=\Big(\frac 22\Big)^2$, \v cime je baza indukcije dokazana.
+\item[(c)] {\it Baza indukcije.} Za $n=1$ dobijamo $1^4=\frac {1\cdot 2\cdot 3\cdot5}{30}$, \v cime je baza indukcije dokazana.
 
 {\it Induktivna hipoteza.} Pretpostavimo da tvrdnja va\v zi za $n=k$, tj. da je
-\[1^3+2^3+...+k^3=\Big(\frac{k(k+1)}2\Big)^2\]
+\[1^4+2^4+...+k^4=\frac{k(k+1)(2k+1)(3k^2+3k-1)}{30}\]
 
 {\it Induktivni korak.} Sada, koriste\' ci indukcijsku hipotezu, dokazujemo da tvrdnja va\v zi i za $n=k+1$.
 \begin{align*}
-1^3+2^3+...+k^3+(k+1)^3&=\Big(\frac{k(k+1)}2\Big)^2+(k+1)^3=(k+1)^2\Big(\frac{k^2}4+k+1\Big)\\
-&=(k+1)^2\cdot\frac{(k^2+4k+4)}4=\frac{(k+1)^2(k+2)^2}4\\
-&=\Big(\frac{(k+1)(k+2)}2\Big)^2
+1^4&+2^4+...+k^4+(k+1)^4=\frac{k(k+1)(2k+1)(3k^2+3k-1)}{30}+(k+1)^4\\
+&=(k+1)\frac{k(2k+1)(3k^2+3k-1)+30(k+1)^3}{30}\\
+&=(k+1)\frac{6 k^4+39 k^3+91k^2+89k+30}{30}\\
+&=(k+1)\frac{(6k^4+12k^3)+(27k^3+54k^2)+(37k^2+74k)+(15k+30)}{30}\\
+&=(k+1)(k+2)\frac{6k^3+27k^2+37k+15}{30}\\
+&=(k+1)(k+2)\frac{(6k^3+9k^2)+(18k^2+27k)+(10k+15)}{30}\\
+&=(k+1)(k+2)(2k+3)\frac{3k^2+9k+5}{30}\\
+&=\frac{(k+1)(k+2)(2k+3)\big(3(k+1)^2+3(k+1)-1\big)}{30}
 \end{align*}
 Ovim je tvrdnja dokazana.
 \end{enumerate}
