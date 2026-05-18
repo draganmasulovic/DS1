@@ -1069,8 +1069,6 @@ Ovim je dokazano da Ivica blok slagalice od $n$ deli\' ca sla\v ze u $n-1$ korak
 \end{enumerate}
 \end{multicols}
 
-\clearpage
-
 \RES{05.zad.5}
 Primetimo da je $A=\{2,4,6,8,10\}$.
 \begin{multicols}{2}
@@ -1081,7 +1079,7 @@ Primetimo da je $A=\{2,4,6,8,10\}$.
 \item $A \cap (B \cup D)=\{ 4,6\}$;
 \item $B \cap(\overline A \cup\overline D)=\{3, 4, 5, 6\}$; % ovaj je razlicit u odnosu na vezbe.
 \item $(\overline{C \cap D}) \cup B=\{ 1, 2, 3, 4, 5, 6, 8, 10\}$;
-\item $\overline B\cap\overline C$=\{ 1,2 \};
+\item $\overline B\cap\overline C=\{ 1,2 \}$;
 \item $A \setminus (B \cap \overline C)=\{ 2, 8, 10 \}$;
 \item $(A \setminus B)\cup (D \setminus C)=\{ 1, 2, 3, 5, 8, 10 \}$;
 \item $\overline {D \setminus C}=\{ 2, 4, 6, 7, 8, 9, 10 \}$;
@@ -1092,62 +1090,62 @@ Primetimo da je $A=\{2,4,6,8,10\}$.
 
 \RES{05.zad.6}
 \begin{enumerate}[(a)]
-\item Neka je $x$ proizvoljan element. Tada dobijamo slede\' ce.
+\item Neka je $x$ proizvoljan element. Tada dobijamo slede\' ce:
 \begin{align*}
 x\in\overline{A\cup B} &\text{ akko } x\not\in A\cup B\text{ akko }\neg(x\in A\vee x\in B)\\
-&\text{ akko }x\not\in A\wedge x\not\in B\text{ akko } x\in\overline A\cap\overline B
+&\text{ akko }x\not\in A\wedge x\not\in B\text{ akko } x\in\overline A\cap\overline B.
 \end{align*}
 Ovim je zadata skupovna jednakost dokazana.
 \item Ova jednakost dokazuje se sli\v cno kao prethodna.
-\item Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
+\item Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce:
 \begin{align*}
 x\in A\setminus(A\cap B)&\text{ akko } x\in A\wedge x\not\in A\cap B\text{ akko } x\in A\wedge\neg(x\in A\wedge x\in B)\\
 &\text{ akko }x\in A\wedge (x\not\in A\vee x\not\in B)\\
-&\text{ akko }(x\in A\wedge x\not\in A)\vee(x\in A\vee x\not\in B)\\
-&\text{ akko }\bot \vee(x\in A\vee x\not\in B)\text{ akko }(x\in A\vee x\not\in B)\\
-&\text{ akko }x\in A\setminus B
+&\text{ akko }(x\in A\wedge x\not\in A)\vee(x\in A\wedge x\not\in B)\\
+&\text{ akko }\bot \vee(x\in A\wedge x\not\in B)\text{ akko }(x\in A\wedge x\not\in B)\\
+&\text{ akko }x\in A\setminus B.
 \end{align*}
 Ovim smo zadatu skupovnu jednakost pokazali.
-\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce.
+\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce:
 \begin{align*}
 x\in A \cap (B \setminus C)&\text{ akko }x\in A\wedge x\in B\setminus C\text{ akko } x\in A\wedge (x\in B \wedge x\not\in C)\\
-&\text{ akko }(x\in A\wedge x\in B )\wedge x\not\in C\text{ akko }x\in (A\cap B)\setminus C
+&\text{ akko }(x\in A\wedge x\in B )\wedge x\not\in C\text{ akko }x\in (A\cap B)\setminus C.
 \end{align*}
 Ovim je jednakost dokazana.
-\item Neka je element $x$ proizvoljan. Tada dobijamo slede\' ce.
+\item Neka je element $x$ proizvoljan. Tada dobijamo slede\' ce:
 \begin{align*}
 x\in A \cup (B \cap C)&\text{ akko } x\in A\vee(x\in B\wedge x\in C)\\
 &\text{ akko }(x\in A\vee x\in B)\wedge (x\in A\vee x\in C)\\
-&\text{ akko }x\in (A\cup B)\cap(A\cup C)
+&\text{ akko }x\in (A\cup B)\cap(A\cup C).
 \end{align*}
 Ovim je zadata jednakost pokazana.
-\item Neka je $x$ proizvoljan. Tada va\v zi slede\' ce.
+\item Neka je $x$ proizvoljan. Tada va\v zi slede\' ce:
 \begin{align*}
 x\in (A \cup B) \setminus C&\text{ akko }(x\in A\vee x\in B)\wedge x\not \in C\\
 &\text{ akko }(x\in A\wedge x\not\in C)\vee(x\in B\wedge x\not\in C)\\
-&\text{ akko }x\in (A \setminus C) \cup (B \setminus C)
+&\text{ akko }x\in (A \setminus C) \cup (B \setminus C).
 \end{align*}
 Ovim je jednakost dokazana.
-\item Neka je $x$ proizvoljan element. Onda dobijamo slede\' ce.
+\item Neka je $x$ proizvoljan element. Onda dobijamo slede\' ce:
 \begin{align*}
 x\in  (A \cup B) \setminus (\overline A \cap C)&\text{ akko } (x\in A\vee x\in B)\wedge\neg (x\not\in A\wedge x\in C)\\
 &\text{ akko } (x\in A\vee x\in B)\wedge (x\in A\vee x\not\in C)\\
 &\text{ akko } x\in A\vee (x\in B\wedge x\not\in C)\\
-&\text{ akko } x\in A\cup(B\setminus C)
+&\text{ akko } x\in A\cup(B\setminus C).
 \end{align*}
 Ovim je zadata jednakost dokazana.
-\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce.
+\item Neka je element $x$ proizvoljan. Tada va\v zi slede\' ce:
 \begin{align*}
 x\in A \setminus (B \cup C)&\text{ akko }x\in A\wedge\neg (x\in B\vee x\in C)\\
 &\text{ akko }x\in A\wedge (x\not\in B\wedge x\not\in C)\\
 &\text{ akko }(x\in A\wedge x\not\in B)\wedge x\not\in C\\
-&\text{ akko }x\in(A \setminus B) \setminus C
+&\text{ akko }x\in(A \setminus B) \setminus C.
 \end{align*}
 Ovim je tvrdnja zadatka dokazana.
 \end{enumerate}
 
 \RES{05.zad.7}
-Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
+Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce:
 \begin{align*}
 &x\in (A\cap B)\triangle(A\cap C)\\
 &\text{ akko }\big[ x\in A\wedge x\in B \wedge \neg (x\in A\wedge x\in C) \big]\vee \big[ x\in A\wedge x\in C\wedge \neg (x\in A\wedge x\in B)   \big] \\
@@ -1156,7 +1154,7 @@ Neka je $x$ proizvoljan element. Tada va\v zi slede\' ce.
 &\ \ \ \ \ \ \ \ \ \ \ \ \vee \big[ x\in C\wedge \big((x\in A\wedge x\not\in A)\vee (x\in A \wedge  x\not\in B)\big)   \big] \\
 &\text{ akko }\big[ x\in B\wedge x\in A \wedge x \not\in C \big]\vee \big[ x\in C\wedge x\in A \wedge  x\not\in B   \big] \\
 &\text{ akko }x\in A\wedge \big[ (x\in B\wedge x\not\in C)\vee (x\in C\wedge x\not\in B)    \big]\\
-&\text{ akko }x\in A\cap(B\triangle C)
+&\text{ akko }x\in A\cap(B\triangle C).
 \end{align*}
 Ovim je prva tvrdnja zadatka pokazana.
 
@@ -1173,7 +1171,7 @@ Ozna\v cimo sa $U$ skup svih anketiranih u\v cenika, i neka su $N$, $K$ i $P$ sk
 \lvert U\rvert&=1000, & \lvert N\rvert&=275\text{ i}\\
 \lvert K\rvert&=455, & \lvert P\rvert&=405.
 \end{align*}
-Dalje, po\v sto $256$ u\v cenika ne igra igre ni na jednoj od tri navedene platforme, sledi da je
+Dalje, po\v sto $265$ u\v cenika ne igra igre ni na jednoj od tri navedene platforme, sledi da je
 \[ \lvert K\cup N\cup P\rvert = 735.  \]
 Tako\dj e, postavkom zadatka dato je i
 \begin{align*}
@@ -1291,11 +1289,11 @@ Delove zadatka (c) i (d) ostavljamo \v citaocu za ve\v zbu.
 
 \RES{06.zad.9}
 \begin{enumerate}[(a)]
-\item Poka\v zimo da data skupovna jednakost va\v zi. Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce.
+\item Poka\v zimo da data skupovna jednakost va\v zi. Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce:
 \begin{align*}
 (x,y)\in (A\times X)\cap(B\times Y)&\text{ akko }(x\in A\wedge y\in X)\wedge (x\in B\wedge y\in Y)\\
 &\text{ akko }(x\in A\wedge x\in B)\wedge (y\in X\wedge y\in Y)\\&
-\text{ akko }(x,y)\in (A\cap B)\times(X\cap Y)
+\text{ akko }(x,y)\in (A\cap B)\times(X\cap Y).
 \end{align*}
 Ovim je jednakost $(A\times X)\cap(B\times Y)=(A\cap B)\times(X\cap Y)$ dokazana.
 \item Neka je $A=\{a\}$, $B=\{b\}$, $X=\{x\}$ i $Y=\{y\}$. Tada
@@ -1305,12 +1303,12 @@ Ovim je jednakost $(A\times X)\cap(B\times Y)=(A\cap B)\times(X\cap Y)$ dokazana
 \end{align*}
 Prema tome, ne va\v zi data jednakost.
 
-Poka\v zimo da va\v zi $(A\times X)\cup(B\times Y)\subseteq (A\cup B)\times(X\cup Y)$. Neka su $x$ i $y$ proizvoljni. Tada va\v zi slede\' ce.
+Poka\v zimo da va\v zi $(A\times X)\cup(B\times Y)\subseteq (A\cup B)\times(X\cup Y)$. Neka su $x$ i $y$ proizvoljni. Tada va\v zi slede\' ce:
 \begin{align*}
 &(x,y)\in (A\times X)\cup(B\times Y)\text{ akko }(x\in A\wedge y\in X)\vee(x\in B\wedge y\in Y)\\
 &\text{ akko }(x\in A\vee x\in B)\wedge (x\in A\vee y\in Y)\wedge (y\in X\vee x\in B)\wedge (y\in X\vee y\in Y)\\
 &\text{ sledi }(x\in A\vee x\in B)\wedge  (y\in X\vee y\in Y)\\
-&\text{ akko }(x,y)\in (A\cup B)\times (X\cup Y)
+&\text{ akko }(x,y)\in (A\cup B)\times (X\cup Y).
 \end{align*}
 Ovim je inkluzija pokazana.
 \end{enumerate}
@@ -1318,11 +1316,11 @@ Ovim je inkluzija pokazana.
 
 \RES{06.zad.10} Dokaza\' cemo jednakosti (a) i (b), dok ostale zadatke ostavljamo \v citaocu za ve\v zbu.
 \begin{enumerate}[(a)]
-\item Elementi skupa $P=\big((A\setminus B)\times X\big)\times M$ su ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
+\item Elementi skupa $L=\big((A\setminus B)\times X\big)\times M$ su ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
 % Elementi skupova $\big((A\setminus B)\times X\big)\times M$ i $\big((A\times X)\setminus(B\times X)\big)\times M$ su ure\dj eni parovi $(u,z)$.
 Prema tome, da bismo dokazali datu skupovnu jednakost, potrebno je dokazati da element $((x,y),z)$ pripada $L$ akko $((x,y),z)$ pripada skupu $D$. 
 
-Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' ce.
+Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' ce:
 \begin{align*}
 &((x,y),z)\in \big((A\times X)\setminus(B\times X)\big)\times M\\
 &\text{ akko } (x,y)\in (A\times X)\setminus(B\times X)\wedge z\in M \\
@@ -1331,20 +1329,20 @@ Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' c
 &\text{ akko }x\in A\wedge \big((y\in X\wedge x\not\in B)\vee(y\in X\wedge y\not\in X)\big)\wedge z\in M\\
 &\text{ akko }x\in A\wedge y\in X\wedge x\not\in B\wedge z\in M\\
 &\text{ akko }(x\in A\wedge x\not\in B)\wedge y\in X\wedge z\in M\\
-&\text{ akko }((x,y),z)\in (A\setminus B)\times X\times M
+&\text{ akko }((x,y),z)\in \big((A\setminus B)\times X\big)\times M.
 \end{align*}
 Ovim je zadata skupovna jednakost dokazana.
-\item Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce.
+\item Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce:
 \begin{align*}
 &(x,y)\in (A\times X)\setminus\big((A\times Y)\cup(B\times X)\big)\\
-&\text{ akko }x\in A\wedge y\in X\wedge\neg ((x\in A\wedge y\in Y)\vee (x\in B\vee y\in X))\\
+&\text{ akko }x\in A\wedge y\in X\wedge\neg ((x\in A\wedge y\in Y)\vee (x\in B\wedge y\in X))\\
 &\text{ akko }x\in A\wedge y\in X\wedge \neg (x\in A\wedge y\in Y)\wedge \neg(x\in B\wedge y\in X)\\
 &\text{ akko }x\in A\wedge (x\not\in A\vee y\not\in Y)\wedge y\in X\wedge (x\not\in B\vee y\not\in X)\\
 &\text{ akko }\big[(x\in A\wedge x\not\in A)\vee (x\in A\wedge y\not\in Y)\big]\\
 &\ \ \ \ \ \ \ \ \ \ \ \wedge \big[ (y\in X\wedge x\not\in B)\vee(y\in X\wedge y\not\in X)  \big]\\
 &\text{ akko }x\in A\wedge y\not\in Y\wedge y\in X\wedge x\not\in B\\
 &\text{ akko }x\in A\setminus B\wedge y\in X\setminus Y\\
-&\text{ akko }(x,y)\in (A\setminus B)\times(X\setminus Y)
+&\text{ akko }(x,y)\in (A\setminus B)\times(X\setminus Y).
 \end{align*}
 Ovim je zadata jednakost dokazana.
 \end{enumerate}
