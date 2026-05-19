@@ -1289,7 +1289,7 @@ Delove zadatka (c) i (d) ostavljamo \v citaocu za ve\v zbu.
 
 \RES{06.zad.9}
 \begin{enumerate}[(a)]
-\item Poka\v zimo da data skupovna jednakost va\v zi. Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce:
+\item Primetimo da su elementi skupova s obe strane jednakosti ure\dj eni parovi. Prema tome, dovoljno je pokazati da svaki ure\dj eni par pripada skupu $A\times(X\cap Y)$ ako i samo ako pripada skupu $(A\times X)\cap(A\times Y)$. Poka\v zimo da data skupovna jednakost va\v zi:
 \begin{align*}
 (x,y)\in (A\times X)\cap(B\times Y)&\text{ akko }(x\in A\wedge y\in X)\wedge (x\in B\wedge y\in Y)\\
 &\text{ akko }(x\in A\wedge x\in B)\wedge (y\in X\wedge y\in Y)\\&
@@ -1303,7 +1303,7 @@ Ovim je jednakost $(A\times X)\cap(B\times Y)=(A\cap B)\times(X\cap Y)$ dokazana
 \end{align*}
 Prema tome, ne va\v zi data jednakost.
 
-Poka\v zimo da va\v zi $(A\times X)\cup(B\times Y)\subseteq (A\cup B)\times(X\cup Y)$. Neka su $x$ i $y$ proizvoljni. Tada va\v zi slede\' ce:
+Poka\v zimo da va\v zi $(A\times X)\cup(B\times Y)\subseteq (A\cup B)\times(X\cup Y)$. Sli\v cno kao pod (a), imamo:
 \begin{align*}
 &(x,y)\in (A\times X)\cup(B\times Y)\text{ akko }(x\in A\wedge y\in X)\vee(x\in B\wedge y\in Y)\\
 &\text{ akko }(x\in A\vee x\in B)\wedge (x\in A\vee y\in Y)\wedge (y\in X\vee x\in B)\wedge (y\in X\vee y\in Y)\\
@@ -1316,11 +1316,9 @@ Ovim je inkluzija pokazana.
 
 \RES{06.zad.10} Dokaza\' cemo jednakosti (a) i (b), dok ostale zadatke ostavljamo \v citaocu za ve\v zbu.
 \begin{enumerate}[(a)]
-\item Elementi skupa $L=\big((A\setminus B)\times X\big)\times M$ su ure\dj eni parovi $(u,z)$ takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
+\item Elementi skupa $L=\big((A\setminus B)\times X\big)\times M$ su ure\dj eni parovi $(u,z)$, takvi da $u\in (A\setminus B)\times X$ i $z\in M$. Dalje, elementi skupa $(A\setminus B)\times X$ su ure\dj eni parovi $(x,y)$ takvi da $x\in A\setminus B$ i $y\in X$. Prema tome, svaki element skupa $P$ je element oblika $((x,y),z)$. Sli\v cno prime\' cujemo da su i elementi skupa $D=\big((A\times X)\setminus(B\times X)\big)\times M$ tako\dj e oblika $((x,y),z)$.
 % Elementi skupova $\big((A\setminus B)\times X\big)\times M$ i $\big((A\times X)\setminus(B\times X)\big)\times M$ su ure\dj eni parovi $(u,z)$.
-Prema tome, da bismo dokazali datu skupovnu jednakost, potrebno je dokazati da element $((x,y),z)$ pripada $L$ akko $((x,y),z)$ pripada skupu $D$. 
-
-Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' ce:
+Prema tome, da bismo dokazali datu skupovnu jednakost, potrebno je dokazati da element $((x,y),z)$ pripada $L$ akko $((x,y),z)$ pripada skupu $D$:
 \begin{align*}
 &((x,y),z)\in \big((A\times X)\setminus(B\times X)\big)\times M\\
 &\text{ akko } (x,y)\in (A\times X)\setminus(B\times X)\wedge z\in M \\
@@ -1332,7 +1330,7 @@ Pretpostavimo da su $x$, $y$ i $z$ proizvoljni elementi. Tada dobijamo slede\' c
 &\text{ akko }((x,y),z)\in \big((A\setminus B)\times X\big)\times M.
 \end{align*}
 Ovim je zadata skupovna jednakost dokazana.
-\item Neka su $x$ i $y$ proizvoljni elementi. Tada va\v zi slede\' ce:
+\item Sli\v cno kao pod (a), imamo:
 \begin{align*}
 &(x,y)\in (A\times X)\setminus\big((A\times Y)\cup(B\times X)\big)\\
 &\text{ akko }x\in A\wedge y\in X\wedge\neg ((x\in A\wedge y\in Y)\vee (x\in B\wedge y\in X))\\
@@ -1423,14 +1421,14 @@ Ovde \' cemo postupno re\v siti zadake (a) i (g), dok ostale ostavljamo za ve\v 
 &\equiv (\exists x)\big[  R(x)\wedge\neg (\exists y)\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
 &\equiv (\exists x)\big[  R(x)\wedge (\forall y)\neg\big[ \big((\forall z)S(z)\big)\vee \neg P(y)      \big]     \big]\\
 &\equiv (\exists x)\big[  R(x)\wedge (\forall y)\big[ \neg\big((\forall z)S(z)\big)\wedge  P(y)      \big]     \big]\\
-&\equiv (\exists x)\big[ R(x)\wedge (\forall y)\big[ \big((\exists z)\neg S(z)\big)\wedge P(y) \big]   \big]
+&\equiv (\exists x)\big[ R(x)\wedge (\forall y)\big[ \big((\exists z)\neg S(z)\big)\wedge P(y) \big]   \big].
 \end{align*}
 \item[(g)]
 \begin{align*}
 &\neg(\forall x)\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
 &\equiv(\exists x)\neg\big[(\exists y)S(x,y)\Rightarrow(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
 &\equiv(\exists x)\big[(\exists y)S(x,y)\wedge\neg(\forall y)\big[R(y)\vee S(x,y)\big] \big]\\
-&\equiv(\exists x)\big[(\exists y)S(x,y)\wedge(\exists y)\big[\neg R(y)\wedge \neg S(x,y)\big] \big]\\
+&\equiv(\exists x)\big[(\exists y)S(x,y)\wedge(\exists y)\big[\neg R(y)\wedge \neg S(x,y)\big] \big].
 \end{align*}
 
 \end{enumerate}
@@ -1444,18 +1442,18 @@ F_3&=(\forall x)(R(x)\Rightarrow P(x)),& F_4&=(\exists x)(R(x)\wedge\neg Q(x)).
 \end{align*}
 Konstrui\v simo model za predikatsku formulu $F=F_1\wedge F_2\wedge F_2\wedge F_4$. Bi\' ce neophodno odrediti domen $D$ i zna\v cenja predikata $P$, $Q$ i $R$ za koje \' ce sve formule $F_1$, $F_2$, $F_3$ i $F_4$ biti ta\v cne. U ovom slu\v caju, predikati $P$, $Q$ i $R$ bi\' ce unarne relacije na skupu $D$.
 
-Neka $D$ sadr\v zi element $a$, a kako bi $F_2$ bila ta\v cna, uzmimo da va\v zi $R(a)$. Dalje, kako bi $F_3$ bila ta\v cna, neophodno je da va\v zi i $P(a)$. Sli\v cno, da bi i $F_1$ bila ta\v cna formula, ne sme da va\v zi $Q(a)$. U ovom slu\v caju je i $F_4$ ta\v cna. Na ovaj na\v cin konstruisan je model \v ciji je domen $D=\{a\}$ i \v ciji predikati $P$, $Q$ i $R$ imaju slede\' ca zna\v cenja.
+Neka $D$ sadr\v zi element $a$, a kako bi $F_2$ bila ta\v cna, uzmimo da va\v zi $R(a)$. Dalje, kako bi $F_3$ bila ta\v cna, neophodno je da va\v zi i $P(a)$. Sli\v cno, da bi i $F_1$ bila ta\v cna formula, ne sme da va\v zi $Q(a)$. U ovom slu\v caju je i $F_4$ ta\v cna. Na ovaj na\v cin konstruisan je model \v ciji je domen $D=\{a\}$ i \v ciji predikati $P$, $Q$ i $R$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 P(x)&\leadsto x\in\{a\}\\
 Q(x)&\leadsto x\in\emptyset\text{, tj. }Q\text{ je prazna relacija}\\
-R(x)&\leadsto x\in\{a\}
+R(x)&\leadsto x\in\{a\}.
 \end{align*}
 
-\noindent {\it Drugi na\v cin.} Mogu\' ce je prona\' ci i model formule $\mathcal F=F_1\wedge F_2\wedge F_2\wedge F_4$ i na skupu prirodnih brojeva takav da predikati $P$, $Q$ i $R$ predstavljaju poznate unarne relacije na skupu prirodnih brojeva. Kao \v sto smo ranije primetili, bar jedan element treba da ima svojstvo $R$, svaki element koji ima svojstvo $R$ mora imati svojstvo $P$, a i svaki element koji ima svojstvo $P$ ne sme imati svojstvo $Q$. Ovo se posti\v ze za slede\' ca zna\v cenja predikata na skupu $\mathbb N$.
+\noindent {\it Drugi na\v cin.} Mogu\' ce je prona\' ci i model formule $F=F_1\wedge F_2\wedge F_2\wedge F_4$ i na skupu prirodnih brojeva takav da predikati $P$, $Q$ i $R$ predstavljaju poznate unarne relacije na skupu prirodnih brojeva. Kao \v sto smo ranije primetili, bar jedan element bi trebalo da ima svojstvo $R$, svaki element koji ima svojstvo $R$ mora imati svojstvo $P$, a i svaki element koji ima svojstvo $P$ ne sme imati svojstvo $Q$. Ovo se posti\v ze za slede\' ca zna\v cenja predikata na skupu $\mathbb N$:
 \begin{align*}
 P(x)&\leadsto 2\mid x\\
 Q(x)&\leadsto 2\mathrel{\not|} x\\
-R(x)&\leadsto 4\mid x
+R(x)&\leadsto 4\mid x.
 \end{align*}
 }
 
@@ -1467,14 +1465,14 @@ Uvedimo slede\' ce oznake.
 F_1=(\forall x)(A(x)\Rightarrow B(x)) && F_2=(\exists x)A(x) && F_3=(\exists x)\neg B(x)
 \end{align*}
 
-Dalje, neka je $D$ domen, i neka $a\in D$. Da bi $F_2$ bila ta\v cna, uzmimo da va\v zi $A(a)$. Dalje, da bi $F_1$ bila ta\v cna, neophodno je da va\v zi i $B(a)$. Sada, da bi i $F_3$ bila ta\v cna, neophodno je da domen $D$ sadr\v zi i elememt $b$ takav da nije $B(b)$. Na ovaj na\v cin, konstruisan je kontramodel polazne formule, \v ciji je domen $D=\{a,b\}$ \v ciji predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
+Dalje, neka je $D$ domen, i neka $a\in D$. Da bi $F_2$ bila ta\v cna, uzmimo da va\v zi $A(a)$. Dalje, da bi $F_1$ bila ta\v cna, neophodno je da va\v zi i $B(a)$. Sada, da bi i $F_3$ bila ta\v cna, neophodno je da domen $D$ sadr\v zi i element $b$ takav da nije $B(b)$. Na ovaj na\v cin, konstruisan je kontramodel polazne formule, \v ciji je domen $D=\{a,b\}$ \v ciji predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 A(x)&\leadsto x\in\{a\}\\
 B(x)&\leadsto x\in\{a\}.
 \end{align*}
 Ovim je dokazano da zadata formula nije valjana.
 
-\noindent {\it Drugi na\v cin.} Jedan kontramodel zadate formule je sa domenom $\mathbb N$ i u kome predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
+\noindent {\it Drugi na\v cin.} Jedan kontramodel zadate formule je sa domenom $\mathbb N$ u kome predikati $A$ i $B$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 A(x)&\leadsto 6\mid x\\
 B(x)&\leadsto 2\mid x.
@@ -1486,10 +1484,10 @@ Ovim smo pokazali da zadata formula nije valjana.
 \begin{enumerate}[(a)]
 \item Zadata predikatska formula ekvivalentna je sa
 \[F=(\exists x)\big(  P(x)\wedge (\exists y)\big(P(y)\wedge    Q(x)\wedge Q(y) \wedge  (\exists z) \neg P(z)  \big)\big).\]
-Neka je $a$ element domena $D$. Najpre uo\v cavamo da za bar jedan element $x$ mora da va\v zi $P(x)$ da bi predikatska formula bila ta\v cna. Neka va\v zi $P(a)$. Sli\v cno, da bi $F$ bila ta\v cna, neophodno je da bar jedan element domena ima svojstvo $Q$. Neka je $b$ element domena takav da va\v zi $Q(b)$. Tako\dj e, neophodno je i da postoji element $c$ takav da ne va\v zi $P(c)$. Dalje, ukoliko ne bi va\v zilo i $P(b)$ i $Q(a)$, formula $F$ ne bi bila ta\v cna. Zato, neka va\v zi $P(b)$ i $Q(a)$. Na ovaj na\v cim smo konstruisali jedan model formule $F$, \v ciji je domen $D=\{a,b,c\}$ i u kome predikati $P$ i $Q$ imaju slede\' ca zna\v cenja.
+Neka je $a$ element domena $D$. Najpre uo\v cavamo da za bar jedan element $x$ mora da va\v zi $P(x)$ da bi predikatska formula bila ta\v cna. Neka va\v zi $P(a)$. Sli\v cno, da bi $F$ bila ta\v cna, neophodno je da bar jedan element domena ima svojstvo $Q$. Neka je $b$ element domena takav da va\v zi $Q(b)$. Tako\dj e, neophodno je i da postoji element $c$ takav da ne va\v zi $P(c)$. Dalje, ukoliko ne bi va\v zilo i $P(b)$ i $Q(a)$, formula $F$ ne bi bila ta\v cna. Zato, neka va\v zi $P(b)$ i $Q(a)$. Na ovaj na\v cim smo konstruisali jedan model formule $F$, \v ciji je domen $D=\{a,b,c\}$ i u kome predikati $P$ i $Q$ imaju slede\' ca zna\v cenja:
 \begin{align*}
 P(x)&\leadsto x\in\{a,b\}\\
-Q(x)&\leadsto x\in\{a,b\}
+Q(x)&\leadsto x\in\{a,b\}.
 \end{align*}
 \item Da bismo pokazali da formula nije valjana, najpre je negirajmo, \v cime dobijamo
 \[(\forall x)\big(  P(x)\Rightarrow(\forall y)\big(P(y)\Rightarrow   ( Q(x)\Rightarrow\neg Q(y) ) \vee (\forall z) P(z)  \big)\big).\]
@@ -1506,13 +1504,13 @@ Ovim je pokazano da zadata formula nije valjana.
 \RES{10.zad.4}{
 \begin{enumerate}[(a)]
 \item Ako odaberemo skup $\mathbb Z$ za domen predikata, i predikatu $R(x,y)$ dodelimo zna\v cenje \enquote{$x\leq y$}, time smo konstruisali model date predikatske formule.
-\item Neka je domen skup interpretacije $\mathbb N$, a predikatima $R$ i $T$ dodelimo slede\' ca zna\v cenja.
+\item Neka je domen skup interpretacije $\mathbb N\cup\{0\}$, a predikatima $R$ i $T$ dodelimo slede\' ca zna\v cenja:
 \begin{align*}
-R(x,y,z)&\leadsto x\leq 2y\leq 3z\\
-T(x,y,z)&\leadsto x=y=z=0
+R(x,y,z)&\leadsto y=\frac{x+z}2\\
+T(x,y,z)&\leadsto x=y=z.
 \end{align*}
 Ovim smo konstruisali model za datu formulu.
-\item Jedan model date predikatske formule je sa domenom $\mathbb Q$ i u kome predikat $R(x,y)$ ima zna\v cenje \enquote{$x<y$}.
+\item Jedan model date predikatske formule je sa domenom $\mathbb Q$ i u kome predikat $R(x,y)$ ima zna\v cenje \enquote{$x\leq y$}.
 \end{enumerate}
 }
 
@@ -1537,20 +1535,20 @@ Ovim je konstrisan model date predikatske formule.
 \begin{enumerate}[(b),wide, labelindent=0pt]
 \item[(b)] Neka je
 \begin{align*}
-F_1&=\{(\forall x)(P(x)\wedge Q(x)\Rightarrow S(x)),\\
+F_1&=(\forall x)(P(x)\wedge Q(x)\Rightarrow S(x)),\\
 F_2&=(\forall x)(T(x)\Rightarrow S(x)),\\
 F_3&=(\exists x)(P(x)\wedge\neg Q(x)),\\
-F_4&=(\exists x)(Q(x)\wedge\neg P(x)\text{ i}\\
-F_5&=(\exists x)(S(x)\wedge\neg T(x))\}.
+F_4&=(\exists x)(Q(x)\wedge\neg P(x))\text{ i}\\
+F_5&=(\exists x)(S(x)\wedge\neg T(x)).
 \end{align*}
-Konstrui\v simo postepeno model za formulu $F=F_1\wedge F_2\wedge F_3\wedge F_4\wedge F_5$. Neka je $D$ domen, i neka $a\in D$. Da bi $F_3$ i $F_4$ bile ta\v cne, neka va\v zi $P(a)$ i ne va\v zi $Q(a)$, i neka za neko $b\in D$ va\v zi $Q(b)$ i ne va\v zi $P(b)$. Dalje, kako bi i $F_5$ bila ta\v cna, neka za neko $c\in D$ va\v zi $S(c)$. Na ovaj na\v cin konstruisali smo model za dati skup formula \v ciji je domen $D=\{a,b,c\}$, i u kome predikati imaju slede\' ca zna\v cenja.
+Konstrui\v simo postepeno model za formulu $F=F_1\wedge F_2\wedge F_3\wedge F_4\wedge F_5$. Neka je $D$ domen, i neka $a\in D$. Da bi $F_3$ i $F_4$ bile ta\v cne, neka va\v zi $P(a)$ i ne va\v zi $Q(a)$, i neka za neko $b\in D$ va\v zi $Q(b)$ i ne va\v zi $P(b)$. Dalje, kako bi i $F_5$ bila ta\v cna, neka za neko $c\in D$ va\v zi $S(c)$. Na ovaj na\v cin konstruisali smo model za dati skup formula \v ciji je domen $D=\{a,b,c\}$, i u kome predikati imaju slede\' ca zna\v cenja:
 \begin{align*}
 P(x)&\leadsto x\in\{a\}\\
 Q(x)&\leadsto x\in\{b\}\\
 S(x)&\leadsto x\in\{c\}\\
-T(x)&\leadsto x\in\emptyset
+T(x)&\leadsto x\in\emptyset.
 \end{align*}
-Drugim re\v cima, $a$ je jedini element domena za koji va\v zi $P$, $b$ je jedini element za koji va\v zi $Q$, $c$ je jedini element za koji va\v zi $S$. Tako\dj e, $T$ ne va\v zi ni za jedan element domena. Zbog toga, i jer ni za jedan element domena ne va\v zi i $P$ i $Q$, formule $F_1$ i $F_2$ su tako\dj e ta\v cne.
+Drugim re\v cima, $a$ je jedini element domena za koji va\v zi $P$, $b$ je jedini element za koji va\v zi $Q$, $c$ je jedini element za koji va\v zi $S$. Tako\dj e, $T$ ne va\v zi ni za jedan element domena. Zbog toga, i jer ni za jedan element domena ne va\v ze i $P$ i $Q$, formule $F_1$ i $F_2$ su tako\dj e ta\v cne.
 \end{enumerate}
 }
 
@@ -1563,8 +1561,8 @@ Drugim re\v cima, $a$ je jedini element domena za koji va\v zi $P$, $b$ je jedin
 Umesto gorenavedenog primera, mogli smo i konstruisati relaciju $\sigma$ nad skupom $\mathbb N$ takvu da je $x\mathrel\sigma y$ akko
 $\lvert x-y\rvert\leq 1$. Lako se vidi da je $\sigma$ simetri\v cna i refleksivna relacija, a po\v sto je $1\mathrel\sigma 2$ i $2\mathrel\sigma 3$, a nije $1\mathrel\sigma 3$, relacija $\sigma$ nije i tranzitivna.
 \item Relacija $\leq$ na skupu $\mathbb N$ je refleksivna i tranzitivna relacija, a nije simetri\v cna.
-\item Prazna relacija je istovremeno i tranzitivna, i simetri\v cna, ali nije refleksivna. 
-\item Prazna relacija je simetri\v cna, antisimetri\v cna i tranzitivna, ali nije refleksivna.
+\item Prazna relacija na nepraznom skupu $A$ je istovremeno i tranzitivna, i simetri\v cna, ali nije refleksivna. 
+\item Prazna relacija  na nepraznom skupu $A$  je simetri\v cna, antisimetri\v cna i tranzitivna, ali nije refleksivna.
 \item Neka je $\rho$ relacija na skupu $A$ koja je simetri\v cna i antisimetri\v cna. Neka su $x,y,z\in A$ proizvoljni elementi, i neka va\v zi $x\mathrel\rho y$ i $y\mathrel\rho z$. Po\v sto je relacija $\rho$ simetri\v cna, sledi $y\mathrel\rho x$ jer je $x\mathrel\rho y$. Dalje, po\v sto je $\rho$ antisimetri\v cna, onda $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$. Napokon, po\v sto je $x=y$ i $y\mathrel\rho z$, sledi $x\mathrel\rho z$. Kako su $x$, $y$ i $z$ proizvoljni elementi, sledi da pokazana implikacija va\v zi za bilo koja tri, ne obavezno razli\v cita, elementa $x$, $y$ i $z$ skupa $A$. Ovim je dokazano da je relacija $\rho$ tranzitivna. 
 \end{enumerate}
 }
@@ -1616,7 +1614,7 @@ Osim toga, mogli smo primetiti i da postoji dvosmerna strelica izme\dj u elemena
 
 Dalje, ako je $x\mathrel\rho y$ za $x,y\in\mathbb N$, tada $3\mid x-y$. Naravno, odatle sledi da je i $y-x$ deljivo sa $3$, \v sto povla\v ci i da je $y\mathrel\rho x$. Ovim je pokazano da je $\rho$ simetri\v cna relacija.
 
-Relacija $\rho$ nije antisimetri\v cna po\v sto postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Naime, $3$ i $6$ \v cine jedan par takvih brojeva, \v cime smo prona\v sli kontraprimer za antisimetri\v cnost.
+Relacija $\rho$ nije antisimetri\v cna, po\v sto postoje dva razli\v cita elementa $x$ i $y$ takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Naime, $3$ i $6$ \v cine jedan par takvih brojeva, \v cime smo prona\v sli kontraprimer za antisimetri\v cnost.
 
 Kona\v cno, poka\v zimo da je $\rho$ i tranzitivna. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$ za proizvoljne $x,y,z\in\mathbb N$. Tada
 \begin{align*}
@@ -1634,7 +1632,7 @@ Da bismo pokazali da je relacija antisimetri\v cna, pretpostavimo da za neke $x,
 
 Jo\v s jedan na\v cin da poka\v zemo da je relacija $\rho$ antisimetri\v cna bio bi slede\' ci. Primetimo da $x\mathrel\rho y$ implicira da je $x>y$. Prema tome, za ma koje prirodne brojeve $x$ i $y$, $x\mathrel\rho y$ i $y\mathrel\rho x$ implicira $x>y$ i $y>x$, \v sto je nemogu\' ce, \v cime je dokazano da je $\rho $ antisimetri\v cna.
 
-Primetimo i  da u gornjem dokazu antisimetri\v cnosti iz pretpostavke da je $x\mathrel\rho y$ i $y\mathrel\rho x$ nismo na kraju dobili $x=y$. Ovo ne predstavlja problem, jer mi smo demonstrirali da $x\mathrel\rho y$ i $y\mathrel\rho x$ nije ta\v cno, a samim tim je implikacija $x\mathrel\rho y\wedge y\mathrel\rho x\Rightarrow x=y$ ta\v cna za sve $x,y\in\mathbb N$.
+Primetimo i  da u gornjem dokazu antisimetri\v cnosti iz pretpostavke da je $x\mathrel\rho y$ i $y\mathrel\rho x$ nismo na kraju dobili $x=y$. Ovo ne predstavlja problem, jer smo demonstrirali da $x\mathrel\rho y$ i $y\mathrel\rho x$ nije ta\v cno, a samim tim je implikacija $x\mathrel\rho y\wedge y\mathrel\rho x\Rightarrow x=y$ ta\v cna za sve $x,y\in\mathbb N$.
 
 Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$. Tada je $x=3^ky$ i $y=3^lz$ za neke $k,l\in\mathbb N$. Odavde dobijamo $x=3^k(3^lz)=3^{k+l}z$, odakle sledi da je $x\mathrel\rho z$. Ovim je pokazano da je $\rho$ tranzitivna relacija. 
 
@@ -1662,7 +1660,7 @@ Dalje, da bismo pokazali da $\rho$ nije simetri\v cna relacija, posmatrajmo iska
 
 Poznato nam je da postoje razli\v citi iskazi koji su ekvivalentni, kao na primer $\neg(p\wedge q)$ i $\neg p\vee\neg q$.  Tada va\v zi $\neg(p\wedge q)\mathrel\rho \neg p\vee\neg q$ i $\neg p\vee\neg q\mathrel\rho\neg(p\wedge q)$. Dakle, $\rho$ nije antisimetri\v cna.
 
-Konav\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke iskazne formule $x$, $y$ i $z$. Prisetimo se da je, za iskazne formule $u$ i $v$ iskazna formula $u\Rightarrow v$ tautologija ako i samo ako je $v(v)=\top$ za svaku valuaciju $v$ za koju je $v(u)=\top$. Neka je $v$ proizvoljna valuacija, i neka je $v(x)=\top$. Tada je i $v(y)=\top$, a ovo dalje povla\v ci da je i $v(z)=\top$. Ovim smo pokazali da je $x\Rightarrow z$ tautologija. Dakle, $\rho$ je tranzitivna relacija.
+Kona\v cno, poka\v zimo da je $\rho$ tranzitivna relacija. Neka je $p\mathrel\rho q$ i $q\mathrel\rho r$ za neke iskazne formule $p$, $q$ i $r$. Prisetimo se da je, za iskazne formule $s$ i $t$ iskazna formula $s\Rightarrow t$ tautologija ako i samo ako je $v(t)=\top$ za svaku valuaciju $v$ za koju je $v(s)=\top$. Neka je $v$ proizvoljna valuacija, i neka je $v(p)=\top$. Tada je i $v(q)=\top$, a ovo dalje povla\v ci da je i $v(r)=\top$. Ovim smo pokazali da je $p\Rightarrow r$ tautologija. Dakle, $\rho$ je tranzitivna relacija.
 }
 
 \RES{08.zad.10}{
@@ -1679,11 +1677,11 @@ Odgovor je potvrdan za sve \v cetiri osobine. Dokaz ostavljamo \v citaocu za ve\
 
 \RES{08.zad.11}{
 \begin{enumerate}[(a)]
-\item Lako se uo\v cava da je relacija $\rho$ je refleksivna. Tako\dj e, relacija je $\rho$ je simetri\v cna jer
+\item Lako se uo\v cava da je relacija $\rho$ refleksivna. Tako\dj e, relacija je $\rho$ je simetri\v cna jer
 \[ (x_1,y_1)\mathrel\rho (x_2,y_2)\text{ akko }x_1=x_2\text{ akko }(x_2,y_2)\mathrel\rho (x_1,y_1). \]
-Dalje, $\rho$ je i tranzitivna relacija jer $(x_1,y_1)\mathrel\rho (x_2,y_2)$ i $(x_2,y_2)\mathrel\rho(x_3,y_3)$ povla\v ci $x_1=x_2=x_3$, \v sto povla\v ci da je $(x_1,y_1)\mathrel\rho(x_3,y_3)$.
+Dalje, $\rho$ je i tranzitivna relacija, jer $(x_1,y_1)\mathrel\rho (x_2,y_2)$ i $(x_2,y_2)\mathrel\rho(x_3,y_3)$ povla\v ci $x_1=x_2=x_3$, \v sto povla\v ci da je $(x_1,y_1)\mathrel\rho(x_3,y_3)$.
 
-Tako\dj e smo mogli i direktnije pokazati da je $\rho$ relacija ekvivalencije ako bismo uo\v cili da je ta\v cka u ravni u relaciji $\rho$ sa drugom ako i samo ako one obe le\v ze na istoj pravoj paralelnoj sa $y$-osom. Ovo pru\v za odgovor i na pitanje koje su klase ekvivalencije relacije $\rho$, to svaka klasa ekvivalencije je prava paralelna sa $y$-osom.
+Tako\dj e smo mogli i direktnije pokazati da je $\rho$ relacija ekvivalencije ako bismo uo\v cili da je ta\v cka u ravni u relaciji $\rho$ sa drugom ako i samo ako one obe le\v ze na istoj pravoj paralelnoj sa $y$-osom. Ovo pru\v za odgovor i na pitanje koje su klase ekvivalencije relacije $\rho$, svaka klasa ekvivalencije je prava paralelna sa $y$-osom.
 \item Mogli bismo po definiciji dokazati da je relacija $\rho$ refleksivna, simetri\v cna i tranzitivna, ali ovo ostavljamo \v citaocu za ve\v zbu. Umesto toga, mi \' cemo pokazati da su dve ta\v cke ravni u relaciji ako i samo ako le\v ze na istoj pravoj \v ciji je koeficijent pravca $k=-1$. Neka su $(x_1,y_1),(x_2,y_2)\in\mathbb R^2$ dve razli\v cite ta\v cke. Tada
 \begin{align*}
 (x_1,y_1)\mathrel\rho(x_2,y_2)&\text{ akko }x_1+y_1=x_2+y_2\\
