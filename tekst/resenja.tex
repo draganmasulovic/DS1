@@ -1754,7 +1754,7 @@ Preostaje jo\v s samo da se poka\v ze tranzitivnost. Neka su $(x_1,y_1),(x_2,y_2
 }
 
 \RES{09.zad.4}{
-Relacija $\rho$ je refleksivna jer za svaki prirodan broj $x$ va\v zi $x=2^0x$.
+Relacija $\rho$ je refleksivna, jer za svaki prirodan broj $x$ va\v zi $x=2^0x$.
 
 Poka\v zimo da je $\rho$ antisimetri\v cna relacija. Neka su $x$ i $y$ prirodni brojevi takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Tada je $x=2^ky$ i $y=2^lx$ za neke $k,l\in\mathbb N_0$. Dalje, odatle izvodimo $x=2^ky=2^k2^lx=2^{k+l}x$, odakle sledi $k+l=0$, odnosno $k=l=0$. Ovim smo pokazali da je $x=y$.
 
@@ -1766,7 +1766,9 @@ Refleksivnost i tranzitivnost pokazuju se sli\v cno kao i u prethodnom zadatku. 
 }
 
 \RES{09.zad.6}{
-Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada je $x\mathrel\rho y$, pa na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne va\v zi $y\mathrel\rho x$, pa nije $y\mathrel\sigma x$, \v sto je kontradikcija. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+
+% tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
 
 Ostaje jo\v s samo da doka\v zemo da je relacija $\sigma$ i tranzitivna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma z$. Tada, ako je $x=y$, onda iz $y\mathrel\sigma z$ trivijalno sledi $x\mathrel\sigma z$. Sli\v cno, $y=z$ trivijalno povla\v ci $x\mathrel\sigma z$. Kona\v cno, neka je $x\neq y\neq z$. Tada va\v zi $x\mathrel\rho y$ i $y\mathrel\rho z$, pa na osnovu tranzitivnosti relacije $\rho$ sledi $x\mathrel\rho z$, \v sto kona\v cno implicira $x\mathrel\sigma y$.
 }
@@ -1797,6 +1799,16 @@ Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Je
 
 
 \RES{09.zad.9}{
+%Po\v sto je zadata relacija $\rho$ definisana na devetoelementnom skupu, mogu\' ce je i sa grafa relacije $\rho$ zaklju\v citi da je $\rho$ parcijalno ure\dj enje. Me\dj utim, ovo je lako i direktno zaklju\v citi:
+%
+{\it Refleksivnost.} O\v cigledno za svaki ure\dj eni par $(a,b)\in A$ va\v zi $(a,b)\mathrel\rho(a,b)$, jer $a+b\mid a+b$.
+
+{\it Antisimetri\v cnost.} Po\v sto u skupu $A$ ne postoje dva ure\dj ena para koja imaju jednake zbirove koordinata, ne postoje dva ure\dj ena para $(a,b)$ i $(c,d)$ takvi da je $(a,b)\mathrel\rho(c,d)$ i $(c,d)\mathrel\rho(a,b)$.
+
+{\it Tranzitivnost.} Neka je $(a,b)\mathrel\rho(c,d)$ i $(c,d)\mathrel\rho(e,f)$, za neke ure\dj ene parove $(a,b),(c,d),(e,f)\in A$. Tada $a+b\mid c+d$ i $c+d\mid e+f$, \v sto povla\v ci $a+b\mid e+f$, pa je $(a,b)\mathrel\rho(e,f)$.
+
+Ovim je pokazano da je relacija $\rho$ parcijalno ure\dj enje.
+
 \begin{center}
 \input samir9-8.pgf
 \end{center}
