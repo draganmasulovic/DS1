@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  21 MAY 2026 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  21 MAY 2026 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1002,7 +1002,11 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'serbian'.
-(main-DS1.aux)
+(main-DS1.aux
+
+LaTeX Warning: Label `Gersting' multiply defined.
+
+)
 \openout1 = `main-DS1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 367.
@@ -2278,27 +2282,27 @@ Underfull \vbox (badness 4072) has occurred while \output is active []
 
 
 
-[234] (samir9-7-c.pgf) (samir9-7-f.pgf) (samir9-8.pgf)
+[234] (samir9-7-c.pgf) (samir9-7-f.pgf)
 
-[235] (samir9-9-a.pgf)
+[235] (samir9-8.pgf) (samir9-9-a.pgf)
 
 [236] (samir9-9-d.pgf) (samir9-10-a.pgf)
 
-[237] (samir9-10-d.pgf) (samir11-1-a.pgf)
+[237] (samir9-10-d.pgf)
 
-[238] (samir11-1-d.pgf) (samir11-1-f.pgf)
+[238] (samir11-1-a.pgf) (samir11-1-d.pgf)
 
-[239]
+[239] (samir11-1-f.pgf)
 
 [240]
 
 [241] (samir11-5-a.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1944
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1956
  [] 
  []
 
 (samir11-5-d-1.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1957
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1969
  [] 
  []
 
@@ -2311,7 +2315,7 @@ Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1957
 [244]
 
 [245]
-Overfull \hbox (3.22258pt too wide) in paragraph at lines 2060--2061
+Overfull \hbox (3.22258pt too wide) in paragraph at lines 2072--2073
 []\T1/ptm/m/n/10.95 Pokaºimo da je $\OML/ztmcm/m/it/10.95 f$ \T1/ptm/m/n/10.95 
 bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 .95 f\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )
@@ -2320,34 +2324,43 @@ bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 
 
 
-[246])
+[246]
 
-[247]
+[247])
 
-[248
-
-] (literatura.tex)
+[248] (literatura.tex)
 
 [249
 
-] (main-DS1.aux)
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Gersting
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.469 \end{document}
+                    ] (main-DS1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main-DS1.out' has not changed.
 (rerunfilecheck)             Checksum: 7572441AB8E5529D26ACB37F0E94F84C;9494.
  )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 1807 ({)
+### simple group (level 2) entered at line 1819 ({)
 ### simple group (level 1) entered at line 888 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 28648 strings out of 473899
- 519251 string characters out of 5727915
- 917380 words of memory out of 5000000
- 49425 multiletter control sequences out of 15000+600000
+ 28646 strings out of 473899
+ 519230 string characters out of 5727915
+ 917389 words of memory out of 5000000
+ 49424 multiletter control sequences out of 15000+600000
  669711 words of font info for 204 fonts, out of 8000000 for 9000
  1154 hyphenation exceptions out of 8191
  87i,22n,107p,914b,809s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2375,9 +2388,9 @@ a.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
 fb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
 <C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb><C
 :/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main-DS1.pdf (255 pages, 1502913 bytes).
+Output written on main-DS1.pdf (255 pages, 1504545 bytes).
 PDF statistics:
- 2884 PDF objects out of 2984 (max. 8388607)
- 1219 named destinations out of 1440 (max. 500000)
+ 2882 PDF objects out of 2984 (max. 8388607)
+ 1218 named destinations out of 1440 (max. 500000)
  484 words of extra memory for PDF output out of 10000 (max. 10000000)
 
