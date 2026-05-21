@@ -1754,7 +1754,7 @@ Preostaje jo\v s samo da se poka\v ze tranzitivnost. Neka su $(x_1,y_1),(x_2,y_2
 }
 
 \RES{09.zad.4}{
-Relacija $\rho$ je refleksivna jer za svaki prirodan broj $x$ va\v zi $x=2^0x$.
+Relacija $\rho$ je refleksivna, jer za svaki prirodan broj $x$ va\v zi $x=2^0x$.
 
 Poka\v zimo da je $\rho$ antisimetri\v cna relacija. Neka su $x$ i $y$ prirodni brojevi takvi da je $x\mathrel\rho y$ i $y\mathrel\rho x$. Tada je $x=2^ky$ i $y=2^lx$ za neke $k,l\in\mathbb N_0$. Dalje, odatle izvodimo $x=2^ky=2^k2^lx=2^{k+l}x$, odakle sledi $k+l=0$, odnosno $k=l=0$. Ovim smo pokazali da je $x=y$.
 
@@ -1766,7 +1766,9 @@ Refleksivnost i tranzitivnost pokazuju se sli\v cno kao i u prethodnom zadatku. 
 }
 
 \RES{09.zad.6}{
-Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+Relacija $\sigma$ je o\v cigledno refleksivna. Dalje, poka\v zimo da je $\sigma$ antisimetri\v cna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma x$ za neke $x,y\in A$. Ako je $x\neq y$, tada je $x\mathrel\rho y$, pa na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne va\v zi $y\mathrel\rho x$, pa nije $y\mathrel\sigma x$, \v sto je kontradikcija. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
+
+% tada na osnovu antisimetri\v cnosti relacije $\rho$ zaklju\v cujemo da ne mo\v ze da va\v zi i $x\mathrel\rho y$ i $y\mathrel\rho x$, odnosno nije ni $x\mathrel\sigma y$ i $y\mathrel\sigma x$. Dakle, sledi $x=y$, \v cime je pokazana antisimetri\v cnost relacije $\sigma$.
 
 Ostaje jo\v s samo da doka\v zemo da je relacija $\sigma$ i tranzitivna. Neka je $x\mathrel\sigma y$ i $y\mathrel\sigma z$. Tada, ako je $x=y$, onda iz $y\mathrel\sigma z$ trivijalno sledi $x\mathrel\sigma z$. Sli\v cno, $y=z$ trivijalno povla\v ci $x\mathrel\sigma z$. Kona\v cno, neka je $x\neq y\neq z$. Tada va\v zi $x\mathrel\rho y$ i $y\mathrel\rho z$, pa na osnovu tranzitivnosti relacije $\rho$ sledi $x\mathrel\rho z$, \v sto kona\v cno implicira $x\mathrel\sigma y$.
 }
@@ -1797,6 +1799,16 @@ Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Je
 
 
 \RES{09.zad.9}{
+%Po\v sto je zadata relacija $\rho$ definisana na devetoelementnom skupu, mogu\' ce je i sa grafa relacije $\rho$ zaklju\v citi da je $\rho$ parcijalno ure\dj enje. Me\dj utim, ovo je lako i direktno zaklju\v citi:
+%
+{\it Refleksivnost.} O\v cigledno za svaki ure\dj eni par $(a,b)\in A$ va\v zi $(a,b)\mathrel\rho(a,b)$, jer $a+b\mid a+b$.
+
+{\it Antisimetri\v cnost.} Po\v sto u skupu $A$ ne postoje dva ure\dj ena para koja imaju jednake zbirove koordinata, ne postoje dva ure\dj ena para $(a,b)$ i $(c,d)$ takvi da je $(a,b)\mathrel\rho(c,d)$ i $(c,d)\mathrel\rho(a,b)$.
+
+{\it Tranzitivnost.} Neka je $(a,b)\mathrel\rho(c,d)$ i $(c,d)\mathrel\rho(e,f)$, za neke ure\dj ene parove $(a,b),(c,d),(e,f)\in A$. Tada $a+b\mid c+d$ i $c+d\mid e+f$, \v sto povla\v ci $a+b\mid e+f$, pa je $(a,b)\mathrel\rho(e,f)$.
+
+Ovim je pokazano da je relacija $\rho$ parcijalno ure\dj enje.
+
 \begin{center}
 \input samir9-8.pgf
 \end{center}
@@ -1816,7 +1828,7 @@ Svi minimalni elementi su $(0,5)$, $(0,2)$, $(1,2)$ i $(2,5)$, svi maksimalni el
 
 {\it Antisimetri\v cnost.} Poka\v zimo da je relacije $\rho$ antisimetri\v cna. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho x$, i neka je $x\neq y$. Tada va\v zi $x\mid y$ i $y\mid x$, \v sto dalje povla\v ci $x= y$, \v cime smo dobili kontradikciju. Sledi da $x\mathrel\rho y$ i $y\mathrel\rho x$ povla\v ci $x=y$.
 
-{\it Tranzitivnost.} Doka\v zimo da je $\rho$ tranzitivna relacija.Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke prirodne brojeve $x$, $y$ i $z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$, pa pretpostavimo dalje da je $x\neq y$ i $y\neq z$. Tada $x\mid y$ i $y\mid z$, odakle sledi $x\mid z$. Dalje, po\v sto je $x\mathrel y$, postoji prost broj $p$ takav da $p\mid y$ i $p\mathrel{\not|}x$. Po\v sto $p\mid y$ i $y\mid z$, sledi da $p\mid z$. Prema tome, postoji prost broj kojim je deljiv broj $z$, a kojim nije deljiv broj $x$. Ovim smo pokazali da je $x\mathrel\rho z$, \v cime je dokazanod a je relacija $\rho$ tranzitivna.
+{\it Tranzitivnost.} Doka\v zimo da je $\rho$ tranzitivna relacija. Pretpostavimo da je $x\mathrel\rho y$ i $y\mathrel\rho z$ za neke prirodne brojeve $x$, $y$ i $z$. Ako bi bilo $x=y$ ili $y=z$, tada bi trivijalno sledilo $x\mathrel\rho z$, pa pretpostavimo dalje da je $x\neq y$ i $y\neq z$. Tada $x\mid y$ i $y\mid z$, odakle sledi $x\mid z$. Dalje, po\v sto je $x\mathrel\rho y$, postoji prost broj $p$ takav da $p\mid y$ i $p\mathrel{\not|}x$. Po\v sto $p\mid y$ i $y\mid z$, sledi da $p\mid z$. Prema tome, postoji prost broj kojim je deljiv broj $z$, a kojim nije deljiv broj $x$. Ovim smo pokazali da je $x\mathrel\rho z$, \v cime je dokazano da je relacija $\rho$ tranzitivna.
 \item Po\v sto je $\rho$ refleksivna, antisimetri\v cna i tranzitivna, ona je i relacija poretka, ali po\v sto nije simetri\v cna, ona nije relacija ekvivalencije.
 \item Prika\v zimo kona\v cno tra\v zeni Haseov dijagram relacije $\rho$.
 \begin{center}
@@ -1833,7 +1845,7 @@ Po\v sto relacija poretka $\rho$ ima elemenata koji nisu uporedivi, poput 2 i 3,
 \begin{center}
 \input samir9-10-a.pgf
 \end{center}
-\item {\it Refleksivnost.} Zbog uslova \enquote{$x=x$} u definiciji relacije $\rho$, ova relacija je refleksivna.
+\item {\it Refleksivnost.} Zbog uslova \enquote{$x=y$} u definiciji relacije $\rho$, ova relacija je refleksivna.
 
 {\it Simetri\v cnost.} Relacija $\rho$ nije simetri\v cna. Naime, dovoljno je primetiti da va\v zi $1\mathrel\rho 3$ i da nije $3\mathrel\rho 1$.
 
@@ -1851,7 +1863,7 @@ Relacija $\rho$ nije relacija totalnog poretka.
 }
 
 \RES{09.zad.12}{
-Relacije $\rho$ je relacija poretka koja nije i relacija ekvivalencije. Crtanje grafa i Haseovog dijagrama relacije $\rho$ ostavljamo \v citaocu za ve\v zbu, kao i dokaze da je ona refleksivna, antisimetri\v cna i tranzitivna, i da nije simetri\v cna. 
+Relacija $\rho$ je relacija poretka koja nije i relacija ekvivalencije. Crtanje grafa i Haseovog dijagrama relacije $\rho$ ostavljamo \v citaocu za ve\v zbu, kao i dokaze da je ona refleksivna, antisimetri\v cna i tranzitivna, da nije simetri\v cna, i da nije relacija totalnog poretka. 
 }
 
 
@@ -1867,7 +1879,7 @@ f[A]&=\{4,5,6,7,8,9\}\\
 f&=\{(1,4),(2,4),(3,4),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9)\}
 \end{align*}
 
-Funkcija $f$ nije injekcija jer se na element $4$ kodomena slika vi\v se od jednog elementa domena, odnosno $f(1)=f(2)=4$. Funkcija $f$ nije ni sirjekcija jer postoji bar jedan element kodome u kojeg se nijedan element domena ne slika, odnosno nijedan element se ne slika ni u $1$, ni u $2$, ni u $3$.
+Funkcija $f$ nije injekcija, jer se na element $4$ kodomena slika vi\v se od jednog elementa domena, odnosno $f(1)=f(2)=4$. Funkcija $f$ nije ni sirjekcija jer postoji bar jedan element kodomena u kojeg se nijedan element domena ne slika, odnosno, nijedan element se ne slika ni u $1$, ni u $2$, ni u $3$.
 \item[(d)] Prika\v zimo najpre funkciju $f$ putem dijagrama. Zatim \' cemo odrediti njen skup slika, i prikaza\' cemo $f$ kao podskup skupa $A\times A$.
 \begin{center}
 \input samir11-1-d.pgf
@@ -1885,18 +1897,18 @@ Funkcija $f$ nije injekcija jer je $f(2)=2=f(4)$, a ni sirjekcija jer se nijedan
 f[A]&=A\\
 f(x)&=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9)\}
 \end{align*}
-Ova funkcija je i injekcija i sirjekcija. Injekcija je jer se ni koja dva razli\v cta elementa domena ne slikaju u isti element kodomena, a sirekcija je jer ne postoji element kodomena u kojeg se ne slika nijedan element domena.
+Ova funkcija je i injekcija i sirjekcija. Injekcija je, jer se nikoja dva razli\v cita elementa domena ne slikaju u isti element kodomena, a sirekcija je jer ne postoji element kodomena u kojeg se ne slika nijedan element domena.
 \end{enumerate}
 }
 
 \RES{11.zad.2}{
 \begin{enumerate}[(a)]
-\item O\v cigledno funkcija $g(x)=x^2$ ima skup slika $[0,+\infty)$, a odatle sledi da je $f[\mathbb R]=[2,+\infty)$. Najpre, \v cigledno $f$ nije sirjektivna jer se u elemente kodomena manje od 2 ne slika nijedan element domena. Pored toga, $f$ nije ni injektivna jer je $f(1)=f(-1)$.
+\item O\v cigledno funkcija $g(x)=x^2$ ima skup slika $[0,+\infty)$, a odatle sledi da je $f[\mathbb R]=[2,+\infty)$. Najpre, o\v cigledno $f$ nije sirjektivna, jer se u elemente kodomena manje od 2 ne slika nijedan element domena. Pored toga, $f$ nije ni injektivna, jer je $f(1)=f(-1)$.
 
 Do ovih zaklju\v caka smo mogli do\' ci i poznaju\' ci \v cinjenicu da je grafik kvadratne funkcije parabola. Naime, po\v sto je njen grafik mogu\' ce prese\' ci pravom paralelnom sa $x$-osom koja bi ga presekla u vi\v se od jedne ta\v cke, funkcija nije injektivna. Dalje, za sirjektivnost posmatrajmo sve prave paralelne sa $x$-osom, a koje $y$-osu seku u vrednosti koja pripada kodomenu. Po\v sto je kodomen funkcije $f$ skup $\mathbb R$, posmatra\' cemo sve prave paralelne sa $x$-osom. Kona\v cno, po\v sto postoji takva prava koja ne se\v ce grafik funkcije $f$, funkcija $f$ nije sirjektivna.
-\item Videli smo malopre da je skup slika funkcije $g(x)=x^2+2=[2,+\infty)$, a kako funkcija $h(x)=x^2$ slika interval $[2,+\infty)$ na interval $[4,+\infty)$, sledi da je $f[\mathbb R]=[4,+\infty)$. Ova funkcija nije sirjektivna jer se nijedan element domena ne slika ni u jednu vrednost manju od $4$, a nije ni injektivna jer je $f(-1)=f(1)$.
-\item[(d)] Poznato nam je da funkcija $g(x)=x^2+1$ slika $\mathbb R$ na $[1,+\infty)$. Dalje, funkcija $h(x)=\frac 1x$ slika $[1,+\infty)$ na $(0,1]$, a kako je $f(x)=(h\circ g)(x)=h(g(x))$, sledi da je $f[\mathbb R]=(0,1]$. Po\v sto skup slika funkcije $f$ nije ceo skup $\mathbb R$, $f$ nije sirjektivna, a nije ni injektivna jer je $f(2)=f(-2)$, odnosno postoje dve razli\v cite vrednosti iz domena koje imaju jednake slike u kodomenu.
-\item[(e)] Funkcija $f$ jednaka je kompoziciji $g\circ h\circ k$, gde su $k(x)=\frac 34x -\frac\pi6$, $h(x)=\sin x$ i $g(x)=3x$. Tada je 
+\item Videli smo malopre da je skup slika funkcije $g(x)=x^2+2=[2,+\infty)$, a kako funkcija $h(y)=y^2$ slika interval $[2,+\infty)$ na interval $[4,+\infty)$, sledi da je $f[\mathbb R]=[4,+\infty)$. Ova funkcija nije sirjektivna jer se nijedan element domena ne slika ni u jednu vrednost manju od $4$, a nije ni injektivna jer je $f(-1)=f(1)$.
+\item[(d)] Poznato nam je da funkcija $g(x)=x^2+1$ slika $\mathbb R$ na $[1,+\infty)$. Dalje, funkcija $h(y)=\frac 1y$ slika $[1,+\infty)$ na $(0,1]$, a kako je $f(x)=(h\circ g)(x)=h(g(x))$, sledi da je $f[\mathbb R]=(0,1]$. Po\v sto skup slika funkcije $f$ nije ceo skup $\mathbb R$, $f$ nije sirjektivna, a nije ni injektivna jer je $f(2)=f(-2)$, odnosno, postoje dve razli\v cite vrednosti iz domena koje imaju jednake slike u kodomenu.
+\item[(e)] Funkcija $f$ jednaka je kompoziciji $g\circ h\circ k$, gde su $k(x)=\frac 34x -\frac\pi6$, $h(y)=\sin y$ i $g(z)=3z$. Tada je 
 \begin{align*}
 f[\mathbb R]&=(g\circ h\circ k)[\mathbb R]=g\big[h[k[\mathbb R]]\big]\\
 &=g\big[h[\mathbb R]\big]=g\big[[-1,1]\big]=[-3,3].
@@ -1916,12 +1928,12 @@ Ka\v zemo da je funkcija $f:\mathbb R\rightarrow\mathbb R$ periodi\v cna ako pos
 \item $f^{-1}[D]=\mathbb R$.
 \item Po\v sto je $\sin(x)$ periodi\v cna funkcija, kao inverznu sliku dobijamo 
 \begin{align*}
-f^{-1}\big[[-1,1]\big]&=\cdots\cup[-\frac \pi6-\pi,\frac \pi6-\pi]\cup [-\frac \pi6,\frac \pi6]\\
-&\cup [-\frac \pi6+\pi,\frac \pi6+\pi]\cup [-\frac \pi6+2\pi,\frac \pi6+2\pi]\cup\cdots,
+f^{-1}\big[[-1,1]\big]&=\cdots\cup\Big[-\frac \pi6-\pi,\frac \pi6-\pi]\cup [-\frac \pi6,\frac \pi6\Big]\\
+&\cup \Big[-\frac \pi6+\pi,\frac \pi6+\pi\Big]\cup \Big[-\frac \pi6+2\pi,\frac \pi6+2\pi\Big]\cup\cdots,
 \end{align*}
 odnosno
-\[ f^{-1}\big[[-1,1]\big]=\bigcup_{k\in\mathbb Z}[-\frac \pi6+k\pi,\frac \pi6+k\pi].\]
-\item $f^{-1}[D]=\{1,2,3\}$.
+\[ f^{-1}\big[[-1,1]\big]=\bigcup_{k\in\mathbb Z}\Big[-\frac \pi6+k\pi,\frac \pi6+k\pi\Big].\]
+\item $f^{-1}[D]=\{0,1,2,3\}$.
 \item $f^{-1}[D]=\{(x,y)\in\mathbb R^2 :  x^2+y^2\leq 1\}$, odnosno jedini\v cni krug sa centrom u koordinatnom po\v cetku.
 \item $f^{-1}[D]=[16,+\infty)$.
 \item $f^{-1}[D]=\emptyset$.
@@ -1950,7 +1962,7 @@ Re\v si\' cemo samo zadatak (c), ostale ostavljamo za ve\v zbu.
 
 Skupovi slika su $f[A]=\{0,1,2,3,4\}$, $g[B]=\{0,1,2,3\}$ i $(g\circ f)[A]=\{0,1,2\}$.
 
-Funkcija $f$ je injektivna jer ne postoje dva razli\v cita elementa njenog domena $A$ koji se slikaju na isti element kodomena $B$. Ona nije i sirjektivna jer se nijedan element domena ne slika na $5$. Dalje, funkcija $g$ nije ni injektivna jer je $g(1)=g(3)$, a nije ni sirjektivna jer ne postoji element kodomena $B$ koji se slika na $4$. Funkcija $g\circ f$ nije injekcija jer je $(g\circ f)(-4)=(g\circ f)(4)$, a nije ni sirjekcija jer se nijedan element njenog domena ne slika na $3$.
+Funkcija $f$ je injektivna, jer ne postoje dva razli\v cita elementa njenog domena $A$ koji se slikaju na isti element kodomena $B$. Ona nije i sirjektivna, jer se nijedan element domena ne slika na $5$. Dalje, funkcija $g$ nije ni injektivna, jer je $g(1)=g(3)$, a nije ni sirjektivna, jer ne postoji element domena $B$ koji se slika na $4$. Funkcija $g\circ f$ nije injekcija jer je $(g\circ f)(-4)=(g\circ f)(4)$, a nije ni sirjekcija, jer se nijedan element njenog domena ne slika na $3$.
 \item[(d)] Odredimo funkcije $f$, $g$ i $g\circ f$.
 \begin{center}
 \input samir11-5-d-1.pgf
@@ -1960,9 +1972,9 @@ Funkcija $f$ je injektivna jer ne postoje dva razli\v cita elementa njenog domen
 %&g: 1\mapsto 0,\ 2\mapsto 1,\ 3\mapsto 3,\ 4\mapsto 6,\ 5\mapsto 10 \\
 %&g\circ f: -2\mapsto 3,\ -1\mapsto 1,\ 0\mapsto 3,\ 1\mapsto 6,\ 2\mapsto 10
 %\end{align*}
-Skupovi slika su $f[A]=\{2,3,4,5\}$, $g[B]=C$ i $(g\circ f)[A]=\{1,3,6,9\}$.
+Skupovi slika su $f[A]=\{2,3,4,5\}$, $g[B]=C$ i $(g\circ f)[A]=\{1,3,6,10\}$.
 
-Funkcija $f$ nije ni injektivna jer je $f(-2)=f(2)$, a ni sirjektivna jer $f$ ne slika nijedan element na $1$. Dalje, $g$ je i injekcija i sirjekcija, pa je i bijekcija. Preslikavanje $g\circ f$ nije injektivno jer je $(g\circ f)(-2)=(g\circ f)(0)$, a nije ni sirjektivno jer ne postoji element domena $A$ koji funkcija $g\circ f$ slika na $0$.
+Funkcija $f$ nije ni injektivna jer je $f(-2)=f(0)$, a ni sirjektivna, jer $f$ ne slika nijedan element na $1$. Dalje, $g$ je i injekcija i sirjekcija, pa je i bijekcija. Preslikavanje $g\circ f$ nije injektivno, jer je $(g\circ f)(-2)=(g\circ f)(0)$, a nije ni sirjektivno, jer ne postoji element domena $A$ koji funkcija $g\circ f$ slika na $0$.
 
 Kona\v cno, po\v sto je $g$ bijekcija, odredimo njenu inverznu funkciju.
 \begin{center}
@@ -2002,26 +2014,26 @@ Sada mo\v zemo da zapi\v semo funkciju $g\circ f$.
 \begin{enumerate}[(a)]
 \item Funkcija $f$ jeste bijekcija. Ona je injektivna jer iz $f(n)=f(m)$, odnosno $n-6=m-6$ sledi $n=m$. Tako\dj e, za svaki ceo broj $m$, va\v zi $f(m+6)=m$, \v cime je pokazano da je $f$ i sirjektivna. Njena inverzna funkcija je
 \[ f^{-1}(m)=m+6. \]
-\item Funkcija $f$ je injetivna jer iz $f(n)=f(m)$, odnosno $3n-5=3m-6$ sledi $n=m$.
+\item Funkcija $f$ je injektivna, jer iz $f(n)=f(m)$, odnosno $3n-5=3m-5$ sledi $n=m$.
 
-Da bismo pokazali da $f$ nije sirjektivna, poka\v zimo da $f$ nijedan ceo broj ne slika na $0$. Neka je $f(n)=0$, odnosno $3n-5=0$. Tada je $3n=5$, ali po\v sto desna srane ove jednakosti nije deljiva sa $3$, zaklju\v cujemo da ne postoji ceo broj $n$ koji se slika na $0$, \v cime je pokazano da $f$ nije sirjekcija.
+Da bismo pokazali da $f$ nije sirjektivna, poka\v zimo da $f$ nijedan ceo broj ne slika na $0$. Neka je $f(n)=0$, odnosno, $3n-5=0$. Tada je $3n=5$, ali po\v sto desna srane ove jednakosti nije deljiva sa $3$, zaklju\v cujemo da ne postoji ceo broj $n$ koji se slika na $0$, \v cime je pokazano da $f$ nije sirjekcija.
 
 Predstavi\' cemo sada i druga\v ciji na\v cin kako smo mogli zaklju\v citi da $f$ nije sirjektivna. Lako se uo\v cava da $3n-5$ nije deljivo sa $3$ ni za jedan ceo broj $n$, odakle zaklju\v cujemo da skup slika od $f$ ne sadr\v zi nijedan broj deljiv sa $3$.
 \item[(c)] Zadata funkcija nije ni injekcija ni sirjekcija. Isto va\v zi i za funkcije iz (e) i (f).
-\item[(d)] Funkcija $f$ je injekcija jer za sve $n,m\in\mathbb Z$ takve da je $n<m$ va\v zi $f(n)<f(m)$, odakle zaklju\v cujemo da ne va\v zi $f(n)=f(m)$ ni za koji par razli\v citih celih brojeva $n$ i $m$.
+\item[(d)] Funkcija $f$ je injekcija, jer za sve $n,m\in\mathbb Z$ takve da je $n<m$ va\v zi $f(n)<f(m)$, odakle zaklju\v cujemo da ne va\v zi $f(n)=f(m)$ ni za koji par razli\v citih celih brojeva $n$ i $m$.
 
 Funkcija $f$ nije sirjekcija, jer se npr. nijedan ceo broj ne slika na $2$.
 \item[(g)] Primetimo da $f$ slika parne brojeve na neparne, a neparne na parne. Poka\v zimo da je $f$ injekcija. Pretpostavimo da je $f(n)=f(m)$. Tada su $f(n)$ i $f(m)$ iste parnosti, pa su i $n$ i $m$ iste parnosti. Dakle, ili je $n-1=m-1$ ili je $n+1=m+1$, pa sledi da je $n=m$. Ovim je pokazano da je $f$ injektivna.
 
-Poka\v zimo da je $f$ sirjekcija. Neka $m\in\mathbb Z$. Ako je $m$ parno, onda je $m$ slika neparnog broja $m+1$, a ako je $m$ neparno, tada je $m$ slika parnog broja $m-1$. Ovim smo ujedno i konstruisali inverznu funkciju od $f$
+Poka\v zimo da je $f$ sirjekcija. Neka $m\in\mathbb Z$. Ako je $m$ parno, onda je $m$ slika neparnog broja $m+1$, a ako je $m$ neparno, tada je $m$ slika parnog broja $m-1$. Ovim smo ujedno i konstruisali inverznu funkciju od $f$:
 \[f^{-1}(m)=\begin{cases}
 m+1&m\text{ je paran}\\
 m-1&m\text{ je neparan.}
 \end{cases}\]
-\item[(h)] Primetimo da je $f(n)\geq 0$ za $n\in\mathbb N_0$, i da je $f(n)<0$ za $n<0$. Koriste\' ci ovo, mo\v ze se lako pokazati da $f(n)=f(m)$ povla\v ci $n=m$, \v sto implicira da je $f$ injekcija. Me\dj utim, $f$ nije i sirjekcija jer se nijedan ceo broj ne slika na $-1$.
+\item[(h)] Primetimo da je $f(n)\geq 0$ za $n\in\mathbb N_0$, i da je $f(n)<0$ za $n<0$. Koriste\' ci ovo, mo\v ze se lako pokazati da $f(n)=f(m)$ povla\v ci $n=m$, \v sto implicira da je $f$ injekcija. Me\dj utim, $f$ nije i sirjekcija, jer se nijedan ceo broj ne slika na $-1$.
 \item[(i)] Primetimo da je funkcija $g:2\mathbb Z+1\rightarrow\mathbb Z$ definisana sa $g(n)=\frac{n+1}2$ bijekcija, gde $2\mathbb Z+1$ ozna\v cava skup neparnih celih brojeva. Ovo ostavljamo \v citaocu za ve\v zbu.
 
-Odatle sledi da je $f$ sirjekcija, jer za svaki ceo broj postoji neparan broj koji se na njega slika. Me\dj utim, $f$ nije i injekcija, jer i za $0=f(0)$ postoji neparan broj $n$ koji se na njega slika, odakle sledi $f(0)=f(n)$.
+Odatle sledi da je $f$ sirjekcija, jer za svaki ceo broj postoji neparan broj koji se na njega slika. Me\dj utim, $f$ nije i injekcija, jer je $f(0)=f(-1)$.
 \item[(j)] Ostavljamo \v citaocu za ve\v zbu da poka\v ze da je $g:2\mathbb Z\rightarrow 2\mathbb Z+1$, gde $2\mathbb Z$ i $2\mathbb Z+1$ ozna\v cavaju skupove parnih celih brojeva i neparnih celih brojeva, redom, definisana sa $g(n)=n-1$ bijekcija iz skupa parnih celih brojeva u skup neparnih celih brojeva. Tako\dj e je i funkcija $h:2\mathbb Z+1\rightarrow2\mathbb Z$ definisana sa $h(n)=n+3$ bijekcija iz skupa neparnih celih brojeva u skup parnih celih brojeva, \v sto tako\dj e ostavljamo \v citaocu za ve\v zbu.
 
 Koriste\' ci sve ovo, nije te\v sko pokazati da je $f$ injekcija i sirjekcija, odakle sledi da je $f$ bijekcija. Kona\v cno, njena inverzna funkcija je
@@ -2053,10 +2065,10 @@ Neka je $f(x_1)=f(x_2)$. Tada sledi
 \begin{align*}
 1+\frac 1{x_1-1}&=1+\frac 1{x_2-1}\text{, \v sto povla\v ci}\\
 \frac 1{x_1-1}&=\frac 1{x_2-1}\text{, odakle sledi}\\
-x_1-1&=x_2-1\text{ odnosno }x_1=x_2.
+x_1-1&=x_2-1,\text{ odnosno }x_1=x_2.
 \end{align*}
 Ovim je pokazano da je funkcija $f$ injekcija.
-\item Funkcija $f$ je strogo rastu\' ca na celom skupu $\mathbb R$, pa je i injektivna. Dalje, po\v sto je $f(x)>0$ za svako $x$, ni za jedan negativan element ne postoji element domena koji se na njega slika, pa $f$ nije sirjekcija.
+\item Funkcija $f$ je strogo rastu\' ca na celom skupu $\mathbb R$, pa je i injektivna. Dalje, po\v sto je $f(x)>0$ za svako $x$, ni za jedan negativan realan broj ne postoji element domena koji se na njega slika, pa $f$ nije sirjekcija.
 \item[(h)] Poka\v zimo da je $f$ bijekcija. Najpre doka\v zimo injektivnost. Neka je $f(x_1,y_1)=f(x_2,y_2)$. Tada sledi
 \begin{align*}
 x_1+y_1&=x_2+y_2\text{ i}\\
@@ -2078,7 +2090,7 @@ Dakle, na ovaj na\v cin smo odredili ure\dj eni par
 takav da je $f(x,y)=(u,v)$. Ovim smo dokazali da je $f$ sirjekcija.
 \item[(i)] Funkcija $f$ nije sirjektivna jer je $x^2+y^2\geq 0$. Prema tome, nijedan element domena se ne slika ni na jedan element kodomena kome je druga koordinata negativna. Npr., nijedan element se ne slika na $(0,-1)$.
 
-Da bismo pokazali da $f$ nije ni injekcija, primetimo da je $f(x,y)=f(y,x)$ za sve $x,y\in\mathbb R$. Prema tome, kao kontraprimer mogu\' ce je odabrati i ure\dj ene parove $(1,0)$ i $(0,1)$, odnosno po\v sto je $f(1,0)=f(0,1)$, $f$ nije injekcija.
+Da bismo pokazali da $f$ nije ni injekcija, primetimo da je $f(x,y)=f(y,x)$ za sve $x,y\in\mathbb R$. Prema tome, kao kontraprimer mogu\' ce je odabrati i ure\dj ene parove $(1,0)$ i $(0,1)$, odnosno, po\v sto je $f(1,0)=f(0,1)$, $f$ nije injekcija.
 \end{enumerate}
 }
 
