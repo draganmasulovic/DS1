@@ -1,49 +1,48 @@
 %!TeX root=main-DS1.tex
 \chapter{Skupovi}
 
-\emph{Skup} predstavlja kolekciju apstraktnih matemati\v ckih objekata. Za objekte koji pripadaju nekoj takvoj
-kolekciji ka\v zemo
-da su njeni \emph{elementi}. Skup ozna\v cavamo tako \v sto izme\dj u viti\v castih zagrada $\{$ i $\}$ navedemo
-njegove elemente ili na neki drugi uglavnom neformalan na\v cin nazna\v cimo \v sta su mu elementi.
+\emph{Skup} predstavlja kolekciju nekih matemati\v ckih objekata.
+Skup ozna\v cavamo tako \v sto izme\dj u viti\v castih zagrada $\{$ i $\}$ navedemo
+njegove elemente ili na neki drugi (uglavnom neformalan) na\v cin nazna\v cimo od \v cega se sastoji.
 
-\begin{EX*}
+\medskip
+
   Skup cifara sistema sa osnovom~10 je $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
-  Ponekad je zgodno skupove predstaviti slikom, i za to koristimo Venove dijagrame. Skup $C$ bismo
-  tada predstavili ovako:
+  Ponekad je zgodno skupove predstaviti dijagramom. Skup $C$ bismo mogli da predstavimo, recimo, ovako:
   \begin{center}
     \input ft06-sk2.pgf
   \end{center}
-\end{EX*}
 
-\begin{EX*}
-  Svi prirodni brojevi \v cine skup $\NN = \{ 1, 2, 3, \ldots \}$, a svi celi brojevi skup
+\medskip
+
+  Svi prirodni brojevi \v cine skup $\NN = \{ 1, 2, 3, \ldots \}$, dok svi celi brojevi \v cine skup
   $\ZZ = \{ \ldots, -3, -2, -1, 0, 1, 2, 3, \ldots \}$.
-\end{EX*}
 
-\begin{EX*}
+\medskip
+
   Skup svih ta\v caka neke ravni obrazuje skup: $\alpha = \{A, B, C, \ldots\}$.
   \begin{center}
     \input ft06-sk1.pgf
   \end{center}
-\end{EX*}
 
-\begin{EX*}
-  Postoji skup koji nema elemenata. On se zove \emph{prazan skup} i ozna\v cava ovako: $\0$.
-\end{EX*}
+  Postoji skup koji nema elemenata. On se zove \emph{prazan skup} i ozna\v cava ovako:~$\0$.
 
-\begin{EX*}
-  Svi studenti jednog studijskog programa \emph{ne \v cine skup} zato \v sto je skup kolekcija
-  \emph{apstraktnih matemati\v ckih} objekata. Iz istog razloga sve knjige na jednoj polici ne \v cine skup, niti
-  sve jabuke u nekoj korpi \v cine skup.
-\end{EX*}
+\medskip
 
-\begin{EX*}
+  % Svi studenti jednog studijskog programa \emph{ne \v cine skup} zato \v sto je skup kolekcija
+  % \emph{apstraktnih matemati\v ckih} objekata. Iz istog razloga sve knjige na jednoj polici ne \v cine skup, niti
+  % sve jabuke u nekoj korpi \v cine skup.
+
   U programskom jeziku Java (i mnogim drugim modernim programskim jezicima) tip \texttt{char} je skup svih simbola
   koji se mogu kodirati standardom UNICODE:
   \begin{center}
     \verb"char"$\mathstrut = \{$\verb"'a'", \verb"'b'", \ldots, \verb"'A'", \verb"'B'", \ldots, \verb*"' '", \verb"'!'", \verb"'?'", \ldots,
                                 \verb"'0'", \verb"'1'", \ldots $\}$.
   \end{center}
+
+\clearpage
+
+\noindent
   Sli\v cno, tip \verb"int" predstavlja slede\'ci skup celih brojeva:
   \begin{center}
     \verb"int"$\mathstrut = \{ -2\,147\,483\,648, \ldots, -1, 0, 1, \ldots, 2\,147\,483\,647\}$,
@@ -52,17 +51,14 @@ njegove elemente ili na neki drugi uglavnom neformalan na\v cin nazna\v cimo \v 
   \begin{center}
     \verb"boolean"$\mathstrut = \{$\verb"false", \verb"true"$\}$.
   \end{center}
-\end{EX*}
-
-\medskip
 
 \noindent
 \begin{minipage}{3in}
   \hspace*{1.5em}Za objekte koji pripadaju nekom skupu ka\v zemo da su njegovi \emph{elementi}.
-  Iskaz \enquote{$x$ je element skupa $A$} kra\'ce zapisujemo ovako $x \in A$,
-  dok iskaz \enquote{$y$ nije element skupa $A$} kra\'ce zapisujemo ovako $\lnot(y \in A)$
-  ili jo\v s kra\'ce ovako $y \notin A$.
-  Venovim dijagramom se \v cinjenica da je $x \in A$ i da $y \notin A$ prikazuje kako je pokazano pored.
+  Iskaz \enquote{$x$ je element skupa $A$} kra\'ce zapisujemo $x \in A$,
+  dok iskaz \enquote{$y$ nije element skupa $A$} kra\'ce zapisujemo $\lnot(y \in A)$
+  ili jo\v s kra\'ce $y \notin A$.
+  \v Cinjenica da $x \in A$ i da $y \notin A$ se dijagramom prikazuje kako je pokazano pored.
 \end{minipage}
 \hfill
 \begin{minipage}{2.5in}
@@ -71,21 +67,20 @@ njegove elemente ili na neki drugi uglavnom neformalan na\v cin nazna\v cimo \v 
   \end{center}
 \end{minipage}
 
+\medskip
 
-
-
-\begin{EX*}
   Neka je $A = \{1, \{2, 3\}, 4\}$ (primetimo da skupovi mogu biti elementi drugih skupova).
   Skup $A$ ima tri elementa: broj $1$,
-  dvo\v clani skup $\{2, 3\}$ i broj $4$. Zato je $1 \in A$, $2 \notin A$ (jer se $2$ ne javlja kao element skupa $A$)
+  dvo\v clani skup $\{2, 3\}$ i broj $4$. Zato $1 \in A$, $2 \notin A$ (jer se $2$ ne javlja kao element skupa $A$)
   i $\{2, 3\} \in A$.
-\end{EX*}
 
-\begin{EX*}
+\medskip
+
   Neka je $A = \{\0, \{\0, \{\0\}\}\}$ (primetimo da i prazan skup mo\v ze da se pojavi kao element nekog skupa).
-  Skup $A$ ima samo dva elementa: prazan skup $\0$ i dvoelementni skup $\{\0, \{\0\}\}$. Zato je $\0 \in A$, $\{\0\} \notin A$ i
+  Skup $A$ ima samo dva elementa: prazan skup $\0$ i dvoelementni skup $\{\0, \{\0\}\}$. Zato $\0 \in A$, $\{\0\} \notin A$ i
   $\{\0, \{\0\}\} \in A$.
-\end{EX*}
+
+\medskip
 
 Elemente skupa mo\v zemo da \enquote{filtriramo} po nekom svojstvu.
 Ako je $A$ neki skup i $Q(x)$ neki predikat, onda postoji i skup svih elemenata skupa $A$ koji imaju svojstvo $Q$.
@@ -94,15 +89,14 @@ $$
   \{ x \in A : Q(x) \}.
 $$
 
-\begin{EX*}
+\medskip
+
   Podsetimo se da smo sa $\calE$ ozna\v cili skup ta\v caka neke ravni. Neka su $O, P, Q \in \calE$ tri ta\v cke.
   \emph{Krug} sa centrom $O$ i polupre\v cnikom $[PQ]$ je skup ta\v caka ravni $\calE$ koje su na rastojanju $[PQ]$ od ta\v cke~$O$:
   $$
     K(O, [PQ]) = \{X \in \calE : [OX] \cong [PQ]\}.
   $$
-\end{EX*}
 
-\begin{EX*}
   Skup svih parnih prirodnih brojeva mo\v zemo zapisati ovako:
   $$
     \{ n \in \NN : 2 \mid n \},
@@ -111,9 +105,8 @@ $$
   $$
     \{ k \in \ZZ : k < 0 \}.
   $$
-\end{EX*}
 
-\section{Jednakost skupova, podskup skupa}
+\section{Jednakost skupova i podskup skupa}
 
 Skupovi su jednaki ako imaju iste elemente. Na primer,
 $$
@@ -121,14 +114,13 @@ $$
 $$
 Drugi primer mo\v zda predstavlja malo iznena\dj enje:
 $$
-  \{1\} = \{1, 1, 1, 1\}
+  \{1\} = \{1, 1, 1, 1\},
 $$
-jer oba skupa imaju samo jedan element -- broj 1. Ovo je jedno neobi\v cno svojstvo skupova koje zahteva malo privikavnja
+jer oba skupa imaju samo jedan element -- broj 1. Ovo je jedno neobi\v cno svojstvo skupova koje zahteva malo privikavanja
 i zato je va\v zno da imamo preciznu definiciju.
 
 \begin{DEF}
-  Skupovi $A$ i $B$ su \emph{jednaki}, i to zapisujemo ovako $A = B$, ako va\v zi
-  slede\'ce:
+  Skupovi $A$ i $B$ su \emph{jednaki}, i to zapisujemo ovako $A = B$, ako za svako $x$ va\v zi:
   $$
     \fbox{$x \in A \Leftrightarrow x \in B.$}
   $$
@@ -138,7 +130,6 @@ i zato je va\v zno da imamo preciznu definiciju.
 Drugi na\v cin na koji mo\v zemo da shvatimo jednakost skupova je ovaj: \emph{redosled navo\dj enja
 elemenata, kao i eventualno vi\v sestruko pojavljivanje jednog istog elementa nisu bitni!}
 
-Upravo zbog ovog svojstva skupova smo insistirali na tome da je skup kolekcija \emph{apstraktnih matemati\v ckih objekata}.
 Kao \v sto smo upravo videli, za skupove va\v zi slede\'ce:
 $$
   \Big\{\fbox{\$100}, \fbox{\$100}\Big\} = \Big\{\fbox{\$100}, \fbox{\$100}, \fbox{\$100}, \fbox{\$100}\Big\}.
@@ -151,13 +142,13 @@ ali mo\v ze da ima smisla ako \fbox{\$100} ozna\v cava neki apstraktan matemati\
 \noindent
 \begin{minipage}{3in}
   \begin{DEF}
-  Skup $A$ je \emph{podskup} skupa $B$, i to zapisujemo ovako $A \subseteq B$, ako je svaki element skupa $A$ ujedno i element
-  skupa $B$. Preciznije, $A \subseteq B$ ako:
+  Skup $A$ je \emph{podskup} skupa $B$, i to zapisujemo $A \subseteq B$, ako je svaki element skupa $A$ ujedno i element
+  skupa $B$. Preciznije, $A \subseteq B$ ako za svako $x$ va\v zi:
   $$
     \fbox{$x \in A \Rightarrow x \in B.$}
   $$
   \end{DEF}
-  Venovim dijagramom se \v cinjenica da je skup $A$ podskup skupa $B$ prikazuje kako je pokazano pored.
+  Dijagramom se \v cinjenica da je skup $A$ podskup skupa $B$ prikazuje kako je pokazano pored.
 \end{minipage}
 \hfill
 \begin{minipage}{2.5in}
@@ -197,7 +188,7 @@ ali mo\v ze da ima smisla ako \fbox{\$100} ozna\v cava neki apstraktan matemati\
   
   (3) $A \subseteq A$;
   
-  (4) ako je $A \subseteq B$ i $B \subseteq C$ onda je $A \subseteq C$.
+  (4) ako je $A \subseteq B$ i $B \subseteq C$, onda je $A \subseteq C$.
 \end{THM}
 
 \medskip
@@ -205,10 +196,10 @@ ali mo\v ze da ima smisla ako \fbox{\$100} ozna\v cava neki apstraktan matemati\
 \noindent
 \begin{minipage}{3in}
   \begin{proof}[Dokaz]
-    Dokaza\'cemo samo (4). Znamo da je $A \subseteq B$ i da je $B \subseteq C$, i treba da doka\v zemo da je $A \subseteq C$.
-    Drugim re\v cima, treba da doka\v zemo da iz $x \in A$ sledi $x \in C$.
-    Neka je $x \in A$. Tada iz $A \subseteq B$ sledi $x \in B$, dok iz $B \subseteq C$ sledi $x \in C$. Time je dokaz zavr\v sen.
-    Intuitivno, ovo tvr\dj enje se lako uo\v cava sa Venovog dijagrama koji je dat pored.
+    Dokaza\'cemo samo (4). Znamo da je $A \subseteq B$ i da je $B \subseteq C$, i \v zelimo da doka\v zemo da je $A \subseteq C$.
+    Drugim re\v cima, dokazujemo da iz $x \in A$ sledi $x \in C$.
+    Neka $x \in A$. Tada iz $A \subseteq B$ sledi $x \in B$, dok iz $B \subseteq C$ sledi $x \in C$. Time je dokaz zavr\v sen.
+    Intuitivno, ovo tvr\dj enje se lako uo\v cava sa dijagrama koji je dat pored.
   \end{proof}
 \end{minipage}
 \hfill
@@ -230,7 +221,7 @@ razlika izdvojiti one elemente jednog skupa koji se ne nalaze u drugom.
   $$
     A \cap B = \{ x : x \in A \land x \in B \}.
   $$
-  Drugim re\v cima,
+  Drugim re\v cima, za svako $x$ va\v zi:
   $$
     \fbox{$x \in A \cap B \Leftrightarrow x \in A \land x \in B.$}
   $$
@@ -238,21 +229,21 @@ razlika izdvojiti one elemente jednog skupa koji se ne nalaze u drugom.
   $$
     A \cup B = \{ x : x \in A \lor x \in B \}.
   $$
-  Drugim re\v cima,
+  Drugim re\v cima, za svako $x$ va\v zi:
   $$
     \fbox{$x \in A \cup B \Leftrightarrow x \in A \lor x \in B.$}
   $$
-  \emph{Razlika} skupova $A$ i $B$ je skup \v ciji elementi su oni elementi skupa $A$ koji ne pripadaju skupu $B$;
+  \emph{Razlika} skupova $A$ i $B$ je skup \v ciji elementi su oni elementi skupa $A$ koji ne pripadaju skupu $B$:
   $$
     A \setminus B = \{ x : x \in A \land x \notin B \}.
   $$
-  Drugim re\v cima,
+  Drugim re\v cima, za svako $x$ va\v zi:
   $$
     \fbox{$x \in A \setminus B \Leftrightarrow x \in A \land x \notin B.$}
   $$
 \end{DEF}
 
-Sve tri operacije su prikazane Venovim dijagramima na Sl.~\ref{f06.sl.skupovne-op}. Na slici se jasno vidi
+Sve tri operacije su prikazane dijagramima na Sl.~\ref{f06.sl.skupovne-op}. Na slici se jasno vidi
 da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$ razli\v citi skupovi.
 
 \begin{figure}
@@ -267,8 +258,11 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
 \end{DEF}
 
 \begin{EX}
-  Neka su $A$ i $B$ proizvoljni skupovi. Poka\v zimo da su $A \setminus B$ i $B \setminus A$ disjunktni
-  (vidi Sl.~\ref{f06.sl.skupovne-op}). Pretpostavimo da to nije ta\v cno. Tada
+  Neka su $A$ i $B$ proizvoljni skupovi. Pokazati da su $A \setminus B$ i $B \setminus A$ disjunktni
+  (vidi Sl.~\ref{f06.sl.skupovne-op}).
+\end{EX}
+\begin{proof}[Re\v senje]  
+  Pretpostavimo da to nije ta\v cno. Tada
   $$
     (A \setminus B) \cap (B \setminus A) \ne \0,
   $$
@@ -280,10 +274,8 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
   $$
     x \in A \land x \notin B \quad \land \quad x \in B \land x \notin A.
   $$
-  Dakle, dobili smo da je $x \in A \land x \notin A$, \v sto je kontradikcija. Time je tvr\dj enje dokazano.
-\end{EX}
-
-\clearpage
+  Dakle, dobili smo da $x \in A \land x \notin A$, \v sto je kontradikcija! Time je tvr\dj enje dokazano.
+\end{proof}
 
 \begin{THM}\label{ft06.thm.osnovne-osobine}
   Neka su $A$, $B$ i $C$ proizvoljni skupovi. Tada:
@@ -309,7 +301,7 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
   $$
     \underbrace{A \setminus (B \cup C)}_X = \underbrace{(A \setminus B) \cap (A \setminus C)}_Y.
   $$
-  Da se podsetimo, da bismo dokazali $X = Y$ treba da doka\v zemo
+  Da se podsetimo, da bismo dokazali $X = Y$ potrebno je da doka\v zemo da za svako $x$ va\v zi:
   $$
     x \in X \Leftrightarrow x \in Y.
   $$
@@ -324,7 +316,7 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
     & \Leftrightarrow x \in A \land x \in A \land x \notin B \land x \notin C && \text{[tautologija $\vDash p \Leftrightarrow p \land p$]}\\
     & \Leftrightarrow (x \in A \land x \notin B) \land (x \in A \land x \notin C) \\
     & \Leftrightarrow x \in A \setminus B \land x \in A \setminus C && \text{[definicija razlike skupova]} \\
-    & \Leftrightarrow x \in (A \setminus B) \cap (A \setminus C) && \text{[definicija preseka skupova]}
+    & \Leftrightarrow x \in (A \setminus B) \cap (A \setminus C), && \text{[definicija preseka skupova]}
   \end{align*}
   \v cime je dokaz zavr\v sen.
 \end{proof}
@@ -334,7 +326,7 @@ da su $A \setminus B$ i $B \setminus A$ dva razli\v cita skupa kada su $A$ i $B$
 Skupovi mogu biti \emph{kona\v cni} kao, na primer, skup $C = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$,
 ili \emph{beskona\v cni} kao, na primer, skupovi $\NN = \{ 1, 2, 3, \ldots \}$ i $\ZZ = \{ \ldots, -1, 0, 1, 2, \ldots\}$.
 Za kona\v cne skupove lako mo\v zemo da utvrdimo njihov \emph{broj elemenata}.
-Za broj elemenata skupa $A$ pi\v semo $|A|$.
+Broj elemenata skupa $A$ ozna\v cavamo sa~$|A|$.
 Na primer, $|C| = 10$, gde je $C$ skup naveden u prvoj re\v cenici. Mo\v zemo govoriti i o broju elemenata beskona\v cnog
 skupa, ali je to mnogo osetljivije pitanje kojim \'cemo se baviti na samom kraju kursa.
 
@@ -347,8 +339,8 @@ skupa, ali je to mnogo osetljivije pitanje kojim \'cemo se baviti na samom kraju
 \begin{THM}
   Neka su $A$ i $B$ kona\v cni skupovi.
   \begin{enumerate}
-  \item{} [Monotonost] Ako je $A \subseteq B$ onda je $|A| \le |B|$.
-  \item{} [Princip zbira] Ako je $A \cap B = \0$ onda je $|A \union B| = |A| + |B|$.
+  \item{} [Monotonost] Ako je $A \subseteq B$, onda je $|A| \le |B|$.
+  \item{} [Princip zbira] Ako je $A \cap B = \0$, onda je $|A \union B| = |A| + |B|$.
   \end{enumerate}
 \end{THM}
 
@@ -362,10 +354,12 @@ Princip zbira je ilustrovan na Sl.~\ref{ft06.sl.pp-zbira}.
   \label{ft06.sl.pp-zbira}
 \end{figure}
 
-Za niz skupova $A_1$, $A_2$, \ldots, $A_n$ ka\v zemo da su \emph{po parovima disjunktni} ako je $A_i \cap A_j = \0$
-za sve $i \ne j$.
+\begin{DEF}
+  Za niz skupova $A_1$, $A_2$, \ldots, $A_n$ ka\v zemo da su \emph{po parovima disjunktni} ako je $A_i \cap A_j = \0$
+  za sve $i \ne j$.
+\end{DEF}
 
-\begin{THM}
+\begin{THM}[Uop\v steni princip zbira]
   Neka su $A_1$, $A_2$, \ldots, $A_n$ po parovima disjunktni kona\v cni skupovi. Onda je
   $$
     |A_1 \cup A_2 \cup \ldots \cup A_n| = |A_1| + |A_2| + \ldots + |A_n|.
@@ -383,7 +377,7 @@ za sve $i \ne j$.
     B \cap A_{n+1}
     &= (A_1 \cup \ldots \cup A_n) \cap A_{n+1}\\
     &= (A_1 \cap A_{n+1}) \cup \ldots \cup (A_n \cap A_{n+1}) && \text{[Teorema~\ref{ft06.thm.osnovne-osobine} (5)]}\\
-    &= \0 \cup \ldots \cup \0 = \0 && \text{[skupovi su po parovima disj.]}
+    &= \0 \cup \ldots \cup \0 = \0. && \text{[skupovi su po parovima disj.]}
   \end{align*}
   Tada prema Principu zbira i prema induktivnoj hipotezi dobijamo:
   \begin{align*}
@@ -392,7 +386,7 @@ za sve $i \ne j$.
     &= |B \cup A_{n+1}| \\
     &= |B| + |A_{n+1}| && \text{[Princip zbira]}\\
     &= |A_1 \cup \ldots \cup A_n| + |A_{n+1}| \\
-    &= |A_1| + \ldots + |A_n| + |A_{n+1}| && \text{[induktivna hipoteza]}
+    &= |A_1| + \ldots + |A_n| + |A_{n+1}|, && \text{[induktivna hipoteza]}
   \end{align*}
   \v sto je i trebalo dokazati.
 \end{proof}
@@ -425,7 +419,7 @@ disjunktni, formula je malo komplikovanija, kako pokazuje naredna teorema.
   \begin{align*}
     |A| + |B| - |A \cap B|
     &= |P| + |Q| + |Q| + |R| - |Q|\\
-    &= |P| + |Q| + |R| = |P \cup Q \cup R| = |A \cup B|
+    &= |P| + |Q| + |R| = |P \cup Q \cup R| = |A \cup B|,
   \end{align*}
   \v sto je i trebalo dokazati.
 \end{proof}
@@ -462,9 +456,9 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Slede\'ci sabirak na desnoj strani je $|B|$, pa dodajemo po jednu
+  \hspace*{1.5em}Slede\'ci sabirak na desnoj strani je $|B|$, pa dodajemo po jednu
   recku u \v cetiri segmenta iz kojih se sastoji skup $B$. Tako dobijamo stanje prikazano na slici pored.
-  Vidimo da su u neke segmente upisane dve recke \v sto zna\v ci da su elementi koji se tu nalazi ubrojani dva puta.
+  Vidimo da su u neke segmente upisane dve recke \v sto zna\v ci da su elementi koji se tu nalaze ubrojani dva puta.
   U neke segmente nije jo\v s uvek upisana nijedna recka, \v sto zna\v ci da ti elementi nisu ubrojani.
   Uskoro \'ce sve do\'ci na svoje mesto \ldots
 \end{minipage}
@@ -479,7 +473,7 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Naredni sabirak na desnoj strani je $|C|$, pa dodajemo po jednu
+  \hspace*{1.5em}Naredni sabirak na desnoj strani je $|C|$, pa dodajemo po jednu
   recku u \v cetiri segmenta iz kojih se sastoji skup $C$. Vidimo da su sada svi elementi
   unije ubrojani bar jednom, ali su neki ubrojani vi\v se puta, \v sto nije dobro.
   Zato u izrazu slede korektivni faktori.
@@ -495,7 +489,7 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Nakon tri pozitivna sabirka u izrazu na desnoj strani sledi prvi negativan sabirak:
+  \hspace*{1.5em}Nakon tri pozitivna sabirka u izrazu na desnoj strani sledi prvi negativan sabirak:
   $- |A \cap B|$. To zna\v ci da \'cemo ukloniti po jednu recku iz oba segmenta iz kojih se sastoji $A \cap B$.
   Novo stanje je prikazano na slici pored.
 \end{minipage}
@@ -555,7 +549,7 @@ formula lako zapamti.
 \noindent
 \begin{minipage}{3in}
   \noindent\textit{Re\v senje}. Krenemo od tri skupa \enquote{u op\v stem polo\v zaju}.
-  Zato \v sto je $|A \cap B \cap C| = 17$ upisa\'cemo 17 u odgovaraju\'ci segment.
+  Budu\'ci da je $|A \cap B \cap C| = 17$, upisa\'cemo 17 u odgovaraju\'ci segment.
 \end{minipage}
 \hfill
 \begin{minipage}{2.5in}
@@ -568,7 +562,7 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Dalje, zbog $|B \cap C| = 24$ i $|A \cap B \cap C| = 17$, upisa\'cemo 7 u odgovaraju\'ci segment
+  Dalje, zbog $|B \cap C| = 24$ i $|A \cap B \cap C| = 17$, upisa\'cemo 7 u odgovaraju\'ci segment,
   tako da ceo skup $B \cap C$ ima 24 elementa.
 \end{minipage}
 \hfill
@@ -582,8 +576,8 @@ formula lako zapamti.
 
 \noindent
 \begin{minipage}{3in}
-  Sli\v cno tome, zbog $|A \cap B| = 20$ upisa\'cemo 3 u odgovaraju\'ci segment
-  tako da ceo skup $A \cap B$ ima 20 elementa.
+  Sli\v cno tome, zbog $|A \cap B| = 20$, upisa\'cemo 3 u odgovaraju\'ci segment
+  tako da ceo skup $A \cap B$ ima 20 elemenata.
 \end{minipage}
 \hfill
 \begin{minipage}{2.5in}
@@ -681,12 +675,12 @@ Posebno, \emph{ure\dj eni par} je niz du\v zine~2. Za ure\dj ene parove, dakle, 
   Tada je
   \begin{align*}
   A \times B = \{ &(1,s), (2,s), (3,s),\\
-                  &(1,t), (2,t), (3,t)\}
+                  &(1,t), (2,t), (3,t)\}.
   \end{align*}
 \end{EX}
 
 \noindent
-Vidimo, dakle, da za Dekartov proizvod skupova va\v zi slede\'ce:
+Vidimo, dakle, da za Dekartov proizvod skupova va\v zi slede\'ce za svako $x$ i $y$:
 $$
   \fbox{$(x, y) \in A \times B \Leftrightarrow x \in A \land y \in B.$}
 $$
@@ -695,9 +689,9 @@ $$
   Neka su $A$, $B$ i $C$ proizvoljni skupovi.
   \begin{enumerate}
   \item
-    Ako je $A \subseteq B$ onda je $A \times C \subseteq B \times C$.
+    Ako je $A \subseteq B$, onda je $A \times C \subseteq B \times C$.
   \item
-    Ako je $C \ne \0$ onda iz $A \times C \subseteq B \times C$ sledi $A \subseteq B$.
+    Ako je $C \ne \0$, onda iz $A \times C \subseteq B \times C$ sledi $A \subseteq B$.
   \item
     $A \times (B \cup C) = (A \times B) \cup (A \times C)$.
   \item
@@ -711,16 +705,16 @@ $$
 \begin{proof}[Dokaz]
   (1)
   Pretpostavimo da je $A \subseteq B$. Da bismo dokazali da je $A \times C \subseteq B \times C$ uzmimo
-  proizvoljno $(x, y) \in A \times C$. Tada je $x \in A \land y \in C$. Zbog $A \subseteq B$ znamo da
-  $x \in A$ implicira $x \in B$. Dakle, $x \in B \land y \in C$, pa je $(x, y) \in B \times C$.
+  proizvoljno $(x, y) \in A \times C$. Tada $x \in A \land y \in C$. Zbog $A \subseteq B$ znamo da
+  $x \in A$ implicira $x \in B$. Dakle, $x \in B \land y \in C$, pa $(x, y) \in B \times C$.
   
   \medskip
   
   (2) Neka je $C \ne \0$ i $A \times C \subseteq B \times C$. Fiksirajmo proizvoljno $c \in C$.
-  Da bismo pokazali da je $A \subseteq B$ uzmimo neko $x \in A$. Tada je $x \in A \land c \in C$ pa je
-  $(x, c) \in A \times C$. Kako je $A \times C \subseteq B \times C$ zaklju\v cujemo da je
+  Da bismo pokazali da je $A \subseteq B$ uzmimo neko $x \in A$. Tada $x \in A \land c \in C$, pa
+  $(x, c) \in A \times C$. Kako je $A \times C \subseteq B \times C$, zaklju\v cujemo da
   $(x, c) \in B \times C$. Dakle, $x \in B \land c \in C$, odakle zaklju\v cujemo $x \in B$ (drugi deo
-  nam ne treba vi\v se).
+  nam vi\v se nije potreban).
   
   \medskip
   
@@ -758,7 +752,7 @@ $$
   \medskip
 
   (6)
-  Doka\v zimo da je $\0 \times A = \0$. Pretpostavimo da to nije ta\v cno. Tada $\0 \times A \ne \0$ pa postoji neki
+  Doka\v zimo da je $\0 \times A = \0$. Pretpostavimo da to nije ta\v cno. Tada $\0 \times A \ne \0$, pa postoji neki
   par $(x, y) \in \0 \times A$. Tada je $x \in \0 \land y \in A$. Drugim re\v cima, postoji neki element $x$ koji pripada
   praznom skupu. Kontradikcija.
 \end{proof}
@@ -790,7 +784,7 @@ Drugim re\v cima, $A^n$ je skup svih nizova du\v zine $n$ elemenata skupa~$A$.
 
 \begin{EX}
   \v Cesto se nizovi $(a_1, a_2, \ldots, a_n)$ kra\'ce pi\v su bez zagrada i zareza, ako to ne mo\v ze da dovede do zabune.
-  Recimo, ako radimo sa nizovima nula i jedinica, onda se niz $(1, 0, 1, 0)$ mo\v ze kra\'ce zapisati i ovako $1010$.
+  Recimo, ako radimo sa nizovima nula i jedinica, onda se niz $(1, 0, 1, 0)$ mo\v ze kra\'ce zapisati i kao $1010$.
   Nizovi nula i jedinica se kra\'ce zovu \emph{01-nizovi}. Prema tome,
   \begin{align*}
     \{0, 1\}^4 = \{ &0000, 0001, 0010, 0011, 0100, 0101, 0110, 0111,\\
@@ -865,7 +859,8 @@ Drugim re\v cima, $A^n$ je skup svih nizova du\v zine $n$ elemenata skupa~$A$.
 
 \bigskip
 
-Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena, koji se zove \emph{Princip proizvoda:}
+Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena, koji se zove \emph{Princip proizvoda},
+koji navodimo bez dokaza:
 
 \begin{THM}[Princip proizvoda] Neka su $A$ i $B$ kona\v cni skupovi. Tada je
   $$
@@ -892,7 +887,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
   \medskip
   
   $(b)$ Ovaj broj \'cemo odrediti tako \v sto \'cemo od broja svih petocifrenih brojeva oduzeti broj onih \v ciji decimalni
-  zapisi sadr\v ze samo neparne cifre. Neka je $N = \{1, 3, 5, 7, 9\}$ skup neparnih cifara. Decimlani zapisi
+  zapisi sadr\v ze samo neparne cifre. Neka je $N = \{1, 3, 5, 7, 9\}$ skup neparnih cifara. Decimalni zapisi
   petocifrenih brojeva koji se zapisuju samo neparnim ciframa su elementi skupa $N^5$, pa ih ima
   $$
     |N^5| = |N|^5 = 5^5.
@@ -954,7 +949,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
     \multicolumn{1}{c}{\hbox{bit}\rlap{ znaka}}
     \end{array}
   $$
-  Pri tome se usvaja konvencija da niz bitova $1000\ldots0$ predstavlja kod negativnog broja (to je \enquote{najnegativniji} broj
+  Pri tome se usvaja konvencija da niz bitova $1000\ldots0$ predstavlja k\^od negativnog broja (to je \enquote{najnegativniji} broj
   koji mo\v ze da se kodira). Dakle, broj predstavljen 01-nizom je negativan ako i samo ako na \enquote{najlevljoj} poziciji
   stoji bit~1. Koji je najve\'ci pozitivan broj koji se mo\v ze smestiti u celobrojnu promenljivu tipa \texttt{int32}?
 \end{EX}
@@ -962,7 +957,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
   Nenegativne vrednosti (0, 1, 2, \ldots) su kodirane tako da na \enquote{najlevljoj} poziciji
   stoji bit~0. Zato nam za zapis nenegativnog broja u binarnom sistemu ostaje 31 bit.
   Ukupan broj podataka koji mo\v ze da se kodira 01-nizom du\v zine 31 je $2^{31} = 2\;147\;483\;648$.
-  Obzirom da je tu ura\v cunat i kod za nulu $000\ldots0$, maksimalna pozitivna vrednost koja mo\v ze
+  Obzirom da je tu ura\v cunat i k\^od za nulu $000\ldots0$, maksimalna pozitivna vrednost koja mo\v ze
   da se kodira na ovaj na\v cin je $2\;147\;483\;647$.
 \end{proof}
 
@@ -982,7 +977,7 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
   $$
     |S| = |R| - |A \cup B \cup C| = 3^n - |A \cup B \cup C|.
   $$
-  Da bismo odredili $|A \cup B \cup C|$ koristimo Princip uklju\v cenja-isklju\v cenja (Teorema~\ref{ft06.thm.pui-3}).
+  Da bismo odredili $|A \cup B \cup C|$ koristimo Princip uklju\v cenja-isklju\v cenja (Te\-o\-re\-ma~\ref{ft06.thm.pui-3}).
   Tako dobijamo da je
   $$
     |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|.
@@ -1009,27 +1004,29 @@ Prethodni primer sadr\v zi dva specijalna slu\v caja mnogo op\v stijeg fenomena,
 
 \section{Pojam relacije}
 
-Relacija predstavlja odnos me\dj u nekim objektima. Na primer, cenovnik jedne prodavnice na dan 31.12.2018.\ je izgledao ovako:
+Relacija predstavlja odnos me\dj u nekim objektima. Na primer,
+cenovnik jedne prodavnice na dan 20.5.2026.\ je izgledao ovako:\footnote{prema pravopisu srpskog jezika
+decimale se od celog dela broja odvajaju \emph{decimalnim zarezom}; mi \'cemo se ipak odlu\v citi
+da decimalne brojeve pi\v semo prema anglo-ameri\v ckom standardu kod koga se umesto decimalnog zareza
+koristi \emph{decimalna ta\v cka}, jer je to bli\v ze svakodnevnoj praksi jednog informati\v cara}
 \begin{center}\label{ft07.page.tabela}
   \begin{tabular}{rlr}
   \hline
   \v Sifra & Naziv proizvoda & Cena (din) \\
   \hline
-  19775 & AMD Ryzen 5 1600 & 21\;918.95\\
-  16443 & Intel Core i5-6400 & 23\;810.31\\
-  18779 & HP Laserjet Pro M102a (G3Q34A) & 7\;994.50\\
-   6672 & DVI-HDMI M/M 1.8m & 681.00\\
-   9796 & WD Blue 1TB/WD10EZEX & 5\;081.25\\
-  18879 & HP Laserjet Pro M102w (G3Q35A) & 11\;448.90\\
-  11678 & Microsoft Windows 8.1 Pro 32Bit Eng & 21\;471.10\\
-  18574 & Asus DUAL-GTX1060-O3G & 33\;442.00
+  19775 & INTEL Core Ultra 5 245K 4.20GHz (5.20GHz) & 31\,999.00\\
+  16443 & AMD Ryzen 5 9600X 3.90GHz (5.40GHz) & 24\,999.00\\
+  18779 & HP LaserJet MFP M236sdw 9YG09A & 30\,999.00\\
+  18879 & ELEGOO Neptune 4 Plus 3D \v Stampa\v c & 40\,999.00\\
+   9796 & ACER Essential SA2 23.8"\ VA SA242YH1bi Monitor & 8\,999.00\\
+  11678 & MICROSOFT Windows 11 Home FPP 64bit HAJ-00089 & 18\,999.00
   \end{tabular}
 \end{center}
 Ovom tabelom je predstavljen odnos izme\dj u nekih celih brojeva (\texttt{int}), nekih nizova karaktera (\texttt{string})
-i nekih decimalnih brojeva (\texttt{float}). Na primer, \v cetvrti red u tabeli ka\v ze da su ceo broj
-6672, string \verb`"DVI-HDMI M/M 1.8m"` i decimalni broj $681.00$ u vezi koja se govornim jezikom mo\v ze iskazati ovako:
+i nekih decimalnih brojeva (\texttt{float}). Na primer, tre\'ci red u tabeli ka\v ze da su ceo broj
+18779, string \verb`"HP LaserJet MFP M236sdw 9YG09A"` i decimalni broj 30\,999.00 u vezi koja se govornim jezikom mo\v ze iskazati ovako:
 \begin{quote}
-  proizvod sa \v sifrom 6672 se zove \verb`"DVI-HDMI M/M 1.8m"` i njegova cena je $681.00$ din.
+  proizvod sa \v sifrom 18779 se zove \verb`"HP LaserJet MFP M236sdw 9YG09A"` i njegova cena je 30\,999.00 din.
 \end{quote}
 Svaki red tabele ima istu strukturu (jedan \texttt{int}, jedan \texttt{string} i jedan \texttt{float}) \v sto zna\v ci da je ovom
 tabelom predstavljen jedan podskup skupa
@@ -1059,11 +1056,13 @@ i mo\v zemo da koristimo ovaj ili onaj zapis, kako nam je kad zgodno.
   Svaki element ove relacije je jedna ure\dj ena trojka koju \v cini
   jedan ceo broj, jedan string i jedan decimalni broj. Na primer,
   $$
-    (6672, \hbox{\verb`"DVI-HDMI M/M 1.8m"`}, 681.00) \in \mathrm{Cenovnik}.
+    (18779, \ \hbox{\verb`"HP LaserJet MFP M236sdw 9YG09A"`}, \ 30\,999.00) \in \mathrm{Cenovnik}.
   $$
   Vidimo da redovi tabele odgovaraju ure\dj enim trojkama koje \v cine ovu relaciju.
   Relacije koje dovode u vezu tri objekta se zovu \emph{ternarne relacije}.
 \end{EX}
+
+U nastavku navodimo nekoliko primera relacija.
 
 \begin{EX}
   Neka je $\rho = \{n \in \NN : n \text{\ je paran broj}\}$. Ovo je primer \emph{unarne relacije} jer govori o svojstvima
@@ -1119,7 +1118,7 @@ Zbog njihovog pre svega istorijskog zna\v caja, Definiciju~\ref{ds1.def.rel-0} \
 \begin{minipage}{3in}
   \begin{EX}\label{ft07.ex.01}
     Neka je $A = \{0, 1, 2, 3, 4\}$ i neka je $\rho = \{(0,1), (1,2), (2,3), (3,4), (4,0)\}$.
-    Binarne relacije na jednom skupu se mogu lako predstaviti crte\v zom: predstavimo skup $A$ Venovim dijagramom
+    Binarne relacije na jednom skupu se mogu lako predstaviti crte\v zom: predstavimo skup $A$ dijagramom
     i onda parove koji \v cine relaciju ozna\v cimo strelicama, kako je to pokazano na slici pored.
   \end{EX}
 \end{minipage}
@@ -1141,7 +1140,7 @@ Zbog njihovog pre svega istorijskog zna\v caja, Definiciju~\ref{ds1.def.rel-0} \
     $(0,3) \in \sigma$, odnosno $0 \mathrel\sigma 3$.
     Sli\v cno, strelica $2 \to 2$ zna\v ci da je $(2, 2) \in \sigma$, odnosno $2 \mathrel\sigma 2$. (Strelice koje
     idu od elementa do istog tog elementa se zovu \emph{petlje}.) Po\v sto relacija $\sigma$ ima
-    mnogo parova lak\v se je analizirati svojstva relacije na osnovu crte\v za nego na osnovu spiska parova koji \v cine
+    mnogo parova, lak\v se je analizirati svojstva relacije na osnovu crte\v za nego na osnovu spiska parova koji \v cine
     relaciju.
   \end{EX}
 \end{minipage}
@@ -1195,7 +1194,7 @@ Partitivni skup nekog skupa se pravi tako \v sto u novi skup stavimo sve podskup
 \end{EX}
 
 \noindent
-Vidimo da za partitivni skup skupa $A$ va\v zi slede\'ce:
+Vidimo da za partitivni skup skupa $A$ i za svaki $X$ va\v zi slede\'ce:
 $$
   \fbox{$X \in \calP(A) \Leftrightarrow X \subseteq A$.}
 $$
@@ -1204,7 +1203,7 @@ $$
   Neka su $A$ i $B$ skupovi.
   \begin{enumerate}
   \item
-    Ako je $A \subseteq B$ onda je $\calP(A) \subseteq \calP(B)$.
+    Ako je $A \subseteq B$, onda je $\calP(A) \subseteq \calP(B)$.
   \item
     $\calP(A) \cap \calP(B) = \calP(A \cap B)$.
   \item
@@ -1219,7 +1218,7 @@ $$
   \medskip
   
   (2)
-  Lako se pokazuje da je
+  Lako se pokazuje za proizvoljno $X$ da je:
   $$
     X \subseteq A \cap B \Leftrightarrow X \subseteq A \land X \subseteq B.
   $$
@@ -1235,7 +1234,7 @@ $$
   \medskip
   
   (3)
-  Lako se pokazuje da je
+  Lako se pokazuje za proizvoljno $X$ da je:
   $$
     X \subseteq A \lor X \subseteq B \Rightarrow X \subseteq A \cup B.
   $$
@@ -1270,7 +1269,7 @@ $$
 \end{proof}
 
 \begin{THM}\label{ft06.thm.A-PA}
-  Neka je $A$ kona\v can skup. Ako je $|A| = n$ onda je $|\calP(A)| = 2^n$.
+  Neka je $A$ kona\v can skup. Ako je $|A| = n$, onda je $|\calP(A)| = 2^n$.
 \end{THM}
 \begin{proof}[Dokaz]
   Neka je $A = \{a_1, \ldots, a_n\}$. Tada se svaki podskup $B$ skupa $A$
@@ -1298,16 +1297,11 @@ $$
   Prema tome, broj podskupova skupa $A$ koji ima $n$ elemenata jednak je broju 01-nizova du\v zine $n$, a njih ima~$2^n$.
 \end{proof}
 
-
-
-
-
 \section{Reprezentacija malih skupova 01-nizovima}
 
-
 U dokazu Teoreme~\ref{ft06.thm.A-PA} smo podskupove nekog skupa opisivali 01-nizovima (nizovima nula i jedinica)
-na veoma prirodan na\v cin: utvrdimo redosled elemenata polaznog skupa, pa svaki podskup odgovara nizu nula i jedinica gde
-0 kodira informaciju da odgovaraju\'ci element ne pripada podskupu dok 1 kodira informaciju da odgovaraju\'ci element pripada podskupu.
+na veoma prirodan na\v cin: utvrdimo redosled elemenata polaznog skupa, pa svaki podskup odgovara nizu nula i jedinica,
+gde 0 kodira informaciju da odgovaraju\'ci element ne pripada podskupu, dok 1 kodira informaciju da odgovaraju\'ci element pripada podskupu.
 Kao \v sto smo videli, neki podskupovi skupa $A = \{a, b, c, d, e, f\}$ se mogu kodirati 01-nizovima ovako:
 $$
   \begin{array}{r|cccccc}

@@ -16,7 +16,7 @@ Tipi\v cni primeri iskaza su matemati\v cke tvrdnje kao \v sto su
   \end{tabular}
 \end{center}
 Izjave iz svakodnevnog \v zivota \emph{naj\v ce\v s\'ce nisu iskazi} jer mogu biti podlo\v zni ukusu, shvatanjima i interpretacijama.
-Za potrebe ovog kursa iskazi ne govore o svakodnevnim situacijama, ve\'c o apstraktnim fenomenima tipi\v cnim za matematiku i ra\v cunarstvo.
+Za potrebe ovog kursa iskazi ne govore o sva\-ko\-dnev\-nim situacijama, ve\'c o apstraktnim fenomenima tipi\v cnim za matematiku i ra\v cunarstvo.
 
 \smallskip
 
@@ -138,7 +138,7 @@ prirodu tih logi\v ckih pojmova. Tako dolazimo do slede\'ce \emph{apstraktne} de
     \item $p_{19}$ je iskazna formula sa slovima $p_1$, \ldots, $p_{20}$ (primetimo da nismo u obavezi da upotrebimo sva iskazna slova u formuli);
     \item $(x \lor y)$ je iskazna formula sa slovima $x$, $y$;
     \item $((p \land \lnot p) \Rightarrow \bot)$ je iskazna formula sa slovom $p$;
-    \item $(\lnot \lnot(u \lor v) \land (w \Rightarrow (v \Leftrightarrow u)))$ sa slovima $u$, $v$,$w$.
+    \item $(\lnot \lnot(u \lor v) \land (w \Rightarrow (v \Leftrightarrow u)))$ je iskazna formula sa slovima $u$, $v$,$w$.
   \end{itemize}
 \end{EX}
 
@@ -299,7 +299,7 @@ Takve formule se zovu tautologije.
   Iskazna formula je \emph{tautologija} ako je ta\v cna za svaku valuaciju slova koja se u njoj javljaju.
   Izjavu \enquote{\textit{$\phi$ je tautologija}} skra\'ceno zapisujemo ovako:
   $$
-    \vDash \phi
+    \vDash \phi.
   $$
 \end{DEF}
 
@@ -422,7 +422,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       (x \Rightarrow y) \land (z \Rightarrow w) & x \lor z \Rightarrow y \lor w \\
       \hline
       \top & \bot
-    \end{array}
+    \end{array}.
   $$
   Konjunkcija dve formule je ta\v cna samo kada su obe formule ta\v cne, pa zaklju\v cujemo da je
   $$
@@ -430,7 +430,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       x \Rightarrow y & z \Rightarrow w & x \lor z \Rightarrow y \lor w \\
       \hline
       \top & \top & \bot
-    \end{array}
+    \end{array}.
   $$
   S druge strane, implikacija je neta\v cna samo kada je formula levo od znaka implikacije ta\v cna, a formula desno od
   znaka implikacije neta\v cna, pa dobijamo:
@@ -439,7 +439,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       x \Rightarrow y & z \Rightarrow w & x \lor z & y \lor w \\
       \hline
       \top & \top & \top & \bot
-    \end{array}
+    \end{array}.
   $$
   Disjunkcija je neta\v cna samo kada su oba disjunkta neta\v cni:
   $$
@@ -447,7 +447,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       x \Rightarrow y & z \Rightarrow w & x \lor z & y & w \\
       \hline
       \top & \top & \top & \bot & \bot
-    \end{array}
+    \end{array}.
   $$
   Kako $v(x \Rightarrow y) = \top$, a $v(y) = \bot$, zaklju\v cujemo da mora biti $v(x) = \bot$:
   $$
@@ -455,7 +455,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       x & z \Rightarrow w & x \lor z & y & w\\
       \hline
       \bot & \top & \top & \bot & \bot
-    \end{array}
+    \end{array}.
   $$
   Analogno, zbog $v(z \Rightarrow w) = \top$ i $v(w) = \bot$ mora biti $v(z) = \bot$:
   $$
@@ -463,7 +463,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       x & z & x \lor z & y & w\\
       \hline
       \bot & \bot & \top & \bot & \bot
-    \end{array}
+    \end{array}.
   $$
   Tako smo dobili da je $\top = v(x \lor z) = v(x) \lor v(z) = \bot \lor \bot = \bot$, 
   odnosno, $\top = \bot$, \v sto je nemogu\'ce.
@@ -485,7 +485,7 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       p_1 & p_2 \Rightarrow (p_3 \Rightarrow ( \ldots \Rightarrow (p_n \Rightarrow p_1) \ldots ))\\
       \hline
       \top & \bot 
-    \end{array}
+    \end{array}.
   $$
   Na isti na\v cin dalje zaklju\v cujemo da mora biti:
   $$
@@ -503,13 +503,13 @@ pretpostavka da ne va\v zi $p$ nu\v zno vodi do neta\v cnog iskaza.
       \top & \top & \top & \ldots & \bot 
     \end{array}
   $$
-  i na kraju:
+  odakle sledi:
   $$
     v : \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c@{\qquad}c}
       p_1 & p_2 & p_3 & \ldots & p_n & p_1\\
       \hline
       \top & \top & \top & \ldots & \top & \bot 
-    \end{array}
+    \end{array}.
   $$
   Tako smo dobili da je $\top = v(p_1) = \bot$, odnosno, $\top = \bot$, \v sto je nemogu\'ce.
   Pretpostavka da postoji valuacija u kojoj polazna formula nije tautologija vodi u kontradikciju,
@@ -569,8 +569,8 @@ Evo i nekoliko \enquote{klasi\v cnih zakona zaklju\v civanja}:
 \medskip
 
 \begin{tabular}{ll}
-  $\vDash p \land (p \Rightarrow q) \Rightarrow q$  & (\textit{Modus ponens})\\
-  $\vDash (p \Rightarrow q) \land \lnot q \Rightarrow \lnot p$  & (\textit{Modus tollens})\\
+  $\vDash p \land (p \Rightarrow q) \Rightarrow q$  & \emph{Modus ponens}\\
+  $\vDash (p \Rightarrow q) \land \lnot q \Rightarrow \lnot p$  & \emph{Modus tollens}\\
   $\vDash (p \Rightarrow q) \Leftrightarrow (\lnot q \Rightarrow \lnot p)$  & Kontrapozicija\\
   $\vDash (p \Rightarrow q) \Leftrightarrow (p \land \lnot q \Rightarrow \bot)$  & Svo\dj enje na kontradikciju\\
                                                                                  & (\textit{Reductio ad absurdum})\\
@@ -667,7 +667,7 @@ Simbol $\equiv$ ne treba me\v sati sa logi\v ckim veznikom $\Leftrightarrow$. Lo
 $\Leftrightarrow$ je deo jezika iskaznog ra\v cuna i koristi se kao simbol prilikom formiranja iskaznih formula.
 Simbol $\equiv$ pripada \emph{metajeziku}, dakle, jeziku koga koristimo da pri\v camo o iskaznim formulama. Zapis
 $\phi \equiv \psi$ \emph{nije logi\v cka formula}, ve\'c samo kra\'ci na\v cin da se ka\v ze
-\enquote{formule $\phi$ i $\psi$ su ekvivalentne}. S druge strane zapis $\phi \Leftrightarrow \psi$
+\enquote{formule $\phi$ i $\psi$ su ekvivalentne}. S druge strane, zapis $\phi \Leftrightarrow \psi$
 je iskazna formula.
 
 % Slede\'ca teorema pokazuje da ekvivalentne formule imaju istu logi\v cku vrednost u svim valuacijama.
@@ -747,11 +747,11 @@ je iskazna formula.
   Krenu\'cemo od formule sa desne strane i primeniti niz ekvivalentnih transformacija da bismo dobili formulu sa leve strane:
   \begin{align*}
     p \Rightarrow (q \Rightarrow r)
-    &\;\;\equiv\;\; \lnot p \lor (q \Rightarrow r) && \text{Zakon materijalne implikacije}\\
-    &\;\;\equiv\;\; \lnot p \lor (\lnot q \lor r)  && \text{Zakon materijalne implikacije}\\
-    &\;\;\equiv\;\; (\lnot p \lor \lnot q) \lor r  && \text{Asocijativnost disjunkcije}\\
-    &\;\;\equiv\;\; \lnot(p \land q) \lor r        && \text{De Morganov zakon}\\
-    &\;\;\equiv\;\; (p \land q) \Rightarrow r      && \text{Zakon materijalne implikacije }\qedhere
+    &\;\;\equiv\;\; \lnot p \lor (q \Rightarrow r) && \text{[Zakon materijalne implikacije]}\\
+    &\;\;\equiv\;\; \lnot p \lor (\lnot q \lor r)  && \text{[Zakon materijalne implikacije]}\\
+    &\;\;\equiv\;\; (\lnot p \lor \lnot q) \lor r  && \text{[Asocijativnost disjunkcije]}\\
+    &\;\;\equiv\;\; \lnot(p \land q) \lor r        && \text{[De Morganov zakon]}\\
+    &\;\;\equiv\;\; (p \land q) \Rightarrow r      && \text{[Zakon materijalne implikacije] }\qedhere
   \end{align*}
 \end{proof}
 
@@ -767,9 +767,9 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
 \begin{proof}[Re\v senje]
   \begin{align*}
     \lnot(p \Rightarrow q)
-    &\;\;\equiv\;\; \lnot(\lnot p \lor q)       && \text{Zakon materijalne implikacije}\\
-    &\;\;\equiv\;\; \lnot\lnot p \land \lnot q  && \text{De Morganov zakon}\\
-    &\;\;\equiv\;\; p \land \lnot q             && \text{Involutivnost negacije }\qedhere
+    &\;\;\equiv\;\; \lnot(\lnot p \lor q)       && \text{[Zakon materijalne implikacije]}\\
+    &\;\;\equiv\;\; \lnot\lnot p \land \lnot q  && \text{[De Morganov zakon]}\\
+    &\;\;\equiv\;\; p \land \lnot q             && \text{[Involutivnost negacije] }\qedhere
   \end{align*}
 \end{proof}
 
@@ -781,9 +781,9 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
 \begin{proof}[Re\v senje]
   \begin{align*}
     \lnot(p \Leftrightarrow q)
-    &\;\;\equiv\;\; \lnot((p \Rightarrow q) \land (q \Rightarrow p))    && \text{Zakon materijalne ekvivalencije}\\
-    &\;\;\equiv\;\; \lnot(p \Rightarrow q) \lor \lnot(q \Rightarrow p)  && \text{De Morganov zakon}\\
-    &\;\;\equiv\;\; (p \land \lnot q) \lor (q \land \lnot p)            && \text{Primer~\ref{ft03.ex.neg-implic}}\qedhere
+    &\;\;\equiv\;\; \lnot((p \Rightarrow q) \land (q \Rightarrow p))    && \text{[Zakon materijalne ekvivalencije]}\\
+    &\;\;\equiv\;\; \lnot(p \Rightarrow q) \lor \lnot(q \Rightarrow p)  && \text{[De Morganov zakon]}\\
+    &\;\;\equiv\;\; (p \land \lnot q) \lor (q \land \lnot p)            && \text{[Primer~\ref{ft03.ex.neg-implic}]}\qedhere
   \end{align*}
 \end{proof}
 
@@ -793,14 +793,14 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
 \begin{proof}[Re\v senje]
   \begin{align*}
     \lnot&(p \lor q \Leftrightarrow p \lor r) \;\;\equiv\;\;\\
-    &\;\;\equiv\;\; ((p \lor q) \land \lnot (p \lor r)) \lor ((p \lor r) \land \lnot(p \lor q)) && \text{Primer~\ref{ft03.ex.neg-ekviv}}\\
-    &\;\;\equiv\;\; ((p \lor q) \land \lnot p \land \lnot r) \lor ((p \lor r) \land \lnot p \land \lnot q) && \text{De Morganov zakon}\\
+    &\;\;\equiv\;\; ((p \lor q) \land \lnot (p \lor r)) \lor ((p \lor r) \land \lnot(p \lor q))                      && \text{[Primer~\ref{ft03.ex.neg-ekviv}]}\\
+    &\;\;\equiv\;\; ((p \lor q) \land \lnot p \land \lnot r) \lor ((p \lor r) \land \lnot p \land \lnot q)           && \text{[De Morganov zakon]}\\
     &\;\;\equiv\;\; (p \land \lnot p \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
-    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (p \land \lnot p \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{Distributivnost}\\
+    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (p \land \lnot p \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{[Distributivnost]}\\
     &\;\;\equiv\;\; (\bot \land \lnot r) \lor (q \land \lnot p \land \lnot r) \lor\\
-    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (\bot \land \lnot q) \lor (r \land \lnot p \land \lnot q) && \text{Princip kontradikcije}\\
-    &\;\;\equiv\;\; \bot \lor (q \land \lnot p \land \lnot r) \lor \bot \lor (r \land \lnot p \land \lnot q) && \text{Apsorptivni element}\\
-    &\;\;\equiv\;\; (q \land \lnot p \land \lnot r) \lor (r \land \lnot p \land \lnot q) && \text{Neutralni element}\qedhere
+    &\text{\hphantom{$\;\;\;\;\equiv\;\;$}}\lor (\bot \land \lnot q) \lor (r \land \lnot p \land \lnot q)            && \text{[Princip kontradikcije]}\\
+    &\;\;\equiv\;\; \bot \lor (q \land \lnot p \land \lnot r) \lor \bot \lor (r \land \lnot p \land \lnot q)         && \text{[Apsorptivni element]}\\
+    &\;\;\equiv\;\; (q \land \lnot p \land \lnot r) \lor (r \land \lnot p \land \lnot q)                             && \text{[Neutralni element]}\qedhere
   \end{align*}
 \end{proof}
 
@@ -840,20 +840,20 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
     \end{THM}
     
     \begin{EX}
-      Odrediti konjunktivnu i disjunktivnu normalnu formu formule $p \Leftrightarrow q$.
+      Odrediti konjunktivnu i disjunktivnu normalnu formu formule \hbox{$p \Leftrightarrow q$}.
     \end{EX}
     \begin{proof}[Re\v senje]
       Konjunktivnu normalnu formu dobijamo slede\'cim nizom ekvivalentnih transformacija:
       \begin{align*}
         p \Leftrightarrow q
-        &\;\;\equiv\;\; (p \Rightarrow q) \land (q \Rightarrow p)         && \text{Zakon materijalne ekvivalencije}\\
-        &\;\;\equiv\;\; (\lnot p \lor q) \land (\lnot q \lor p)           && \text{Zakon materijalne implikacije}\\
+        &\;\;\equiv\;\; (p \Rightarrow q) \land (q \Rightarrow p)         && \text{[Zakon materijalne ekvivalencije]}\\
+        &\;\;\equiv\;\; (\lnot p \lor q) \land (\lnot q \lor p)           && \text{[Zakon materijalne implikacije]}\\
       \end{align*}
       Disjunktivnu normalnu formu dobijamo ako prethodni niz transformacija nastavimo ovako:
       \begin{align*}
-        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (\lnot p \land p) \lor (q \land \lnot q) \lor (q \land p)   && \text{Distributivnost}\\
-        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor \bot \lor \bot \lor (q \land p)   && \text{Zakon kontradikcije}\\
-        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (q \land p)   && \text{Neutralni element}\qedhere
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (\lnot p \land p) \lor (q \land \lnot q) \lor (q \land p)   && \text{[Distributivnost]}\\
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor \bot \lor \bot \lor (q \land p)                             && \text{[Zakon kontradikcije]}\\
+        &\;\;\equiv\;\; (\lnot p \land \lnot q) \lor (q \land p)                                                 && \text{[Neutralni element] }\qedhere
       \end{align*}
     \end{proof}
     
@@ -871,14 +871,14 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
     \begin{proof}[Re\v senje]
       \begin{align*}
         \lnot(p \Rightarrow q) \lor \lnot p \lor q
-        &\;\;\equiv\;\; \lnot(\lnot p \lor q) \lor \lnot p \lor q          && \text{Zakon mat.\ implikacije}\\
-        &\;\;\equiv\;\; (\lnot\lnot p \land \lnot q) \lor \lnot p \lor q   && \text{De Morganov zakon}\\
-        &\;\;\equiv\;\; (p \land \lnot q) \lor \lnot p \lor q              && \text{Involutivnost negacije}\\
-        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor \lnot p \lor q) && \text{Distributivnost}\\
-        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor q \lor \lnot p) && \text{Komutativnost}\\
-        &\;\;\equiv\;\; (\top \lor q) \land (\top \lor \lnot p) && \text{Zakon isklju\v cenja tre\'ceg}\\
-        &\;\;\equiv\;\; \top \land \top && \text{Neutralni element}\\
-        &\;\;\equiv\;\; \top && \text{Neutralni element}\qedhere
+        &\;\;\equiv\;\; \lnot(\lnot p \lor q) \lor \lnot p \lor q                   && \text{[Zakon mat.\ implikacije]}\\
+        &\;\;\equiv\;\; (\lnot\lnot p \land \lnot q) \lor \lnot p \lor q            && \text{[De Morganov zakon]}\\
+        &\;\;\equiv\;\; (p \land \lnot q) \lor \lnot p \lor q                       && \text{[Involutivnost negacije]}\\
+        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor \lnot p \lor q) && \text{[Distributivnost]}\\
+        &\;\;\equiv\;\; (p \lor \lnot p \lor q) \land (\lnot q \lor q \lor \lnot p) && \text{[Komutativnost]}\\
+        &\;\;\equiv\;\; (\top \lor q) \land (\top \lor \lnot p)                     && \text{[Zakon isklju\v cenja tre\'ceg]}\\
+        &\;\;\equiv\;\; \top \land \top                                             && \text{[Neutralni element]}\\
+        &\;\;\equiv\;\; \top                                                        && \text{[Neutralni element]}\qedhere
       \end{align*}
     \end{proof}
     
@@ -920,7 +920,7 @@ u o\v stroj suprotnosti sa op\v ste prihva\'cenim stavom da je Bulova
 je pravio glavolomke kojima je dovodio \v citaoce u razne apsurdne situacije i zahtevao od njih da
 primene pravila formalnog rezonovanja. Sada \'cemo navesti tri takva primera.
 
-\paragraph{Primer: Problem sa terijerima i kometama.}
+\paragraph{Problem sa terijerima i kometama.}
 Iz slede\'ce tri premise izvesti odgovaraju\'ci zaklju\v cak:
 \begin{enumerate}
 \item
@@ -960,7 +960,7 @@ $
 zaklju\v cujemo, tako\dj e, da je $K \Rightarrow \lnot R$, odnosno, da
 \emph{komete nemaju kovrd\v zav rep}, \v sto je prili\v cno ta\v cno.
 
-\paragraph{Primer: Problem sa magarcima i bivolima.}
+\paragraph{Problem sa magarcima i bivolima.}
 Iz slede\'cih premisa izvesti odgovaraju\'ci zaklju\v cak:
 \begin{enumerate}
 \item%1
@@ -1020,11 +1020,11 @@ $$
 $$
 odnosno, da \emph{magarca nije lako progutati}.
 
-\paragraph{Primer: Problem sa svinjama i balonima.}
+\paragraph{Problem sa svinjama i balonima.}
 Iz slede\'cih premisa izvesti odgovaraju\'ci zaklju\v cak:
 \begin{enumerate}
 \item%1
-  Svi koji niti hodaju po u\v zetu niti jedu jeftine kifle su stari.
+  Svi koji niti hodaju po u\v zetu, niti jedu jeftine kifle, su stari.
 \item%2
   Svinjama koje vole da se kin\dj ure se iskazuje po\v stovanje.
 \item%3
@@ -1062,31 +1062,31 @@ Tada prethodne izjave mo\v zemo formalno da zapi\v semo ovako:
 \begin{enumerate}
 \item%1
   $\lnot U \land \lnot F \Rightarrow S$
-  (ako ne hoda po u\v zetu i ne jede jeftine kifle onda je star);
+  (ako ne hoda po u\v zetu i ne jede jeftine kifle, onda je star);
 \item%2
   $\NJ \land V \Rightarrow P$
-  (ako je svinja i voli da se kin\dj uri onda mu se iskazuje po\v stovanje);
+  (ako je svinja i voli da se kin\dj uri, onda mu se iskazuje po\v stovanje);
 \item%3
   $M \land B \Rightarrow K$
-  (ako je mudar i pilotira balonom onda nosi ki\v sobran);
+  (ako je mudar i pilotira balonom, onda nosi ki\v sobran);
 \item%4
   $L \land F \Rightarrow \lnot T$
-  (ako je luckast i jede jeftine kifle onda ne mo\v ze da jede na javnom mestu);
+  (ako je luckast i jede jeftine kifle, onda ne mo\v ze da jede na javnom mestu);
 \item%5
   $\lnot S \land B \Rightarrow V$
-  (ako je mlad ($=$ nije star) i pilotira balonom onda voli da se kin\dj uri);
+  (ako je mlad ($=$ nije star) i pilotira balonom, onda voli da se kin\dj uri);
 \item%6
   $D \land L \land \lnot U \Rightarrow T$
   (ako je debeo i luckast, i jo\v s ako ne hoda po u\v zetu, onda mo\v ze da jede na javnom mestu);
 \item%7
   $M \land V \Rightarrow \lnot U$
-  (ako je mudar i voli da se kin\dj uri onda ne hoda po u\v zetu);
+  (ako je mudar i voli da se kin\dj uri, onda ne hoda po u\v zetu);
 \item%8
   $\NJ \land K \Rightarrow L$
-  (ako je svinja i nosi ki\v sobran onda je luckast);
+  (ako je svinja i nosi ki\v sobran, onda je luckast);
 \item%9
   $\lnot U \land P \Rightarrow D$
-  (ako ne hoda po u\v zetu i iskazuje mu se po\v stovanje onda je debeo).
+  (ako ne hoda po u\v zetu i iskazuje mu se po\v stovanje, onda je debeo).
 \end{enumerate}
 Za razliku od prethodna dva primera gde smo imali jednostavne nizove implikacija, ovde je proces zaklju\v civanja slo\v zeniji
 zato \v sto sa leve strane svake implikacije imamo konjunkciju uslova.
@@ -1497,21 +1497,19 @@ kao zaklju\v cak dobijamo da \emph{mlade svinje koje pilotiraju balonom nisu mud
 
 
 
-\section{Iskazne formule u analizi programskog koda}
+\section{Iskazne formule u analizi programskog k\^oda}
 
 Iskazne formule u programiranju odgovaraju uslovima koji se javljaju u \enquote{if}, \enquote{while} i sli\v cnim
 kontrolnom strukturama. Sada \'cemo na nekoliko jednostavnih primera
-pokazati kako se ve\v stine koje smo stekli koriste za analizu toka programskog koda,
-detekciju mrtvog koda i analizu petlji. Kako ra\v cunarski programi postaju sve slo\v zeniji
-i slo\v zeniji, formalna analiza programskog koda postaje va\v zna ve\v stina za jednog programera
+pokazati kako se ve\v stine koje smo stekli koriste za analizu toka programskog k\^oda,
+detekciju mrtvog k\^oda i analizu petlji. Kako ra\v cunarski programi postaju sve slo\v zeniji
+i slo\v zeniji, formalna analiza programskog k\^oda postaje va\v zna ve\v stina za jednog programera
 jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 \begin{quote}
   \enquote{Program testing can be used to show the presence of bugs, but never their absence.}
   
   Edsger Dijkstra
 \end{quote}
-
-\clearpage
 
 \begin{EX}
   Posmatrajmo slede\'ci metod:
@@ -1525,7 +1523,7 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 \end{verbatim}
 }
 \noindent
-\v Sta va\v zi u ta\v cki (1) koda?
+\v Sta va\v zi u ta\v cki (1) k\^oda?
 \end{EX}
 \begin{proof}[Re\v senje]
   Ako metod stigne u ta\v cku (1) to zna\v ci da uslov iza \enquote{if} nije ispunjen. Dakle, u ta\v cki (1)
@@ -1556,11 +1554,11 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 }
 \end{EX}
 \noindent
-\v sta va\v zi u ta\v cki (1) koda, a \v sta u ta\v cki (2)?
+\v sta va\v zi u ta\v cki (1) k\^oda, a \v sta u ta\v cki (2)?
 \begin{proof}[Re\v senje]
-  Ako kod stigne u ta\v cku (1) tada je uslov u \enquote{if} ispunjen, pa u ta\v cki (1) va\v zi
+  Ako k\^od stigne u ta\v cku (1) tada je uslov u \enquote{if} ispunjen, pa u ta\v cki (1) va\v zi
   $x \ge 6 \land y < 7$.
-  S druge strane, ako je kod stigao do ta\v cke (2) uslov u \enquote{if} nije ispunjen, tako da u ta\v cki (2) va\v zi
+  S druge strane, ako je k\^od stigao do ta\v cke (2) uslov u \enquote{if} nije ispunjen, tako da u ta\v cki (2) va\v zi
   $\lnot(x \ge 6 \land y < 7)$,
   \v sto je ekvivalentno sa $x < 6 \lor y \ge 7$.
 \end{proof}
@@ -1591,17 +1589,17 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 \begin{proof}[Re\v senje]
   U ta\v cki (1) va\v zi uslov naveden u prvom \enquote{if}, dakle $x < 1$.
   
-  Ako je kod stigao u ta\v cku (2), zna\v ci da uslov
+  Ako je k\^od stigao u ta\v cku (2), zna\v ci da uslov
   iza prvog \enquote{if} nije ispunjen, ali uslov iza drugog jeste. Zato u ta\v cki (2) va\v zi
   $\lnot(x < 1) \land x < 5$ \v sto je ekvivalentno sa $x \ge 1 \land x < 5$,
   odnosno, $1 \le x < 5$.
 
-  Ako je kod stigao u ta\v cku (3), zna\v ci da uslovi
+  Ako je k\^od stigao u ta\v cku (3), zna\v ci da uslovi
   iza prva dva \enquote{if}-a nisu ispunjeni, ali uslov iza tre\'ceg jeste. Zato u ta\v cki (3) va\v zi
   $\lnot(x < 1) \land \lnot(x < 5) \land x > 10$, \v sto je ekvivalentno sa
   $x \ge 1 \land x \ge 5 \land x > 10$, odnosno, $x > 10$.
   
-  Kona\v cno, ako je kod stigao u ta\v cku (4) nijedan od tri uslova nije ispunjen. Zato u ta\v cki (4)
+  Kona\v cno, ako je k\^od stigao u ta\v cku (4) nijedan od tri uslova nije ispunjen. Zato u ta\v cki (4)
   va\v zi $\lnot(x < 1) \land \lnot(x < 5) \land \lnot(x > 10)$, \v sto je ekvivalentno sa
   $x \ge 1 \land x \ge 5 \land x \le 10$, odnosno, $5 \le x \le 10$.
 \end{proof}
@@ -1645,8 +1643,8 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 
 
 \begin{EX}
-  Analiza uslova se mo\v ze upotrebiti da se detektuje mrtav kod (\v sto je kod koji se nikada
-  ne\'ce izvr\v siti). U slede\'cem programskom fragmentu detektovati mrtav kod:
+  Analiza uslova se mo\v ze upotrebiti da se detektuje mrtav k\^od (\v sto je k\^od koji se nikada
+  ne\'ce izvr\v siti). U slede\'cem programskom fragmentu detektovati mrtav k\^od:
 {\small
 \begin{verbatim}
   if(x < 1) {
@@ -1676,8 +1674,8 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
   
   U ta\v cki (3) va\v zi
   $\lnot(x < 1) \land \lnot(x < 5) \land x < -3$, \v sto je ekvivalentno sa
-  $x \ge 1 \land x \ge 5 \land x < -3$, \v sto nije mogu\'ce! Dakle, kod naveden u bloku koji po\v cinje u
-  ta\v cki (3) je mrtav kod.
+  $x \ge 1 \land x \ge 5 \land x < -3$, \v sto nije mogu\'ce! Dakle, k\^od naveden u bloku koji po\v cinje u
+  ta\v cki (3) je mrtav k\^od.
   
   Kona\v cno, u ta\v cki (4)
   va\v zi $\lnot(x < 1) \land \lnot(x < 5) \land \lnot(x < -3)$, \v sto je ekvivalentno sa
@@ -1695,9 +1693,6 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
   // (1)
   int pom = x;
   // (2)
-\end{verbatim}
-\clearpage
-\begin{verbatim}
   x = y;
   // (3)
   y = pom;
@@ -1771,7 +1766,7 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
   $$
     x = b \land y = a.
   $$
-  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih \verb"x" i \verb"y". Ovaj kod je samo akademska glavolomka!
+  Dakle, ovaj fragment razmenjuje sadr\v zaj promenljivih \verb"x" i \verb"y". Ovaj k\^od je samo akademska glavolomka!
   \emph{Nikada ne treba na ovaj na\v cin razmenjivati vrednosti promenljivih!}
   Smislen na\v cin je onaj pokazan u Primeru~\ref{ft03.ex.swap}.
 \end{proof}
@@ -1843,17 +1838,17 @@ jer, kao \v sto je 1972.\ rekao Edgar Dajkstra,
 \medskip
 
 \noindent
-$(a)$ \v Sta va\v zi u ta\v ckama (1) i (2) koda?
+$(a)$ \v Sta va\v zi u ta\v ckama (1) i (2) k\^oda?
 
 \medskip
 
 \noindent
-$(b)$ Dokazati da u ta\v cki (3) koda va\v zi $p + u\cdot y = x \cdot y \land u > 0$, a da u ta\v cki (4) va\v zi $p + u\cdot y = x \cdot y \land u \ge 0$.
+$(b)$ Dokazati da u ta\v cki (3) k\^oda va\v zi $p + u\cdot y = x \cdot y \land u > 0$, a da u ta\v cki (4) va\v zi $p + u\cdot y = x \cdot y \land u \ge 0$.
 
 \medskip
 
 \noindent
-$(c)$ \v Sta va\v zi u ta\v cki (5) koda? \v Sta radi metod \verb"MN"?
+$(c)$ \v Sta va\v zi u ta\v cki (5) k\^oda? \v Sta radi metod \verb"MN"?
 \end{EX}
 \begin{proof}[Re\v senje]
   $(a)$
@@ -1912,7 +1907,7 @@ $(c)$ \v Sta va\v zi u ta\v cki (5) koda? \v Sta radi metod \verb"MN"?
   Ova formula se zato zove \emph{invarijanta petlje} jer je invarijantna (ne menja oblik) tokom izvr\v savanja petlje.
   
   $(c)$
-  U ta\v cki (5) koda va\v zi
+  U ta\v cki (5) k\^oda va\v zi
   $$
     (p + u\cdot y = x \cdot y \land u \ge 0) \land \lnot(u > 0)
   $$
@@ -1929,7 +1924,8 @@ $(c)$ \v Sta va\v zi u ta\v cki (5) koda? \v Sta radi metod \verb"MN"?
 \end{proof}
 
 U prethodnom primeru smo videli kako se invarijante petlje koriste da analiziramo rad petlje. \emph{Invarijanta petlje} je formula
-koja va\v zi pre ulaska u telo petlje i nakon svakog izvr\v savanja tela petlje. Onda ne menja svoj oblik tokom rada petlje, odatle ime.
+koja va\v zi pre ulaska u telo petlje i nakon svakog izvr\v savanja tela petlje.
+Ona ne menja svoj oblik tokom rada petlje, odatle ime (ne menja se, \emph{invarijantna} je).
 Drugi va\v zan aspekt analize rada petlji je dokaz da \'ce se petlja zavr\v siti nakon kona\v cnog broja koraka. To nije uvek
 o\v cigledno. Zato \'cemo u slede\'cem primeru pokazati jednu standardnu tehniku za ovakve dokaze. Ideja je da se uo\v ci
 algebarski izraz koji se zove \emph{varijanta petlje} koji se u svakom prolasku kroz telo petlje smanjuje i petlja se zavr\v sava
@@ -1943,9 +1939,6 @@ kada vrednost ovog izraza stigne do neke unapred zadate vrednosti.
       if(x <= 0 || y <= 0) { return -1; }
       int p = 0;
       int u = x;
-\end{verbatim}
-\clearpage
-\begin{verbatim}
       do {
         p += y;
         u--;
@@ -1989,13 +1982,13 @@ $(a)$ \v Sta va\v zi u ta\v cki (1)?
 \medskip
 
 \noindent
-$(b)$ Dokazati da u ta\v cki (2) koda va\v zi $q \cdot y + r = x \land r \ge y$,
+$(b)$ Dokazati da u ta\v cki (2) k\^oda va\v zi $q \cdot y + r = x \land r \ge y$,
 a da u ta\v cki (3) va\v zi $q \cdot y + r = x \land r \ge 0$ (ovo je invarijanta petlje).
 
 \medskip
 
 \noindent
-$(c)$ \v Sta va\v zi u ta\v cki (4) koda? \v Sta radi metod \verb"CK"?
+$(c)$ \v Sta va\v zi u ta\v cki (4) k\^oda? \v Sta radi metod \verb"CK"?
 
 \medskip
 
@@ -2013,7 +2006,7 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
   $(b)$
   Kada program prvi put u\dj e u petlju u ta\v cki (2) va\v zi
   $$
-    q = 0 \land r = x \land x > 0 \land y > 0 \land r \ge y
+    q = 0 \land r = x \land x > 0 \land y > 0 \land r \ge y,
   $$
   odakle lako sledi da je
   $$
@@ -2051,9 +2044,9 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
   Dalje ne moramo da se vrtimo u krug, sve je jasno.
   
   $(c)$
-  U ta\v cki (4) koda va\v zi
+  U ta\v cki (4) k\^oda va\v zi
   $$
-    (q \cdot y + r = x \land r \ge 0) \land \lnot(r \ge y)
+    (q \cdot y + r = x \land r \ge 0) \land \lnot(r \ge y),
   $$
   odnosno,
   $$
@@ -2066,8 +2059,6 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
   Lako se vidi da promenljiva $r$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,
   u svakom prolazu kroz telo petlje se njena vrednost smanjuje za $y$, i petlja se zavr\v sava kada $r$ postane manje od~$y$.
 \end{proof}
-
-\clearpage
 
 \begin{EX}
   Posmatrajmo slede\'ci metod:
@@ -2100,14 +2091,14 @@ $(a)$ \v Sta va\v zi u ta\v cki (1)?
 \medskip
 
 \noindent
-$(b)$ Dokazati da u ta\v cki (2) koda va\v zi $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b > 0$
+$(b)$ Dokazati da u ta\v cki (2) k\^oda va\v zi $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b > 0$
 (gde smo sa $\NZD(x, y)$ ozna\v cili najve\'ci zajedni\v cki delilac brojeva $x$ i $y$),
 a da u ta\v cki (3) va\v zi $\NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0$ (ovo je invarijanta petlje).
 
 \medskip
 
 \noindent
-$(c)$ Dokazati da u ta\v cki (4) koda va\v zi $a = \NZD(x, y)$.
+$(c)$ Dokazati da u ta\v cki (4) k\^oda va\v zi $a = \NZD(x, y)$.
 
 \medskip
 
@@ -2162,7 +2153,7 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
   $$
 
   $(c)$
-  U ta\v cki (4) koda va\v zi invarijanta petlje, i uslov za izlazak iz petlje:
+  U ta\v cki (4) k\^oda va\v zi invarijanta petlje, i uslov za izlazak iz petlje:
   $$
     (\NZD(a, b) = \NZD(x, y) \land a > 0 \land b \ge 0) \land (b \le 0),
   $$
@@ -2177,19 +2168,17 @@ $(d)$ Dokazati da se ovaj metod uvek zavr\v sava.
   $(d)$
   Lako se vidi da promenljiva $b$ slu\v zi kao varijanta petlje: ona na po\v cetku dobija neku pozitivnu vrednost,
   u svakom prolazu kroz telo petlje se njena vrednost smanjuje (jer nova vrednost promenljive $b$ postaje ostatak pri celobrojnom deljenju
-  $a$ sa $b$, \v sto je uvek manje od stare vrednost promenljive $b$), i petlja se zavr\v sava kada $b$ padne na~$0$.
+  $a$ sa $b$, \v sto je uvek manje od stare vrednosti promenljive $b$), i petlja se zavr\v sava kada $b$ padne na~$0$.
 \end{proof}
 
 
 \section{Zadaci}
 
 \begin{NAP}\it
-Za prirodni broj $k$ i cele brojeve $m$ i $n$ pi\v semo $n\equiv_k m$ ako je $n-m$ deljivo brojem $k$. Tada ka\v zemo da je su brojevi $n$ i $m$ kongruentni po modulu $k$.
+Za prirodni broj $k$ i cele brojeve $m$ i $n$ pi\v semo $n\equiv_k m$ ako je $n-m$ deljivo brojem $k$. Tada ka\v zemo da su brojevi $n$ i $m$ kongruentni po modulu $k$.
 U matemati\v ckoj literaturi se umesto $n\equiv_k m$ \v ce\v s\'ce koristi oznaka $n \equiv m \pmod k$, ali \'ce
 za na\v se potrebe skra\'ceni oblik $\equiv_k$ biti korisniji.
 \end{NAP}
-
-\clearpage
 
 \ZAD{01.zad.1}{Proveriti da li su slede\' ci iskazi ta\v cni ili neta\v cni:
 \begin{multicols}{2}
@@ -2296,7 +2285,7 @@ Sastaviti tablicu istinitosnih vrednosti za slede\' ce iskazne formule, proverit
 }
 
 \ZAD{02.zad.2}{
-Bez sastavljanja tablice istinitosnih vrednosti dokazati da su slede\' ce iskazne formule tautologije:
+Bez sastavljanja tablice istinitosnih vrednosti dokazati da su slede\' ce is\-kaz\-ne formule tautologije:
 \begin{enumerate}[(a)]
 \item $(p\Leftrightarrow \neg q)\wedge(\neg r\vee \neg s\Rightarrow q)\Rightarrow(p\Rightarrow s)$;
 \item $s\wedge(\neg s\vee p)\Rightarrow(q\vee r\Rightarrow p)\vee t$;

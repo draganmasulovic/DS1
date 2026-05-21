@@ -17,7 +17,7 @@ podaci pore\dj aju u odnosu na neki kriterijum od \enquote{manjih} vrednosti ka 
 U oba slu\v caja imamo potrebu da iz nekog skupa podataka $A$ uzmemo dva podatka
 $a, b \in A$ i da utvrdimo da li su oni u vezi: da li je $a$ \enquote{sli\v can} sa $b$ u prvom slu\v caju, odnosno
 da li je $a$ \enquote{manji} od $b$ u drugom slu\v caju.
-U apstraktnom smislu, to zna\v ci da treba da uspostavimo binarnu relaciju
+U apstraktnom smislu, to zna\v ci da je potrebno da uspostavimo binarnu relaciju
 $\rho \subseteq A \times A$ na skupu $A$ takvu da
 $(a, b) \in \rho$ modeluje situaciju \enquote{$a$ je sli\v can sa $b$} u prvom slu\v caju,
 odnosno, \enquote{$a$ je manji od $b$} u drugom slu\v caju.
@@ -35,7 +35,8 @@ kada neka apstraktna binarna relacija $\rho \subseteq A \times A$ predstavlja
     \label{ft07.fig.slicnost}
 \end{figure}
 
-Pogledajmo jedan jednostavan primer. Za dva trougla ka\v zemo da su \emph{sli\v cni} ako imaju iste
+\begin{EX}
+Za dva trougla ka\v zemo da su \emph{sli\v cni} ako imaju iste
 uglove. Na primer, trouglovi $T$ i $P$ na Sl.~\ref{ft07.fig.slicnost} nisu sli\v cni, \v sto
 pi\v semo $T \not\sim P$, dok su trouglovi $P$, $Q$ i $R$ me\dj usobno sli\v cni,
 $P \sim Q$, $P \sim R$, $Q \sim R$.
@@ -47,11 +48,10 @@ Lako je videti da relacija sli\v cnosti $\sim$ ima slede\'ce osobine:
 \item ako su trouglovi $X$ i $Y$ sli\v cni, i ako su touglovi $Y$ i $Z$ sli\v cni, onda su i trouglovi $X$ i $Z$ sli\v cni:
       $X \sim Y \land Y \sim Z \Rightarrow X \sim Z$.
 \end{itemize}
+\end{EX}
 
 \begin{EX}
-    Da se podsetimo: za dva prirodna broja ka\v zemo da su \emph{kongruentni po modulu $m$} i pi\v semo $a \equiv_m b$,
-    ako imaju isti ostatak pri deljenju sa $m$. Primetimo da relacija $\equiv_m$ ima tri upravo navedene
-    osobine:
+    Relacija kongruentnosti $\equiv_m$ ima osobine navedene u prethodnom primeru:
     \begin{itemize}
     \item za svako $a \in \NN$ va\v zi: $a \equiv_m a$,
     \item za sve $a, b \in \NN$ va\v zi: $a \equiv_m b \Rightarrow b \equiv_m a$, i
@@ -159,13 +159,13 @@ Sada \'cemo sve \v sto smo uo\v cili na ovom malom primeru pokazati i formalno.
 \end{THM}
 \begin{proof}[Dokaz]
   (1)
-  Neka je $a \in A$ proizvoljno. Zbog refleksivnosti je $a \mathrel{\rho} a$ pa je $a \in [a]_\rho$.
+  Neka je $a \in A$ proizvoljno. Zbog refleksivnosti je $a \mathrel{\rho} a$, pa je $a \in [a]_\rho$.
   
   \medskip
   
   (2)
-  Neka je $a \mathrel\rho b$. Imaju\'ci u vidu da su klasteri skupovi, da bismo pokazali da je $[a]_\rho = [b]_\rho$
-  treba da poka\v zemo da je $[a]_\rho \subseteq [b]_\rho$ i $[b]_\rho \subseteq [a]_\rho$. Pokaza\'cemo samo
+  Neka je $a \mathrel\rho b$. Imaju\'ci u vidu da su klasteri skupovi, da bismo pokazali da je $[a]_\rho = [b]_\rho$,
+  potrebno je pokazati da je $[a]_\rho \subseteq [b]_\rho$ i $[b]_\rho \subseteq [a]_\rho$. Pokaza\'cemo samo
   $[a]_\rho \subseteq [b]_\rho$ zato \v sto se $[b]_\rho \subseteq [a]_\rho$ pokazuje na isti na\v cin.
   
   Uzmimo neko $x \in [a]_\rho$. Tada je $x \mathrel\rho a$ prema definiciji klastera. S druge strane, mi smo pretpostavili
@@ -187,7 +187,7 @@ Sada \'cemo sve \v sto smo uo\v cili na ovom malom primeru pokazati i formalno.
   \medskip
   
   (4)
-  Da bismo dokazali da je $A = C_1 \cup \ldots \cup C_k$ dokaza\'cemo da je
+  Da bismo dokazali da je $A = C_1 \cup \ldots \cup C_k$, dokaza\'cemo da je
   $A \subseteq C_1 \cup \ldots \cup C_k$ i $C_1 \cup \ldots \cup C_k \subseteq A$.
 
   Uzmimo proizvoljno $a \in A$. Kako smo videli u (1), $a \in [a]_\rho$. No, $[a]_\rho$ je neki od klastera sa spiska, recimo $C_i$.
@@ -234,7 +234,7 @@ Sada \'cemo sve \v sto smo uo\v cili na ovom malom primeru pokazati i formalno.
 \end{EX}
 
 \begin{EX}
-  U Primeru~\ref{ft07.ex.01-weight} smo na skupu $A = \{0,1\}^n$ skup svih 01-nizova du\v zine $n$, $n \ge 1$,
+  U Primeru~\ref{ft07.ex.01-weight} smo na skupu $A = \{0,1\}^n$ svih 01-nizova du\v zine $n$, $n \ge 1$,
   definisali relaciju $\sim$ ovako: $u \sim v$ ako i samo ako nizovi $u$ i $v$ imaju isti broj jedinica.
   Neka je $n = 8$. Primetimo, prvo, da je $00000001 \sim 00000010 \sim 00000100 \sim \ldots \sim 10000000$,
   potom $00000011 \sim 00000101 \sim \ldots \sim 11000000$, kao i da je $00000000$ jedini 01-niz $u \in A^8$
@@ -334,18 +334,18 @@ uvek se mo\v ze na\'ci relacija ekvivalencije koja ba\v s tako klasifikuje eleme
 
     (Tranzitivnost)
     Neka je $a \mathrel\rho b$ i $b \mathrel\rho c$. Tada se $a$ i $b$ nalaze u istom klasteru, i $b$ i $c$ se nalaze u istom klasteru.
-    Recimo da je $a, b \in C_i$ i $b, c \in C_j$. Zato \v sto razli\v citi klasteri nemaju zajedni\v ckih elemenata, zaklju\v cujemo
+    Recimo da je $a, b \in C_i$ i $b, c \in C_j$. Kako razli\v citi klasteri nemaju zajedni\v ckih elemenata, zaklju\v cujemo
     da je $C_i = C_j$ jer $b \in C_i \cap C_j$. Dakle, $a$ i $c$ se tako\dj e nalaze u istom klasteru, pa je zato
     $a \mathrel\rho c$.
 
-    Treba jo\v s pokazati da je $A / \Boxed\rho = \{C_1, C_2, \ldots, C_k\}$, ali to sledi direktno iz konstrukcije relacije~$\rho$
+    POtrebno je jo\v s pokazati da je $A / \Boxed\rho = \{C_1, C_2, \ldots, C_k\}$, ali to sledi direktno iz konstrukcije relacije~$\rho$
 	i prve osobine klasterizacije.
 \end{proof}
 
 \section{Pore\dj enje}
 
 Sortiranje podataka po nekom kriterijumu predstavlja jedan od najstarijih i najva\v znijih procesa u obradi podataka.
-Algoritam za sortiranje poredi parove podataka po nekom kriterijumu i onda odlu\v cuje koji podatak treba da se pojavi
+Algoritam za sortiranje poredi parove podataka po nekom kriterijumu i onda odlu\v cuje koji podatak bi trebalo da se pojavi
 ranije u kona\v cnom poretku.
 Recimo, podatke o osobama mo\v zemo da uredimo po prezimenu, ili po starosti.
 U ovom odeljku \'cemo odgovoriti na pitanje kada neka apstraktna binarna relacija $\rho \subseteq A \times A$ predstavlja
@@ -373,7 +373,7 @@ Pogledajmo jedan jednostavan primer u programskom jeziku Java. Neka nam je data 
 }
 Programski jezik Java ima klasu \verb`Arrays` u paketu \texttt{java.util}
 koja implementira metod \verb`sort`, ali programer mora da objasni sistemu
-po kom kriterijumu niz treba da bude sortiran. Drugim re\v cima, programer mora da opi\v se relaciju poretka
+po kom kriterijumu ni niz trebalo da bude sortiran. Drugim re\v cima, programer mora da opi\v se relaciju poretka
 koju \v zeli da primeni kako bi metod \verb`Arrays.sort` mogao da sortira elemente niza.
 
 Apstrakcija relacije poretka u Javi je realizovana kao parametrizovani interfejs \verb`Comparator`, gde
@@ -385,9 +385,9 @@ parametar interfejsa predstavlja tip objekata koje \'cemo porediti. Ovaj interfe
 \end{verbatim}
 }
 \noindent
-koji treba da vrati $-1$ ukoliko je \verb`obj1` strogo manje od \verb`obj2`,
-treba da vrati $0$ ukoliko su \verb`obj1` i \verb`obj2` jednaki u odnosu na posmatrano svojstvo,
-i treba da vrati $1$ ukoliko je \verb`obj1` strogo ve\'ce od \verb`obj2`.
+koji vra\'ca $-1$ ukoliko je \verb`obj1` strogo manje od \verb`obj2`,
+vra\'ca $0$ ukoliko su \verb`obj1` i \verb`obj2` jednaki u odnosu na posmatrano svojstvo,
+i vra\'ca $1$ ukoliko je \verb`obj1` strogo ve\'ci od \verb`obj2`.
 
 Pretpostavimo da smo u glavnom programu napravili niz \texttt{S} i u njega smestili podatke
 o nekoliko studenata:
@@ -505,9 +505,9 @@ Relacija poretka na skupu $A$ je \emph{linearni (ili totalni) poredak} ako va\v 
 \end{DEF}
 
 \begin{EX}\label{ft07.ex.deljivost}
-  Neka je $\mid$ relacija deljivosti na skupu $\NN$. Na primer, $3 \mid 12$ i $5 \nmid 12$. Tada se lako dokazuje da je
+  Neka je $\mid$ relacija deljivosti na skupu $\NN$. Na primer, $3 \mid 12$ i $5 \nmid 12$. Lako se dokazuje da je
   $\mid$ relacija poretka na $\NN$. Refleksivnost i tranzitivnost su o\v cigledni. Doka\v zimo antisimetri\v cnost.
-  Neka je $a \mid b$ i $b \mid a$ za neke $a, b \in \NN$. Iz $a \mid b$ sledi $a \le b$. Isto tako, iz $b \mid a$ sledi
+  Neka $a \mid b$ i $b \mid a$ za neke $a, b \in \NN$. Iz $a \mid b$ sledi $a \le b$. Isto tako, iz $b \mid a$ sledi
   $b \le a$. Dakle, $a \le b$ i $b \le a$, pa je $a = b$. Ovo nije linearni poredak jer postoje neuporedivi elementi,
   recimo, $2 \nmid 3$ i $3 \nmid 2$.
 \end{EX}
@@ -634,13 +634,13 @@ sortiraju po prezimenu. Slede\'ca teorema pokazuje da dvokriterijumsko sortiranj
   
   \medskip
   
-  Slu\v caj 1: $a_1 = b_1$. Zato \v sto je $\sqsubseteq_2$ linearni poredak mora bili $a_2 \mathrel{\sqsubseteq_2} b_2$
+  Slu\v caj 1: $a_1 = b_1$. Kako je $\sqsubseteq_2$ linearni poredak, mora bili $a_2 \mathrel{\sqsubseteq_2} b_2$
   ili $b_2 \mathrel{\sqsubseteq_2} a_2$, pa je, u zavisnosti od toga koja od ove dve relacije je ta\v cna,
   $(a_1, a_2) \preccurlyeq (b_1, b_2)$ ili $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
   
   \medskip
   
-  Slu\v caj 2: $a_1 \ne b_1$. Zato \v sto je $\sqsubseteq_1$ linearni poredak mora bili $a_1 \mathrel{\sqsubseteq_1} b_1$
+  Slu\v caj 2: $a_1 \ne b_1$. Kako je $\sqsubseteq_1$ linearni poredak, mora bili $a_1 \mathrel{\sqsubseteq_1} b_1$
   ili $b_1 \mathrel{\sqsubseteq_1} a_1$, pa je, u zavisnosti od toga koja od ove dve relacije je ta\v cna,
   $(a_1, a_2) \preccurlyeq (b_1, b_2)$ ili $(b_1, b_2) \preccurlyeq (a_1, a_2)$.
   
@@ -667,19 +667,19 @@ na $A^*$ koja ne mora biti linearni poredak. Na primer, za $A = \{a, b, c\}$ ima
 \item
   $ab$ je prefiks od $abc$, a nije prefiks od $aab$;
 \item
-  prazna re\v c je prefkis svake re\v ci;
+  prazna re\v c je prefiks svake re\v ci;
 \item
   za svaku re\v c $u$ je $u$ prefiks od $u$ (refleksivnost);
 \item
-  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $u$ onda je $u = v$ (antisimetri\v cnost);
+  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $u$, onda je $u = v$ (antisimetri\v cnost);
 \item
-  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $w$ onda je $u$ prefiks od $w$ (tranzitivnost);
+  ako je $u$ prefiks od $v$ i ako je $v$ prefiks od $w$, onda je $u$ prefiks od $w$ (tranzitivnost);
 \item
   niti je $ab$ prefiks od $ba$, niti je $ba$ prefiks od $ab$ (zato ovo nije linearni poredak).
 \end{itemize}
 
 \emph{Leksikografski poredak} predstavlja na\v cin da se re\v ci nekog jezika urede \emph{linearno.}
-Zove se \emph{leksikografski} jer se ista koristi za ure\dj ivanje re\v ci u leksikonu.
+Zove se \emph{leksikografski} jer se isti koristi za ure\dj ivanje re\v ci u leksikonu.
 Recimo:
 \begin{quote}
   Avala,
@@ -722,7 +722,7 @@ Na primer, za $A = \{a, b, c, d\}$ imamo slede\'ce: $aaaaa \preccurlyeq b \precc
 \section{Grafi\v cki prikaz relacija poretka}
 
 
-Relacije poretka kao skupovi ure\dj enih parova obi\v cno imaju mnogo elemenata pa grafi\v cko predstavljanje koje smo
+Relacije poretka kao skupovi ure\dj enih parova obi\v cno imaju mnogo elemenata, pa grafi\v cko predstavljanje koje smo
 koristili kod relacija ekvivalencije nije pogodno. Istini za volju, nije bilo pogodno ni za relacije ekvivalencije --
 ve\'c mali primeri su bili predstavljeni \v sumama linija, pa smo smislili efikasniji na\v cin (koli\v cni\v cki skup)
 da predstavimo relaciju ekvivalencije.
@@ -735,10 +735,10 @@ koli\v cinu informacija, uz slede\'ce dogovore:
         linija nema strelicu jer se podrazumeva da je orijentisana od elementa koji je ni\v ze na crte\v zu
         ka elementu koji je nacrtan iznad njega;
   \item ne crtamo petlje (znamo da je relacija refleksivna);
-  \item ne crtamo linije koje mo\v zemo da dobijemo kao posledicu nartanih linija i \v cinjenice da je relacija tranzitivna.
+  \item ne crtamo linije koje mo\v zemo da dobijemo kao posledicu nacrtanih linija i \v cinjenice da je relacija tranzitivna.
 \end{itemize}
 Ne\'cemo ovde ulaziti u formalnu raspravu o tome kako se ta\v cno defini\v se Haseov dijagram,
-ve\'c cemo na nekoliko primera pokazati kako se on konstrui\v se za datu relaciju poretka.
+ve\'c \'cemo na nekoliko primera pokazati kako se on konstrui\v se za datu relaciju poretka.
 
 \begin{EX}\label{ft07.ex.deljivost-1-10}
   Relacija deljivosti $\mid$ je relacija poretka na skupu $\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$
@@ -805,10 +805,10 @@ Primetimo da je broj 4 deljiv i brojem 1. Me\dj utim, ne\'cemo broj 4 spojiti li
 dijagramu. Zato se kod Haseovih dijagrama uvodi slede\'ci dogovor:
 \begin{quote}
     element $x$ je manji od elementa $y$ ako je $x$ ispod $y$ i postoji
-    put koji spaja $x$ sa $y$; ako takav put ne postoji, onda su $x$ i $y$ neuporedivi.
+    put koji spaja $x$ sa $y$; ako takav put ne postoji, onda su $x$ i $y$ neuporedivi ili je $y$ manji of $x$.
 \end{quote}
-To je slu\v caj sa brojevima 3 i 4 na poslednjem dijagramu: zato \v sto su 3 i 4 neuporedivi ne postoji put od 3 do 4 koji ide
-samo navi\v se.
+To je slu\v caj sa brojevima 3 i 4 na prethodnom dijagramu: kako su 3 i 4 neuporedivi,
+ne postoji put od 3 do 4 koji ide samo navi\v se, niti put od 4 do 3 koji ide samo navi\v se.
 
 \bigskip
 
@@ -1002,7 +1002,7 @@ i minimalan element relacije pretka, kao \v sto pokazuju slede\'ci primeri.
 \begin{minipage}{3in}
   \begin{EX}
     Relacija poretka $|$ (deljivost) na skupu $\{2, 3, 4, 5, 6\}$ je prikazana pored. Minimalni elementi ove relacije
-    su 2, 3 i 5 jer ispod njih nema drugih elemenata. Maksimalni elementi ove relacije su 4, 6 i 5 jer iznad njih nema
+    su 2, 3 i 5, jer ispod njih nema drugih elemenata. Maksimalni elementi ove relacije su 4, 6 i 5, jer iznad njih nema
     drugih elemenata. Vidimo da je 5 istovremeno i minimalni i maksimalni element.
   \end{EX}
 \end{minipage}
@@ -1028,13 +1028,20 @@ kako to pokazuje slede\'ca teorema.
   \end{enumerate}
 \end{THM}
 
-Neka je $\sqsubseteq$ parcijalno ure\dj enje kona\v cnog skupa $A$. \emph{Topolo\v sko sortiranje} je proces
-kojim se elementi skupa $A$ pore\dj aju u niz
-$$
-  a_0, a_1, \ldots, a_{n-1}
-$$
-tako da va\v zi slede\'ce: ako je $x \sqsubseteq y$ onda se $x$ javlja u nizu pre $y$. Na primer,
-topolo\v skim sortiranjem parcijalno ure\dj enog skupa
+\begin{DEF}
+  Ako je na skupu $A$ uo\v cena relacija poretka $\sqsubseteq$, onda za $A$ ka\v zemo da je
+  \emph{parcijalno ure\dj eni skup} i ozna\v cavamo ga kao par $(A, \sqsubseteq)$.
+  
+  \emph{Topolo\v sko sortiranje} je proces kojim se elementi parcijalno ure\dj enog skupa $(A, \sqsubseteq)$
+  pore\dj aju u niz:
+  $$
+    a_0, a_1, \ldots, a_{n-1}
+  $$
+  tako da va\v zi slede\'ce: ako je $x \sqsubseteq y$, onda se $x$ javlja u nizu pre $y$. 
+\end{DEF}
+
+\begin{EX}
+Topolo\v skim sortiranjem parcijalno ure\dj enog skupa
 \begin{center}
   \input ft07-r10.pgf
 \end{center}
@@ -1049,6 +1056,7 @@ $$
   \end{array}
 $$
 \emph{jer rezultat topolo\v skog sortiranja nije jednozna\v can}!
+\end{EX}
 
 \begin{EX}
   Sortiranje formiranjem uzastopnih minimuma (tzv.\ \emph{selection sort}) uz minimalne modifikacije

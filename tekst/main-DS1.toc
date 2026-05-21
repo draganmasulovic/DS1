@@ -4,10 +4,10 @@
 \contentsline {section}{\numberline {1.2}Tautologije}{4}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Tautologije kao transformaciona pravila}{9}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Tautologije kao \enquote {zakoni mi\v sljenja}?}{13}{section.1.4}%
-\contentsline {paragraph}{Primer: Problem sa terijerima i kometama.}{14}{section*.9}%
-\contentsline {paragraph}{Primer: Problem sa magarcima i bivolima.}{14}{section*.10}%
-\contentsline {paragraph}{Primer: Problem sa svinjama i balonima.}{15}{section*.11}%
-\contentsline {section}{\numberline {1.5}Iskazne formule u analizi programskog koda}{18}{section.1.5}%
+\contentsline {paragraph}{Problem sa terijerima i kometama.}{13}{section*.9}%
+\contentsline {paragraph}{Problem sa magarcima i bivolima.}{14}{section*.10}%
+\contentsline {paragraph}{Problem sa svinjama i balonima.}{15}{section*.11}%
+\contentsline {section}{\numberline {1.5}Iskazne formule u analizi programskog k\^oda}{18}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Zadaci}{29}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Kako radi hardver?}{33}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Pozicioni brojevni sistemi}{33}{section.2.1}%
@@ -19,18 +19,21 @@
 \contentsline {paragraph}{Dokazi direktnim ra\v cunanjem.}{48}{section*.12}%
 \contentsline {paragraph}{Dokazi \enquote {iz rukava}.}{50}{section*.14}%
 \contentsline {paragraph}{Dokazivanje implikacije.}{52}{section*.15}%
+\contentsline {paragraph}{Mozgalica.}{54}{section*.16}%
+\contentsline {paragraph}{Mozgalica.}{54}{section*.17}%
 \contentsline {section}{\numberline {3.2}Dokazi kontrapozicijom}{54}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Dokazi svo\dj enjem na kontradikciju}{56}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Dokazi ekvivalentnih tvr\dj enja}{61}{section.3.4}%
-\contentsline {paragraph}{Primer: Crtanje iz jednog poteza.}{61}{section*.16}%
+\contentsline {paragraph}{Primer: Crtanje iz jednog poteza.}{61}{section*.18}%
 \contentsline {section}{\numberline {3.5}Intermezzo: RSA kriptosistem}{70}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Matemati\v cka indukcija}{74}{section.3.6}%
-\contentsline {paragraph}{Primer.}{75}{section*.17}%
+\contentsline {paragraph}{Primer.}{75}{section*.19}%
+\contentsline {paragraph}{Mozgalica.}{78}{section*.21}%
 \contentsline {section}{\numberline {3.7}Totalna indukcija}{79}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Matemati\v cka indukcija u analizi programskog koda}{83}{section.3.8}%
+\contentsline {section}{\numberline {3.8}Matemati\v cka indukcija u analizi programskog k\^oda}{83}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Zadaci}{85}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Skupovi}{91}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Jednakost skupova, podskup skupa}{93}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Jednakost skupova i podskup skupa}{93}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Osnovne skupovne operacije}{94}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Broj elemenata skupa}{97}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Dekartov proizvod skupova}{102}{section.4.4}%
@@ -41,18 +44,18 @@
 \contentsline {section}{\numberline {4.9}Zadaci}{114}{section.4.9}%
 \contentsline {chapter}{\numberline {5}Predikatski ra\v cun}{119}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Formule predikatskog ra\v cuna}{120}{section.5.1}%
-\contentsline {paragraph}{Primer.}{122}{section*.20}%
+\contentsline {paragraph}{Primer.}{122}{section*.23}%
 \contentsline {section}{\numberline {5.2}Interpretacija predikatske formule}{122}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Oblast dejstva kvantifikatora}{126}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Valjane formule}{128}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Uvo\dj enje novih kvantifikatora}{130}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Predikatski ra\v cun u analizi programskog koda}{131}{section.5.6}%
+\contentsline {section}{\numberline {5.5}Uvo\dj enje novih kvantifikatora}{131}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Predikatski ra\v cun u analizi programskog k\^oda}{132}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Zadaci}{135}{section.5.7}%
 \contentsline {chapter}{\numberline {6}Binarne relacije}{139}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Klasifikacija}{139}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Pore\dj enje}{146}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Pore\dj enje re\v ci}{150}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Grafi\v cki prikaz relacija poretka}{151}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Grafi\v cki prikaz relacija poretka}{152}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Zadaci}{157}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Funkcije}{163}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Pojam funkcije}{164}{section.7.1}%
@@ -60,12 +63,12 @@
 \contentsline {section}{\numberline {7.3}Injektivne, sirjektivne i bijektivne funkcije}{169}{section.7.3}%
 \contentsline {section}{\numberline {7.4}Inverzna funkcija}{174}{section.7.4}%
 \contentsline {section}{\numberline {7.5}Upore\dj ivanje kona\v cnih skupova}{176}{section.7.5}%
-\contentsline {paragraph}{Princip bijekcije.}{176}{section*.24}%
-\contentsline {paragraph}{Princip sirjekcije.}{177}{section*.25}%
-\contentsline {paragraph}{Princip injekcije.}{177}{section*.26}%
-\contentsline {paragraph}{Dirihleov princip.}{178}{section*.27}%
+\contentsline {paragraph}{Princip bijekcije.}{176}{section*.27}%
+\contentsline {paragraph}{Princip sirjekcije.}{177}{section*.28}%
+\contentsline {paragraph}{Princip injekcije.}{177}{section*.29}%
+\contentsline {paragraph}{Dirihleov princip.}{178}{section*.30}%
 \contentsline {section}{\numberline {7.6}Beskona\v cni skupovi}{178}{section.7.6}%
 \contentsline {section}{\numberline {7.7}Upore\dj ivanje beskona\v cnih skupova}{180}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Zadaci}{184}{section.7.8}%
 \contentsline {chapter}{\numberline {8}Re\v senja odabranih zadataka}{189}{chapter.8}%
-\contentsline {chapter}{Literatura}{249}{Item.638}%
+\contentsline {chapter}{Literatura}{249}{Item.633}%

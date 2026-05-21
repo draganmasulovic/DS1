@@ -194,7 +194,7 @@ prste.)
 Uop\v steno, ako radimo sa brojevnim sistemom sa osnovom $b$, onda
 se kao \enquote{cifre} koriste brojevi 0, 1, \ldots, $b-1$,
 a nizom \enquote{cifara} $a_k a_{k-1} a_{k-2} \ldots a_1 a_0$ sistema
-sa osnovom $b$ predstavljan je slede\'ci broj:
+sa osnovom $b$ predstavljen je slede\'ci broj:
 $$
     a_k \cdot b^k + a_{k-1} \cdot b^{k-1} + \ldots + a_1 \cdot b^1
     + a_0 \cdot b^0.
@@ -243,8 +243,8 @@ $$
   10, \quad 1010_{(2)}, \quad 13_{(7)}
 $$
 su samo razli\v citi zapisi jednog istog
-broja -- broja prstiju na obe ruke prose\v cnog homo sapiensa. Zato
-\v sto je zapisivanje brojeva stvar konvencije, sasvim je prirodno da
+broja -- broja prstiju na obe ruke prose\v cnog homo sapiensa.
+Budu\'ci da je zapisivanje brojeva stvar konvencije, sasvim je prirodno da
 je mogu\'ce prelaziti sa jednog zapisa na drugi. Sada \'cemo na nekoliko
 primera pokazati kako se zapis broja u nekoj osnovi $b$ konvertuje u
 zapis sa osnovom 10, i kako se konvertuje zapis broja iz sistema sa osnovom 10
@@ -318,7 +318,7 @@ $$
     \end{array}
 $$
 
-Zato \v sto se termin \emph{binarna cifra} veoma \v cesto javlja u pri\v ci
+Budu\'ci da se termin \emph{binarna cifra} veoma \v cesto javlja u pri\v ci
 o ra\v cunarima, in\v zenjeri su smislili sada ve\'c standardnu skra\'cenicu kojom
 zovu binarne cifre: \emph{bit}. Skra\'cenica je nastala od engleskog
 \emph{\underline{bi}nary digi\underline{t}}. Ina\v ce, \emph{bit}
@@ -565,7 +565,7 @@ reda kome je na kraju 0, nijedan disjunkt ga ne prepozna, svi daju
 vrednost 0, pa je i vrednost celog izraza 0. Me\dj utim, ako uvrstimo
 vrednosti promenljivih iz nekog reda kome je na kraju 1, njegov disjunkt
 ga prepozna i d\=a vrednost 1, ostali daju vrednost 0, pa je vrednost celog
-izraza $= 0 \lor \ldots \lor 0 \lor 1 \lor 0 \lor \ldots \lor 0 = 1$.
+izraza jednaka $0 \lor \ldots \lor 0 \lor 1 \lor 0 \lor \ldots \lor 0 = 1$.
 Tako dobijamo da je $f$ predstavljena u obliku
 $$
     f = D_1 \lor D_2 \lor \ldots \lor D_k,
@@ -592,7 +592,7 @@ programa i, eventualno, najosnovnije aritmeti\v cke operacije, a da
 se za sve ostale poslove pi\v su posebni programi koji \'ce biti pohranjeni
 u memoriji ra\v cunara (onako kako se to danas radi).
 On je bio zagovornik koncepcije koja je danas u osnovi ra\v cunarske
-tehnologije: \emph{ra\v cunar ne treba da bude zbirka specijalizovanih
+tehnologije: \emph{ra\v cunar ne bi treblo da bude zbirka specijalizovanih
 ure\dj aja, ve\'c univerzalna ma\v sina \v cije \'ce mogu\'cnosti zavisiti
 isklju\v civo od sposobnosti programera}.
 
@@ -676,34 +676,35 @@ $$
 \begin{figure}
   \centering
   \input ft02-polusab.pgf
-  \caption{Polusabira\v c}
+  \caption{Potpuni sabira\v c}
   \label{01-polusab}
 \end{figure}
 
 Elektronsko kolo kojim se ove dve Bulove operacije realizuju odjednom
-se zove \emph{polusabira\v c} i predstavljeno je na Slici~\ref{01-polusab}. Ulaz u
-polusabira\v c su tri bita ($x$, $y$ i $c$), a izlaz \v cine dva bita
+se zove \emph{potpuni sabira\v c} i predstavljeno je na Sl.~\ref{01-polusab}
+(ovaj sabira\v c je \enquote{potpun} zato \v sto uzima u obzir i prenos).
+Ulaz u potpuni sabira\v c su tri bita ($x$, $y$ i $c$), a izlaz \v cine dva bita
 (zbir $s$ i novi prenos $r$). Napomenimo da je
-na Slici~\ref{01-polusab} prikazana veoma naivna verzija polusabira\v ca. Stvarni
-polusabira\v ci u stvari izgledaju druga\v cije, zato \v sto se pre
-implementacije u harvderu vr\v se razne optimizacije kako bi se
+na Sl.~\ref{01-polusab} prikazana veoma naivna verzija potpuni sabira\v c. Stvarni
+potpuni sabira\v c u stvari izgledaju druga\v cije, zato \v sto se pre
+implementacije u hardveru vr\v se razne optimizacije kako bi se
 u\v stedelo na komponentama. No, osnovna ideja je ista.
 
 \begin{sidewaysfigure}
   \centering
   \input ft02-sab.pgf
-  \caption{Sabira\v c}
+  \caption{Sabira\v cko kolo}
   \label{01-sab}
 \end{sidewaysfigure}
 
 Hardver kojim se realizuje sabiranje binarnih brojeva iste du\v zine
-se zove \emph{sabira\v c} i sastoji se od nekoliko polusabira\v ca.
-Sabira\v c 4-bitnih binarnih brojeva je prikazan na Slici~\ref{01-sab}. Ulaz
-u sabira\v c predstavljaju binarni brojevi $\overline{x_3 x_2 x_1 x_0}$ i\break
+se zove \emph{sabira\v cko kolo} i sastoji se od nekoliko potpunih sabira\v ca.
+Sabira\v cko kolo za 4-bitne binarne brojeve je prikazano na Sl.~\ref{01-sab}. Ulaz
+u sabira\v cko kolo predstavljaju binarni brojevi $\overline{x_3 x_2 x_1 x_0}$ i
 $\overline{y_3 y_2 y_1 y_0}$, dok se na izlazu dobija rezultat
 $\overline{z_3 z_2 z_1 z_0}$, i informacija o tome da li je rezultat
 du\v zi od \v cetiri bita (linija \emph{overflow}). Overflow nije ni\v sta
-drugo do prenos poslednjeg sabiranja. Polusabira\v ci $PS_0$, $PS_1$,
+drugo do prenos poslednjeg sabiranja. Potpuni sabira\v ci $PS_0$, $PS_1$,
 $PS_2$ i $PS_3$ su identi\v cni. Ozna\v ceni su brojevima samo zato da
 bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
 
@@ -918,7 +919,7 @@ bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
 \ZAD{01-22}{%
     Neka je $f(x, y, z) = (x \land y) \lor (x \land \lnot z)$ Bulova operacija. Izra\v cunati
     vrednost operacije $f$ za sve mogu\'cnosti argumenata $x$, $y$ i $z$.
-    (Napraviti tabelu; koliko razli\v citih redova, osim zaglavlja, treba
+    (Napraviti tabelu; koliko razli\v citih redova, osim zaglavlja, bi trebalo
     da ima ova tabela?)
 }
 
@@ -930,8 +931,8 @@ bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
 \ZAD{01-24}{%
     Za Bulovu operaciju $f(x, y, z, u) = ((x \lor y) \land \lnot z)
     \lor (\lnot(x \land y) \lor u)$ napraviti odgovaraju\'cu tabelu.
-    (Za Bulovu operaciju sa \v cetiri argumenta tabela treba da ima zaglavlje i
-    16 redova.)
+    (Za Bulovu operaciju sa \v cetiri argumenta tabela bi trebalo treba da ima
+    16 redova, ne ra\v cunaju\'ci zaglavlje.)
 }
 
     \ZAD{01-25}{%
@@ -1042,7 +1043,7 @@ bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
     \hbox to \textwidth{%
     \begin{minipage}{3.75in}
     \SZAD{01-99}{%
-        Napraviti polusabira\v c polaze\'ci samo od kola za ope\-racije
+        Napraviti potpuni sabira\v c polaze\'ci samo od kola za ope\-racije
         $\land$, $\lor$ i $\oplus$, gde je poslednja operacija data pored.
         (Uputstvo: $s(x, y, c)$ se realizuje veoma lako, dok je
         $r(x, y, c) = (x \land y) \lor ((x \oplus y) \land c)$.)
@@ -1062,7 +1063,7 @@ bismo se lak\v se sna\v sli u nepreglednim \v sumama linija.
     }
     
     \SZAD{01-99b}{%
-        Napraviti polusabira\v c polaze\'ci samo od kola za ope\-raciju
+        Napraviti potpuni sabira\v c polaze\'ci samo od kola za ope\-raciju
         $\uparrow$ iz Za\-da\-tka \ref{01-98}~$(c)$. (Uputstvo: Uo\v citi da je
         $\lnot x = 1 \uparrow x$, $x \land y = 1 \uparrow (x \uparrow y)$,
         i $x \lor y = ((1 \uparrow x) \uparrow (1 \uparrow y))$.)

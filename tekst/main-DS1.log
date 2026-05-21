@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  12 MAY 2026 20:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  21 MAY 2026 14:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1002,11 +1002,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'serbian'.
-(main-DS1.aux
-
-LaTeX Warning: Label `Gersting' multiply defined.
-
-)
+(main-DS1.aux)
 \openout1 = `main-DS1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 367.
@@ -1233,6 +1229,12 @@ Overfull \hbox (0.54625pt too wide) in paragraph at lines 747--748
 
 
 [10]
+Overfull \hbox (1.76004pt too wide) in paragraph at lines 843--844
+[][]\T1/ptm/b/n/10.95 Primer 1.21. []\T1/ptm/m/n/10.95 Odre-di-ti ko-njunk-tiv-
+nu i dis-junk-tiv-nu nor-mal-nu for-mu for-mu-le []. 
+ []
+
+
 
 [11
 
@@ -1254,23 +1256,19 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 [16]
 
 [17]
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 10.0pt on input line 1517.
+
 
 [18]
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1519.
 
-
-[19
-
-]
+[19]
 
 [20]
 
 [21]
 
-[22
-
-]
+[22]
 
 [23]
 
@@ -1278,21 +1276,15 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 
 [25]
 
-[26
-
-]
+[26]
 
 [27]
 
-[28
-
-]
+[28]
 
 [29]
 
-[30
-
-]
+[30]
 
 [31]) (ft02.tex
 
@@ -1339,15 +1331,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 
 
 [39] (ft02-polusab.pgf) (ft02-sab.pgf)
-Underfull \hbox (badness 2384) in paragraph at lines 699--709
-\T1/ptm/m/n/10.95 zan na Sli-ci [][]2.2[][]. Ulaz u sa-bi-ra£ pred-sta-vlja-ju 
-bi-nar-ni bro-je-vi $[]$ i
- []
-
-
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
-
 
 [40]
 
@@ -1357,7 +1340,7 @@ Underfull \vbox (badness 4543) has occurred while \output is active []
 <Alien1.jpg, id=692, 919.93687pt x 855.195pt>
 File: Alien1.jpg Graphic file (type jpg)
 <use Alien1.jpg>
-Package pdftex.def Info: Alien1.jpg  used on input line 875.
+Package pdftex.def Info: Alien1.jpg  used on input line 876.
 (pdftex.def)             Requested size: 183.98412pt x 171.03596pt.
 
 
@@ -1407,7 +1390,7 @@ ut line 132.
 [60] (ft05-jedan-potez.pgf)
 
 [61] (ft05-jedan-potez-2.pgf)
-Underfull \vbox (badness 3635) has occurred while \output is active []
+Underfull \vbox (badness 1033) has occurred while \output is active []
 
 
 
@@ -1433,12 +1416,12 @@ Underfull \vbox (badness 3635) has occurred while \output is active []
 
 [72]
 LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 1
-520.
+518.
  (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\ts1zi4.fd
 File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1520.
+(Font)              scaled to size 10.95pt on input line 1518.
 
 
 [73{C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconsolata/i4-ts
@@ -1452,11 +1435,11 @@ LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
 
 [77]
 
-[78]
+[78] (ft05-1smerija1.pgf)
 
-[79] (ft05-1smerija1.pgf) (ft05-1smerija2.pgf) (ft05-1smerija3.pgf)
+[79] (ft05-1smerija2.pgf) (ft05-1smerija3.pgf) (ft05-coko-n.pgf)
 
-[80] (ft05-coko-n.pgf) (ft05-coko-12.pgf)
+[80] (ft05-coko-12.pgf)
 
 [81]
 
@@ -1483,21 +1466,23 @@ Glava 4.
 (ft06-sk2.pgf) (ft06-sk1.pgf)
 
 [91] (ft06-sk4.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 59--73
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 55--69
 $[]$  $[]$ 
  []
 
 
 
-[92] (ft06-sk3.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 151--168
+[92
+
+] (ft06-sk3.pgf)
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 142--159
 $[]$  $[]$ 
  []
 
 
 
 [93] (ft06-sk5.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 205--220
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 196--211
 $[]$  $[]$ 
  []
 
@@ -1507,10 +1492,8 @@ $[]$  $[]$
 
 [95]
 
-[96
-
-]
-Overfull \hbox (2.21565pt too wide) in paragraph at lines 342--345
+[96]
+Overfull \hbox (2.21565pt too wide) in paragraph at lines 334--337
 \T1/ptm/m/n/10.95 £i-nje-ni-ca ne-spor-na, dru-ga za-vre-žu-je ma-li ko-men-tar
 . Pod-se-ti-mo se da je $\OMS/ztmcm/m/n/10.95 f\OT1/ztmcm/m/n/10.95 1\OML/ztmcm
 /m/it/10.95 ; \OT1/ztmcm/m/n/10.95 1\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.9
@@ -1520,55 +1503,52 @@ mcm/m/n/10.95 =
 
 (ft06-sk7.pgf)
 
-[97] (ft06-sk8.pgf) (ft06-sk9a.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 446--460
+[97] (ft06-sk8.pgf)
+
+[98] (ft06-sk9a.pgf)
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 440--454
 $[]$  $[]$ 
  []
 
-
-
-[98] (ft06-sk9b.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 463--477
+(ft06-sk9b.pgf)
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 457--471
 $[]$  $[]$ 
  []
 
 (ft06-sk9c.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 480--493
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 474--487
 $[]$  $[]$ 
  []
 
 (ft06-sk9d.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 496--508
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 490--502
 $[]$  $[]$ 
  []
 
 (ft06-sk9e.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 511--521
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 505--515
 $[]$  $[]$ 
  []
-
-
-Underfull \vbox (badness 1824) has occurred while \output is active []
 
 
 
 [99] (ft06-sk9f.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 524--535
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 518--529
 $[]$  $[]$ 
  []
 
 (ft06-sk9g.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 538--549
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 532--543
 $[]$  $[]$ 
  []
 
 (ft06-sk10a.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 555--566
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 549--560
 $[]$  $[]$ 
  []
 
 (ft06-sk10b.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 569--580
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 563--574
 $[]$  $[]$ 
  []
 
@@ -1578,22 +1558,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [100] (ft06-sk10c.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 583--594
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 577--588
 $[]$  $[]$ 
  []
 
 (ft06-sk10d.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 597--611
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 591--605
 $[]$  $[]$ 
  []
 
 (ft06-sk10e.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 614--633
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 608--627
 $[]$  $[]$ 
  []
 
 (ft06-sk10f.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 636--650
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 630--644
 $[]$  $[]$ 
  []
 
@@ -1604,14 +1584,14 @@ $[]$  $[]$
 [102]
 
 [103] (ft06-sk11.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 826--844
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 820--838
 $[]$  $[]$ 
  []
 
 
 
 [104] (ft06-sk12.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 847--865
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 841--859
 $[]$  $[]$ 
  []
 
@@ -1620,45 +1600,51 @@ $[]$  $[]$
 [105]
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 927.
+ut line 922.
 
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 939.
+ut line 934.
 
 
-Overfull \hbox (2.18993pt too wide) in paragraph at lines 949--949
+Overfull \hbox (2.18993pt too wide) in paragraph at lines 944--944
 []\T1/ptm/m/n/10.95 ...| 
  []
 
 
 
 [106]
-Overfull \hbox (12.4851pt too wide) in paragraph at lines 984--987
+Overfull \hbox (12.4851pt too wide) in paragraph at lines 979--982
 \T1/ptm/m/n/10.95 Da bi-smo odre-di-li $\OMS/ztmcm/m/n/10.95 j\OML/ztmcm/m/it/1
 0.95 A \OMS/ztmcm/m/n/10.95 [ \OML/ztmcm/m/it/10.95 B \OMS/ztmcm/m/n/10.95 [ \O
 ML/ztmcm/m/it/10.95 C\OMS/ztmcm/m/n/10.95 j$ \T1/ptm/m/n/10.95 ko-ri-sti-mo Pri
-n-cip uklju£enja-isklju£enja (Te-o-re-ma [][]4.16[][]).
+n-cip uklju£enja-isklju£enja (Te-o-re-ma [][]4.17[][]).
  []
 
 
 
 [107]
+Overfull \hbox (8.37839pt too wide) in paragraph at lines 1029--1030
+[]\T1/ptm/m/n/10.95 proizvod sa ²i-from 18779 se zo-ve [][]\T1/zi4/m/n/10.95 "H
+P LaserJet MFP M236sdw 9YG09A"
+ []
+
+
 
 [108]
 
 [109] (ft07-r1.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 1118--1132
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 1117--1131
 $[]$  $[]$ 
  []
 
 (ft07-r2.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 1135--1154
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 1134--1153
 $[]$  $[]$ 
  []
 
 (ft07-r3.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 1157--1172
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 1156--1171
 $[]$  $[]$ 
  []
 
@@ -1670,28 +1656,28 @@ $[]$  $[]$
 
 [112]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 1338.
+LaTeX Font Warning: Command \small invalid in math mode on input line 1332.
 
 
 Underfull \vbox (badness 1303) has occurred while \output is active []
@@ -1715,7 +1701,7 @@ Glava 5.
 [119
 
 ]
-Overfull \hbox (17.9095pt too wide) detected at line 68
+Overfull \hbox (20.94254pt too wide) detected at line 68
 []
  []
 
@@ -1725,23 +1711,23 @@ Overfull \hbox (17.9095pt too wide) detected at line 68
 
 [121]
 
-[122] (ft07-r12.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 285--300
+[122]
+
+[123] (ft07-r12.pgf)
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 287--302
 $[]$  $[]$ 
  []
 
-
-
-[123] (ft07-r14.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 356--371
+(ft07-r14.pgf)
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 358--373
 $[]$  $[]$ 
  []
 
 
 
 [124]
-Overfull \hbox (5.77458pt too wide) in paragraph at lines 441--442
-[][]\T1/ptm/b/n/10.95 Primer 5.13. []\T1/ptm/m/n/10.95 Na-¢i kon-tra-mo-del for
+Overfull \hbox (5.77458pt too wide) in paragraph at lines 406--407
+[][]\T1/ptm/b/n/10.95 Primer 5.11. []\T1/ptm/m/n/10.95 Na-¢i kon-tra-mo-del for
 -mu-le $\OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 x\OT1
 /ztmcm/m/n/10.95 )(\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 y\OT1/ztmcm/m/n/
 10.95 )(\OML/ztmcm/m/it/10.95 P\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x; y
@@ -1761,7 +1747,7 @@ mcm/m/n/10.95 ^ \OML/ztmcm/m/it/10.95 P\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10
 [127]
 
 [128]
-Overfull \hbox (0.54625pt too wide) in paragraph at lines 674--675
+Overfull \hbox (0.54625pt too wide) in paragraph at lines 703--704
 []\T1/ptm/m/n/10.95 Krenu¢emo od for-mu-le sa de-sne stra-ne i pri-me-ni-ti niz
  ekvi-va-lent-nih trans-
  []
@@ -1777,7 +1763,9 @@ Overfull \hbox (0.54625pt too wide) in paragraph at lines 674--675
 [132]
 
 [133]
-Overfull \hbox (9.24992pt too wide) detected at line 1341
+
+[134]
+Overfull \hbox (9.24992pt too wide) detected at line 1370
 \OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 p\OT1/ztmcm/m
 /n/10.95 )(0 \U/msa/m/n/10.95 6 \OML/ztmcm/m/it/10.95 p < i \OMS/ztmcm/m/n/10.9
 5 ) \OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 q\OT1/ztm
@@ -1794,7 +1782,7 @@ mcm/m/n/10.95 [\OML/ztmcm/m/it/10.95 m\OT1/ztmcm/m/n/10.95 ] \U/msa/m/n/10.95 6
  []
 
 
-Overfull \hbox (4.38806pt too wide) detected at line 1348
+Overfull \hbox (4.38806pt too wide) detected at line 1377
 \OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 p\OT1/ztmcm/m
 /n/10.95 )(0 \U/msa/m/n/10.95 6 \OML/ztmcm/m/it/10.95 p < i \OMS/ztmcm/m/n/10.9
 5 ) \OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 q\OT1/ztm
@@ -1812,10 +1800,10 @@ mcm/m/n/10.95 [\OML/ztmcm/m/it/10.95 i\OT1/ztmcm/m/n/10.95 ] \U/msa/m/n/10.95 6
 
 
 
-[134]
-
 [135]
-Overfull \hbox (24.36246pt too wide) in paragraph at lines 1422--1422
+
+[136]
+Overfull \hbox (24.36246pt too wide) in paragraph at lines 1451--1451
 []$\OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 9\OML/ztmcm/m/it/10.95 x\OT1/ztmc
 m/m/n/10.95 )(\OMS/ztmcm/m/n/10.95 9\OML/ztmcm/m/it/10.95 y\OT1/ztmcm/m/n/10.95
  )[][]\OML/ztmcm/m/it/10.95 S\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x; y\O
@@ -1833,17 +1821,15 @@ n/10.95 )[][];$
 
 
 
-[136]) (ft07-novo.tex
+[137]) (ft07-novo.tex
 
-[137]
-
-[138
-
-]
+[138]
 Glava 6.
 (ft07-slicnost.pgf)
 
-[139]
+[139
+
+]
 
 [140] (ft07-01-nizovi.pgf)
 
@@ -1893,7 +1879,7 @@ mcm/m/n/10.95 )$ \T1/ptm/m/n/10.95 i $\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.
 
 [151]
 Overfull \hbox (16.14195pt too wide) in paragraph at lines 744--746
-[][]\T1/ptm/b/n/10.95 Primer 6.19. []\T1/ptm/m/n/10.95 Re-la-ci-ja de-lji-vo-st
+[][]\T1/ptm/b/n/10.95 Primer 6.20. []\T1/ptm/m/n/10.95 Re-la-ci-ja de-lji-vo-st
 i $\OMS/ztmcm/m/n/10.95 j$ \T1/ptm/m/n/10.95 je re-la-ci-ja po-ret-ka na sku-pu
  $\OMS/ztmcm/m/n/10.95 f\OT1/ztmcm/m/n/10.95 1\OML/ztmcm/m/it/10.95 ; \OT1/ztmc
 m/m/n/10.95 2\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 3\OML/ztmcm/m/it/10.9
@@ -1924,14 +1910,14 @@ Overfull \hbox (39.56549pt too wide) in paragraph at lines 790--801
 $[]$  $[]$ 
  []
 
-(ft07-r6e.pgf)
+
+
+[152] (ft07-r6e.pgf)
 Overfull \hbox (39.56549pt too wide) in paragraph at lines 815--826
 $[]$  $[]$ 
  []
 
-
-
-[152] (ft07-r6f.pgf)
+(ft07-r6f.pgf)
 Overfull \hbox (39.56549pt too wide) in paragraph at lines 829--841
 $[]$  $[]$ 
  []
@@ -1951,17 +1937,17 @@ Overfull \hbox (39.56549pt too wide) in paragraph at lines 872--883
 $[]$  $[]$ 
  []
 
-(ft07-r6z.pgf)
+
+Underfull \vbox (badness 2027) has occurred while \output is active []
+
+
+
+[153] (ft07-r6z.pgf)
 Overfull \hbox (39.56549pt too wide) in paragraph at lines 886--897
 $[]$  $[]$ 
  []
 
-
-Underfull \vbox (badness 1565) has occurred while \output is active []
-
-
-
-[153] (ft07-r7.pgf)
+(ft07-r7.pgf)
 Overfull \hbox (39.56549pt too wide) in paragraph at lines 900--913
 $[]$  $[]$ 
  []
@@ -1972,6 +1958,8 @@ $[]$  $[]$
  []
 
 
+
+[154]
 Underfull \hbox (badness 7030) in paragraph at lines 958--960
 []| \T1/ptm/m/n/10.95 Re-la-ci-ja po-ret-ka $\OMS/ztmcm/m/n/10.95 j$ \T1/ptm/m/
 n/10.95 (de-lji-vost) na sku-pu
@@ -1982,24 +1970,20 @@ Overfull \hbox (39.56549pt too wide) in paragraph at lines 956--967
 $[]$  $[]$ 
  []
 
+(ft07-r6z.pgf) (ft07-r10.pgf)
 
-
-[154] (ft07-r6z.pgf) (ft07-r10.pgf) (ft07-r11.pgf)
+[155] (ft07-r11.pgf)
 Overfull \hbox (39.56549pt too wide) in paragraph at lines 1001--1015
 $[]$  $[]$ 
  []
 
-
-
-[155] (ft07-r10.pgf)
+(ft07-r10.pgf)
 
 [156]
 
 [157]
 
-[158
-
-]
+[158]
 
 [159]
 
@@ -2014,7 +1998,7 @@ Glava 7.
 [163
 
 ]
-Overfull \hbox (1.99802pt too wide) in paragraph at lines 65--72
+Overfull \hbox (1.99802pt too wide) in paragraph at lines 68--75
 []\T1/ptm/m/n/10.95 Funkcionalna za-vi-snost pred-sta-vlja fun-da-men-tal-ni ko
 n-cept za ope-ra-tiv-no uprav-
  []
@@ -2026,7 +2010,7 @@ n-cept za ope-ra-tiv-no uprav-
 [165] (ft08-f2.pgf)
 
 [166] (ft08-f3.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 244--261
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 247--264
 $[]$  $[]$ 
  []
 
@@ -2045,7 +2029,7 @@ $[]$  $[]$
 [172] (ft08-f10.pgf)
 
 [173] (ft08-f12.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 608--626
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 611--629
 $[]$  $[]$ 
  []
 
@@ -2060,22 +2044,22 @@ $[]$  $[]$
 [177]
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 814.
+ut line 817.
 
 (ft08-f15.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 805--824
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 808--827
 $[]$  $[]$ 
  []
 
 
 
 [178] (ft08-f16.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 877--891
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 880--896
 $[]$  $[]$ 
  []
 
 (ft08-f17.pgf)
-Overfull \hbox (39.56549pt too wide) in paragraph at lines 894--913
+Overfull \hbox (39.56549pt too wide) in paragraph at lines 899--918
 $[]$  $[]$ 
  []
 
@@ -2084,7 +2068,7 @@ $[]$  $[]$
 [179]
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 953.
+ut line 958.
 
 
 
@@ -2095,7 +2079,7 @@ ut line 953.
 [182]
 
 [183]
-Overfull \hbox (10.33817pt too wide) in paragraph at lines 1155--1158
+Overfull \hbox (10.33817pt too wide) in paragraph at lines 1160--1163
 []\T1/ptm/m/n/10.95 Ve¢ smo vi-de-li da je $\OMS/ztmcm/m/n/10.95 j\U/msb/m/n/10
 .95 N\OMS/ztmcm/m/n/10.95 j \OML/ztmcm/m/it/10.95 < \OMS/ztmcm/m/n/10.95 j\U/ms
 b/m/n/10.95 R\OMS/ztmcm/m/n/10.95 j$\T1/ptm/m/n/10.95 , a pret-hod-na te-o-re-m
@@ -2109,7 +2093,7 @@ a nam ka-ºe da je [].
 [185]
 
 [186]
-Overfull \hbox (3.32849pt too wide) in paragraph at lines 1354--1354
+Overfull \hbox (3.32849pt too wide) in paragraph at lines 1359--1359
 []$\OML/ztmcm/m/it/10.95 f\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 n\OT1/ztm
 cm/m/n/10.95 ) = []$ 
  []
@@ -2204,11 +2188,6 @@ mcm/m/n/10.95 j\OT1/ztmcm/m/n/10.95 1010\OMS/ztmcm/m/n/10.95 j\OT1/ztmcm/m/n/10
 ]
 
 [207]
-Overfull \hbox (9.91245pt too wide) detected at line 822
-[]
- []
-
-
 
 [208
 
@@ -2220,12 +2199,10 @@ Overfull \hbox (9.91245pt too wide) detected at line 822
 
 [211]
 
-[212]
-
-[213]
+[212] [213]
 
 [214]
-Overfull \hbox (7.09149pt too wide) in paragraph at lines 1076--1077
+Overfull \hbox (7.09149pt too wide) in paragraph at lines 1081--1082
 []$\OT1/ztmcm/m/n/10.95 ([]) \OMS/ztmcm/m/n/10.95 [ \OML/ztmcm/m/it/10.95 B \OT
 1/ztmcm/m/n/10.95 = \OMS/ztmcm/m/n/10.95 f\OT1/ztmcm/m/n/10.95 1\OML/ztmcm/m/it
 /10.95 ; \OT1/ztmcm/m/n/10.95 2\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 3\O
@@ -2236,7 +2213,7 @@ cm/m/n/10.95 g$\T1/ptm/m/n/10.95 ;
  []
 
 
-Overfull \hbox (7.0952pt too wide) in paragraph at lines 1079--1080
+Overfull \hbox (7.0952pt too wide) in paragraph at lines 1084--1085
 []$\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 A \OMS/ztmcm/m/n/10.95 n \OML/zt
 mcm/m/it/10.95 B\OT1/ztmcm/m/n/10.95 ) \OMS/ztmcm/m/n/10.95 [ \OT1/ztmcm/m/n/10
 .95 (\OML/ztmcm/m/it/10.95 D \OMS/ztmcm/m/n/10.95 n \OML/ztmcm/m/it/10.95 C\OT1
@@ -2249,12 +2226,7 @@ OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 5\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm
 
 
 
-[215
-
-]
-Underfull \vbox (badness 2126) has occurred while \output is active []
-
-
+[215]
 
 [216]
 
@@ -2293,7 +2265,7 @@ Underfull \vbox (badness 2126) has occurred while \output is active []
 [233
 
 ]
-Overfull \hbox (4.31062pt too wide) in paragraph at lines 1742--1744
+Overfull \hbox (4.31062pt too wide) in paragraph at lines 1753--1755
 []\T1/ptm/m/n/10.95 Preostaje jo² sa-mo da se po-ka-ºe tran-zi-tiv-nost. Ne-ka 
 su $\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )\
 OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1
@@ -2321,12 +2293,12 @@ Underfull \vbox (badness 4072) has occurred while \output is active []
 [240]
 
 [241] (samir11-5-a.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1933
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1944
  [] 
  []
 
 (samir11-5-d-1.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1947
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1957
  [] 
  []
 
@@ -2339,7 +2311,7 @@ Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1947
 [244]
 
 [245]
-Overfull \hbox (3.22258pt too wide) in paragraph at lines 2042--2043
+Overfull \hbox (3.22258pt too wide) in paragraph at lines 2060--2061
 []\T1/ptm/m/n/10.95 Pokaºimo da je $\OML/ztmcm/m/it/10.95 f$ \T1/ptm/m/n/10.95 
 bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 .95 f\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )
@@ -2358,37 +2330,27 @@ bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 
 [249
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{cite.Gersting
-}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.469 \end{document}
-                    ] (main-DS1.aux)
+] (main-DS1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main-DS1.out' has not changed.
-(rerunfilecheck)             Checksum: 1A24A4E7FB7C30C95427CE0B370FAF39;9477.
+(rerunfilecheck)             Checksum: 7572441AB8E5529D26ACB37F0E94F84C;9494.
  )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 1796 ({)
-### simple group (level 1) entered at line 881 ({)
+### simple group (level 2) entered at line 1807 ({)
+### simple group (level 1) entered at line 888 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 28641 strings out of 473899
- 519169 string characters out of 5727915
- 918365 words of memory out of 5000000
- 49420 multiletter control sequences out of 15000+600000
+ 28648 strings out of 473899
+ 519251 string characters out of 5727915
+ 917380 words of memory out of 5000000
+ 49425 multiletter control sequences out of 15000+600000
  669711 words of font info for 204 fonts, out of 8000000 for 9000
  1154 hyphenation exceptions out of 8191
- 87i,22n,107p,911b,809s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,22n,107p,914b,809s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\DM\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/
 dpi657\wasy10.pk><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 inconsolata/Inconsolata-zi4r.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fon
@@ -2413,9 +2375,9 @@ a.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
 fb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
 <C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb><C
 :/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main-DS1.pdf (255 pages, 1497346 bytes).
+Output written on main-DS1.pdf (255 pages, 1502913 bytes).
 PDF statistics:
- 2876 PDF objects out of 2984 (max. 8388607)
- 1217 named destinations out of 1440 (max. 500000)
+ 2884 PDF objects out of 2984 (max. 8388607)
+ 1219 named destinations out of 1440 (max. 500000)
  484 words of extra memory for PDF output out of 10000 (max. 10000000)
 

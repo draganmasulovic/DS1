@@ -7,9 +7,9 @@ Iskazni ra\v cun nema dovoljnu izra\v zajnu mo\'c. Recimo, ako bismo slede\'ci i
   \textit{\enquote{Svaki prost broj koji je ve\'ci ili jednak sa 5}\\
   \textit{ima oblik $6k + 1$ ili $6k + 5$ za neko $k$}}
 \end{center}
-poku\v sali da zapi\v semo formulom iskaznog ra\v cuna, najbolje \v sto mo\v zemo da dobijemo je
+poku\v sali da zapi\v semo formulom iskaznog ra\v cuna, najbolje \v sto mo\v zemo da dobijemo je:
 $$
-  p \land q \Rightarrow r \lor s
+  p \land q \Rightarrow r \lor s,
 $$
 gde smo slovima $p$, $q$, $r$ i $s$ ozna\v cili slede\'ce iskaze:
 
@@ -24,7 +24,7 @@ gde smo slovima $p$, $q$, $r$ i $s$ ozna\v cili slede\'ce iskaze:
 Lako se vidi da u formulaciji istog stava govornim jezikom ima mnogo vi\v se finesa, i da je zato
 gornja iskazna formula veoma gruba reprezentacija tog iskaza.
 
-Krajem XIX veka Gotlob Frege predla\v ze novi jezik matematike koji se danas zove \emph{predikatski ra\v cun}.
+Krajem XIX veka Gotlob Frege (Gottlob Frege) predla\v ze novi jezik matematike koji se danas zove \emph{predikatski ra\v cun}.
 Frege oboga\'cuje iskazni ra\v cun tako \v sto uvodi na\v cin da se govori o svojstvima objekata
 koriste\'ci posebne konstrukte koje zovemo \emph{predikati}. Predikati predstavljaju \enquote{iskazna slova sa strukturom},
 na primer ovako:
@@ -62,7 +62,7 @@ $$
   \begin{array}{cccccccccccccccccccc}
     (\forall n)          & \Big( & P(n)               & \land    & Q(n)    & \Rightarrow \\
     \text{Za svako } n,  &   & n\text{ je prost}  & \text{i} & n \ge 5 & \text{implicira}\\[3mm]
-    & & (\exists k)          & ( & R_1(n, k)            & \lor     & R_5(n, k) & ) & \Big) \\
+    & & (\exists k)          & ( & R_1(n, k)            & \lor     & R_5(n, k) & ) & \Big). \\
     & & \text{postoji } k \text{ takvo da }  &   & n = 6k + 1  & \text{ili} & n = 6k + 5
   \end{array}
 $$
@@ -70,10 +70,10 @@ $$
 \section{Formule predikatskog ra\v cuna}
 
 Zbog ve\'ce izra\v zajne mo\'ci predikatski ra\v cun je komplikovaniji od iskaznog, pa \'ce nam
-za precizno uvo\dj enje pojma formule predikatskog ra\v cuna trebati malo vi\v se vremena.
+za precizno uvo\dj enje pojma formule predikatskog ra\v cuna biti potrebno malo vi\v se vremena.
 
 Predikati predikatskog ra\v cuna opisuju osobine i uzajamne odnose objekata o kojima govorimo.
-Objekte ozna\v cavamo \emph{promenljivim} dok me\dj usobne odnose objekata ozna\v cavamo
+Objekte ozna\v cavamo \emph{promenljivim}, dok me\dj usobne odnose objekata ozna\v cavamo
 \emph{predikatima} koji povezuju neke od tih promenljivih.
 Predikat ima \emph{ime} koje naj\v ce\v s\'ce zapisujemo kao latini\v cno slovo,
 i ima \emph{arnost}, \v sto je broj objekata o kojima predikat govori. Na primer:
@@ -119,12 +119,12 @@ i njega nikada ne\'cemo navoditi u spisku predikata jer se podrazumeva.
   Neka je dat \emph{kona\v can niz promenljivih} $x_1, x_2, \ldots, x_h$ i jezik $L$.
   \emph{Atomi\v cka formula} na jeziku $L$ je niz simbola oblika
   $$
-    x_i = x_j
+    x_i = x_j,
   $$
   gde su $x_i$ i $x_j$ neke od promenljivih $x_1$, $x_2$, $x_3$, \ldots, $x_h$,
   ili niz simbola oblika
   $$
-    R(x_{i_1}, x_{i_2}, \ldots, x_{i_n})
+    R(x_{i_1}, x_{i_2}, \ldots, x_{i_n}),
   $$
   gde je $R$ predikat jezika $L$ arnosti $n$, a $x_{i_1}$, $x_{i_2}$, \ldots, $x_{i_n}$
   su neke od promenljivih $x_1$, $x_2$, $x_3$, \ldots, $x_h$ me\dj u kojima mo\v ze biti i istih.
@@ -184,6 +184,8 @@ U ovom ud\v zbeniku razmatra\'cemo uglavnom predikatske formule kod kojih je sva
     nikada ne pi\v semo spolja\v snje zagrade kod formula koje ne po\v cinju kvantifikatorom; i
   \item
     veznici $\land$ i $\lor$ imaju vi\v si prioritet nego veznici~$\Rightarrow$ i~$\Leftrightarrow$.
+  \item
+    umesto $\lnot x = y$ \v cesto \'cemo pisati $x \ne y$.
   \end{itemize}
 \end{CONVENTION}
 
@@ -209,13 +211,13 @@ tome da li je formula ta\v cna moramo prvo da znamo:
 Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpretacija formule}.
 
 \begin{EX}
-  Neka su $P$ i $Q$ predikati na skupu $\NN$ prirodnih brojeva dati ovako:
+  Neka su $P$ i $Q$ predikati. Interpretirajmo ih na skupu $\NN$ prirodnih brojeva ovako:
 
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x, y)$ & \enquote{$x < y$}\\
-    $Q(x)$ & \enquote{$x$ je paran broj}\\
+    $P(x, y)$ & \enquote{$x < y$},\\
+    $Q(x)$ & \enquote{$x$ je paran broj}.
   \end{tabular}
   
   \medskip
@@ -227,19 +229,19 @@ Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpret
   $$
   dobija slede\'ce zna\v cenje:
   \begin{center}
-    \textit{za svaki prirodan broj $x$ postoji prirodan $y$ takav da je $x < y$ i $y$ je paran,}
+    \textit{za svaki prirodan broj $x$ postoji prirodan broj $y$ takav da je $x < y$ i $y$ je paran,}
   \end{center}
   \v sto je ta\v cno tvr\dj enje.
 \end{EX}
 
 \begin{EX}
-  Neka su $P$ i $Q$ predikati na skupu $\NN$ prirodnih brojeva dati ovako:
+  Neka su $P$ i $Q$ predikati. Interpretirjamo ih sada na skupu $\NN$ ovako:
 
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x, y)$ & \enquote{$x > y$}\\
-    $Q(x)$ & \enquote{$x$ je paran broj}\\
+    $P(x, y)$ & \enquote{$x > y$},\\
+    $Q(x)$ & \enquote{$x$ je paran broj}.
   \end{tabular}
   
   \medskip
@@ -251,13 +253,13 @@ Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpret
   $$
   dobija slede\'ce zna\v cenje:
   \begin{center}
-    \textit{za svaki prirodan broj $x$ postoji prirodan $y$ takav da je $x > y$ i $y$ je paran,}
+    \textit{za svaki prirodan broj $x$ postoji prirodan broj $y$ takav da je $x > y$ i $y$ je paran,}
   \end{center}
   \v sto nije ta\v cno tvr\dj enje, jer za $x = 1$ ne mo\v zemo da na\dj emo paran prirodan broj koji je manji od njega.
 \end{EX}
 
 \begin{NAP}\it
-  Dakle, ta\v cnost formule zavisi od interpretacije. Kao \v sto smo upravo videli, mo\v ze se desiti da jedna ista formula
+  Dakle, ta\v cnost formule zavisi od interpretacije predikata. Kao \v sto smo upravo videli, mo\v ze se desiti da jedna ista formula
   bude ta\v cna u jednoj interpretaciji, a neta\v cna u drugoj.
 \end{NAP}
 
@@ -348,7 +350,7 @@ Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpret
 \textit{Re\v senje.}
     Simbol $R$ \'cemo interpretirati relacijom \enquote{izme\dj u} na krugu kako sledi.
     Neka je $D = \{a, b, c\}$ domen interpretacije. Zamislimo da su ta\v cke $a$, $b$ i $c$ raspore\dj ene
-    na krugu kako je to pokazano na slici. Tada je svaka izme\dj u one druge dve i to samo treba formalno
+    na krugu kako je to pokazano na slici ispod. Tada je svaka izme\dj u one druge dve i to samo treba formalno
     da zapi\v semo.
 
 \medskip
@@ -368,6 +370,65 @@ Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpret
     \input ft07-r14.pgf
   \end{center}
 \end{minipage}
+
+\begin{DEF}
+  Interpretacija u kojoj je fomula $\phi$ ta\v cna zove se \emph{model formule~$\phi$}.
+  Interpretacija u kojoj je fomula $\phi$ neta\v cna zove se \emph{kontramodel formule~$\phi$}.
+\end{DEF}
+
+\begin{EX}
+  Na\'ci model formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Interpretirajno na skupu $\RR$ realnih brojeva predikat $P$ ovako:
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaka dva realna broja $x$ i $y$, ako je $x < y$ onda}\\
+    \textit{postoji realan broj $z$ takav da je $x < z$ i $z < y$}
+  \end{center}
+  \v sto je ta\v cno tvr\dj enje za realne brojeve (uvek mo\v zemo uzeti da je $z = \frac{x+y}{2}$).
+\end{proof}
+
+\begin{EX}
+  Na\'ci kontramodel formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
+\end{EX}
+\begin{proof}[Re\v senje]
+  Da se podsetimo: kontramodel formule je interpretacija u kojoj formula nije ta\v cna.
+  Interpretirajmo predikat $P$ na skupu $\NN$ ovako:
+
+  \medskip
+
+  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
+    $P(x, y)$ & \enquote{$x < y$}\\
+  \end{tabular}
+  
+  \medskip
+  
+  \noindent
+  U ovoj interpretaciji formula
+  $$
+    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
+  $$
+  dobija slede\'ce zna\v cenje:
+  \begin{center}
+    \textit{za svaka dva \textbf{prirodna} broja $x$ i $y$, ako je $x < y$, onda}\\
+    \textit{postoji \textbf{prirodan} broj $z$ takav da je $x < z$ i $z < y$,}
+  \end{center}
+  \v sto \emph{nije ta\v cno tvr\dj enje za prirodne brojeve} jer ne va\v zi za, recimo, $x = 1$ i $y = 2$.
+\end{proof}
 
 \begin{EX}
   $(a)$ Na\'ci predikatsku formulu koja ima slede\'cu osobinu: svaki model ove formule ima bar tri elementa.
@@ -400,88 +461,29 @@ Kada su poznata ova dva podatka, dobijamo strukturu koja se zove \emph{interpret
   \end{align*}
 \end{proof}
 
-Interesantno je da \emph{ne postoji} predikatska formula sa osobinom da svaki model te formule mora da bude kona\v can skup.
-Tako\dj e, \emph{ne postoji} predikatska formula sa osobinom da svaki model te formule mora da ima paran broj elemenata.
+Interesantno je da \emph{ne postoji} predikatska formula sa osobinom da svaki model te formule mora da bude kona\v can.
+Tako\dj e, \emph{ne postoji} predikatska formula \v ciji svi modeli imaju paran broj elemenata.
 Dokazi ova dva tvr\dj enja prevazilaze okvire ovog ud\v zbenika, ali nam daju va\v zan ose\'caj o ograni\v cenjima
 izra\v zajne mo\'ci predikatskog ra\v cuna.
-
-
-\begin{DEF}
-  Interpretacija u kojoj je fomula $\phi$ ta\v cna zove se \emph{model formule~$\phi$}.
-  Interpretacija u kojoj je fomula $\phi$ neta\v cna zove se \emph{kontramodel formule~$\phi$}.
-\end{DEF}
-
-\begin{EX}
-  Na\'ci model formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
-\end{EX}
-\begin{proof}[Re\v senje]
-  Uo\v cimo slede\'ci predikat na skupu $\RR$ realnih brojeva:
-  \medskip
-
-  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x, y)$ & \enquote{$x < y$}\\
-  \end{tabular}
-  
-  \medskip
-  
-  \noindent
-  U ovoj interpretaciji formula
-  $$
-    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
-  $$
-  dobija slede\'ce zna\v cenje:
-  \begin{center}
-    \textit{za svaka dva realna broja $x$ i $y$, ako je $x < y$ onda}\\
-    \textit{postoji realan broj $z$ takav da je $x < z$ i $z < y$}
-  \end{center}
-  \v sto je ta\v cno tvr\dj enje za realne brojeve (uvek mo\v zemo uzeti da je $z = \frac{x+y}{2}$).
-\end{proof}
-
-\begin{EX}
-  Na\'ci kontramodel formule $(\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))$.
-\end{EX}
-\begin{proof}[Re\v senje]
-  Da se podsetimo: kontramodel formule je interpretacija u kojoj formula nije ta\v cna.
-  Uo\v cimo slede\'ci predikat na skupu $\NN$ prirodnih brojeva:
-  \medskip
-
-  \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x, y)$ & \enquote{$x < y$}\\
-  \end{tabular}
-  
-  \medskip
-  
-  \noindent
-  U ovoj interpretaciji formula
-  $$
-    (\forall x)(\forall y)(P(x, y) \Rightarrow (\exists z)(P(x, z) \land P(z, y)))
-  $$
-  dobija slede\'ce zna\v cenje:
-  \begin{center}
-    \textit{za svaka dva \textbf{prirodna} broja $x$ i $y$, ako je $x < y$ onda}\\
-    \textit{postoji \textbf{prirodan} broj $z$ takav da je $x < z$ i $z < y$}
-  \end{center}
-  \v sto \emph{nije ta\v cno tvr\dj enje za prirodne brojeve} jer ne va\v zi za, recimo, $x = 1$ i $y = 2$.
-\end{proof}
 
 
 \section{Oblast dejstva kvantifikatora}
 
 Zadatak kvantifikatora je da istakne neku promenljivu u formuli koja mu sledi
-i da nam stavi do znanja da li formula treba da va\v zi za svaku mogu\'cu vrednost te promenljive
+i da nam stavi do znanja da li bi formula treblo da va\v zi za svaku mogu\'cu vrednost te promenljive
 (kvantifikator~$\forall$), ili za bar jednu njenu vrednost (kvantifikator~$\exists$).
 Pri tome, kvantifikator deluje \emph{samo na formulu koja mu sledi!}
 Na primer:
 $$
   (\exists x)\underbrace{(P(x) \land Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $\exists x$}}} \; \land \;
-  (\exists y)\underbrace{(P(y) \land \lnot Q(y))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $\exists y$}}}
+  (\exists y)\underbrace{(P(y) \land \lnot Q(y))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $\exists y$}}}.
 $$
 Po\v sto dejstvo kvantifikatora prestaje kada se zavr\v si formula ispred koje se nalazi, \v cest je
 obi\v caj da se isto slovo iskoristi vi\v se puta. Tako, gornja formula ima potpuno isto zna\v cenje kao i
 slede\'ca formula:
 $$
   \overset{K_1}{(\exists x)} \underbrace{(P(x) \land Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $K_1$}}} \; \land \;
-  \overset{K_2}{(\exists x)} \underbrace{(P(x) \land \lnot Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $K_2$}}}
+  \overset{K_2}{(\exists x)} \underbrace{(P(x) \land \lnot Q(x))}_{\substack{\text{oblast dejstva}\\\text{kvantifikatora $K_2$}}}.
 $$
 
 \begin{EX}
@@ -491,8 +493,8 @@ $$
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x)$ & \enquote{$x$ je paran broj}\\
-    $Q(x)$ & \enquote{$x$ je neparan broj}\\
+    $P(x)$ & \enquote{$x$ je paran broj},\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}.
   \end{tabular}
   
   \medskip
@@ -536,8 +538,8 @@ $$
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x)$ & \enquote{$x$ je paran broj}\\
-    $Q(x)$ & \enquote{$x$ je neparan broj}\\
+    $P(x)$ & \enquote{$x$ je paran broj},\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}.
   \end{tabular}
   
   \medskip
@@ -549,8 +551,8 @@ $$
   $$
   dobija slede\'ce zna\v cenje:
   \begin{center}
-    \textit{ako postoji paran prirodan broj i postoji neparan prirodan broj}\\
-    \textit{onda postoji prirodan broj koji je i paran i neparan}
+    \textit{ako postoji paran prirodan broj i postoji neparan prirodan broj,}\\
+    \textit{onda postoji prirodan broj koji je i paran i neparan,}
   \end{center}
   \v sto nije ta\v cno tvr\dj enje.
 \end{proof}
@@ -563,13 +565,13 @@ $$
   $$
 \end{EX}
 \begin{proof}[Re\v senje]
-  Neka su $P$ i $Q$ slede\'ci predikati na prirodnim brojevima:
+  Neka su $P$ i $Q$ predikati interpretirani na prirodnim brojevima na slede\'ci na\v cin:
 
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x)$ & \enquote{$x$ je paran broj}\\
-    $Q(x)$ & \enquote{$x$ je neparan broj}
+    $P(x)$ & \enquote{$x$ je paran broj},\\
+    $Q(x)$ & \enquote{$x$ je neparan broj}.
   \end{tabular}
   
   \medskip
@@ -581,8 +583,8 @@ $$
   $$
   dobija slede\'ce zna\v cenje:
   \begin{center}
-    \textit{ako je svaki prirodan broj paran ili neparan}\\
-    \textit{onda su svi prirodni brojevi parni, ili su svi prirodni brojevi neparni}
+    \textit{ako je svaki prirodan broj paran ili neparan,}\\
+    \textit{onda su svi prirodni brojevi parni, ili su svi prirodni brojevi neparni,}
   \end{center}
   \v sto nije ta\v cno tvr\dj enje.
 \end{proof}
@@ -599,7 +601,7 @@ Takve formule se zovu valjane formule.
   \emph{Valjana formula} je re\v cenica koja je ta\v cna u svakoj interpretaciji.
   Izjavu \enquote{\textit{$\phi$ je valjana formula}} skra\'ceno zapisujemo ovako
   $$
-    \vDash \phi
+    \vDash \phi.
   $$
 \end{DEF}
 
@@ -617,9 +619,12 @@ Takve formule se zovu valjane formule.
   \end{tabular}
 \end{EX}
 
+Postoji mnogo valjanih formula koje ne poti\v cu od tautologija. U slede\'cem primeru
+navodimo neke od najzna\v cajnijih.
+
 \begin{EX}
-  Postoji mnogo valjanih formula koje ne poti\v cu od tautologija. Neke od najzna\v cajnijih su:
-  
+  Dokazati da su slede\'ce formule valjane:
+
   \medskip
   
   \begin{tabular}{l}
@@ -631,6 +636,30 @@ Takve formule se zovu valjane formule.
   $\vDash \lnot(\forall x)P(x) \Leftrightarrow (\exists x)\lnot P(x)$
   \end{tabular}
 \end{EX}
+\begin{proof}[Re\v senje]
+  Doka\v zimo da je $\phi = (\exists x)(P(x) \land Q(x)) \Rightarrow (\exists x)P(x) \land (\exists x)Q(x)$ valjana formula,
+  a dokaz da su ostale valjane ostavljamo \v citaocu za ve\v zbu.
+  
+  Da bismo pokazali da je $\phi$ valjana formula
+  treba da poka\v zemo da je ona ta\v cna u \emph{svakoj interpretaciji.}
+  Neka je, zato, $D$ proizvoljan skup -- domen interpretacije. Unarni predikati $P$ i $Q$ se tada interpretiraju
+  kao unarne relacije na skupu $D$. Unarna relacija na skupu $D$ je njegov proizvoljan podskup, pa \'cemo
+  zato unarni predikat $P$ interpretirati kao unarnu relaciju $\rho \subseteq D$,
+  a unarni predikat $Q$ kao unarnu relaciju $\sigma \subseteq D$.
+  
+  Formula $\phi$ je implikacija dve formule, pa \'cemo njenu ta\v cnost ustanoviti razmatranjem slede\'ca dva slu\v caja.
+  
+  Slu\v caj $1^\circ$: u interpretaciji $(D, \rho, \sigma)$ je formula $(\exists x)(P(x) \land Q(x))$ neta\v cna.
+  Tada je u navedenoj interpretaciji cela formula $\phi$ ta\v cna (\emph{Ex falso quodlibet}) i dokaz je zavr\v sen.
+
+  Slu\v caj $2^\circ$: u interpretaciji $(D, \rho, \sigma)$ je formula $(\exists x)(P(x) \land Q(x))$ ta\v cna.
+  To zna\v ci da postoji $x \in D$ sa osobinom $P(x) \land Q(x)$, \v sto u interpretaciji $(D, \rho, \sigma)$
+  zna\v ci da je $x \in \rho$ i $x \in \sigma$. Drugim re\v cima,
+  postoji $x \in D$ takav da je $x \in \rho$, i postoji $x \in D$ takav da je $x \in \sigma$,
+  \v sto je interpretacija formule $(\exists x)P(x) \land (\exists x)Q(x)$.
+  Iako zvu\v ci kao obi\v cna jezi\v cka finesa, ovo je suptilan zaklju\v cak koji pokazuje da je
+  formula $\phi$ ta\v cna u proizvoljnoj interpretaciji $(D, \rho, \sigma)$.
+\end{proof}
 
 \begin{EX}
   Dokazati da je slede\'ca formula valjana:
@@ -648,13 +677,13 @@ Takve formule se zovu valjane formule.
   $$
     R(a, a, z) \lor \lnot R(a, a, z)
   $$
-  ta\v can za svaki objekat $z$ (Princip isklju\v cenja tre\'ceg).
+  ta\v can za svaki objekat $z$ (Zakon isklju\v cenja tre\'ceg).
 \end{proof}
 
 Poka\v zimo sada kako se valjane formule koriste kao \enquote{transformaciona pravila}, kao \v sto je bio
 slu\v caj sa tautologijama. Tako \'cemo dobiti alat koji \'ce nam omogu\'citi da transformi\v semo formule
 u nove formule koje mo\v zda imaju jednostavniji ili \enquote{lep\v si} oblik, vode\'ci ra\v cuna o tome
-da se pri transformacijama logi\v cka vredost formule ne menja.
+da se pri transformacijama logi\v cka vrednost formule ne menja.
 
 \ifBIOINF\else
     \begin{DEF}
@@ -734,19 +763,19 @@ model formule $\lnot\phi$:
   $$
     \lnot \phi = (\exists x)(\exists y)((\exists z)(P(z, x) \land P(z, y)) \land (\exists z)(\lnot P(z, x) \lor \lnot P(z, y))).
   $$
-  Uo\v cimo slede\'ci predikat na skupu $\NN$ prirodnih brojeva:
+  Interpretirajmo predikat $P$ na skupu $\NN$ ovako:
   
   \medskip
 
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
-    $P(x, y)$ & \enquote{$x < y$}\\
+    $P(x, y)$ & \enquote{$x < y$}.
   \end{tabular}
   
   \medskip
   
   \noindent
-  Formula $\lnot\phi$ je ta\v cna, recimo, za $x = 2$ i $y = 3$ \v sto se lako vidi jer je
-  $1 < 2 \land 1 < 3$ i pri tome $\lnot 4 < 3$.
+  Formula $\lnot\phi$ je ta\v cna, recimo, za $x = 2$ i $y = 3$ \v sto se lako vidi, jer je
+  $1 < 2 \land 1 < 3$ i pri tome nije $4 < 3$.
 \end{proof}
 
 \ifBIOINF
@@ -762,7 +791,7 @@ $$
 $$
 ka\v ze da objekat sa tom osobinom postoji, ali ne garantuje da je on jedinstven.
 Kvantifikator $\exists$ mo\v ze da se unapredi do kvantifikatora $\exists!$ koga \v citamo
-\enquote{postoji samo jedno}. Interesantno je da se ovim ne unosi nova izra\v zajna mo\'c u predikatski ra\v cun
+\enquote{postoji samo jedno}. Interesantno je da se ovim ne unosi nova izra\v zajna mo\'c u predikatski ra\v cun,
 jer se formula
 $$
   (\exists! x) \phi(x)
@@ -783,7 +812,7 @@ i $\exists$} koje pi\v semo ovako:
 \begin{center}
   \begin{tabular}{l@{\quad$\leadsto$\quad}l}
     $(\forall x \in A) \phi(x)$ & Za svako $x \in A$ va\v zi $\phi(x)$\\
-    $(\exists x \in A) \phi(x)$ & Postoji $x \in A$ takvo da va\v zi $\phi(x)$
+    $(\exists x \in A) \phi(x)$ & Postoji $x \in A$ takvo da va\v zi $\phi(x).$
   \end{tabular}
 \end{center}
 Ni ograni\v ceni kvantifikatori ne unose novu izra\v zajnu mo\'c u predikatski ra\v cun ve\'c samo
@@ -791,7 +820,7 @@ predstavljaju pogodne \enquote{skra\'cenice}:
 \begin{center}
   \begin{tabular}{l@{\quad je skra\'ceni zapis formule\quad}l}
     $(\forall x \in A) \phi(x)$ & $(\forall x)(x \in A \Rightarrow \phi(x))$ \\
-    $(\exists x \in A) \phi(x)$ & $(\exists x)(x \in A  \land      \phi(x))$
+    $(\exists x \in A) \phi(x)$ & $(\exists x)(x \in A  \land      \phi(x))$.
   \end{tabular}
 \end{center}
 Da bismo videli da je to tako i na formalnom nivou, pokaza\'cemo da se negiranje ograni\v cenih kvantifikatora pona\v sa
@@ -1160,9 +1189,9 @@ na o\v cekivani na\v cin.
 % ali i dovoljno jednostavan da se sve \v sto on inicijalno zna o sebi mo\v ze izlistati jedim algoritmom,
 % onda taj sistem nema dovoljno logi\v cke snage da doka\v ze sopstvenu konzistentnost!
 
-\section{Predikatski ra\v cun u analizi programskog koda}
+\section{Predikatski ra\v cun u analizi programskog k\^oda}
 
-Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do sada stekli koriste u formalnoj analizi programskog koda.
+Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do sada stekli koriste u formalnoj analizi programskog k\^oda.
 
 \begin{EX}\label{ft05.ex.max-niza}
   Posmatrajmo slede\'ci programski fragment:
@@ -1183,8 +1212,8 @@ Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do 
 \end{verbatim}
 }
 \noindent
-  Dokazati da po okon\v canju ovog koda promenljiva $m$ sadr\v zi najve\'ci element niza~$A$, a promenljiva $p$ njegovu
-  poziciju u nizu. Drugim re\v cima, dokazati da u ta\v cki (2) koda va\v zi slede\'ca formula:
+  Dokazati da po okon\v canju ovog k\^oda promenljiva $m$ sadr\v zi najve\'ci element niza~$A$, a promenljiva $p$ njegovu
+  poziciju u nizu. Drugim re\v cima, dokazati da u ta\v cki (2) k\^oda va\v zi slede\'ca formula:
   $$
     0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le n - 1 \Rightarrow A[j] \le m).
   $$
@@ -1196,11 +1225,11 @@ Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do 
   $$
     0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le k - 1 \Rightarrow A[j] \le m).
   $$
-  Lako se pokazuje da u ta\v cki (1) koda va\v zi formula $\phi(0)$ koja glasi:
+  Lako se pokazuje da u ta\v cki (1) k\^oda va\v zi formula $\phi(0)$ koja glasi:
   $$
     0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(\underbrace{0 \le j \le -1}_\bot \Rightarrow A[j] \le m).
   $$
-  Naime, znamo da u ta\v cki (1) va\v zi d je $p = 0$ i $m = A[0]$. S druge strane, uslov $0 \le j \le -1$ u tre\'cem \enquote{delu} formule
+  Naime, znamo da u ta\v cki (1) va\v zi da je $p = 0$ i $m = A[0]$. S druge strane, uslov $0 \le j \le -1$ u tre\'cem \enquote{delu} formule
   je neta\v can. Zato je implikacija ta\v cna, pa je i cela formula ta\v cna.
   
   \v Zelimo da poka\v zemo da je po okon\v canju \enquote{for}-ciklusa ta\v cna formula $\phi(n)$. Ideja dokaza se sastoji u tome
@@ -1218,7 +1247,7 @@ Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do 
 \end{verbatim}
 }
 \noindent
-  Ako je $A[i] \le m$ onda iz $\phi(i)$ sledi da je ta\v cno i:
+  Ako je $A[i] \le m$, onda iz $\phi(i)$ sledi da je ta\v cno i slede\'ce:
   $$
     0 \le p \le n - 1 \;\;\land\;\; m = A[p] \;\;\land\;\; (\forall j)(0 \le j \le i \Rightarrow A[j] \le m),
   $$
@@ -1310,17 +1339,17 @@ Sada \'cemo na dva slo\v zenija primera pokazati kako se ve\v stine koje smo do 
   $$
     (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
   $$
-  Lako se vidi da pre nego \v sto metodu \textit{Sort} krene sa izvr\v savanjem \enquote{for}-ciklusa
+  Lako se vidi da pre nego \v sto metod \textit{Sort} krene sa izvr\v savanjem \enquote{for}-ciklusa
   va\v zi formula $\phi(0)$ koja glasi:
   $$
-    (\forall p)(0 \le p < 0 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+    (\forall p)(0 \le p < 0 \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])),
   $$
-  jer je antecedent $0 \le p < 0$ neta\v can, pa je implikacija trivijalno ta\v cna.
+  jer je $0 \le p < 0$ neta\v cno, pa je implikacija trivijalno ta\v cna.
   \v Zelimo da poka\v zemo da je po okon\v canju \enquote{for}-ciklusa ta\v cna formula $\phi(n)$. Kao i ranije,
   ideja dokaza se sastoji u tome da se poka\v ze slede\'ce: ako je pre izvr\v senja tela ciklusa ta\v cno $\phi(i)$,
   onda je po izvr\v senju tela ciklusa ta\v cno $\phi(i + 1)$. Pretpostavimo da je ta\v cno $\phi(i)$:
   $$
-    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])).
+    (\forall p)(0 \le p < i \Rightarrow (\forall q)(p \le q < n \Rightarrow A[p] \le A[q])),
   $$
   i posmatrajmo telo ciklusa. Nakon naredbe
 {\small

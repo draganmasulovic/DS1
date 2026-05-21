@@ -30,7 +30,7 @@ se na kraju radnog dana osobine matemati\v ckih objekata moraju formulisati u ob
 
 
 Tokom hiljadugodi\v snjeg razvoja matematike razvile su se i razne tehnike dokazivanja matemati\v ckih tvr\dj enja.
-Ovo poglavlje je posve\'ceno pregledu najzna\v cajnijih. Kroz primere \'cemo demonstritari:
+Ovo poglavlje je posve\'ceno pregledu najzna\v cajnijih. Kroz primere \'cemo demonstrirati:
 \begin{itemize}\itemsep -1pt
 \item direktne dokaze,
 \item dokaze kontrapozicijom,
@@ -80,7 +80,7 @@ Evo nekoliko primera.
   Neka su $a_1, \ldots, a_n$, $b_1, \ldots, b_n$, i $k$ proizvoljni realni brojevi. Tada je
   $$
     \sum_{i=1}^n (a_i + b_i) = \sum_{i=1}^n a_i + \sum_{i=1}^n b_i \qquad \text{i} \qquad
-    \sum_{i=1}^n k \cdot a_i = k \cdot \sum_{i=1}^n.
+    \sum_{i=1}^n k \cdot a_i = k \cdot \sum_{i=1}^n a_i.
   $$
 \end{EX}
 \begin{proof}[Dokaz]
@@ -94,7 +94,7 @@ Evo nekoliko primera.
   Ovim je dokaz zavr\v sen.
 \end{proof}
  
-\begin{EX}
+\begin{EX}\label{ft05.ex.ak-1}
   Dokazati da je
   $$
     a^k - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1)
@@ -213,8 +213,8 @@ da je to zaista tako. Evo par primera.
 \end{EX}
 \begin{proof}[Dokaz]
  Da se podsetimo, broj $p$ je \emph{prost} ako je deljiv samo sa 1 i~$p$. To su takozvani \emph{trivijalni delioci} jer je svaki prirodan
- broj deljiv sa 1 i samim sobom. Ako broj ima i neki drugi delilac onda nije prost, a takav delilac se naziva \emph{netrivijalanim.}
- Na primer, broj 527 pored \emph{trivijanih delilaca} 1 i 527 ima i \emph{netrivijalni delilac} 17. Zato 527 nije prost broj.
+ broj deljiv sa 1 i samim sobom. Ako broj ima i neki drugi delilac onda nije prost, a takav delilac se naziva \emph{netrivijalnim.}
+ Na primer, broj 527, pored \emph{trivijalnih delilaca} 1 i 527, ima i \emph{netrivijalni delilac} 17. Zato 527 nije prost broj.
  Podsetimo se jo\v s i da je \emph{faktorijel} prirodnog broja $n$ slede\'ci proizvod:
  $$
    n! = 1 \cdot 2 \cdot 3 \ldots \cdot n.
@@ -239,7 +239,7 @@ $$
   p \Rightarrow q
 $$
 najzgodnije je da pretpostavimo da je $p$ ta\v cno, pa koriste\'ci $p$ i druge \v cinjenice za koje ve\'c imamo dokaz
-poku\v samo da \enquote{direktnim rezonovanjem} do\dj emo do zaklju\v cka~$q$. Primere ovakvih dokaza
+poku\v samo \enquote{direktnim rezonovanjem} da do\dj emo do zaklju\v cka~$q$. Primere ovakvih dokaza
 \'cemo demonstrirati na nekoliko poznatih tvr\dj enja o deljivosti brojeva i prostim brojevima.
 Podseti\'cemo se, zato, osnovnih pojmova teorije brojeva.
 
@@ -269,9 +269,9 @@ se zovu \emph{trivijalni delioci} broja $n$. Zato,
 \noindent
 Ta\v cno je i slede\'ce:
 \begin{itemize}
-\item ako je prirodan broj $n$ slo\v zen onda je $n = ab$ za neke prirodne brojeve $a \ge 2$ i $b \ge 2$;
-\item ako su $a$ i $b$ prirodni brojevi i ako $a \mid b$ i $b \mid a$ onda $a = b$;
-\item ako je prirodan broj $p$ prost i ako $p \mid ab$ onda $p \mid a$ ili $p \mid b$.
+\item ako je prirodan broj $n$ slo\v zen onda, je $n = ab$ za neke prirodne brojeve $a \ge 2$ i $b \ge 2$;
+\item ako su $a$ i $b$ prirodni brojevi i ako $a \mid b$ i $b \mid a$, onda $a = b$;
+\item ako je prirodan broj $p$ prost i ako $p \mid ab$, onda $p \mid a$ ili $p \mid b$.
 \end{itemize}
 
 
@@ -318,7 +318,7 @@ Ta\v cno je i slede\'ce:
 \end{proof}
 
 \begin{EX}\label{ft05.ex.cong-sm} (\textit{Sabiranje i mno\v zenje kongruencija}) 
-  Neka je $m$ prirodan broj i neka su $a, b, c, d$ celi brojevi. Ako je $a \equiv_m b$ i $c \equiv_m d$ tada je
+  Neka je $m$ prirodan broj i neka su $a, b, c, d$ celi brojevi. Ako je $a \equiv_m b$ i $c \equiv_m d$, tada je
   $a + c \equiv_m b + d$ i $ac \equiv_m bd$. Dokazati.
 \end{EX}
 \begin{proof}[Dokaz]
@@ -339,7 +339,7 @@ Ta\v cno je i slede\'ce:
     ac - bc = c k m \text{\quad i\quad}
     bc - bd = b \ell m.
   $$
-  Ako ove dve jednakosti sada saberemo dobijamo:
+  Ako ove dve jednakosti sada saberemo, dobijamo:
   $$
     ac - bd = m (c k + b \ell)
   $$
@@ -348,7 +348,7 @@ Ta\v cno je i slede\'ce:
 
 \begin{EX}\label{ft05.ex.cong-c} (\textit{Skra\'civanje u kongruenciji -- kancelacija})
   Neka su $a, b, c$ celi brojevi i neka je $p$ prost broj takav da $p \nmid c$.
-  Ako je $a c \equiv_p b c$ onda je $a \equiv_p b$. Dokazati.
+  Ako je $a c \equiv_p b c$, onda je $a \equiv_p b$. Dokazati.
 \end{EX}
 \begin{proof}[Dokaz]
   Iz $a c \equiv_p b c$ sledi da $p \mid a c - b c$, odnosno, da $p \mid (a - b) c$.
@@ -357,7 +357,7 @@ Ta\v cno je i slede\'ce:
   Dakle, $a \equiv_p b$.
 \end{proof}
 
-\begin{EX}
+\paragraph{Mozgalica.}
   Gde je gre\v ska u slede\'cem \enquote{dokazu} da je $1 = 2$:
   \begin{align*}
     -2 &= -2 \\
@@ -368,14 +368,13 @@ Ta\v cno je i slede\'ce:
     1 - \frac 32 &= 2 - \frac 32 \\
     1 &= 2 ?
   \end{align*}
-\end{EX}
 
-\begin{EX}
+
+\paragraph{Mozgalica.}
   Gde je gre\v ska u slede\'cem \enquote{dokazu} da je $1 = -1$, pri \v cemu $i$ ozna\v cava imaginarnu jedinicu:
   $$
     1 = \sqrt{1} = \sqrt{(-1) \cdot (-1)} = \sqrt{-1} \cdot \sqrt{-1} = i \cdot i = i^2 = -1?
   $$
-\end{EX}
 
 %\begin{EX}
 %  Gde je gre\v ska u slede\'cem \enquote{dokazu} da je svaki trougao jednakostrani\v can?
@@ -419,7 +418,6 @@ ili da
 $$
   \lnot q \Rightarrow \lnot p.
 $$
-Dokazi zasnovani na ovoj strategiji se zovu \emph{dokazi kontrapozicijom}.
 
 \begin{EX}
   Za svaki prost broj $n \ge 5$ je $n \equiv_6 1$ ili $n \equiv_6 5$.
@@ -440,8 +438,8 @@ Dokazi zasnovani na ovoj strategiji se zovu \emph{dokazi kontrapozicijom}.
   i ovu implikaciju mo\v zemo lako da doka\v zemo.
   
   Pretpostavimo da $n \not\equiv_6 1$ i $n \not\equiv_6 5$. Imamo dva slu\v caja:
-  $n < 5$ ili $n \ge 5$. Ako je $n < 5$ dokaz je gotov. Razmotrimo, zato, drugu mogu\'cnost: $n \ge 5$.
-  Da bismo dokazali implikaciju treba da poka\v zemo da $n$ nije prost broj.
+  $n < 5$ ili $n \ge 5$. Ako je $n < 5$, dokaz je gotov. Razmotrimo, zato, drugu mogu\'cnost: $n \ge 5$.
+  Da bismo dokazali implikaciju, potrebno je pokazati da $n$ nije prost broj.
   Ostatak pri deljenju bilo kog broja sa $6$ mo\v ze biti 0, 1, 2, 3, 4 ili 5. Kako smo pretpostavili da
   $n \not\equiv_6 1$ i da $n \not\equiv_6 5$, zna\v ci da ostatak pri deljenju broja $n$ sa 6 mo\v ze biti
   0, 2, 3 ili 4.
@@ -454,7 +452,7 @@ Dokazi zasnovani na ovoj strategiji se zovu \emph{dokazi kontrapozicijom}.
   Dakle, u svakom slu\v caju dolazimo do zaklju\v cka da $n$ nije prost.
 \end{proof}
 
-\begin{EX}\label{ft05.ex.ak-1} (\emph{Mersenovi brojevi})
+\begin{EX} (\emph{Mersenovi brojevi})
   Neka je $n$ prirodan broj. Ako je $2^n - 1$ prost broj onda je i $n$ prost broj.
 \end{EX}
 \begin{proof}[Dokaz]
@@ -483,7 +481,7 @@ Dokazi zasnovani na ovoj strategiji se zovu \emph{dokazi kontrapozicijom}.
   $$
     a^k - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1)
   $$
-  (koja se lako pokazuje direktnim ra\v cunanjem) dobijamo
+  iz Primera~\ref{ft05.ex.ak-1}, dobijamo
   $$
     2^n - 1 = (a - 1)(a^{k-1} + a^{k-2} + \ldots + a + 1).
   $$
@@ -510,11 +508,11 @@ $$
 $$
 Ako je neko tvr\dj enje ta\v cno, njegov obrat \emph{ne mora biti ta\v can}. Na primer,
 obrat tvr\dj enja o Mersenovim brojevima nije ta\v can jer je $n = 11$ prost broj
-dok $2^n - 1 = 2^{11} - 1$ nije jer je $2^{11} - 1 = 2047 = 23 \cdot 89$.
+dok $2^n - 1 = 2^{11} - 1$ nije, jer je $2^{11} - 1 = 2047 = 23 \cdot 89$.
 
 \section{Dokazi svo\dj enjem na kontradikciju}
 
-Nekada se da doka\v zemo tvr\dj enje oblika $p \Rightarrow q$ koristi tautologija
+Nekada se za dokazivanje tvr\dj enja oblika $p \Rightarrow q$ koristi tautologija
 $$
   \vDash (p \Rightarrow q) \Leftrightarrow (p \land \lnot q \Rightarrow \bot)
 $$
@@ -526,7 +524,7 @@ ili da
 $$
   p \land \lnot q \Rightarrow \bot.
 $$
-Poslednja formula zna\v ci da treba da pretpostavimo da va\v zi i $p$ i $\lnot q$ i da
+Poslednja formula zna\v ci da bi trebalo da pretpostavimo da va\v zi i $p$ i $\lnot q$, pa da
 na osnovu te dve pretpostavke poku\v samo da do\dj emo do kontradikcije.
 Dokazi zasnovani na ovoj strategiji se zovu \emph{svo\dj enje na kontradikciju} (ili lat.\ \emph{reductio ad absurdum}).
 
@@ -621,7 +619,7 @@ $$
   Beskona\v cno mnogo prirodnih brojeva su prosti.
 \end{EX}
 \begin{proof}[Dokaz]
-  Treba da poka\v zemo slede\'ce:
+  Potrebno je pokazati slede\'ce:
   $$
     \underbrace{\text{beskona\v cno mnogo prirodnih brojeva su prosti}}_q.
   $$
@@ -654,7 +652,7 @@ $$
   $$
     p_i (m - p_1 \cdot \ldots \cdot p_{i-1} \cdot p_{i+1} \cdot \ldots \cdot p_n) = 1.
   $$
-  Dakle, $p_i \mid 1$, \v sto je nemogu\'ce jer je $p_i \ge 2$ (prost broj je $\ge 2$). Kontradikcija.
+  Dakle, $p_i \mid 1$, \v sto je nemogu\'ce, jer je $p_i \ge 2$ (prost broj je $\ge 2$). Kontradikcija.
 \end{proof}
 
 \begin{DEF}
@@ -662,12 +660,12 @@ $$
   u oznaci $d = \NZD(a, b)$, je prirodan broj $d$ takav da:
   \begin{itemize}
   \item $d \mid a$ i $d \mid b$ ($d$ je delilac i broja $a$ i broja $b$), i
-  \item ako $n \mid a$ i $n \mid b$ tada $n \mid d$ ($d$ sadr\v zi svaki drugi delilac brojeva $a$ i $b$).
+  \item ako $n \mid a$ i $n \mid b$, tada $n \mid d$ ($d$ sadr\v zi svaki drugi delilac brojeva $a$ i $b$).
   \end{itemize}
 \end{DEF}
 
 U narednim tvr\dj enjima koristimo slede\'cu osobinu najve\'ceg zajedni\v ckog delioca:
-ako su $a$ i $b$ celi brojevi i ako je $d = \NZD(a, b)$ onda su $\frac ad$ i $\frac bd$
+ako su $a$ i $b$ celi brojevi i ako je $d = \NZD(a, b)$, onda su $\frac ad$ i $\frac bd$
 uzajamno prosti, odnosno, $\NZD(\frac ad, \frac bd) = 1$.
 
 \begin{EX}\label{ft05.ex.NZD-lin-komb}
@@ -687,7 +685,7 @@ uzajamno prosti, odnosno, $\NZD(\frac ad, \frac bd) = 1$.
   $$
   \emph{najmanji mogu\'ci pozitivan broj}. Doka\v zimo da je $n = d$. Kako $d \mid a$ i $d \mid b$, lako
   zaklju\v cujemo da $d \mid s a + t b$, odnosno $d \mid n$. Da bismo pokazali da je
-  $d = n$ sada je dovoljno da doka\v zemo da $n \mid d$ (jer se lako vidi da
+  $d = n$, sada je dovoljno da doka\v zemo da $n \mid d$ (jer se lako vidi da
   $n \mid d \land d \mid n \Rightarrow n = d$.)
   
   Doka\v zimo, prvo, da $n \mid a$. Pretpostavimo suprotno: $n \nmid a$. Ako podelimo $a$ celobrojno sa $n$
@@ -725,7 +723,7 @@ uzajamno prosti, odnosno, $\NZD(\frac ad, \frac bd) = 1$.
 
   Poka\v zimo, prvo, da nijedan od ovih brojeva nije deljiv sa~$p$. Pretpostavimo suprotno: za neko
   $k$ takvo da je $1 \le k \le p-1$ je $p \mid k a$. Tada, po\v sto je $p$ prost, sledi da
-  $p \mid k$ ili $p \mid a$. Zbog $1 \le k \le p-1$ znamo da mora biti $p \nmid k$, dok je
+  $p \mid k$ ili $p \mid a$. Zbog $1 \le k \le p-1$ znamo da mora biti $p \nmid k$, dok
   $p \nmid a$ prema pretpostavci. Kontradikcija. Ovim je pokazano da nijedan od brojeva u gornjem nizu
   nije deljiv sa~$p$.
 
@@ -745,7 +743,7 @@ uzajamno prosti, odnosno, $\NZD(\frac ad, \frac bd) = 1$.
   Poka\v zimo, dalje, da su u nizu \eqref{ft05.eq.mft2} svi brojevi razli\v citi.
   Pretpostavimo suprotno. Tada postoje $j$ i $k$ takvi da je
   $1 \le j \le p-1$, $1 \le k \le p-1$, $j \ne k$ i $r_j = r_k$. Po\v sto je $r_j$ ostatak
-  pri deljenju broja $j a$ sa $p$, a $r_k$ ostatak pri deljenju broja $k a$ sa $p$
+  pri deljenju broja $j a$ sa $p$, a $r_k$ ostatak pri deljenju broja $k a$ sa $p$,
   prema Primeru~\ref{ft05.ex.cong-r} je
   $$
     j a \equiv_p r_j \text{\quad i\quad} k a \equiv_p r_k.
@@ -789,7 +787,7 @@ uzajamno prosti, odnosno, $\NZD(\frac ad, \frac bd) = 1$.
   $$
     a^{p-1} \cdot (p-1)! \equiv_p (p-1)!
   $$
-  Zato \v sto je $p$ prost sigurni smo da $p \nmid (p-1)!$ pa na osnovu Primera~\ref{ft05.ex.cong-c}
+  Kako je $p$ prost, sigurni smo da $p \nmid (p-1)!$, pa na osnovu Primera~\ref{ft05.ex.cong-c}
   mo\v zemo da podelimo gornju relaciju sa $(p-1)!$ i tako dobijamo
   $$
     a^{p-1} \equiv_p 1,
@@ -803,7 +801,7 @@ Tvr\dj enja oblika
 $
   p \Leftrightarrow q
 $
-su veoma va\v zna u matematici jer ona pokazuju kako se neko svojstvo $p$ mo\v ze opisati na drugi
+su veoma va\v zna u matematici, jer ona pokazuju kako se neko svojstvo $p$ mo\v ze opisati na drugi
 na\v cin. Taj drugi na\v cin mo\v ze biti jednostavniji za proveru, ili nam mo\v ze re\'ci kako se neko
 svojstvo opisuje drugim jezikom.
 
@@ -821,7 +819,7 @@ crte\v z je prikazan na Sl.~\ref{ft01.fig.1potez1}~$(a)$. Za \enquote{debele ta\
 predstavljaju \emph{\v cvorove crte\v za}, dok \'cemo za linije koje spajaju neke od njih re\'ci da
 predstavljaju \emph{grane crte\v za}.
 
-Na Sl.~\ref{ft01.fig.1potez1}~$(b)$ prikazan je de\v ciji crte\v z koji je nartan tako da mu se grane $AC$ i $BD$ seku.
+Na Sl.~\ref{ft01.fig.1potez1}~$(b)$ prikazan je de\v ciji crte\v z koji je nacrtan tako da mu se grane $AC$ i $BD$ seku.
 Ta\v cka crte\v za koja nastaje \enquote{slu\v cajnim presekom} dve grane \emph{nije \v cvor crte\v za!}
 Zato \v cvorove posebno nagla\v savamo \enquote{debelim ta\v ckama}. Prema tome, crte\v z na Sl.~\ref{ft01.fig.1potez1}~$(b)$
 ima samo \v cetiri \v cvora: $A$, $B$, $C$ i $D$.
@@ -834,11 +832,11 @@ Za razliku od njega, crte\v zi na Sl.~\ref{ft01.fig.1potez1}~$(a)$ i \ref{ft01.f
 bez podizanja olovke sa papira, i da se pri tome svakom granom crte\v za pro\dj e ta\v cno jednom.
 Lako se vidi da nijedan crte\v z na Sl.~\ref{ft01.fig.1potez1} ne mo\v ze da se nacrta iz jednog poteza:
 crte\v z na Sl.~\ref{ft01.fig.1potez1}~$(c)$ nije povezan \v sto ga odmah diskvalifikuje, dok za crte\v ze na
-Sl.~\ref{ft01.fig.1potez1}~$(a)$ i $(b)$ nakon kra\'ceg razmi\v sljanja zaklju\v cujemo da je za njihovo crtanje
+Sl.~\ref{ft01.fig.1potez1}~$(a)$ i Sl.~\ref{ft01.fig.1potez1}~$(b)$ nakon kra\'ceg razmi\v sljanja zaklju\v cujemo da je za njihovo crtanje
 ili moramo da podignemo olovku sa papira, ili moramo jednom granom da pro\dj emo dva puta.
 
 Posmatrajmo sada de\v cije crte\v ze na Sl.~\ref{ft01.fig.1potez2}. Ve\'c smo konstatovali da crte\v z na 
-Sl.~\ref{ft01.fig.1potez2}~$(a)$ ne mo\v ze da se nacrta iz jednog poteza dok crte\v zi na
+Sl.~\ref{ft01.fig.1potez2}~$(a)$ ne mo\v ze da se nacrta iz jednog poteza, dok crte\v zi na
 Sl.~\ref{ft01.fig.1potez2}~$(b)$ i $(c)$ mogu. Tako se postavlja pitanje: kako mo\v zemo da prepoznamo
 de\v cije crte\v ze koji mogu da se nacrtaju iz jednog poteza? Jasno je da svaki takav crte\v z mora biti povezan,
 ali crte\v zi na Sl.~\ref{ft01.fig.1potez1}~$(a)$ i $(b)$ pokazuju da to nije dovoljno.
@@ -855,9 +853,9 @@ koji mogu da se nacrtaju iz jednog poteza.\footnote{Ovaj Ojlerov rezultat se sma
 matemati\v cke teorije koja se zove \emph{teorija grafova}.}
 Da bismo lak\v se formulisali Ojlerovu teoremu, podeli\'cemo \v cvorove crte\v za
 u dve vrste: \v cvor je \emph{paran} ako iz njega izlazi parno mnogo grana, a \emph{neparan} je ako iz njega izlazi
-neparno mnogo grana. Na primer, kod crte\v za na Sl.~\ref{ft01.fig.1potez2}~$(a)$ svi \v cvorovi su neparni (iz svakog izlaze tri grane),
+neparno mnogo grana. Na primer, na crte\v zu na Sl.~\ref{ft01.fig.1potez2}~$(a)$ svi \v cvorovi su neparni (iz svakog izlaze tri grane),
 crte\v z na Sl.~\ref{ft01.fig.1potez2}~$(b)$ ima dva neparna i tri parna \v cvora ($B$ i $C$ su neparni, dok su $A$, $D$ i $E$ parni),
-a kod crte\v za na Sl.~\ref{ft01.fig.1potez2}~$(c)$ svi \v cvorovi su parni.
+a na crte\v zu na Sl.~\ref{ft01.fig.1potez2}~$(c)$ svi \v cvorovi su parni.
 
 \begin{THM}[Ojler]
   De\v ciji crte\v z mo\v ze da se nacrta iz jednog poteza \textbf{ako i samo ako} je povezan i pri tome nema neparnih \v cvorova ili ima
@@ -886,13 +884,13 @@ $$
 $$
 Prema tautologiji:
 $$
-  \vDash (p \Leftrightarrow q) \Leftrightarrow ((p \Rightarrow q) \land (q \Rightarrow p))
+  \vDash (p \Leftrightarrow q) \Leftrightarrow ((p \Rightarrow q) \land (q \Rightarrow p)),
 $$
 tvrdnja da su dva iskaza ekvivalentna predstavlja kompaktan zapis dve tvrdnje: tvrdnje $p \Rightarrow q$ i tvrdnje $q \Rightarrow p$.
 Ojlerova teorema nam, dakle, ka\v ze slede\'ce:
 \begin{itemize}
   \item ako crte\v z mo\v ze da se nacrta iz jednog poteza, onda je povezan i pri tome nema neparnih \v cvorova ili ima ta\v cno dva neparna \v cvora; i
-  \item ako je crte\v z povezan i nema naprnih \v cvorova ili ima ta\v cno dva neparna \v cvora, onda on mo\v ze da se nacrta iz jednog poteza.
+  \item ako je crte\v z povezan i nema neparnih \v cvorova ili ima ta\v cno dva neparna \v cvora, onda on mo\v ze da se nacrta iz jednog poteza.
 \end{itemize}
 Ovakva tvr\dj enja nam daju \emph{potpunu karakterizaciju} nekog svojstva pomo\'cu nekog drugog svojstva koje je obi\v cno lak\v se proveriti.
 U slu\v caju Ojlerove teoreme, de\v ciji crte\v zi koji mogu da se nacrtaju iz jednog poteza su \emph{potpuno okarakterisani} pomo\'cu slede\'ce
@@ -933,7 +931,7 @@ neke od tehnika koje smo demonstrirali ranije.
  $$
 \end{EX}
 \begin{proof}[Dokaz]
- Treba da poka\v zemo slede\'ce:
+ \v Zelimo da poka\v zemo slede\'ce:
  $$
    \underbrace{\frac{a+b}{2} = \sqrt{ab}}_p \;\;\Leftrightarrow\;\; \underbrace{a = b}_q.
  $$
@@ -941,11 +939,11 @@ neke od tehnika koje smo demonstrirali ranije.
  $$
    \underbrace{\frac{a+b}{2} = \sqrt{ab}}_p \;\;\Rightarrow\;\; \underbrace{a = b}_q
    \;\;\text{\qquad i\qquad}\;\;
-   \underbrace{a = b}_q \;\;\Rightarrow\;\; \underbrace{\frac{a+b}{2} = \sqrt{ab}}_q.
+   \underbrace{a = b}_q \;\;\Rightarrow\;\; \underbrace{\frac{a+b}{2} = \sqrt{ab}}_p.
  $$
  U dokazu koji sledi znak u zagradi na po\v cetku pasusa nam govori o tome koji smer ekvivalencije dokazujemo.
 
- $(\Leftarrow)$ Ako je $a = b$ onda je
+ $(\Leftarrow)$ Ako je $a = b$, onda je
  $$
    \frac{a+b}{2} = \frac{a + a}{2} = a,
  $$
@@ -962,11 +960,11 @@ neke od tehnika koje smo demonstrirali ranije.
  $$
    \frac{a+b}{2} = \sqrt{ab}.
  $$
- Tada, nakon mno\v zenja sa 2 dobijamo:
+ Tada, nakon mno\v zenja sa 2, dobijamo:
  $$
    a + b = 2 \sqrt{ab},
  $$
- odnosno
+ odnosno,
  $$
    a - 2 \sqrt{ab} + b = 0.
  $$
@@ -1032,7 +1030,7 @@ Kako je broj~0 trivijalno deljiv sa 17, sledi da je 357 deljiv sa~17, pa je i 37
 (Zaista, $357 = 17 \cdot 21$ i $3723 = 17 \cdot 219$.)
 
 \begin{proof}[Dokaz (Kriterijuma deljivosti sa 17)]
-  Treba da poka\v zemo slede\'ce:
+  Poka\v zimo slede\'ce:
   $$
     \underbrace{17 \mid N}_p \;\;\Leftrightarrow\;\; \underbrace{17 \mid M - 5c}_q.
   $$
@@ -1040,7 +1038,7 @@ Kako je broj~0 trivijalno deljiv sa 17, sledi da je 357 deljiv sa~17, pa je i 37
   $$
     \underbrace{17 \mid N}_p \;\;\Rightarrow\;\; \underbrace{17 \mid M - 5c}_q
     \;\;\text{\qquad i\qquad}\;\;
-    \underbrace{17 \mid M - 5c}_q \;\;\Rightarrow\;\; \underbrace{17 \mid N}_q
+    \underbrace{17 \mid M - 5c}_q \;\;\Rightarrow\;\; \underbrace{17 \mid N}_p
   $$
   Kako je $c$ poslednja cifra broja $N$, a $M$ broj koji se dobija brisanjem njegove poslednje cifre, lako
   zaklju\v cujemo da mora biti
@@ -1077,7 +1075,7 @@ Kako je broj~0 trivijalno deljiv sa 17, sledi da je 357 deljiv sa~17, pa je i 37
   $$
     s = M - 5c
   $$
-  deljiv sa~17. Ako gornji izraz pomno\v zimo sa 10, pa desnoj strani dodamo i oduzmemo c, dobijamo
+  deljiv sa~17. Ako gornji izraz pomno\v zimo sa 10, pa desnoj strani dodamo i oduzmemo $c$, dobijamo
   $$
     10s = 10M - 50c + c - c = (10M + c) - 51c.
   $$
@@ -1128,7 +1126,7 @@ trivijalno deljiv sa 11, zaklju\v cujemo da je i broj $N$ deljiv sa~11. Zaista, 
   $$
     a^k - b^k = (a - b) \cdot (a^{k-1} + a^{k-2}b + a^{k-3} b^2 + \ldots + ab^{k-2} + b^{k-1})
   $$
-  \v ciji poseban slu\v caj smo ve\'c koristili kod Mersenovih brojeva dobijamo da je
+  \v ciji poseban slu\v caj smo ve\'c koristili kod Mersenovih brojeva, dobijamo da je
   \begin{align*}
     N - M &= \sum_{k=0}^n a_k \cdot (10 - (-1)) \cdot (\text{komplikovan izraz})\\
     &= \sum_{k=0}^n a_k \cdot 11 \cdot (\text{komplikovan izraz})\\
@@ -1179,7 +1177,7 @@ da li jedna\v cina $x^n + y^n = z^n$ ima celobrojno re\v senje za $n \ge 3$.
 Francuski matemati\v car Pjer de Ferma je negde oko 1637.\ godine \v citao Diofantovu \emph{Aritmetiku}
 i zaintrigiran diskusijom o celobrojnim re\v senjima jedna\v cine $x^2 + y^2 = z^2$ 
 po\v ceo da razmi\v slja o analognim jedna\v cinama vi\v seg stepena. Ferma je pokazao
-da jedna\v cina $x^4 + y^4 = z^4$ nema celobrojnih re\v senja pa je na margini svog primerka
+da jedna\v cina $x^4 + y^4 = z^4$ nema celobrojnih re\v senja, pa je na margini svog primerka
 Diofantove \emph{Aritmetike} zapisao:
 \begin{quote}
   \textit{Kub ne mo\v ze da se razlo\v zi na dva kuba, niti bikvadrat na dva bikvadrata, niti, uop\v steno, bilo koji stepen ve\'ci od 2 na
@@ -1210,7 +1208,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     \begin{array}{ccc}
       \underbrace{\hbox{
         \begin{tabular}{@{}p{1.7in}@{}}
-          Jedna\v cina $x^n + y^n = z^n$ nema celobrojna re\v senja ni za jedan prirodan broj $n \ge 3$
+          Jedna\v cina $x^n + y^n = z^n$ nema celobrojna re\v senja ni za jedan prirodan broj $n \ge 3$.
         \end{tabular}
       }}_p
       &
@@ -1218,9 +1216,9 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
       &
       \underbrace{\hbox{
         \begin{tabular}{@{}p{1.8in}@{}}
-          Jedna\v cina $x^4 + y^4 = z^4$ nema celobrojna re\v senja\\
+          Jedna\v cina $x^4 + y^4 = z^4$ nema celobrojna re\v senja.\\
           \multicolumn{1}{c}{$\land$}\\
-          Jedna\v cina $x^s + y^s = z^s$ nema celobrojna re\v senja ni za jedan prost broj $s \ge 3$
+          Jedna\v cina $x^s + y^s = z^s$ nema celobrojna re\v senja ni za jedan prost broj $s \ge 3$.
         \end{tabular}
       }}_q
     \end{array}
@@ -1236,7 +1234,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     \begin{array}{ccc}
       \underbrace{\hbox{
         \begin{tabular}{@{}p{1.7in}@{}}
-          Jedna\v cina $x^n + y^n = z^n$ ima celobrojno re\v senje za neki prirodan broj $n \ge 3$
+          Jedna\v cina $x^n + y^n = z^n$ ima celobrojno re\v senje za neki prirodan broj $n \ge 3$.
         \end{tabular}
       }}_{\lnot p}
       &
@@ -1244,9 +1242,9 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
       &
       \underbrace{\hbox{
         \begin{tabular}{@{}p{1.8in}@{}}
-          Jedna\v cina $x^4 + y^4 = z^4$ ima celobrojno re\v senje\\
+          Jedna\v cina $x^4 + y^4 = z^4$ ima celobrojno re\v senje.\\
           \multicolumn{1}{c}{$\lor$}\\
-          Jedna\v cina $x^s + y^s = z^s$ ima celobrojno re\v senje za neki prost broj $s \ge 3$
+          Jedna\v cina $x^s + y^s = z^s$ ima celobrojno re\v senje za neki prost broj $s \ge 3$.
         \end{tabular}
       }}_{\lnot q}
     \end{array}
@@ -1271,7 +1269,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
 
   Slu\v caj $2^\circ$: nijedan neparan broj nije delilac broja $n$. Tada je
   $$
-    n = \underbrace{2 \cdot 2 \cdot \ldots \cdot 2}_k
+    n = \underbrace{2 \cdot 2 \cdot \ldots \cdot 2}_k,
   $$
   gde je $k \ge 2$ (jer je $n \ge 3$). Zato je $n = 4m$ za neki prirodan broj $m$, pa dobijamo da je
   $$
@@ -1365,10 +1363,10 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   \emph{RSA kriptosistema}, \v sto je jedan od najpoznatijih i najpouzdanijih algoritama za \v sifrovanje.
 
   RSA kriptosistem je tzv.\ \emph{kriptosistem sa javnim klju\v cem} \v sto zna\v ci da se
-  za \v sifrovanje poruka se koristi par brojeva koji se objavi, to je \emph{javni klju\v c},
+  za \v sifrovanje poruka koristi par brojeva koji se objavi, to je \emph{javni klju\v c},
   dok se za de\v sifrovanje koristi \emph{tajni klju\v c}.
   Ideja algoritma je u tome da se javni klju\v c mo\v ze objaviti u novinama (ili poslati javno, preko interneta),
-  jer ako su parametri za kriptovanje odabrani na pravi na\v cin tajni klju\v c (koji nam treba da de\v sifrujemo
+  jer ako su parametri za kriptovanje odabrani na pravi na\v cin tajni klju\v c (koji nam je potreban da de\v sifrujemo
   poruku) se ne mo\v ze lako izra\v cunati. Razlog le\v zi u tome \v sto je za odre\dj ivanje tajnog klju\v ca
   potrebno predstaviti parametar $n$ javnog klju\v ca (vidi ni\v ze) kao proizvod prostih brojeva, a za
   tzv.\ \emph{faktorizaciju brojeva} na\v sa civilizacija jo\v s uvek nije na\v sla efikasan algoritam.
@@ -1408,7 +1406,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   
   Proces \v sifrovanja se svodi na to da se poruka na neki na\v cin predstavi nizom brojeva
   $$
-    \mathrm{poruka} = m_1, m_2, \ldots, m_s
+    \mathrm{poruka} = m_1, m_2, \ldots, m_s,
   $$
   gde su svi elementi ovog niza izme\dj u $0$ i $n - 1$. Onda se, koriste\'ci \emph{javni klju\v c $(e, n)$}
   za svaki $m_i$ izra\v cuna broj $c_i$ koji je izme\dj u $0$ i $n - 1$ i zadovoljava uslov:
@@ -1434,7 +1432,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   Na ovom mestu koristimo Malu Fermaovu teoremu. Doka\v zimo, prvo, slede\'cu posledicu Male Fermaove Teoreme:
   
   \begin{COR}\label{ft05.posl.mft}
-    Neka su $p$ i $q$ razli\v citi prosti brojevi i $a$ prirodan broj takav da je $p \nmid a$ i $q \nmid a$. Tada je
+    Neka su $p$ i $q$ razli\v citi prosti brojevi i $a$ prirodan broj takav da $p \nmid a$ i $q \nmid a$. Tada je
     $$
       a^{(p-1)(q-1)} \equiv_{pq} 1.
     $$
@@ -1450,7 +1448,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     $$
     Stavimo sada da je $b_2 = a^{p-1}$. Prema Maloj Fermaovoj teoremi je tada
     $$
-      b_1^{q-1} \equiv_q 1.
+      b_2^{q-1} \equiv_q 1.
     $$
     Drugim re\v cima, postoji neko $j_2$ takvo da je
     $$
@@ -1470,7 +1468,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   Doka\v zimo sada korektnost algoritma.
   Prema proceduri za \v sifrovanje i de\v sifrovanje:
   $$
-    r_i \equiv_n c_i^d \equiv_n (m_i^e)^d \equiv_n m_i^{e\cdot d}
+    r_i \equiv_n c_i^d \equiv_n (m_i^e)^d \equiv_n m_i^{e\cdot d}.
   $$
   Brojeve $e$ i $d$ smo birali tako da je $e\cdot d \equiv_k 1$, odakle je
   $$
@@ -1480,7 +1478,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   $$
     r_i \equiv_n m_i^{1 + k \cdot y} = m_i^{1 + (p-1)\cdot(q-1) \cdot y} = m_i \cdot m_i^{(p-1)\cdot(q-1) \cdot y},
   $$
-  jer je $k = (p-1)\cdot(q-1)$. Da bismo zavr\v sili dokaz treba jo\v s da poka\v zemo da je
+  jer je $k = (p-1)\cdot(q-1)$. Da bismo zavr\v sili dokaz potrebno je jo\v s da poka\v zemo da je
   $$
     m_i^{(p-1)\cdot(q-1) \cdot y} \equiv_n 1,
   $$
@@ -1502,9 +1500,9 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
   primeru. Izra\v cunajmo, prvo, javni i tajni klju\v c:
   \begin{enumerate}\itemsep -1.5pt
   \item neka je $p = 89$, $q = 97$ i $n = pq = 8633$;
-  \item sada je $k = \mathit{NZS}(88, 96) = 1056$;
-  \item odaberemo $e$ tako da je $1 < e < 1056$ i $\mathit{NZD}(e, k) = 1$, recimo, $e = 17$;
-  \item izra\v cunamo $d$ tako da je $d \cdot e \equiv_{1056} 1$, pa dobijamo $d = 497$;
+  \item sada je $k = (p-1)\cdot(q-1) = 88 \cdot 96 = 8448$;
+  \item odaberemo $e$ tako da je $1 < e < 8448$ i $\mathit{NZD}(e, k) = 1$, recimo, $e = 17$;
+  \item izra\v cunamo $d$ tako da je $d \cdot e \equiv_{8448} 1$, pa dobijamo $d = 497$;
   \item par brojeva $(17, 8633)$ je javni klju\v c, a par brojeva $(497, 8633)$ je tajni klju\v c.
   \end{enumerate}
   Pretpostavimo da \v zelimo da \v sifrujemo slede\'cu poruku:
@@ -1512,7 +1510,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     \texttt{ZIVOT JE LEP!}
   \end{quote}
   Prvo \'cemo slova kodirati nekim sistemom, recimo DEC SIXBIT.
-  To je 6-bitni kod koji mo\v ze da opi\v se 64 simbola prema slede\'coj tabeli:
+  To je 6-bitni k\^od koji mo\v ze da opi\v se 64 simbola prema slede\'coj tabeli:
   \begin{center}
     \begin{tabular}{r|rrrrrrrr}
              & ...000    & ...001   & ...010   & ...011   & ...100   & ...101   & ...110   & ...111  \\
@@ -1527,8 +1525,8 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
       111... & \verb`X`  & \verb`Y` & \verb`Z` & \verb`[` & \verb`\` & \verb`]` & \verb`^` & \verb`_`
     \end{tabular}
   \end{center}
-  Na primer, kod simbola \verb`'A'` je 100001, a kod simbola \verb`'*'` je 001010.
-  Obrnuto, kod 110100 kodira simbol \verb`'T'`.
+  Na primer, k\^od simbola \verb`'A'` je 100001, a k\^od simbola \verb`'*'` je 001010.
+  Obrnuto, k\^od 110100 kodira simbol \verb`'T'`.
 
   Kodiranjem poruke dobijamo:
   \begin{flushleft}
@@ -1557,7 +1555,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     \qquad 0101001010000 \quad 0010110010010 \quad 1110000000001    
   \end{flushleft}
   (Ovakav izbor veli\v cine paketa je pogodan i iz jednog drugog razloga: ako se veli\v cina paketa poklapa da du\v zinom
-  kodne re\v ci, \v sto je u ovom slu\v caju 6, ili sa nekim njenim umno\v skom, na primer 12, onda se dobijena \v sifrovana
+  k\^odne re\v ci, \v sto je u ovom slu\v caju 6, ili sa nekim njenim umno\v skom, na primer 12, onda se dobijena \v sifrovana
   poruka mo\v ze razbiti statisti\v cki, koriste\'ci frekvencijsku analizu jezika na kome je originalna poruka napisana, \v sto
   zna\v ci da smo se nepotrebno mu\v cili oko obra\v cuna parametara za RSA kriptosistem).
   
@@ -1575,7 +1573,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
     1110000000001 & 7169 & 5602
     \end{tabular}
   \end{center}
-  K\=od je, dakle, novi niz celih brojeva. De\v sifrovanje se sastoji u tome da se svaki broj iz k\=oda digne
+  K\^od je, dakle, novi niz celih brojeva. De\v sifrovanje se sastoji u tome da se svaki broj iz k\=oda digne
   na stepen $d = 497$ po modulu $n = 8633$:
   \begin{center}
     \begin{tabular}{c@{\ \ $\to$\ \ }c@{\ \ $\to$\ \ }c}
@@ -1593,7 +1591,7 @@ ka re\v senju problema koji se pripisuje Leonardu Ojleru.
 
 \section{Matemati\v cka indukcija}
 
-\emph{Indukivno zaklju\v civanje} je su\v sta suprotnost \emph{deduktivnom zaklju\v civanju}:
+\emph{Induktivno zaklju\v civanje} je su\v sta suprotnost \emph{deduktivnom zaklju\v civanju}:
 dok je deduktivno zaklju\v civanje rezultat stroge logi\v cke dedukcije, induktivno zaklju\v civanje
 predstavlja na\v cin da steknemo ose\'caj o nekom apstraktnom pojmu tako \v sto ispitujemo
 specijalne slu\v cajeve, eksperimenti\v semo, pa uop\v stavanjem ste\v cenog iskustva
@@ -1611,8 +1609,8 @@ pogre\v san rezultat.
 Posmatrajmo funkciju $f(n) = n^2 - 79n + 1601$. Ako izra\v cunamo vrednost funkcije
 $f(n)$ za $n = 0, 1, 2, \ldots$ dobi\'cemo niz podataka koji su prikazani u Tabeli~\ref{ft05.tabela.indukcija}.
 Prime\'cujemo da su u Tabeli~\ref{ft05.tabela.indukcija} svi brojevi $f(n)$ prosti. Induktivno zaklju\v civanje
-bi nas navelo na hipotezu da je $f(n)$ prost broj za svako $n$, jer ako smo isprobali ovoliko
-slu\v cajeva (\v cak 80) i uvek dobili prost broj, sve ukazuje na na to da \'ce
+bi nas navelo na hipotezu da je $f(n)$ prost broj za svako $n$, jer ako smo proverili ovoliko
+slu\v cajeva (\v cak 80) i uvek dobili prost broj, sve ukazuje na to da \'ce
 $f(n)$ uvek biti prost broj \ldots\ zar ne?
 \emph{NE!} Naime, $f(80) = 1681 = 41 \cdot 41$, \v sto nije prost broj!
 
@@ -1649,7 +1647,7 @@ $f(n)$ uvek biti prost broj \ldots\ zar ne?
 \bigskip
 
 \emph{Matemati\v cka indukcija} predstavlja strategiju za \emph{strogo, formalno} dokazivanje
-svojstava koja imaju oblik $\phi(n)$ gde je~$n$ prirodan broj.
+svojstava koja imaju oblik $\phi(n)$, gde je~$n$ prirodan broj.
 Nemojte dozvoliti da vas ime zavara: iako li\v ci na eksperimentisanje tipi\v cno za induktivno
 pona\v sanje (pogledamo \v sta se de\v sava za $n = 1$, pa za $n = 2$, itd) matemati\v cka indukcija
 opisuje strog, formalan deduktivni proces koji se, prakti\v cno, svodi na proveru \emph{svih mogu\'cnosti}.
@@ -1658,12 +1656,12 @@ za razliku od \enquote{ne-matemati\v ckog} induktivnog zaklju\v civanja kojim se
 
 Tvr\dj enje oblika $\phi(n)$ se za sve prirodne brojeve $n$ matemati\v ckom indukcijom dokazuje
 ovakavim nizom zaklju\v caka:
-\begin{itemize}
+\begin{itemize}\itemsep -1pt
 \item doka\v zemo da je ta\v cno $\phi(1)$;
 \item doka\v zemo da je za svaki prirodan broj $n$ ta\v cno $\phi(n) \Rightarrow \phi(n+1)$.
 \end{itemize}
 Lako se vidi da iz ova dva stava sledi da je $\phi(n)$ ta\v cno za svaki prirodan broj $n$:
-\begin{itemize}
+\begin{itemize}\itemsep -1pt
 \item $\phi(1)$ je ta\v cno zato \v sto smo to dokazali direktno;
 \item $\phi(1) \Rightarrow \phi(2)$ je ta\v cno, jer je $\phi(n) \Rightarrow \phi(n+1)$ ta\v cno za svako $n$;
 \item dakle, $\phi(2)$ je ta\v cno (modus ponens);
@@ -1710,10 +1708,10 @@ koja treba da va\v zi za svaki prirodan broj $n$, obi\v cno se induktivni dokaz 
   $(1 + x)^n \ge 1 + nx$.
 \end{EX}
 \begin{proof}[Dokaz]
-  \begin{itemize}
+  Tvr\dj enje dokazujemo matemati\v ckom indukcijom po $n$.
+  \begin{itemize}\itemsep -1pt
   \item
-    \emph{Baza indukcije.} Za $n = 1$ treba dokazati da je $1 + x \ge 1 + x$, \v sto je ta\v cno.
-  
+    \emph{Baza indukcije.} Za $n = 1$ potrebno je dokazati da je $1 + x \ge 1 + x$, \v sto je ta\v cno.
   \item
     \emph{Induktivna hipoteza.} Pretpostavimo da je $(1 + x)^n \ge 1 + nx$.
   \item
@@ -1733,17 +1731,17 @@ koja treba da va\v zi za svaki prirodan broj $n$, obi\v cno se induktivni dokaz 
   \end{itemize}
 \end{proof}
 
-Indukcija ne mora da po\v cinje od 1. Ako treba dokazati da neko tvr\dj enje va\v zi za sve prirodne brojeve $n \ge a$,
+Indukcija ne mora da po\v cinje od 1. Ako je potrebno dokazati da neko tvr\dj enje va\v zi za sve prirodne brojeve $n \ge a$,
 onda baza indukcije predstavlja tvr\dj enje $\phi(a)$.
 
 \begin{EX}
   Dokazati da je $n! > 2^n$ za sve $n \ge 4$.
 \end{EX}
 \begin{proof}[Dokaz]
-  \begin{itemize}
+  Tvr\dj enje dokazujemo matemati\v ckom indukcijom po $n$. Primetimo da u ovom slu\v caju indukcija kre\'ce od~4.
+  \begin{itemize}\itemsep -1pt
   \item
-    \emph{Baza indukcije.} Za $n = 4$ treba dokazati da je $4! > 2^4$, \v sto je ta\v cno.
-  
+    \emph{Baza indukcije.} Za $n = 4$ potrebno je dokazati da je $4! > 2^4$, \v sto je ta\v cno.
   \item
     \emph{Induktivna hipoteza.} Pretpostavimo da je $n! > 2^n$.
   \item
@@ -1816,7 +1814,8 @@ onda baza indukcije predstavlja tvr\dj enje $\phi(a)$.
   $$
 \end{EX}
 \begin{proof}[Dokaz]
-  \begin{itemize}
+  I ovo tvr\dj enje dokazujemo matemati\v ckom indukcijom po $n$.
+  \begin{itemize}\itemsep -1pt
   \item
     \emph{Baza indukcije.} Za $n = 1$ tvr\dj enje je trivijalno ta\v cno.
   
@@ -1851,12 +1850,11 @@ onda baza indukcije predstavlja tvr\dj enje $\phi(a)$.
   \end{itemize}
 \end{proof}
 
-\begin{EX}
-  Sada \'cemo indukcijom \enquote{dokazati} da su svi prirodni brojevi jednaki. Gde je gre\v ska u \enquote{dokazu}?
-\end{EX}
+\paragraph{Mozgalica.}
+  Sada \'cemo matemati\v ckom indukcijom \enquote{dokazati} da su svi prirodni brojevi jednaki. Gde je gre\v ska u \enquote{dokazu}?
 \begin{proof}[\enquote{Dokaz}]
   Indukcijom po $n$ \'cemo \enquote{dokazati} da su u svakom nizu $(x_1, x_2, \ldots, x_n)$ prirodnih brojeva svi brojevi jednaki.
-  \begin{itemize}
+  \begin{itemize}\itemsep -1pt
   \item
     \emph{Baza indukcije.} Za $n = 1$ tvr\dj enje je o\v cigledno ta\v cno jer niz $(x_1)$ ima samo jedan element.
   \item
@@ -1877,29 +1875,29 @@ onda baza indukcije predstavlja tvr\dj enje $\phi(a)$.
 
 \section{Totalna indukcija}
 
-Totalna indukcija je verzija matemati\v cke indukcije kod koje umesto zaklju\v civanja \enquote{prelaskom sa $n$ na $n + 1$}
+Totalna indukcija je verzija matemati\v cke indukcije kod koje, umesto zaklju\v civanja \enquote{prelaskom sa $n$ na $n + 1$},
 zaklju\v civanje izvodimo \enquote{prelaskom sa svih koji su manji od $n$ na $n$}. Drugim re\v cima,
-ako treba dokazati da je neko tvr\dj enje o prirodnim brojevima $\phi(n)$ ta\v cno za sve prirodne brojeve, mo\v zemo
+ako \v zelimo da doka\v zemo da je neko tvr\dj enje o prirodnim brojevima $\phi(n)$ ta\v cno za sve prirodne brojeve, mo\v zemo
 koristiti slede\'cu strategiju koja se zove \emph{totalna indukcija}:
-\begin{itemize}
+\begin{itemize}\itemsep -1pt
 \item doka\v zemo da je ta\v cno $\phi(1)$;
 \item doka\v zemo da za svaki prirodan broj $n \ge 2$ va\v zi $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$.
 \end{itemize}
 Lako se vidi da iz ova dva stava sledi da je $\phi(n)$ ta\v cno za svaki prirodan broj $n$:
-\begin{itemize}
+\begin{itemize}\itemsep -1pt
 \item $\phi(1)$ je ta\v cno zato \v sto smo to dokazali direktno;
-\item $\phi(1) \Rightarrow \phi(2)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 2$;
+\item $\phi(1) \Rightarrow \phi(2)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$, pa i za $n = 2$;
 \item dakle, $\phi(2)$ je ta\v cno (modus ponens);
-\item $\phi(1) \land \phi(2) \Rightarrow \phi(3)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 3$;
+\item $\phi(1) \land \phi(2) \Rightarrow \phi(3)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$, pa i za $n = 3$;
 \item ta\v cno je i $\phi(1) \land \phi(2)$ (jer su oba tvr\dj enja ta\v cna);
 \item dakle, $\phi(3)$ je ta\v cno (modus ponens);
-\item $\phi(1) \land \phi(2) \land \phi(3) \Rightarrow \phi(4)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$ pa i za $n = 4$;
+\item $\phi(1) \land \phi(2) \land \phi(3) \Rightarrow \phi(4)$ je ta\v cno, jer je $\phi(1) \land \ldots \land \phi(n - 1) \Rightarrow \phi(n)$ ta\v cno za svako $n$, pa i za $n = 4$;
 \item ta\v cno je i $\phi(1) \land \phi(2) \land \phi(3)$ (jer su sva tri tvr\dj enja ta\v cna);
 \item dakle, $\phi(4)$ je ta\v cno (modus ponens);
 \item i tako dalje.
 \end{itemize}
 Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
-\begin{enumerate}
+\begin{enumerate}\itemsep -1pt
 \item doka\v zemo $\phi(1)$ (\emph{baza indukcije});
 \item fiksiramo prirodan broj $n$ i pretpostavimo da je ta\v cno $\phi(k)$ za sve $k < n$\newline
       (\emph{induktivna hipoteza});
@@ -1911,7 +1909,7 @@ Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
   Pokazati da postoji jednosmerna ruta koja prolazi kroz sve gradove ove dr\v zave.
 \end{EX}
 \begin{proof}[Dokaz]
-  Tvr\dj enje dokazujemo totalnom indukcijom po broju gradova i dr\v zavi.
+  Tvr\dj enje dokazujemo totalnom indukcijom po broju gradova u dr\v zavi.
   \begin{itemize}
     \item \emph{Baza indukcije.} Za $n = 1$ i $n = 2$ tvr\dj enje je o\v cigledno ta\v cno:
       \begin{center}
@@ -1934,7 +1932,7 @@ Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
       \begin{center}
         \input ft05-1smerija3.pgf
       \end{center}
-      Nadovezivanjem ove dve rute preko grada $G$ dobijamo jednosmernu rutu koja prolazi kroz sve gradove cele dr\v zave.
+      Nadovezivanjem ove dve rute preko grada $G$ dobijamo jednosmernu rutu koja prolazi kroz sve gradove Jednosmerije.
       
       \hspace*{1.5em}Ako u grupi $\calB$ nema gradova (\v sto mo\v ze da se desi ako je $G$ \enquote{grad na kraju sveta})
       rezonujemo na isti na\v cin, s tim da se tada ruta konstrui\v se tako \v sto pro\dj emo kroz sve gradove \enquote{pokrajine} $\calA$
@@ -1962,7 +1960,8 @@ Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
     \begin{center}
       \input ft05-coko-12.pgf
     \end{center}
-    i jasno je da nam za $n = 1$ treba 0 poteza, dok nam za $n = 2$ treba 1 potez da podelimo tablu na pojedina\v cne kockice.
+    i jasno je da nam za tablu sa jednom kockicom \v cokolade ($n = 1$) ne treba nijedan potez,
+    dok nam je za tablu sa samo dve kockice \v cokolade ($n = 2$) potreban jedan potez da je podelimo na pojedina\v cne kockice.
   \item
     \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za sve table \v cokolade sa $k < n$ kockica.
   \item
@@ -1970,7 +1969,7 @@ Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
     Posmatrajmo neku tablu sa $n$ kockica.
     Uo\v cimo proizvoljni \v zleb i lomljenjem \v cokolade du\v z tog \v zleba podelimo tablu na dve manje table. Neka jedna ima
     $p$ kockica, a druga~$q$. Jasno je da je $p + q = n$. Kako je $p < n$ i $q < n$ znamo (prema induktivnoj hipotezi)
-    da se prva tabla mo\v ze podeliti na pojedina\v cne kockice sa $p - 1$ poteza, a druga sa $q - 1$ poteza. Tada tome
+    da se prva tabla mo\v ze podeliti na pojedina\v cne kockice sa $p - 1$ poteza, a druga sa $q - 1$ poteza. Kada tome
     dodamo prvi potez koji je podelio tablu na dve manje, dobijamo da smo tablu podelili na pojedina\v cne kockice u
     $$
       1 + (p - 1) + (q - 1) = p + q - 1 = n - 1
@@ -1979,14 +1978,11 @@ Obi\v cno se totalna indukcija operativno izvodi u tri koraka:
   \end{itemize}
 \end{proof}
 
-Podsetimo se da indukcija ne mora da po\v cinje od 1, kao i da mo\v ze da se desi da je potrebno proveriti
-nekoliko po\v cetnih vrednosti u bazi indukcije.
-
 \begin{EX} (\textit{Teorema o faktorizaciji prirodnih brojeva})
   Svaki prirodan broj $n \ge 2$ je prost, ili je proizvod prostih brojeva.
 \end{EX}
 \begin{proof}[Dokaz]
-  Tvr\dj enje dokazujemo totalnom indukcijom po broju gradova.
+  Tvr\dj enje dokazujemo totalnom indukcijom, s tim da u ovom slu\v caju indukcija kre\'ce od $n = 2$.
   \begin{itemize}
   \item
     \emph{Baza indukcije.} Za $n = 2$ tvr\dj enje je trivijalno ta\v cno.
@@ -2050,10 +2046,10 @@ nekoliko po\v cetnih vrednosti u bazi indukcije.
 \end{proof}
 
 
-\section{Matemati\v cka indukcija u analizi programskog koda}
+\section{Matemati\v cka indukcija u analizi programskog k\^oda}
 
-Sada \'cemo na dva primera pokazati kako se matemati\v cka indukcija koristi u formalnoj analizi programskog koda.
-Vide\'cemo da pri razmatranju pona\v sanja \enquote{for}-ciklusa obi\v cno koristi matemati\v cka indukcija \enquote{sa $n$ na $n+1$},
+Sada \'cemo na dva primera pokazati kako se matemati\v cka indukcija koristi u formalnoj analizi programskog k\^oda.
+Vide\'cemo da se pri razmatranju pona\v sanja \enquote{for}-ciklusa obi\v cno koristi matemati\v cka indukcija \enquote{sa $n$ na $n+1$},
 dok pri razmatranju rekurzivnih funkcija totalna indukcija mo\v ze biti od koristi.
 
 \begin{EX}\label{ft05.ex.xn-1}
@@ -2086,7 +2082,7 @@ dok pri razmatranju rekurzivnih funkcija totalna indukcija mo\v ze biti od koris
 promenljiva \verb`rez` sadr\v zi broj $x^n$. Dokaz je veoma jednostavan.
   \begin{itemize}
   \item
-    \emph{Baza indukcije.} Za $n = 0$ \verb`for`-ciklus se ne\'ce izvri\v siti nijednom, pa vrednost
+    \emph{Baza indukcije.} Za $n = 0$ \verb`for`-ciklus se ne\'ce izvr\v siti nijednom, pa vrednost
     promenljive \verb`rez` ostaje $1 = x^0$.
   \item
     \emph{Induktivna hipoteza.} Pretpostavimo da je tvr\dj enje ta\v cno za $n = k$.
