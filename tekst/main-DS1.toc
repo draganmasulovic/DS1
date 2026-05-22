@@ -1,14 +1,14 @@
 \babel@toc {serbian}{}\relax 
 \contentsline {chapter}{\numberline {1}Iskazni ra\v cun}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Iskazne formule}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Iskazne formule}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Tautologije}{4}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Tautologije kao transformaciona pravila}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Tautologije kao transformaciona pravila}{10}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Tautologije kao \enquote {zakoni mi\v sljenja}?}{13}{section.1.4}%
-\contentsline {paragraph}{Problem sa terijerima i kometama.}{13}{section*.9}%
-\contentsline {paragraph}{Problem sa magarcima i bivolima.}{14}{section*.10}%
-\contentsline {paragraph}{Problem sa svinjama i balonima.}{15}{section*.11}%
-\contentsline {section}{\numberline {1.5}Iskazne formule u analizi programskog k\^oda}{18}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Zadaci}{29}{section.1.6}%
+\contentsline {paragraph}{Problem sa terijerima i kometama.}{14}{section*.9}%
+\contentsline {paragraph}{Problem sa magarcima i bivolima.}{15}{section*.10}%
+\contentsline {paragraph}{Problem sa svinjama i balonima.}{16}{section*.11}%
+\contentsline {section}{\numberline {1.5}Iskazne formule u analizi programskog k\^oda}{19}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Zadaci}{30}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Kako radi hardver?}{33}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Pozicioni brojevni sistemi}{33}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Bulove operacije}{36}{section.2.2}%
@@ -56,7 +56,7 @@
 \contentsline {section}{\numberline {6.2}Pore\dj enje}{146}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Pore\dj enje re\v ci}{150}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Grafi\v cki prikaz relacija poretka}{152}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Zadaci}{157}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Zadaci}{158}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Funkcije}{163}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Pojam funkcije}{164}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Kompozicija funkcija}{167}{section.7.2}%
@@ -71,4 +71,11 @@
 \contentsline {section}{\numberline {7.7}Upore\dj ivanje beskona\v cnih skupova}{180}{section.7.7}%
 \contentsline {section}{\numberline {7.8}Zadaci}{184}{section.7.8}%
 \contentsline {chapter}{\numberline {8}Re\v senja odabranih zadataka}{189}{chapter.8}%
-\contentsline {chapter}{Literatura}{249}{Item.633}%
+\contentsline {section}{\numberline {8.1}Glava 1}{189}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Glava 2}{198}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Glava 3}{199}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Glava 4}{214}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Glava 5}{221}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Glava 6}{227}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Glava 7}{240}{section.8.7}%
+\contentsline {chapter}{Literatura}{251}{Item.633}%

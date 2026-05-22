@@ -18,19 +18,9 @@ Tipi\v cni primeri iskaza su matemati\v cke tvrdnje kao \v sto su
 Izjave iz svakodnevnog \v zivota \emph{naj\v ce\v s\'ce nisu iskazi} jer mogu biti podlo\v zni ukusu, shvatanjima i interpretacijama.
 Za potrebe ovog kursa iskazi ne govore o sva\-ko\-dnev\-nim situacijama, ve\'c o apstraktnim fenomenima tipi\v cnim za matematiku i ra\v cunarstvo.
 
-\smallskip
-
-\noindent
-\begin{minipage}{3.5in}
   \hspace*{1.5em}Nama \'ce posebno biti interesantni iskazi koji govore o stanju memorije tokom izvr\v savanja programa.
   Na primer, pretpostavimo da jedan mali program ima dve celobrojne promenljive, \verb`x` i \verb`y`, i jednu logi\v cku promenljivu \verb`p`,
-  i pretpostavimo da je tokom izvr\v savanja programa u jednom trenutku stanje u memoriji ra\v cunara opisano u tabeli pored.
-  Tada su slede\'ce tvrdnje iskazi:
-  $$
-    \mathtt{x} \le 6, \quad \mathtt{y} < 0, \quad \mathtt{p}
-  $$
-\end{minipage}\hfill
-\begin{minipage}{1.5in}
+  i pretpostavimo da je tokom izvr\v savanja programa u jednom trenutku stanje u memoriji ra\v cunara izgledalo ovako:
   \begin{center}
   \begin{tabular}{|lr|}
     \multicolumn{2}{c}{\textsc{Memorija}}\\
@@ -47,11 +37,14 @@ Za potrebe ovog kursa iskazi ne govore o sva\-ko\-dnev\-nim situacijama, ve\'c o
     \hline
   \end{tabular}
   \end{center}
-\end{minipage}\newline
-
-\noindent
+  Tada su slede\'ce tvrdnje iskazi:
+  $$
+    \mathtt{x} \le 6, \quad \mathtt{y} < 0, \quad \mathtt{p}
+  $$
 jer mo\v zemo nepobitno i jednozna\v cno da utvrdimo da su prva dva iskaza neta\v cni, dok je tre\'ci iskaz ta\v can.
 U ovom kontekstu iskaz mo\v ze da bude neki logi\v cki izraz ili logi\v cka promenljiva.
+
+\clearpage
 
 \section{Iskazne formule}
 
@@ -630,14 +623,13 @@ koje ne li\v ce toliko na \enquote{zakone mi\v sljenja} koliko na \enquote{algeb
 \label{ft03.tab.tautologije}
 \end{table}
 
-
 \begin{CONVENTION}\label{ft03.convention.assoc}
   Asocijativnost konjunkcije i disjunkcije nam omogu\'cuju da jo\v s malo pojednostavimo pisanje formula. Tako \'cemo:
   umesto $p \land (q \land r)$ pisati kra\'ce $p \land q \land r$, i
   umesto $p \lor (q \lor r)$ pisati kra\'ce $p \lor q \lor r$.
 \end{CONVENTION}
 
-
+\clearpage
 
 \section{Tautologije kao transformaciona pravila}
 
@@ -773,8 +765,6 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
   \end{align*}
 \end{proof}
 
-\clearpage
-
 \begin{EX}\label{ft03.ex.neg-ekviv}
   Negirati formulu $p \Leftrightarrow q$.
 \end{EX}
@@ -863,8 +853,9 @@ transformacija tako da na kraju dobijemo formulu u kojoj negacija napada samo is
       pri tom nastaje). Obrnuto, iz disjunktivne normalne forme se lako dobija konjunktivna primenom distributivnosti
       (i \enquote{\v ci\v s\'cenjem sme\'ca}).}
     \end{NAP}
+
+\clearpage
     
-    \enlargethispage{\baselineskip}
     \begin{EX}
       Pokazati da je $\vDash \lnot(p \Rightarrow q) \lor \lnot p \lor q$ tautologija svo\dj enjem formule na konjunktivnu normalnu formu.
     \end{EX}
@@ -1875,13 +1866,17 @@ $(c)$ \v Sta va\v zi u ta\v cki (5) k\^oda? \v Sta radi metod \verb"MN"?
   $$
     (p + y) + (u - 1)\cdot y = x \cdot y \land u - 1 \ge 0
   $$
-  zato \v sto je $u$ celobrojna promenljiva. Kada nakon naredbi
+  zato \v sto je $u$ celobrojna promenljiva.
+
+\clearpage
+
+\noindent
+  Kada nakon naredbi
   {\small
   \begin{verbatim}
     p += y;
     u--;
-  \end{verbatim}
-  }
+  \end{verbatim}}
   \noindent
   stignemo u ta\v cku (4) promenljiva $p$ se uve\'ca za $y$, promenljiva $u$ se smanji za 1 i zato u ta\v cki (4) va\v zi:
   $$
