@@ -1383,9 +1383,9 @@ $$
 \ZAD{05.zad.1}{
 Napisati sve elemente slede\' cih skupova:
 \begin{enumerate}[(a)]
-\item $\{x   :    x\in\mathbb Z\text{ i }-3<x<4\}$;
-\item $\{x^2+3x-2   :    x\in\mathbb Z\text{ i }-3<x<4\}$;
-\item $\{\sin(\frac\pi6x)  :  x\in\mathbb Z\text{ i }-2\leq x\leq 4\}$;
+\item $\{x   :    x\in\mathbb Z\wedge-3<x<4\}$;
+\item $\{x^2+3x-2   :    x\in\mathbb Z\wedge-3<x<4\}$;
+\item $\{\sin(\frac\pi6x)  :  x\in\mathbb Z\wedge-2\leq x\leq 4\}$;
 \item $\{x   :  x\text{ je prirodni broj deljiv sa }3\}$;
 \item $\{x    :  x=y^2\text{ za neko }y\in\mathbb N\}$;
 \item $\{x   :  (3x-1)(x+2)=0\}$;
@@ -1393,8 +1393,8 @@ Napisati sve elemente slede\' cih skupova:
 \item $\{x\in\mathbb Z  :  (3x-1)(x+2)\leq 0\}$;
 \item $\{x\in\mathbb N :  (3x-1)(x+2)=0\}$;
 \item $\{x :  2x\text{ je pozitivan ceo broj}\}$;
-\item $\{x\in\mathbb N :  (\exists y\in\mathbb N)\big(x=y(y+1)\big)\}$;
-\item $\{x\in\mathbb N :  (\forall y\in\mathbb N)\big(y\in\{1,x\}\vee y{\not|}x\big)\}$.
+\item $\{x\in\mathbb N :  x=y(y+1) \text{ za neko }y\in\mathbb N\}$;
+\item $\{x\in\mathbb N :  y\in\{1,x\}\vee y\mathrel{\not|}x \text{ za svako }y\in\mathbb N\}$.
 \end{enumerate}
 }
 
@@ -1453,31 +1453,31 @@ Napisati sve elemente slede\' cih skupova:
 \begin{enumerate}[(a)]
 \item $A \cup B$;
 \item $A \cap D$;
-\item $\overline{B \cup C}$;
+\item $(B \cup C)^c$;
 \item $A \cap (B \cup D)$;
-\item $B \cap(\overline A \cup\overline D)$;
-\item $(\overline{C \cap D}) \cup B$;
-\item $\overline B\cap\overline C$;
-\item $A \setminus (B \cap \overline C)$;
+\item $B \cap(A^c \cup D^c)$;
+\item $(C \cap D)^c \cup B$;
+\item $B^c\cap C^c$;
+\item $A \setminus (B \cap C^c)$;
 \item $(A \setminus B)\cup (D \setminus C)$;
-\item $\overline {D \setminus C}$;
-\item $(\overline A \cup \overline B) \setminus (\overline{A \cup B})$;
-\item $( \overline C \setminus A)\cup (A \setminus\overline C)$.
+\item $(D \setminus C)^c$;
+\item $( A^c \cup B^c) \setminus (A \cup B)^c$;
+\item $(C^c \setminus A)\cup (A \setminus C^c)$.
 \end{enumerate}
 \end{multicols}
 }
 
 \ZAD{05.zad.6}{
-Dokazati skupovne jednakosti:
+Neka su $A$, $B$ i $C$ podskupovi datog skupa $U$. Dokazati skupovne jednakosti:
 \setlength{\multicolsep}{\topsep}
 \begin{enumerate}[(a)]
-\item $\overline{A\cup B}=\overline A\cap\overline B$;
-\item $\overline{A\cap B}=\overline A\cup\overline B$;
+\item $(A\cup B)^c=A^c\cap B^c$;
+\item $(A\cap B)^c=A^c\cup B^c$;
 \item $A\setminus B=A\setminus(A\cap B)$;
 \item $A \cap (B \setminus C) = (A \cap B) \setminus C$;
 \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$;
 \item $(A \cup B) \setminus C = (A \setminus C) \cup (B \setminus C)$;
-\item $A \cup (B \setminus C) = (A \cup B) \setminus (\overline A \cap C)$;
+\item $A \cup (B \setminus C) = (A \cup B) \setminus (A^c \cap C)$;
 \item $(A \setminus B) \setminus C = A \setminus (B \cup C)$.
 \end{enumerate}
 }
@@ -1504,7 +1504,7 @@ U jednom istra\v zivanju sprovedenom nad 1000 srednjo\v skolaca, njih 275 igra i
 }\label{prvi-iz-uklj-isklj}
 
 \ZAD{06.zad.1}{
- Svaki od 100 studenata Departmana za matematiku i informatiku u Novom Sadu slu\v sa bar jedan od predmeta Ve\v sta\v cka inteligencija (VI), Analiti\v cka geometrija (AG) i Softverski praktikum (SP). VI slu\v sa 65 studenata, AG slu\v sa 45, SP slu\v sa 42, VI i AG 20 studenata, VI i SP 25, i AG i SP slu\v sa 15 studenata. Koliko studenata slu\v sa:
+ Svaki od 100 studenata Departmana za matematiku i informatiku u Novom Sadu slu\v sa bar jedan od predmeta Ve\v sta\v cka inteligencija (VI), Analiti\v cka geometrija (AG) i Softverski praktikum (SP). VI slu\v sa 65 studenata, AG slu\v sa 45, SP slu\v sa 42, VI i AG 20 studenata, VI i SP 25, dok AG i SP slu\v sa 15 studenata. Koliko studenata slu\v sa:
 \begin{enumerate}[(a)]
 \item sva tri izborna predmeta?
 \item VI i AG, ali ne i SP?
@@ -1595,21 +1595,21 @@ Ukoliko neka jednakost ne va\v zi, proveriti da li va\v zi neka od inkluzija, i 
 }
 
 \ZAD{06.zad.10}{
-Dokazati slede\' ce skupovne jednakosti:
+Dokazati slede\' ce skupovne jednakosti, za podskupove $A,B,C,D,E,M,X,Y$ datog skupa $U$:
 \begin{enumerate}[(a)]
 \item $((A\setminus B)\times X)\times M=\big((A\times X)\setminus(B\times X)\big)\times M$;
 \item $(A\setminus B)\times(X\setminus Y)=(A\times X)\setminus\big((A\times Y)\cup(B\times X)\big)$;
-\item $\overline{(\overline A\cap B)}\times C=(A\times C)\cup(\overline B\times C)$;
-\item $(\overline A\cup B)\times ((B\cup A)\setminus C)=\overline{(A\setminus B)}\times ((B\setminus C)\cup( A\setminus C))$;
+\item $(A^c\cap B)^c\times C=(A\times C)\cup(B^c\times C)$;
+\item $(A^c\cup B)\times ((B\cup A)\setminus C)=(A\setminus B)^c\times ((B\setminus C)\cup( A\setminus C))$;
 \item $D\times ((B\cup A)\setminus C)=D\times ((B\setminus C)\cup( A\setminus C))$;
-\item $((B\cup A)\cap \overline C)\times E=((B\cap \overline C)\cup( A\setminus C))\times E$;
-\item $(B\setminus C)\times((A\cup B)\setminus D)=\overline{(C\cup\overline B)}\times((A\setminus D)\cup\overline{(D\cup \overline B)})$;
-\item $(\overline A\cup \overline C)\times(A\setminus(B\cup D))=\overline{(A\cap C)}\times ((A\setminus B)\cap(A\setminus D))$;
-\item $(B\setminus C)\times((A\cup \overline B)\setminus D)=\overline{(C\cup\overline B)}\times((A\setminus D)\cup\overline{(D\cup B)})$;
-\item $(\overline A\cup C)\times(A\setminus(B\cup D))=\overline{(A\setminus C)}\times ((A\setminus B)\cap(A\setminus D))$;
-\item $(B\setminus E)\times((A\cup \overline C)\setminus D)=\overline{(E\cup \overline B)}\times((A\setminus D)\cup\overline{(D\cup C)})$;
+\item $((B\cup A)\cap C^c)\times E=((B\cap C^c)\cup( A\setminus C))\times E$;
+\item $(B\setminus C)\times((A\cup B)\setminus D)=(C\cup B^c)^c\times((A\setminus D)\cup(D\cup  B^c)^c)$;
+\item $(A^c\cup C^c)\times(A\setminus(B\cup D))=(A\cap C)^c\times ((A\setminus B)\cap(A\setminus D))$;
+\item $(B\setminus C)\times((A\cup B^c)\setminus D)=(C\cup B^c)^c\times((A\setminus D)\cup(D\cup B)^c)$;
+\item $(A^c\cup C)\times(A\setminus(B\cup D))=(A\setminus C)^c\times ((A\setminus B)\cap(A\setminus D))$;
+\item $(B\setminus E)\times((A\cup C^c)\setminus D)=(E\cup B^c)^c\times((A\setminus D)\cup (D\cup C)^c)$;
 \item $A\times (B\setminus(D\cap C))=(A\times (B\setminus D))\cup (A\times (B\setminus C))$;
-\item $A\times(B\cup (D\setminus \overline E))=(A\times (B\cup D))\cap(A\times(B\cup E))$.
+\item $A\times(B\cup (D\setminus E^c))=(A\times (B\cup D))\cap(A\times(B\cup E))$.
 \end{enumerate}
 }
 

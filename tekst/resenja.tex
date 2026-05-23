@@ -1077,29 +1077,29 @@ Ovim je dokazano da Ivica blok slagalice od $n$ deli\' ca sla\v ze u $n-1$ korak
 
 \RES{05.zad.5}
 Primetimo da je $A=\{2,4,6,8,10\}$.
-\begin{multicols}{2}
+%\begin{multicols}{2}
 \begin{enumerate}[(a)]
 \item $A \cup B=\{ 2,3,4,5,6,8,10 \}$;
 \item $A \cap D=  \emptyset$;
-\item $\overline{B \cup C}=\{ 1,2 \}$;
+\item $(B \cup C)^c=\{ 1,2 \}$;
 \item $A \cap (B \cup D)=\{ 4,6\}$;
-\item $B \cap(\overline A \cup\overline D)=\{3, 4, 5, 6\}$; % ovaj je razlicit u odnosu na vezbe.
-\item $(\overline{C \cap D}) \cup B=\{ 1, 2, 3, 4, 5, 6, 8, 10\}$;
-\item $\overline B\cap\overline C=\{ 1,2 \}$;
-\item $A \setminus (B \cap \overline C)=\{ 2, 8, 10 \}$;
+\item $B \cap(A^c \cup D^c)=\{3, 4, 5, 6\}$; % ovaj je razlicit u odnosu na vezbe.
+\item $(C \cap D)^c \cup B=\{ 1, 2, 3, 4, 5, 6, 8, 10\}$;
+\item $B^c\cap C^c=\{ 1,2 \}$;
+\item $A \setminus (B \cap C^c)=\{ 2, 8, 10 \}$;
 \item $(A \setminus B)\cup (D \setminus C)=\{ 1, 2, 3, 5, 8, 10 \}$;
-\item $\overline {D \setminus C}=\{ 2, 4, 6, 7, 8, 9, 10 \}$;
-\item $(\overline A \cup \overline B) \setminus (\overline{A \cup B})=\{ 2, 3, 5, 8, 10 \}$;
-\item $( \overline C \setminus A)\cup (A \setminus\overline C)=\{1, 3, 5, 8, 10 \}$. % i ovaj je razlicit u odnosu na vezbe
+\item $(D \setminus C)^c=\{ 2, 4, 6, 7, 8, 9, 10 \}$;
+\item $( A^c \cup B^c) \setminus (A \cup B)^c=\{ 2, 3, 5, 8, 10 \}$;
+\item $(C^c \setminus A)\cup (A \setminus C^c)=\{1, 3, 5, 8, 10 \}$. % i ovaj je razlicit u odnosu na vezbe
 \end{enumerate}
-\end{multicols}
+%\end{multicols}
 
 \RES{05.zad.6}
 \begin{enumerate}[(a)]
 \item Neka je $x$ proizvoljan element. Tada dobijamo slede\' ce:
 \begin{align*}
-x\in\overline{A\cup B} &\text{ akko } x\not\in A\cup B\text{ akko }\neg(x\in A\vee x\in B)\\
-&\text{ akko }x\not\in A\wedge x\not\in B\text{ akko } x\in\overline A\cap\overline B.
+x\in(A\cup B)^c &\text{ akko } x\not\in A\cup B\text{ akko }\neg(x\in A\vee x\in B)\\
+&\text{ akko }x\not\in A\wedge x\not\in B\text{ akko } x\in A^c\cap B^c.
 \end{align*}
 Ovim je zadata skupovna jednakost dokazana.
 \item Ova jednakost dokazuje se sli\v cno kao prethodna.
@@ -1134,7 +1134,7 @@ x\in (A \cup B) \setminus C&\text{ akko }(x\in A\vee x\in B)\wedge x\not \in C\\
 Ovim je jednakost dokazana.
 \item Neka je $x$ proizvoljan element. Onda dobijamo slede\' ce:
 \begin{align*}
-x\in  (A \cup B) \setminus (\overline A \cap C)&\text{ akko } (x\in A\vee x\in B)\wedge\neg (x\not\in A\wedge x\in C)\\
+x\in  (A \cup B) \setminus (A^c \cap C)&\text{ akko } (x\in A\vee x\in B)\wedge\neg (x\not\in A\wedge x\in C)\\
 &\text{ akko } (x\in A\vee x\in B)\wedge (x\in A\vee x\not\in C)\\
 &\text{ akko } x\in A\vee (x\in B\wedge x\not\in C)\\
 &\text{ akko } x\in A\cup(B\setminus C).
@@ -1814,7 +1814,7 @@ Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Je
 
 
 \RES{09.zad.9}{
-%Po\v sto je zadata relacija $\rho$ definisana na devetoelementnom skupu, mogu\' ce je i sa grafa relacije $\rho$ zaklju\v citi da je $\rho$ parcijalno ure\dj enje. Me\dj utim, ovo je lako i direktno zaklju\v citi:
+%Po\v sto je zadata relacija $\rho$ definisana na devetoelementnom skupu, mogu\' ce je i sa grafa relacije $\rho$ zaklju\v citi da je $\rho$ relacija poretka. Me\dj utim, ovo je lako i direktno zaklju\v citi:
 %
 {\it Refleksivnost.} O\v cigledno za svaki ure\dj eni par $(a,b)\in A$ va\v zi $(a,b)\mathrel\rho(a,b)$, jer $a+b\mid a+b$.
 
@@ -1822,7 +1822,7 @@ Minimalni elementi su 2, 3 i 5, i ovaj ure\dj eni skup nema najmanji element. Je
 
 {\it Tranzitivnost.} Neka je $(a,b)\mathrel\rho(c,d)$ i $(c,d)\mathrel\rho(e,f)$, za neke ure\dj ene parove $(a,b),(c,d),(e,f)\in A$. Tada $a+b\mid c+d$ i $c+d\mid e+f$, \v sto povla\v ci $a+b\mid e+f$, pa je $(a,b)\mathrel\rho(e,f)$.
 
-Ovim je pokazano da je relacija $\rho$ parcijalno ure\dj enje.
+Ovim je pokazano da je relacija $\rho$ relacija poretka.
 
 \begin{center}
 \input samir9-8.pgf
