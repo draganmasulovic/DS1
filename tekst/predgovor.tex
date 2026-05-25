@@ -1,3 +1,59 @@
+%!TeX root=main-DS1.tex
 \chapter*{Predgovor}
 
-!!! NAPISATI
+Ovaj ud\v zbenik namenjen je studentima I godine studijskog programa Informacione tehnologije koji slu\v saju kurs {\it Diskretne strukture 1} na Prirodno-matemati\v ckom fakultetu Univerziteta u Novom Sadu, i rezultat je dugogodi\v snje saradnje autora. Svakako ga mogu koristiti i studenti drugih fakulteta koji se upoznaju sa osnovama matemati\v cke logike. Ud\v zbenik predstavlja uvodni kurs matemati\v cke logike, i za cilj ima da uputi studente u osnovne pojmove iskazne i predikatske logike, skupove, relacije i funkcije. Svaka glava sadr\v zi i brojne primere i zadatke za ve\v zbu, pri \v cemu se za ve\' cinu zadataka mogu na\' ci i detaljna re\v senja. Knjiga je pisana tako da je za njegovo pra\' cenje dovoljno poznavanje srednjo\v skolske matematike. Budu\' ci da je sadr\v zaj prilago\dj en studentima informatike, celokupan tekst je propra\' cen primerima iz programiranja.
+
+\bigskip
+
+U prvoj glavi, {\it Iskazni ra\v cun}, uvodimo pojmove iskaza, iskazne formule i tautologije. Potom ilustrujemo kako se tautologije koriste kao \enquote{transformaciona pravila} nad iskaznim formulama, a zatim prime\' cujemo i da tautologije predstavljaju \enquote{zakone mi\v sljenja}. Kona\v cno, kroz primere se pokazuje kako se iskazna logika primenjuje u analizi programskog koda.
+
+Druga glava, {\it Kako radi hardver?}, bavi se binarnim i heksadecimalnim sistemima, Bulovim funkcijama, kao i logi\v ckim operacijama kao osnovom hardvera.
+
+U tre\' coj glavi, {\it Dokazi u matematici}, \v citaoca sistemati\v cno upoznajemo sa nekoliko razli\v citih metoda dokazivanja tvr\dj enja, \v sto uklju\v cuje direktne dokaze, dokaze kontrapozicijom, dokaze svo\dj enjem na kontradikciju, i dokaze matemati\v ckom indukcijom.
+
+U \v cetvrtoj glavi, {\it Skupovi}, bavimo se skupovnim operacijama, osnovnim relacijama izme\dj u skupova, skupovnim jednakostima, osnovnim osobinama skupova i principom uklju\-\v ce\-nja-is\-klju\-\v ce\-nja.
+
+U petoj glavi, {\it Predikatski ra\v cun}, uvodimo pojam predikatske formule. Pored toga, bavimo se interpretacijama i modelima predikatskih formula, kao i valjanim formulama. Na kraju prikazujemo i vezu izme\dj u predikatskog ra\v cuna i analize programskog koda.
+
+U \v sestoj glavi, {\it Binarne relacije}, uvodimo pojmove relacije ekvivalencije i relacije poretka, i bavimo se osobinama ovakvih relacija. Tom prilikom uvodimo i pojmove particije skupa i Hase dijagrama.
+
+U sedmoj glavi, {\it Funkcije}, defini\v semo ovaj pojam i prou\v cavamo njegove osnovne osobine, kao i kompoziciju funkcija. Ovde se \v citalac upoznaje sa pojmovima injekcije, sirjekcije i bijekcije. Tako\dj e se bavimo i pojmom inverzne funkcije. Dalje, prezentujemo i princip sirjekcije i princip injekcije, pomo\' cu kojih mo\v zemo uporediti veli\v cine dva posmatrana skupa, i koriste\' ci pojam bijekcije uvodimo i definiciju beskona\v cnih skupova.
+
+
+
+\bigskip
+
+%\noindent
+U celom kursu \'cemo koristiti slede\'ce oznake:
+\begin{align*}
+    &\NN          = \{1, 2, 3, \ldots\} \text{\quad za skup prirodnih brojeva,}\\
+    &\NN_0        = \{0, 1, 2, 3, \ldots\} \text{\quad za skup prirodnih brojeva sa nulom,}\\
+    &\ZZ        = \{-3,-2,-1,0, 1, 2, 3, \ldots\} \text{\quad za skup celih brojeva,}\\
+    &\QQ        = \{0, 1,-\frac 35, -2, \frac 73, \ldots\} \text{\quad za skup racionalnih brojeva, i}\\
+    &\RR        = \{2,0,\pi, \sqrt 2, -5, \frac 56, \ldots\} \text{\quad za skup realnih brojeva.}
+\end{align*}
+%    \glossary{{$\NN$}{$= \{1, 2, 3, \ldots\}$}}%
+%    \glossary{{$\NN_0$}{$= \{0, 1, 2, 3, \ldots\}$}}%
+Pored gore navedenih oznaka, za razli\v cite skupove brojeva koristi\' cemo i slede\' cu notaciju:
+\begin{align*}
+    &3\NN          = \{3,6,9, \ldots,3n,\ldots\} \text{\quad za skup prirodnih brojeva deljivih sa $3$,}\\
+    &2\NN_0+1       = \{1,3,5, \ldots,2n+1,\ldots\} \text{\quad za skup neparnih prirodnih brojeva,}\\
+    &2\ZZ-1        = \{\ldots,-1,1,3, 5, \ldots,2n-1,\ldots\} \text{\quad za skup neparnih celih brojeva,}
+\end{align*}
+i sli\v cno. Kada je neki pojam u re\v cenici ispisan isko\v senim slovima (kurziv) to zna\v ci da re\v cenica sadr\v zi definiciju tog pojma.
+
+\begin{center}
+*~*~*
+\end{center}
+
+\noindent
+
+Posebno se zahvaljujemo recenzentima, prof. dr Maji Pech, prof. dr Jovanki Pantovi\' c i dr Petru \Dj api\' cu. Njihove pa\v zljive analize i konstruktivni komentari bili su od neprocenjive vrednosti za uobli\v cavanje i podizanje kvaliteta ovog ud\v zbenika.
+
+Na kraju, posebnu zahvalnost dugujemo našim porodicama na razumevanju, strpljenju i nesebičnoj podršci tokom rada na ovoj knjizi. Udžbenik posvećujemo našoj deci, Kosti, Aleksi, Lenki i Luki, sa željom da ih kroz život uvek prate radoznalost, znanje i ljubav prema učenju.
+
+\vspace*{1.5cm}
+
+
+\noindent
+Novi Sad, april 2026.\hfill autori\newline
