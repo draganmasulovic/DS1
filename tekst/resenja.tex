@@ -877,6 +877,26 @@ Ovim je tvrdnja dokazana.
 
 {\it Induktivna hipoteza.} Pretpostavimo da je zbir unutra\v snjih uglova svakog konveksnog $k$-tougla jednak $(k-2)\cdot 180^\circ$ za neko $k\geq 3$.
 
+\begin{center}
+\begin{tikzpicture}[scale=2, every node/.style={circle, fill=black, inner sep=1.5pt}]
+
+    \node (A1) at (0,0) [label=below left:$A_1$] {};
+    \node (A2) at (1,-0.5) [label=below:$A_2$] {};
+    \node (A3) at (2,0) [label=below right:$A_3$] {};
+    \node (Akm1) at (0.8,2.2) [label=above:$A_{k-1}$] {};
+    \node (Ak) at (0.2,2) [label=above left:$A_k$] {};
+    \node (Akp1) at (-0.5,1.2) [label=left:$A_{k+1}$] {};
+    \node (X1) at (2.5,0.5)  {};
+    \node (X2) at (2.5,1.5)  {};
+    \node (X3) at (2,2)  {};
+    
+    \draw[thick] (X3) -- (Akm1) -- (Ak) -- (Akp1) -- (A1) -- (A2) -- (A3) -- (X1) -- (X2);
+    \draw[thick, dotted] (X2) -- (X3);
+    \draw[thick] (A1) -- (Ak);
+
+\end{tikzpicture}
+\end{center}
+
 {\it Induktivni korak.} Neka je $A_1A_2\cdots A_{k+1}$ $(k+1)$-tougao. Kao \v sto je re\v ceno u tekstu zadatka, poznato je da dijagonala konveksnog mnogougla deli mnogougao na dva konveksna mnogougla; tada je zbir unutra\v snjih uglova konveksnog mnogougla jednak sumi zbirova unutra\v snjih uglova ta dva manja mnogougla. Posmatrajmo dijagonalu $A_1A_k$ posmatranog mnogougla. Ona ga deli na trougao $\triangle A_1A_kA_{k+1}$ i $k$-tougao $A_1A_2\cdots A_k$. Na osnovu svega re\v cenog, i na osnovu indukcijske hipoteze, zbir uglova $k+1$-tougla je $180^\circ+(k-2)\cdot 180^\circ=(k-1)\cdot 180^\circ$, \v cime je dokazana tvrdnja zadatka.
 
 \RES{04.zad.11}
@@ -885,6 +905,30 @@ Poka\v zimo da tvrdnja zadatka va\v zi za svako $n$ koje je stepen broja $2$, tj
 {\it Baza indukcije.} Neka je $k=1$, tj. $n=2$. Tada je posmatrana tabla dimenzija $2\times 2$, a iz nje kad se ise\v ce jedno polje, ostatak o\v cigledno mo\v ze da se pokrije jednom datom plo\v cicom oblika $L$.
 
 {\it Induktivna hipoteza.} Pretpostavimo da svaka tabla dimenzije $2^k$ sa jednim ise\v cenim poljem mo\v ze da se poplo\v ca plo\v cicama oblika $L$.
+
+\begin{center}
+\begin{tikzpicture}
+
+    \colorlet{lightsquare}{white}
+    \colorlet{darksquare}{gray!60}
+
+    \foreach \x in {1,...,8} {
+        \foreach \y in {1,...,8} {
+            \pgfmathparse{mod(\x+\y,2)==0 ? "darksquare" : "lightsquare"}
+            \fill[\pgfmathresult] (\x-1,\y-1) rectangle (\x,\y);
+        }
+    }
+
+    \foreach \coord in {(4,3), (3,4), (4,4), (2,1)} {
+        \fill[pattern=crosshatch] \coord rectangle ++(1,1);
+    }
+
+    \draw[thick] (0,0) rectangle (8,8);
+    \draw[ultra thick, line cap=rect] (-0.5,4) -- (8.5,4); % Horizontal divider
+    \draw[ultra thick, line cap=rect] (4,-0.5) -- (4,8.5); % Vertical divider
+
+\end{tikzpicture}
+\end{center}
 
 {\it Induktivni korak.} Posmatrajmo tablu dimenzije $2^{k+1}\times 2^{k+1}$ iz koje je ise\v ceno jedno polje. Podelimo tu tablu na \v cetiri manje table dimenzije $2^k\times 2^k$. Tada je ono jedno ise\v ceno polje u jednoj od te \v cetiri manje table. Dalje, mo\v zemo postaviti plo\v cicu oblika $L$ u sredi\v ste velike table tako da ona pokrije po jedno polje od preostale tri manje table. Na ovaj na\v cin su dobijene \v cetiri table dimenzija $2^k\times 2^k$ iz kojih je izvu\v ceno po jedno polje. Na osnovu indukcijske hipoteze, svako od njih mo\v ze da se poplo\v ca figurama oblika $L$. Na ovaj na\v cin, polazna figura mo\v ze da se poplo\v ca datim plo\v cicama oblika $L$.
 
