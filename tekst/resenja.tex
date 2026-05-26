@@ -878,17 +878,17 @@ Ovim je tvrdnja dokazana.
 {\it Induktivna hipoteza.} Pretpostavimo da je zbir unutra\v snjih uglova svakog konveksnog $k$-tougla jednak $(k-2)\cdot 180^\circ$ za neko $k\geq 3$.
 
 \begin{center}
-\begin{tikzpicture}[scale=2, every node/.style={circle, fill=black, inner sep=1.5pt}]
+\begin{tikzpicture}[scale=2,, every node/.style={circle, fill=black, inner sep=1.5pt}]
 
-    \node (A1) at (0,0) [label=below left:$A_1$] {};
-    \node (A2) at (1,-0.5) [label=below:$A_2$] {};
-    \node (A3) at (2,0) [label=below right:$A_3$] {};
-    \node (Akm1) at (0.8,2.2) [label=above:$A_{k-1}$] {};
-    \node (Ak) at (0.2,2) [label=above left:$A_k$] {};
-    \node (Akp1) at (-0.5,1.2) [label=left:$A_{k+1}$] {};
-    \node (X1) at (2.5,0.5)  {};
-    \node (X2) at (2.5,1.5)  {};
-    \node (X3) at (2,2)  {};
+    \coordinate[label=below left:$A_1$] (A1) at (0,0)  {};
+    \coordinate[label=below:$A_2$] (A2) at (1,-0.5)  {};
+    \coordinate[label=below right:$A_3$] (A3) at (2,0)  {};
+    \coordinate[label=above:$A_{k-1}$] (Akm1) at (0.8,2.2)  {};
+    \coordinate[label=above left:$A_k$] (Ak) at (0.2,2)  {};
+    \coordinate[label=left:$A_{k+1}$] (Akp1) at (-0.5,1.2)  {};
+    \coordinate (X1) at (2.5,0.5)  {};
+    \coordinate (X2) at (2.5,1.5)  {};
+    \coordinate (X3) at (2,2)  {};
     
     \draw[thick] (X3) -- (Akm1) -- (Ak) -- (Akp1) -- (A1) -- (A2) -- (A3) -- (X1) -- (X2);
     \draw[thick, dotted] (X2) -- (X3);
