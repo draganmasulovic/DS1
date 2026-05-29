@@ -3,7 +3,7 @@
   \pgfsetxvec{\pgfpoint{\acadpgfunit}{0pt}}
   \pgfsetyvec{\pgfpoint{0pt}{\acadpgfunit}}
   \pgfsetlinewidth{\acadpgflinewidth}
-  \pgftransformshift{\pgfpointxy{-311.518}{-92.4283}}
+  \pgftransformshift{\pgfpointxy{-307.089}{-79.7405}}
 
   \begin{pgfscope}
     \pgfpathmoveto{\pgfpointxy{478.349}{162.5}}
@@ -76,11 +76,6 @@
     \pgfusepath{stroke}
   \end{pgfscope}
   \begin{pgfscope}
-    \pgfpathmoveto{\pgfpointxy{500.0}{200.0}}
-    \pgfpathlineto{\pgfpointxy{875.0}{425.0}}
-    \pgfusepath{stroke}
-  \end{pgfscope}
-  \begin{pgfscope}
     \pgfpathmoveto{\pgfpointxy{375.0}{450.0}}
     \pgfpathlineto{\pgfpointxy{750.0}{200.0}}
     \pgfusepath{stroke}
@@ -131,23 +126,13 @@
     \pgfusepath{stroke}
   \end{pgfscope}
   \begin{pgfscope}
-    \pgfpathmoveto{\pgfpointxy{659.623}{267.497}}
+    \pgfpathmoveto{\pgfpointxy{697.853}{242.01}}
     \pgfpatharcaxes{206.31}{236.31}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
     \pgfusepath{stroke}
   \end{pgfscope}
   \begin{pgfscope}
-    \pgfpathmoveto{\pgfpointxy{675.0}{250.0}}
+    \pgfpathmoveto{\pgfpointxy{713.23}{224.513}}
     \pgfpatharcaxes{56.3099}{86.3099}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
-    \pgfusepath{stroke}
-  \end{pgfscope}
-  \begin{pgfscope}
-    \pgfpathmoveto{\pgfpointxy{777.605}{373.594}}
-    \pgfpatharcaxes{270.964}{300.964}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
-    \pgfusepath{stroke}
-  \end{pgfscope}
-  \begin{pgfscope}
-    \pgfpathmoveto{\pgfpointxy{800.0}{380.0}}
-    \pgfpatharcaxes{120.964}{150.964}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
     \pgfusepath{stroke}
   \end{pgfscope}
   \begin{pgfscope}
@@ -208,6 +193,66 @@
   \begin{pgfscope}
     \pgfpathmoveto{\pgfpointxy{575.0}{605.0}}
     \pgfpatharcaxes{239.036}{269.036}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{750.0}{650.0}}
+    \pgfpathlineto{\pgfpointxy{500.0}{200.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{750.0}{650.0}}
+    \pgfpathlineto{\pgfpointxy{375.0}{450.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{641.197}{441.741}}
+    \pgfpatharcaxes{120.945}{150.945}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{625.0}{425.0}}
+    \pgfpatharcaxes{-29.0546}{0.945396}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{585.19}{555.269}}
+    \pgfpatharcaxes{88.0725}{118.072}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{562.5}{550.0}}
+    \pgfpatharcaxes{298.072}{328.072}{\pgfpointxy{45.0}{0.0}}{\pgfpointxy{0.0}{45.0}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{500.0}{200.0}}
+    \pgfpatharcaxes{278.991}{322.936}{\pgfpointxy{584.396}{0.0}}{\pgfpointxy{0.0}{584.396}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{875.0}{425.0}}
+    \pgfpatharcaxes{102.136}{139.792}{\pgfpointxy{677.544}{0.0}}{\pgfpointxy{0.0}{677.544}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{691.292}{349.728}}
+    \pgfpatharcaxes{89.6413}{120.964}{\pgfpointxy{43.1001}{0.0}}{\pgfpointxy{0.0}{43.1001}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{668.848}{343.587}}
+    \pgfpatharcaxes{300.964}{332.286}{\pgfpointxy{43.1001}{0.0}}{\pgfpointxy{0.0}{43.1001}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{686.888}{270.003}}
+    \pgfpatharcaxes{269.421}{300.964}{\pgfpointxy{42.7984}{0.0}}{\pgfpointxy{0.0}{42.7984}}
+    \pgfusepath{stroke}
+  \end{pgfscope}
+  \begin{pgfscope}
+    \pgfpathmoveto{\pgfpointxy{709.34}{276.1}}
+    \pgfpatharcaxes{120.964}{152.507}{\pgfpointxy{42.7984}{0.0}}{\pgfpointxy{0.0}{42.7984}}
     \pgfusepath{stroke}
   \end{pgfscope}
   \begin{pgfscope}

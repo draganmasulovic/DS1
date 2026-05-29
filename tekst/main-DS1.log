@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  22 MAY 2026 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.10)  29 MAY 2026 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,6 +901,14 @@ Package csquotes Info: ... configuration file loaded successfully.
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
 ))
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/l
+ibraries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibrary
+patterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
 \c@THM=\count345
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
@@ -1009,24 +1017,24 @@ LaTeX Warning: Label `Gersting' multiply defined.
 )
 \openout1 = `main-DS1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 368.
+LaTeX Font Info:    ... okay on input line 368.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1051,7 +1059,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 367.
+Package hyperref Info: Link coloring ON on input line 368.
  (main-DS1.out) (main-DS1.out)
 \@outlinefile=\write5
 \openout5 = `main-DS1.out'.
@@ -1064,10 +1072,10 @@ tim
 <uns.jpg, id=262, 289.08pt x 287.0725pt>
 File: uns.jpg Graphic file (type jpg)
 <use uns.jpg>
-Package pdftex.def Info: uns.jpg  used on input line 372.
+Package pdftex.def Info: uns.jpg  used on input line 373.
 (pdftex.def)             Requested size: 54.92577pt x 54.54433pt.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 37
-4.
+5.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
@@ -1075,7 +1083,7 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 <pmfns.png, id=263, 312.41719pt x 310.91156pt>
 File: pmfns.png Graphic file (type png)
 <use pmfns.png>
-Package pdftex.def Info: pmfns.png  used on input line 382.
+Package pdftex.def Info: pmfns.png  used on input line 383.
 (pdftex.def)             Requested size: 49.98776pt x 49.74686pt.
 
 
@@ -1086,79 +1094,94 @@ Package pdftex.def Info: pmfns.png  used on input line 382.
 ata/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./uns.jpg> <./pmfns.png
 >]
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 400.
+ 401.
  (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 400.
+ 401.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 400.
+ 401.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 400.
+ 401.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
-00.
+01.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
 LaTeX Font Info:    Trying to load font information for U+wasy on input line 40
-0.
+1.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
-00.
+01.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 401.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 401.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 401.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-33.
+34.
 
 (C:\Users\DM\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-[2] (predgovor.tex)
+[2] (predgovor.tex
+Overfull \hbox (1.98035pt too wide) in paragraph at lines 4--5
+\T1/ptm/m/n/10.95 ci-o-ne teh-no-lo-gi-je ko-ji slu-²a-ju kurs \T1/ptm/m/it/10.
+95 Dis-kret-ne struk-tu-re 1 \T1/ptm/m/n/10.95 na Prirodno-matemati£kom
+ []
+
+
 
 [1
 
 
-]
+])
+Underfull \hbox (badness 10000) in paragraph at lines 58--447
 
-[2
+ []
+
+
+
+[2]
+
+[3]
+
+[4
 
 ] (main-DS1.toc
 
-[3
+[5
 
 ]
 
-[4])
+[6])
 \tf@toc=\write6
 \openout6 = `main-DS1.toc'.
 
 
 
-[5] (ft03.tex
+[7] (ft03.tex
 Glava 1.
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 22
 .
@@ -1339,7 +1362,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 [41]
 
 [42]
-<Alien1.jpg, id=732, 919.93687pt x 855.195pt>
+<Alien1.jpg, id=741, 919.93687pt x 855.195pt>
 File: Alien1.jpg Graphic file (type jpg)
 <use Alien1.jpg>
 Package pdftex.def Info: Alien1.jpg  used on input line 876.
@@ -1696,7 +1719,13 @@ Underfull \vbox (badness 1303) has occurred while \output is active []
 
 [116]
 
-[117]) (ft04.tex
+[117]
+Overfull \hbox (2.7237pt too wide) in paragraph at lines 1614--1614
+[]\T1/ptm/m/n/10.95 Dokazati sle-de-¢e sku-pov-ne jed-na-ko-sti, za pod-sku-po-
+ve $\OML/ztmcm/m/it/10.95 A; B; C; D; E; M; X; Y$
+ []
+
+) (ft04.tex
 
 [118]
 Glava 5.
@@ -2209,6 +2238,9 @@ mcm/m/n/10.95 j\OT1/ztmcm/m/n/10.95 1010\OMS/ztmcm/m/n/10.95 j\OT1/ztmcm/m/n/10
 ]
 
 [209]
+Underfull \vbox (badness 1983) has occurred while \output is active []
+
+
 
 [210]
 
@@ -2218,34 +2250,11 @@ mcm/m/n/10.95 j\OT1/ztmcm/m/n/10.95 1010\OMS/ztmcm/m/n/10.95 j\OT1/ztmcm/m/n/10
 
 [213]
 
-[214
+[214]
+
+[215
 
 ]
-Overfull \hbox (7.09149pt too wide) in paragraph at lines 1087--1088
-[]$\OT1/ztmcm/m/n/10.95 ([]) \OMS/ztmcm/m/n/10.95 [ \OML/ztmcm/m/it/10.95 B \OT
-1/ztmcm/m/n/10.95 = \OMS/ztmcm/m/n/10.95 f\OT1/ztmcm/m/n/10.95 1\OML/ztmcm/m/it
-/10.95 ; \OT1/ztmcm/m/n/10.95 2\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 3\O
-ML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 4\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/
-m/n/10.95 5\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 6\OML/ztmcm/m/it/10.95 
-; \OT1/ztmcm/m/n/10.95 8\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 10\OMS/ztm
-cm/m/n/10.95 g$\T1/ptm/m/n/10.95 ; 
- []
-
-
-Overfull \hbox (7.0952pt too wide) in paragraph at lines 1090--1091
-[]$\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 A \OMS/ztmcm/m/n/10.95 n \OML/zt
-mcm/m/it/10.95 B\OT1/ztmcm/m/n/10.95 ) \OMS/ztmcm/m/n/10.95 [ \OT1/ztmcm/m/n/10
-.95 (\OML/ztmcm/m/it/10.95 D \OMS/ztmcm/m/n/10.95 n \OML/ztmcm/m/it/10.95 C\OT1
-/ztmcm/m/n/10.95 ) = \OMS/ztmcm/m/n/10.95 f\OT1/ztmcm/m/n/10.95 1\OML/ztmcm/m/i
-t/10.95 ; \OT1/ztmcm/m/n/10.95 2\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 3\
-OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 5\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm
-/m/n/10.95 8\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 10\OMS/ztmcm/m/n/10.95
- g$\T1/ptm/m/n/10.95 ; 
- []
-
-
-
-[215]
 
 [216]
 
@@ -2257,13 +2266,13 @@ OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 5\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm
 
 [220]
 
-[221
-
-]
+[221]
 
 [222]
 
-[223]
+[223
+
+]
 
 [224]
 
@@ -2271,30 +2280,34 @@ OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 5\OML/ztmcm/m/it/10.95 ; \OT1/ztmcm
 
 [226]
 
-[227] (samir8-2.pgf)
+[227]
 
-[228
+[228]
 
-] (samir8-4.pgf)
-
-[229
-
-]
+[229] (samir8-2.pgf)
 
 [230
 
+] (samir8-4.pgf)
+
+[231
+
 ]
 
-[231]
+[232
 
-[232]
+]
 
 [233]
 
-[234
+[234]
+
+[235]
+
+[236
 
 ]
-Overfull \hbox (4.31062pt too wide) in paragraph at lines 1768--1770
+Overfull \hbox (4.31062pt too wide) in paragraph at lines 1817--1819
 []\T1/ptm/m/n/10.95 Preostaje jo² sa-mo da se po-ka-ºe tran-zi-tiv-nost. Ne-ka 
 su $\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )\
 OML/ztmcm/m/it/10.95 ; \OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1
@@ -2307,49 +2320,49 @@ Underfull \vbox (badness 4072) has occurred while \output is active []
 
 
 
-[235] (samir9-7-c.pgf) (samir9-7-f.pgf)
+[237] (samir9-7-c.pgf) (samir9-7-f.pgf)
 
-[236] (samir9-8.pgf) (samir9-9-a.pgf)
+[238] (samir9-8.pgf) (samir9-9-a.pgf)
 
-[237] (samir9-9-d.pgf)
+[239] (samir9-9-d.pgf)
 
-[238] (samir9-10-a.pgf) (samir9-10-d.pgf)
+[240] (samir9-10-a.pgf) (samir9-10-d.pgf)
 Underfull \vbox (badness 1742) has occurred while \output is active []
 
 
 
-[239
+[241
 
 ] (samir11-1-a.pgf)
 
-[240] (samir11-1-d.pgf) (samir11-1-f.pgf)
+[242] (samir11-1-d.pgf) (samir11-1-f.pgf)
 
-[241]
+[243]
 
-[242] (samir11-5-a.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--1978
+[244] (samir11-5-a.pgf)
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 439--2027
  [] 
  []
 
 
 
-[243
+[245
 
 ] (samir11-5-d-1.pgf)
-Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--1991
+Overfull \hbox (15.93301pt too wide) in paragraph at lines 418--2040
  [] 
  []
 
 (samir11-5-d-2.pgf)
 
-[244]
-
-[245]
-
 [246]
 
 [247]
-Overfull \hbox (3.22258pt too wide) in paragraph at lines 2094--2095
+
+[248]
+
+[249]
+Overfull \hbox (3.22258pt too wide) in paragraph at lines 2143--2144
 []\T1/ptm/m/n/10.95 Pokaºimo da je $\OML/ztmcm/m/it/10.95 f$ \T1/ptm/m/n/10.95 
 bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 .95 f\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 x[]; y[]\OT1/ztmcm/m/n/10.95 )
@@ -2358,22 +2371,22 @@ bi-jek-ci-ja. Naj-pre do-ka-ºi-mo in-jek-tiv-nost. Ne-ka je $\OML/ztmcm/m/it/10
 
 
 
-[248])
+[250])
 
-[249]
+[251]
 
-[250
+[252
 
 ] (literatura.tex)
 
-[251
+[253
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Gersting
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.472 \end{document}
+l.473 \end{document}
                     ] (main-DS1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
@@ -2388,17 +2401,17 @@ Package rerunfilecheck Info: File `main-DS1.out' has not changed.
  )
 (\end occurred inside a group at level 2)
 
-### simple group (level 2) entered at line 1834 ({)
-### simple group (level 1) entered at line 890 ({)
+### simple group (level 2) entered at line 1883 ({)
+### simple group (level 1) entered at line 935 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 28663 strings out of 473899
- 519420 string characters out of 5727915
- 918343 words of memory out of 5000000
- 49431 multiletter control sequences out of 15000+600000
+ 28990 strings out of 473899
+ 526955 string characters out of 5727915
+ 926643 words of memory out of 5000000
+ 49748 multiletter control sequences out of 15000+600000
  669711 words of font info for 204 fonts, out of 8000000 for 9000
  1154 hyphenation exceptions out of 8191
- 87i,22n,107p,914b,860s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,22n,107p,947b,860s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\DM\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/
 dpi657\wasy10.pk><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 inconsolata/Inconsolata-zi4r.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fon
@@ -2423,9 +2436,9 @@ a.pfb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
 fb><C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
 <C:/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb><C
 :/Users/DM/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main-DS1.pdf (258 pages, 1513048 bytes).
+Output written on main-DS1.pdf (262 pages, 1523796 bytes).
 PDF statistics:
- 2932 PDF objects out of 2984 (max. 8388607)
- 1228 named destinations out of 1440 (max. 500000)
- 540 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2945 PDF objects out of 2984 (max. 8388607)
+ 1232 named destinations out of 1440 (max. 500000)
+ 544 words of extra memory for PDF output out of 10000 (max. 10000000)
 

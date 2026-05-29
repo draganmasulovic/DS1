@@ -74,8 +74,8 @@
 \contentsline {section}{\numberline {8.1}Glava 1}{189}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Glava 2}{198}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Glava 3}{199}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Glava 4}{214}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Glava 5}{221}{section.8.5}%
-\contentsline {section}{\numberline {8.6}Glava 6}{227}{section.8.6}%
-\contentsline {section}{\numberline {8.7}Glava 7}{240}{section.8.7}%
-\contentsline {chapter}{Literatura}{251}{Item.633}%
+\contentsline {section}{\numberline {8.4}Glava 4}{215}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Glava 5}{223}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Glava 6}{229}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Glava 7}{242}{section.8.7}%
+\contentsline {chapter}{Literatura}{253}{Item.633}%
